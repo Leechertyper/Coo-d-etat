@@ -78,7 +78,7 @@ WwiseProject/*_WwiseProject.*.wsettings
 WwiseProject/**/*.akd
 
 # build stuff (unsure?)
-#Assets/Wwise/Deployment/Plugins/Windows/**/*.meta
+Assets/Wwise/Deployment/Plugins/Windows/**/*.meta
 
 # WWise Picker (editor)
 # from https://www.audiokinetic.com/library/edge/?source=Unity&id=unity__troubleshooting.html
