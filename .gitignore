@@ -109,3 +109,6 @@ Assets/Plugins/Editor.meta
 Assets/Plugins/Editor/Jetbrains.meta
 Assets/Plugins/Editor/Jetbrains/
 .idea
+
+# Unity User Preferences
+.dwlt
