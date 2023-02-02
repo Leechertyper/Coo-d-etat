@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="110">
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\States\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Queries\Factory Queries.wwu" DateLow="1675037433" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\ProjectForseti_WwiseProject.wproj" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Presets\Factory Spatial Audio.wwu" DateLow="1675037433" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Presets\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Metadata\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Events\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Effects\Factory Effects.wwu" DateLow="1675037433" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1675037433" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti_WwiseIntegrationTemp\ProjectForseti_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1675037696" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1675323344" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1675323344" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1675323344" DateHigh="0"/>
@@ -36,7 +9,7 @@
 	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\Queries\Factory Queries.wwu" DateLow="1675323344" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1675323344" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\ProjectForseti_WwiseProject.wproj" DateLow="1675323344" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\ProjectForseti_WwiseProject.kirk.wsettings" DateLow="1675323344" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\ProjectForseti_WwiseProject.kirk.wsettings" DateLow="1675324612" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\Presets\Factory Spatial Audio.wwu" DateLow="1675323344" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\Presets\Default Work Unit.wwu" DateLow="1675323344" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="1675323344" DateHigh="0"/>
