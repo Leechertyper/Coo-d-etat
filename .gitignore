@@ -111,4 +111,4 @@ Assets/Plugins/Editor/Jetbrains/
 .idea
 
 # Unity User Preferences
-.dwlt
+*.dwlt
