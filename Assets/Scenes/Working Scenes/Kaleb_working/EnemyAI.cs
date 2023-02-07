@@ -5,16 +5,16 @@ using UnityEngine;
 /*
  * Changable values for balance
  *  
- *  float moveSpeed
- *  float range
- *  float pauseTime
+ *  float moveSpeed - The speed of the Enemy
+ *  float range - The range when the enemy will stop chaseing you
+ *  float pauseTime - The time before the enemy will continue to chase you
  */
 public class EnemyAI : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float range = 3f;
     public float pauseTime = 3;
-    public Weapon lazer;
+    public Weapon weapon;
     private Rigidbody2D _rb;
     private Vector2 _moveDirection;
     private Transform _target;
@@ -53,6 +53,11 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Contunies to chase target if out of range
+    /// If in range invoke this function in 1 second (Recursive)
+    /// </summary>
+    /// Note* Recursive function, will call itself untill it can chase again
     private void resumeChase()
     {
         if (!(Vector2.Distance(_target.position, transform.position) < range))
@@ -65,6 +70,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Rotate toward target and set direction
+    /// </summary>
     private void LookAt()
     {
         if (_target)
@@ -76,6 +84,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds velociry to the enemy in direction
+    /// </summary>
+    /// <param name="direction"> Vector2 direction for enemy to move</param>
     private void Move(Vector2 direction)
     {
         _rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;

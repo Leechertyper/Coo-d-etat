@@ -465,7 +465,7 @@ MonoBehaviour:
   moveSpeed: 1
   range: 3
   pauseTime: 3
-  lazer: {fileID: 626756720}
+  weapon: {fileID: 626756720}
 --- !u!50 &497972981
 Rigidbody2D:
   serializedVersion: 4
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631b184f120bb6849bd410c375ec8155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.0003
+  speed: 0.0002
   maxScale: 0.26
   minScale: 0.24
 --- !u!1 &607161028
