@@ -23,6 +23,7 @@
         {
             "id": "DeploymentPlatforms",
             "valueId": "Windows"
+<<<<<<< HEAD
         },
         {
             "id": "Packages",
@@ -39,6 +40,8 @@
         {
             "id": "DeploymentPlatforms",
             "valueId": "Windows"
+=======
+>>>>>>> parent of c3fa2d5 (removed Wwise from being tracked)
         }
     ]
 }
