@@ -23,25 +23,7 @@
         {
             "id": "DeploymentPlatforms",
             "valueId": "Windows"
-<<<<<<< HEAD
-        },
-        {
-            "id": "Packages",
-            "valueId": "Unity"
-        },
-        {
-            "id": "Packages",
-            "valueId": "Extensions"
-        },
-        {
-            "id": "DeploymentPlatforms",
-            "valueId": "Mac"
-        },
-        {
-            "id": "DeploymentPlatforms",
-            "valueId": "Windows"
-=======
->>>>>>> parent of c3fa2d5 (removed Wwise from being tracked)
+
         }
     ]
 }

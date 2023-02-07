@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WwiseSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CopySoundBanksAsPreBuildStep>true</CopySoundBanksAsPreBuildStep>
-<<<<<<< HEAD
-  <GenerateSoundBanksAsPreBuildStep>false</GenerateSoundBanksAsPreBuildStep>
-=======
+
   <GenerateSoundBanksAsPreBuildStep>true</GenerateSoundBanksAsPreBuildStep>
->>>>>>> parent of c3fa2d5 (removed Wwise from being tracked)
+
   <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
   <CreatedPicker>true</CreatedPicker>
   <CreateWwiseGlobal>true</CreateWwiseGlobal>
@@ -15,11 +13,7 @@
   <ShowSpatialAudioWarningMsg>true</ShowSpatialAudioWarningMsg>
   <WwiseInstallationPathMac />
   <WwiseInstallationPathWindows>C:\Program Files (x86)\Audiokinetic\Wwise 2022.1.1.8100</WwiseInstallationPathWindows>
-<<<<<<< HEAD
-  <WwiseProjectPath>../../ProjectForseti/ProjectForseti_WwiseProject/ProjectForseti_WwiseProject.wproj</WwiseProjectPath>
-=======
   <WwiseProjectPath>../ProjectForseti_WwiseProject/ProjectForseti_WwiseProject.wproj</WwiseProjectPath>
->>>>>>> parent of c3fa2d5 (removed Wwise from being tracked)
   <UseWaapi>true</UseWaapi>
   <WaapiPort>8080</WaapiPort>
   <WaapiIP>127.0.0.1</WaapiIP>
