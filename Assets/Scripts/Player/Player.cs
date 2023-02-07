@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private int _health = 10;
     private Rigidbody2D _rigidBody;
     private Vector2 _movement;
+    [SerializeField] private int _power;
     [SerializeField] private Text _healthText;
 
     public string horizontalInput = "Horizontal";
@@ -42,6 +43,9 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             TakeDamage(1);
+        }
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Fire();
         }
     }
 
@@ -98,5 +102,15 @@ public class Player : MonoBehaviour
     public void SetSpeed(float newSpeed)
     {
         _speed = newSpeed;
+    }
+
+    public int GetPower(){
+        return _power;
+    }
+    public void SetPower(int newPower){
+        _power = newPower;
+    }
+    public void Fire(){
+        Physics2D.Raycast((Vector2)this.transform.position, Vector2.up);
     }
 }
