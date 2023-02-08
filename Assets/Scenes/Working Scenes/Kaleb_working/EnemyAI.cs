@@ -14,7 +14,9 @@ public class EnemyAI : MonoBehaviour
     public float moveSpeed = 2f;
     public float range = 3f;
     public float pauseTime = 3;
-    public Weapon weapon;
+    public Weapon wp;
+    public Health hp;
+    private IEnumerator test, test2;
     private Rigidbody2D _rb;
     private Vector2 _moveDirection;
     private Transform _target;
@@ -27,6 +29,9 @@ public class EnemyAI : MonoBehaviour
         _myState = state.Chase;
         _rb = GetComponent<Rigidbody2D>();
         _target = GameObject.FindGameObjectWithTag("Player").transform;
+        test = TimedShoot(1);
+        test2 = TimedShoot(0.2f);
+        StartCoroutine(test);
     }
 
     // Update is called once per frame
@@ -48,6 +53,8 @@ public class EnemyAI : MonoBehaviour
         {
             _myState = state.Pause;
             _rb.velocity = Vector2.zero;
+            StopCoroutine(test);
+            StartCoroutine(test2);
             Invoke("resumeChase", pauseTime);
         }
 
@@ -63,6 +70,8 @@ public class EnemyAI : MonoBehaviour
         if (!(Vector2.Distance(_target.position, transform.position) < range))
         {
             _myState = state.Chase;
+            StopCoroutine(test2);
+            StartCoroutine(test);
         }
         else
         {
@@ -92,4 +101,15 @@ public class EnemyAI : MonoBehaviour
     {
         _rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
     }
+
+    private IEnumerator TimedShoot(float delay)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            wp.Shoot();
+        }
+    }
+
+
 }
