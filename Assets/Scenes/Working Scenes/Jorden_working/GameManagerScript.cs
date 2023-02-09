@@ -11,7 +11,7 @@ public class GameManagerScript : MonoBehaviour
     
     //private Boss theBoss;
 
-    private float healthItemValue; 
+    private float healthItemValue; // temp var 
 
     //private List<Enemy> allEnemies; //Uncomment when there are enemies
 
@@ -54,7 +54,7 @@ public class GameManagerScript : MonoBehaviour
         {
             Debug.Log("GameManagerScript: Warning - trying to get the array of rooms when the array is empty"); 
         }
-         return this.allRooms;
+        return this.allRooms;
         
     }
 
@@ -110,8 +110,8 @@ public class GameManagerScript : MonoBehaviour
     //     }
     // }
 
-    // public void ClearCurrentBoss()
-    // {
+    public void ClearCurrentBoss()
+    {
     //     if(theBoss = null)
     //     {
     //         Debug.Log("GameManagerScript: Warning - trying to clear the boss when there is no boss for the current floor");
@@ -120,9 +120,10 @@ public class GameManagerScript : MonoBehaviour
     //     {
     //         theBoss.Clear();
     //     }
-    // }
+        Debug.Log("GameManagerScript: Warning - ClearCurrentBoss is not implemented yet");
+    }
 
-    //The stat changing functions are broad, will need refactoring when more then one emeny is in game
+    //The stat changing functions are broad, will need refactoring when/if more then one emeny is in game
     public void ChangeEnemyStats(float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
     {
         // foreach (Enemy aFoe in allEnemies)
@@ -147,29 +148,71 @@ public class GameManagerScript : MonoBehaviour
         Debug.Log("GameManagerScript: Warning - ChangeBossStats is not implemented yet");
     }
 
-    // public void ChangePlayerHealth(float newHealth)
-    // {
-    //     _thePlayer.SetMaxHealth((int)newHealth); // Remove int when player health is double
-    // }
+     public void ChangePlayerMaxHealth(int newHealth)
+     {
+        if(newHealth <= 0)
+        {
+            Debug.Log("GameManagerScript: Warning - Trying to apply one a negative max health value to the player"); 
+        }
+        else
+        {
+            _thePlayer.SetMaxHealth(newHealth);
+        }
+        
+     }
 
-    // public void ChangePlayerSpeed(float newSpeed)
-    // {
-    //     _thePlayer.SetSpeed(newSpeed);
+    public void ChangePlayerSpeed(float newSpeed)
+    {
+        if(newSpeed <= 0)
+        {
+            Debug.Log("GameManagerScript: Warning - Trying to apply a negative speed value to the player"); 
+        }
+        else
+        {
+            _thePlayer.SetSpeed(newSpeed);
+        }
+       
+    }
 
-    // }
+    public void DamagePlayer(int theDamage)
+    {
+        if(theDamage <= 0)
+        {
+            Debug.Log("GameManagerScript: Warning - Trying to apply negative damage to the player");
+        }
+        else
+        {
+            _thePlayer.TakeDamage(theDamage);
+        }
+    }
 
     public void ChangePlayerStats(float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
     {
-        _thePlayer.SetMaxHealth((int)newHealth);
-        //_thePlayer.SetDamage(newDamage);
-        _thePlayer.SetSpeed(newSpeed);
-        //_thePlayer.SetAttackSpeed(newAttackSpeed);
+        if(newHealth <= 0 || newDamage <= 0 || newSpeed <= 0 || newAttackSpeed <= 0)
+        {
+            Debug.Log("GameManagerScript: Warning - Trying to apply one or more negative values to the player"); 
+        }
+        else 
+        {
+            _thePlayer.SetMaxHealth((int)newHealth);
+            //_thePlayer.SetDamage(newDamage);
+            _thePlayer.SetSpeed(newSpeed);
+            //_thePlayer.SetAttackSpeed(newAttackSpeed);
+        }
 
     }
 
     public void ChangeHealthItemValue(float newHealth)
     {
-        healthItemValue = newHealth;
+        if(newHealth <= 0)
+        {
+            Debug.Log("GameManagerScript: Warning - Trying to apply a negative values to the health items value"); 
+        }
+        else
+        {
+            healthItemValue = newHealth;
+        }
+       
     }
 
     public float GetHealthItemValue()
