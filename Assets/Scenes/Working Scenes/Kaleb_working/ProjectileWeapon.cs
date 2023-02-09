@@ -7,11 +7,11 @@ using UnityEngine;
  *  
  *  float fireForce - Increases the speed of the Lazers fired (Currently only by enemy)
  */
-public class Weapon : MonoBehaviour
+public class ProjectileWeapon : MonoBehaviour
 {
 
-    public GameObject lazer;
-    public Transform shootPoint;
+    public GameObject projectile;
+    public Transform anchorPoint;
     public float fireForce;
 
 
@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
     /// Note* Force applied to lazer is increaded by change in fireForce in the inspector
     public void Shoot()
     {
-        GameObject projectile = Instantiate(lazer, shootPoint.position, shootPoint.rotation);
-        projectile.GetComponent<Rigidbody2D>().AddForce(shootPoint.up * fireForce, ForceMode2D.Impulse);
+        GameObject newProjectile = Instantiate(projectile, anchorPoint.position, anchorPoint.rotation);
+        newProjectile.GetComponent<Rigidbody2D>().AddForce(anchorPoint.up * fireForce, ForceMode2D.Impulse);
     }
 }

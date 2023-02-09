@@ -7,45 +7,97 @@ public class Health : MonoBehaviour
 
 
     public int maxHealth = 10;
-    private int _health;
-
+    public int health;
+    public Color hurtColor;
     private void Start()
     {
-        _health = maxHealth;
+        health = maxHealth;
     }
 
+    /// <summary>
+    /// If health avalable takes damage
+    /// </summary>
+    /// <param name="damage">Damage Taken</param>
     public void TakeDamage(int damage)
     {
-        if (_health > 0)
+        if (health > 0)
         {
-            if (_health - damage > 0)
+            StartCoroutine(DamageFlash());
+            if (health - damage > 0)
             {
-                _health -= damage;
+                health -= damage;
             }
             else 
             { 
-                _health = 0; 
+                health = 0; 
             }
+        }
+        if(health <= 0)
+        {
+            StartCoroutine(Death());
         }
     }
 
-    public int GetHealth()
-    {
-        return _health;
-    }
-
+    /// <summary>
+    /// Set health to a desired value
+    /// </summary>
+    /// <param name="newHealth">New health value</param>
     public void SetHealth(int newHealth)
     {
         if(newHealth > 0)
         {
             if(newHealth < maxHealth)
             {
-                _health = newHealth;
+                health = newHealth;
             }
             else
             {
-                _health = maxHealth;
+                health = maxHealth;
             }
         }  
+    }
+    
+    /// <summary>
+    /// Flashes red
+    /// </summary>
+    /// <returns>IEnum</returns>
+    private IEnumerator DamageFlash()
+    {
+        float timeElapsed = 0;
+        while (timeElapsed < 0.1f)
+        {
+            GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, hurtColor, timeElapsed / 0.1f);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        GetComponent<SpriteRenderer>().color = hurtColor;
+        timeElapsed = 0;
+        while (timeElapsed < 0.1f)
+        {
+            GetComponent<SpriteRenderer>().color = Color.Lerp(hurtColor, Color.white, timeElapsed / 0.1f);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield break;
+    }
+
+    /// <summary>
+    /// Death Animation + DESTROYS GAMEOBJECT
+    /// </summary>
+    /// <returns>IEnum</returns>
+    private IEnumerator Death()
+    {
+        GetComponent<DroneAI>().Die();
+        float timeElapsed = 0;
+        while (timeElapsed < 0.5f)
+        {
+            GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, timeElapsed / 0.1f);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+            transform.localScale += new Vector3(0.0002f, 0.0002f, 0.0002f);
+        }
+        GetComponent<SpriteRenderer>().color = Color.red;
+        Destroy(gameObject);
     }
 }
