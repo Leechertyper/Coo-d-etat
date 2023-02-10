@@ -9,12 +9,21 @@ using UnityEngine;
  *  float range - The range when the enemy will stop chaseing you
  *  float pauseTime - The time before the enemy will continue to chase you
  */
-public class EnemyAI : MonoBehaviour
+public class DroneAI : MonoBehaviour
 {
+    [Header("Movement")]
     public float moveSpeed = 2f;
     public float range = 3f;
     public float pauseTime = 3;
-    public Weapon weapon;
+    [Header("Attack")]
+    public float slowShotCD = 1;
+    public float fastShotCD = 0.5f;
+    [Header("Components")]
+    public ProjectileWeapon wp;
+    public Health hp;
+    public FlyAnimation fly;
+
+    private IEnumerator _slowFire, _fastFire;
     private Rigidbody2D _rb;
     private Vector2 _moveDirection;
     private Transform _target;
@@ -27,6 +36,9 @@ public class EnemyAI : MonoBehaviour
         _myState = state.Chase;
         _rb = GetComponent<Rigidbody2D>();
         _target = GameObject.FindGameObjectWithTag("Player").transform;
+        _slowFire = TimedShoot(slowShotCD);
+        _fastFire = TimedShoot(fastShotCD);
+        StartCoroutine(_slowFire);
     }
 
     // Update is called once per frame
@@ -47,7 +59,10 @@ public class EnemyAI : MonoBehaviour
         if(Vector2.Distance(_target.position, transform.position) < range && _myState == state.Chase)
         {
             _myState = state.Pause;
+            fly.pause();
             _rb.velocity = Vector2.zero;
+            StopCoroutine(_slowFire);
+            StartCoroutine(_fastFire);
             Invoke("resumeChase", pauseTime);
         }
 
@@ -63,6 +78,9 @@ public class EnemyAI : MonoBehaviour
         if (!(Vector2.Distance(_target.position, transform.position) < range))
         {
             _myState = state.Chase;
+            fly.resume();
+            StopCoroutine(_fastFire);
+            StartCoroutine(_slowFire);
         }
         else
         {
@@ -92,4 +110,30 @@ public class EnemyAI : MonoBehaviour
     {
         _rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
     }
+
+    /// <summary>
+    /// Fires shoots from attached weapon every "delay" seconds
+    /// </summary>
+    /// <param name="delay">The time you want between shots</param>
+    /// <returns>IEnum Wait</returns>
+    private IEnumerator TimedShoot(float delay)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            wp.Shoot();
+        }
+    }
+
+    /// <summary>
+    /// Stops all action in this script for death
+    /// </summary>
+    public void Die()
+    {
+        _rb.velocity = Vector2.zero;
+        StopAllCoroutines();
+        this.enabled = false;
+    }
+
+
 }
