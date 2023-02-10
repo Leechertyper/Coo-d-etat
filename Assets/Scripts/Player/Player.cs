@@ -9,10 +9,14 @@ public class Player : MonoBehaviour
     private float _rotationSpeed = 15f;
     private int _maxHealth = 10;
     private int _health = 10;
+    private float _range = 1000f;
     private Rigidbody2D _rigidBody;
     private Vector2 _movement;
     [SerializeField] private int _power;
     [SerializeField] private Text _healthText;
+    public GameObject laser;
+    public GameObject hitParticles;
+
 
     public string horizontalInput = "Horizontal";
     public string verticalInput = "Vertical";
@@ -62,7 +66,9 @@ public class Player : MonoBehaviour
             if (_health < 0)
             {
                 _health = 0;
+                
             }
+            GotHit();
             UpdateHealthUI();
         }        
     }
@@ -70,6 +76,15 @@ public class Player : MonoBehaviour
     private void UpdateHealthUI()
     {
         _healthText.text = "HP " + _health + "/" + _maxHealth;
+    }
+
+    private void GotHit()
+    {
+        Vector3 vRotation = Vector3.zero;
+        vRotation.x = 90;
+        Quaternion qRotation = Quaternion.identity;
+        qRotation.eulerAngles = vRotation;
+        Instantiate(hitParticles, this.transform.position, qRotation);
     }
 
     public int GetHealth()
@@ -104,13 +119,20 @@ public class Player : MonoBehaviour
         _speed = newSpeed;
     }
 
-    public int GetPower(){
+    public int GetPower()
+    {
         return _power;
     }
-    public void SetPower(int newPower){
+    public void SetPower(int newPower)
+    {
         _power = newPower;
     }
-    public void Fire(){
-        Physics2D.Raycast((Vector2)this.transform.position, Vector2.up);
+    
+    public void Fire()
+    {
+        //TODO: Projectile fire function
+        Debug.DrawRay(this.transform.position, this.transform.rotation *Vector3.up*_range, Color.red, 5.0f);
+        Debug.Log("Hello");
     }
+    
 }
