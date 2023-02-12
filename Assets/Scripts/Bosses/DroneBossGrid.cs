@@ -35,6 +35,11 @@ public class DroneBossGrid : MonoBehaviour
 
     private bool _isAttacking = false;
 
+    /// <summary>
+    /// A 2D array of Tiles
+    /// </summary>
+    public Tile[,] Grid { get => _grid; set => _grid = value; }
+
 
 
     /// <summary>
@@ -119,7 +124,7 @@ public class DroneBossGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector2 iterationPosition = gridStartPosition;
+        Vector2 iterationPosition = new Vector2(gridStartPosition.x * gridStep, gridStartPosition.y * gridStep);
         _grid = new Tile[roomDimensions, roomDimensions];
         for (int i = 0; i < roomDimensions; i++)
         {
@@ -131,7 +136,7 @@ public class DroneBossGrid : MonoBehaviour
                 iterationPosition.x += gridStep;
 
             }
-            iterationPosition = new Vector2(gridStartPosition.x, iterationPosition.y += gridStep);
+            iterationPosition = new Vector2(gridStartPosition.x * gridStep, iterationPosition.y += gridStep);
         }
     }
 
