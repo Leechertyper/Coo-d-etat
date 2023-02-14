@@ -137,7 +137,7 @@ public class GameManagerScript : MonoBehaviour
         Debug.Log("GameManagerScript: Warning - ChangeEnemyStats is not implemented yet");
     }
     
-    public void ChangeBosStats( float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
+    public void ChangeBossStats( float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
     {
 
         //     theBoss.setAttackSpeed();
