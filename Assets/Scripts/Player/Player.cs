@@ -14,8 +14,10 @@ public class Player : MonoBehaviour
     private Vector2 _movement;
     [SerializeField] private int _power;
     [SerializeField] private Text _healthText;
+    public Animation death;
     public GameObject laser;
     public GameObject hitParticles;
+
 
 
     public string horizontalInput = "Horizontal";
@@ -66,6 +68,10 @@ public class Player : MonoBehaviour
             if (_health < 0)
             {
                 _health = 0;
+                if(death){
+                    death.Play("Death");
+                }
+                Destroy(this, 2.0f);
                 
             }
             GotHit();
