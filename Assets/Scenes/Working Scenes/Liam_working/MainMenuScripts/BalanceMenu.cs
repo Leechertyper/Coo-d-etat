@@ -15,6 +15,8 @@ public class BalanceMenu : MonoBehaviour
     public Button nerfButtonOne;
     public Button buffButtonTwo;
     public Button nerfButtonTwo;
+    private float _buff = 1.1f;
+    private float _nerf = 0.9f;
 
     // Update is called once per frame
     void Update()
@@ -117,10 +119,10 @@ public class BalanceMenu : MonoBehaviour
     */
     public void BuffPlayer()
     {
-        float _newHealth = BalanceVariables.playerHealth*=1.1f;
-        float _newDamage = BalanceVariables.playerDamage*=1.1f;
-        float _newMoveSpeed = BalanceVariables.playerMoveSpeed*=1.1f;
-        float _newAttackSpeed = BalanceVariables.playerAttackSpeed*=1.1f;
+        float _newHealth = BalanceVariables.playerHealth*=_buff;
+        float _newDamage = BalanceVariables.playerDamage*=_buff;
+        float _newMoveSpeed = BalanceVariables.playerMoveSpeed*=_buff;
+        float _newAttackSpeed = BalanceVariables.playerAttackSpeed*=_buff;
         gameManagerScript.GetComponent<GameManagerScript>().ChangePlayerStats(_newHealth,_newDamage,_newMoveSpeed,_newAttackSpeed);
         NextLevel();
     }
@@ -131,10 +133,10 @@ public class BalanceMenu : MonoBehaviour
     */
     public void NerfPlayer()
     {
-        float _newHealth = BalanceVariables.playerHealth*=.9f;
-        float _newDamage = BalanceVariables.playerDamage*=.9f;
-        float _newMoveSpeed = BalanceVariables.playerMoveSpeed*=.9f;
-        float _newAttackSpeed = BalanceVariables.playerAttackSpeed*=.9f;
+        float _newHealth = BalanceVariables.playerHealth*=_nerf;
+        float _newDamage = BalanceVariables.playerDamage*=_nerf;
+        float _newMoveSpeed = BalanceVariables.playerMoveSpeed*=_nerf;
+        float _newAttackSpeed = BalanceVariables.playerAttackSpeed*=_nerf;
         gameManagerScript.GetComponent<GameManagerScript>().ChangePlayerStats(_newHealth,_newDamage,_newMoveSpeed,_newAttackSpeed);
         NextLevel();
     }
@@ -145,10 +147,10 @@ public class BalanceMenu : MonoBehaviour
     */
     public void BuffEnemy()
     {
-        float _newHealth = BalanceVariables.enemyHealth*=1.1f;
-        float _newDamage = BalanceVariables.enemyDamage*=1.1f;
-        float _newMoveSpeed = BalanceVariables.enemyMoveSpeed*=1.1f;
-        float _newAttackSpeed = BalanceVariables.enemyAttackSpeed*=1.1f;
+        float _newHealth = BalanceVariables.enemyHealth*=_buff;
+        float _newDamage = BalanceVariables.enemyDamage*=_buff;
+        float _newMoveSpeed = BalanceVariables.enemyMoveSpeed*=_buff;
+        float _newAttackSpeed = BalanceVariables.enemyAttackSpeed*=_buff;
         gameManagerScript.GetComponent<GameManagerScript>().ChangeEnemyStats(_newHealth,_newDamage,_newMoveSpeed,_newAttackSpeed);
         NextLevel();
     }
@@ -159,10 +161,10 @@ public class BalanceMenu : MonoBehaviour
     */
     public void NerfEnemy()
     {
-        float _newHealth = BalanceVariables.enemyHealth*=.9f;
-        float _newDamage = BalanceVariables.enemyDamage*=.9f;
-        float _newMoveSpeed = BalanceVariables.enemyMoveSpeed*=.9f;
-        float _newAttackSpeed = BalanceVariables.enemyAttackSpeed*=.9f;
+        float _newHealth = BalanceVariables.enemyHealth*=_nerf;
+        float _newDamage = BalanceVariables.enemyDamage*=_nerf;
+        float _newMoveSpeed = BalanceVariables.enemyMoveSpeed*=_nerf;
+        float _newAttackSpeed = BalanceVariables.enemyAttackSpeed*=_nerf;
         gameManagerScript.GetComponent<GameManagerScript>().ChangeEnemyStats(_newHealth,_newDamage,_newMoveSpeed,_newAttackSpeed);
         NextLevel();
     }
@@ -173,10 +175,10 @@ public class BalanceMenu : MonoBehaviour
     */
     public void BuffBoss()
     {
-        float _newHealth = BalanceVariables.bossHealth*=1.1f;
-        float _newDamage = BalanceVariables.bossDamage*=1.1f;
-        float _newMoveSpeed = BalanceVariables.bossMoveSpeed*=1.1f;
-        float _newAttackSpeed = BalanceVariables.bossAttackSpeed*=1.1f;
+        float _newHealth = BalanceVariables.bossHealth*=_buff;
+        float _newDamage = BalanceVariables.bossDamage*=_buff;
+        float _newMoveSpeed = BalanceVariables.bossMoveSpeed*=_buff;
+        float _newAttackSpeed = BalanceVariables.bossAttackSpeed*=_buff;
         gameManagerScript.GetComponent<GameManagerScript>().ChangeBossStats(_newHealth,_newDamage,_newMoveSpeed,_newAttackSpeed);
         NextLevel();
     }
@@ -187,10 +189,10 @@ public class BalanceMenu : MonoBehaviour
     */
     public void NerfBoss()
     {
-        float _newHealth = BalanceVariables.bossHealth*=.9f;
-        float _newDamage = BalanceVariables.bossDamage*=.9f;
-        float _newMoveSpeed = BalanceVariables.bossMoveSpeed*=.9f;
-        float _newAttackSpeed = BalanceVariables.bossAttackSpeed*=.9f;
+        float _newHealth = BalanceVariables.bossHealth*=_nerf;
+        float _newDamage = BalanceVariables.bossDamage*=_nerf;
+        float _newMoveSpeed = BalanceVariables.bossMoveSpeed*=_nerf;
+        float _newAttackSpeed = BalanceVariables.bossAttackSpeed*=_nerf;
         gameManagerScript.GetComponent<GameManagerScript>().ChangeBossStats(_newHealth,_newDamage,_newMoveSpeed,_newAttackSpeed);
         NextLevel();
     }

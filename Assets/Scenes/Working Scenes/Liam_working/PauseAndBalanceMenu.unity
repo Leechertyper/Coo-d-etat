@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 673130031}
   - component: {fileID: 673130030}
   m_Layer: 5
-  m_Name: BuffEnemy
+  m_Name: BuffButtonTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,19 +721,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 673130031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1983500649}
-        m_TargetAssemblyTypeName: BalanceMenu, Assembly-CSharp
-        m_MethodName: BuffEnemy
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &673130031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,7 +932,7 @@ GameObject:
   - component: {fileID: 898364314}
   - component: {fileID: 898364313}
   m_Layer: 5
-  m_Name: NerfEnemy
+  m_Name: NerfButtonTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1285,7 +1273,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1983500649}
         m_TargetAssemblyTypeName: BalanceMenu, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1346,7 +1334,7 @@ GameObject:
   - component: {fileID: 973969951}
   - component: {fileID: 973969950}
   m_Layer: 5
-  m_Name: BuffPlayer
+  m_Name: BuffButtonOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1833,7 +1821,7 @@ GameObject:
   - component: {fileID: 1749482484}
   - component: {fileID: 1749482483}
   m_Layer: 5
-  m_Name: NerfPlayer
+  m_Name: NerfButtonOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2458,6 +2446,12 @@ MonoBehaviour:
   gameIsPaused: 0
   balanceMenuUI: {fileID: 1571754649}
   gameManagerScript: {fileID: 664024333}
+  seenEnemy: 0
+  seenBoss: 0
+  buffButtonOne: {fileID: 973969950}
+  nerfButtonOne: {fileID: 1749482483}
+  buffButtonTwo: {fileID: 673130030}
+  nerfButtonTwo: {fileID: 898364313}
 --- !u!114 &1983500650
 MonoBehaviour:
   m_ObjectHideFlags: 0
