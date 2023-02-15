@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     public int maxHealth = 10;
     public int health;
     public Color hurtColor;
-    public GameObject deathEffect;
+    public GameObject[] deathEffects;
 
     private void Start()
     {
@@ -100,7 +100,7 @@ public class Health : MonoBehaviour
             transform.localScale += new Vector3(0.0002f, 0.0002f, 0.0002f);
         }
         GetComponent<SpriteRenderer>().color = Color.red;
-        var deathExplosion = Instantiate(deathEffect, transform.position, transform.rotation);
+        var deathExplosion = Instantiate(deathEffects[0], transform.position, transform.rotation);
         Destroy(deathExplosion,1.5f);
         Destroy(gameObject);
     }
