@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private Vector2 _movement;
     [SerializeField] private int _power;
+    [SerializeField] private int _maxPower;
     [SerializeField] private Text _healthText;
     public GameObject laser;
     public GameObject hitParticles;
@@ -126,6 +127,15 @@ public class Player : MonoBehaviour
     public void SetPower(int newPower)
     {
         _power = newPower;
+    }
+
+    public void IncreasePower(int powerAmount)
+    {        
+        _power += powerAmount;
+        if (_power > _maxPower)
+        {
+            _power = _maxPower;
+        }
     }
     
     public void Fire()
