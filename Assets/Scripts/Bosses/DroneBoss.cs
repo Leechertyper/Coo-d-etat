@@ -28,6 +28,8 @@ public class DroneBoss : MonoBehaviour
 
     [SerializeField] private Image healthBar;
 
+    [SerializeField] private Image healthTrail;
+
 
     //enemy will start using its special attack when it gets lower than a multiple of this number
     private float _healthIntervals = 250;
@@ -48,7 +50,7 @@ public class DroneBoss : MonoBehaviour
 
     private bool _healthChanging = false;
 
-    private bool _updateHealth;
+    private bool _healthTrailChanging = false;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +79,15 @@ public class DroneBoss : MonoBehaviour
             healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount * 1000, _currentHealth, 2f * Time.deltaTime) / 1000 ;
             if(Mathf.Round(healthBar.fillAmount * 1000) == Mathf.Round(_currentHealth)){
                 _healthChanging = false;
+            }
+        }
+
+        if (_healthTrailChanging)
+        {
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount * 1000, _currentHealth, 1.5f * Time.deltaTime) / 1000;
+            if (Mathf.Round(healthTrail.fillAmount * 1000) == Mathf.Round(_currentHealth))
+            {
+                _healthTrailChanging = false;
             }
         }
 
@@ -169,8 +180,6 @@ public class DroneBoss : MonoBehaviour
             offsetY.x = 0;
         }
 
-        
-
         for (int i = (int)(gridPos.x + offsetX.x); i <= (gridPos.x + offsetX.y); i++)
         {
             for (int j = (int)(gridPos.y + offsetY.x); j <= (gridPos.y + offsetY.y); j++)
@@ -184,16 +193,13 @@ public class DroneBoss : MonoBehaviour
         }
     }
 
-
-
-
     /// <summary>
     /// Will begin the bosses AOE attack
     /// </summary>
     private void MassAttack()
     {
         grid.StartBombAttack();
-        StopAllCoroutines();
+        //StopAllCoroutines();
         StartCoroutine(MassAttackExit());
 
     }
@@ -206,6 +212,8 @@ public class DroneBoss : MonoBehaviour
     {
         _currentHealth -= damage;
         _healthChanging = true;
+        StopCoroutine(HealthBarWait());
+        StartCoroutine(HealthBarWait());
         if(_currentHealth < _nextLargeAttack)
         {
             _nextLargeAttack -= _healthIntervals;
@@ -264,5 +272,10 @@ public class DroneBoss : MonoBehaviour
         
     }
 
+    IEnumerator HealthBarWait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _healthTrailChanging = true;
+    }
     
 }
