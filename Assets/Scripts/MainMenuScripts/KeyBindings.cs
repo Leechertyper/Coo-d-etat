@@ -42,28 +42,6 @@ public class KeyBindings : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // If any arrow key is pressed, change key for that direction
-        /*if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            StartCoroutine(ChangeKey(KeyCode.LeftArrow));
-        }
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            StartCoroutine(ChangeKey(KeyCode.RightArrow));
-        }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            StartCoroutine(ChangeKey(KeyCode.UpArrow));
-        }
-        if (Input.GetKeyUp(KeyCode.DownArrow))
-        {
-            StartCoroutine(ChangeKey(KeyCode.DownArrow));
-        }*/
-    }
-
     public void ButtonClick(string keyName)
     {
         StartCoroutine(ChangeKey(keyName));
