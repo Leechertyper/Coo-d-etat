@@ -126,26 +126,26 @@ public class DroneBossGrid : MonoBehaviour
     {
         // sets the interator to the start position of the grid
         Vector2 iterationPosition = new Vector2(gridStartPosition.x * gridStep, gridStartPosition.y * gridStep);
-        // creates the first tile on the grid at (0,0)
+        // initializes the grid
         _grid = new Tile[(int) roomDimensions.x, (int) roomDimensions.y];
         // iterates through the width of the grid
-        for (int i = 0; i < (int) roomDimensions.y; i++)
+        for (int i = 0; i < (int) roomDimensions.x; i++)
         {
             // iterates through the length of the grid
-            for (int j = 0; j < (int) roomDimensions.x; j++)
+            for (int j = 0; j < (int) roomDimensions.y; j++)
             {
                 // creates a new tile at pos (i, j) in the grid
-                _grid[j, i] = new Tile(iterationPosition);
+                _grid[i, j] = new Tile(iterationPosition);
                 // ***TEMP*** creates a floor tile object at the tiles position
                 Instantiate(floorTile);
                 // ***TEMP*** sets the floor tiles position to the tile position at (i, j)
-                floorTile.transform.position = _grid[j, i].GetPosAsVector();
+                floorTile.transform.position = _grid[i, j].GetPosAsVector();
                 // changes the current x position of the tiles by gridstep to the next column
-                iterationPosition.x += gridStep;
+                iterationPosition.y += gridStep;
 
             }
             // resets the x position of the iterator to the first column and moves down a row
-            iterationPosition = new Vector2(gridStartPosition.x * gridStep, iterationPosition.y += gridStep);
+            iterationPosition = new Vector2(iterationPosition.x += gridStep, gridStartPosition.y * gridStep);
         }
     }
 

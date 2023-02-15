@@ -646,7 +646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 488275709}
   grid: {fileID: 1401789243}
-  throwablePackage: {fileID: 0}
+  throwablePackage: {fileID: 1992552648}
+  quickTarget: {fileID: 2099484151427840445, guid: 7eaec06071283bf438cd4529316bb8e0, type: 3}
   moveSpeed: 50
   maxHealth: 1000
   timeBetweenMoves: 5
@@ -839,12 +840,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 6498777401967440019, guid: eb0c60a8d45c5664c8c1919265460f74, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6498777401967440020, guid: eb0c60a8d45c5664c8c1919265460f74, type: 3}
       propertyPath: m_Name
       value: TempPlayer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb0c60a8d45c5664c8c1919265460f74, type: 3}
+--- !u!1 &1992552648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2187918097288055020, guid: 7899c9f4582ff394e9a50a79a241f7e1, type: 3}
+  m_PrefabInstance: {fileID: 6216453391400329804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6216453391400329804
 PrefabInstance:
   m_ObjectHideFlags: 0
