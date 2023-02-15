@@ -17,11 +17,17 @@ public class DroneBoss : MonoBehaviour
     [SerializeField] private float moveSpeed = 0.01f;
 
     // enemys base health
-    [SerializeField] private float health = 1000;
+    [SerializeField] private float maxHealth = 1000;
+
+    [SerializeField] private float timeBetweenMoves = 5;
 
     //enemy will start using its special attack when it gets lower than a multiple of this number
     private float _healthIntervals = 250;
 
+    private float _currentHealth;
+
+    private float _nextLargeAttack;
+    
     private bool _inPosition = false;
 
     private bool _inMotion = false;
@@ -37,6 +43,9 @@ public class DroneBoss : MonoBehaviour
     void Start()
     {
         _movesLeft = _moves;
+        _currentHealth = maxHealth;
+        _healthIntervals = maxHealth / 6;
+        _nextLargeAttack = maxHealth -= _healthIntervals;
         StartCoroutine(TimeUntilNextDirectAttack());
     }
 
@@ -51,7 +60,12 @@ public class DroneBoss : MonoBehaviour
                 _inPosition = true;
             }
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Space) && !grid.isAttacking)
+        {
+            TakeDamage(100);
+        }
+
     }
 
     /// <summary>
@@ -92,6 +106,9 @@ public class DroneBoss : MonoBehaviour
     /// </summary>
     private void MassAttack()
     {
+        grid.StartBombAttack();
+        StopAllCoroutines();
+        StartCoroutine(MassAttackExit());
 
     }
 
@@ -101,6 +118,12 @@ public class DroneBoss : MonoBehaviour
     /// <param name="damage">The amount of damage to deal to the boss</param>
     private void TakeDamage(float damage)
     {
+        _currentHealth -= damage;
+        if(_currentHealth < _nextLargeAttack)
+        {
+            _nextLargeAttack -= _healthIntervals;
+            MassAttack();
+        }
 
     }
 
@@ -115,7 +138,7 @@ public class DroneBoss : MonoBehaviour
         _inPosition = false;
         if(_movesLeft > 0)
         {
-            FakeMoveToTile();
+            StartCoroutine(Pause(0.25f));
         } 
         else
         {
@@ -124,13 +147,25 @@ public class DroneBoss : MonoBehaviour
         }
     }
 
+    IEnumerator Pause(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        FakeMoveToTile();
+    }
+
     /// <summary>
     /// Starts a timer for the next mass attack
     /// </summary>
     /// <returns></returns>
     IEnumerator TimeUntilNextDirectAttack()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(timeBetweenMoves);
         FakeMoveToTile();
+    }
+
+    IEnumerator MassAttackExit()
+    {
+        yield return new WaitUntil(() => !grid.isAttacking);
+        StartCoroutine(TimeUntilNextDirectAttack());
     }
 }
