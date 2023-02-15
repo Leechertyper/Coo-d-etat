@@ -71,14 +71,14 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # project stuff
-WWiseProject/.cache/
-WWiseProject/*.prof
-WwiseProject/*_WwiseProject.*.validationcache
-WwiseProject/*_WwiseProject.*.wsettings
-WwiseProject/**/*.akd
+ProjectForseti_WwiseProject/.cache/
+ProjectForseti_WwiseProject/*.prof
+ProjectForseti_WwiseProject/*_WwiseProject.*.validationcache
+ProjectForseti_WwiseProject/*_WwiseProject.*.wsettings
+ProjectForseti_WwiseProject/**/*.akd
 
 # build stuff (unsure?)
-#Assets/Wwise/Deployment/Plugins/Windows/**/*.meta
+Assets/Wwise/Deployment/Plugins/Windows/**/*.meta
 
 # WWise Picker (editor)
 # from https://www.audiokinetic.com/library/edge/?source=Unity&id=unity__troubleshooting.html
@@ -109,3 +109,6 @@ Assets/Plugins/Editor.meta
 Assets/Plugins/Editor/Jetbrains.meta
 Assets/Plugins/Editor/Jetbrains/
 .idea
+
+# Unity User Preferences
+*.dwlt
