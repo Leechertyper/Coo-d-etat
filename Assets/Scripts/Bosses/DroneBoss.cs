@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DroneBoss : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class DroneBoss : MonoBehaviour
     
     [SerializeField] private float timeBetweenMoves = 5;
 
+    [SerializeField] private Image healthBar;
+
 
     //enemy will start using its special attack when it gets lower than a multiple of this number
     private float _healthIntervals = 250;
@@ -42,6 +45,10 @@ public class DroneBoss : MonoBehaviour
     private int _moves = 5;
 
     private int _movesLeft;
+
+    private bool _healthChanging = false;
+
+    private bool _updateHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +69,14 @@ public class DroneBoss : MonoBehaviour
             if(Mathf.Round(transform.position.x) == _targetPos.x && Mathf.Round(transform.position.y) == _targetPos.y)
             {
                 _inPosition = true;
+            }
+        }
+
+        if (_healthChanging)
+        {
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount * 1000, _currentHealth, 2f * Time.deltaTime) / 1000 ;
+            if(Mathf.Round(healthBar.fillAmount * 1000) == Mathf.Round(_currentHealth)){
+                _healthChanging = false;
             }
         }
 
@@ -190,6 +205,7 @@ public class DroneBoss : MonoBehaviour
     private void TakeDamage(float damage)
     {
         _currentHealth -= damage;
+        _healthChanging = true;
         if(_currentHealth < _nextLargeAttack)
         {
             _nextLargeAttack -= _healthIntervals;
