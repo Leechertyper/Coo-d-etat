@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField] private int _maxPower;
     [SerializeField] private Text _healthText;
     public Animation death;
-    public GameObject laser;
     public GameObject hitParticles;
 
 
@@ -149,6 +148,7 @@ public class Player : MonoBehaviour
         //TODO: Projectile fire function
         Debug.DrawRay(this.transform.position, this.transform.rotation *Vector3.up*_range, Color.red, 5.0f);
         Debug.Log("Hello");
+        this.gameObject.GetComponent<ProjectileWeapon>().Shoot();
     }
     
 }
