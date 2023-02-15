@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 6504401682906475753}
   - component: {fileID: 6504401682906475758}
   - component: {fileID: 6504401682906475757}
-  - component: {fileID: 6504401682906475756}
+  - component: {fileID: 7844299076292369615}
   - component: {fileID: 6504401682906475759}
   - component: {fileID: 6504401682906475747}
   m_Layer: 0
@@ -184,7 +184,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6504401682906475756
+--- !u!114 &7844299076292369615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,12 +193,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6504401682906475754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 631b184f120bb6849bd410c375ec8155, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e76ce4156e228346a13c40b10c6748e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.00005
-  maxScale: 0.19
-  minScale: 0.17
+  spriteRenderer: {fileID: 6504401682906475753}
+  spriteArray:
+  - {fileID: -828511721, guid: fc4e0ff4e5916c04ab069d37e3d04969, type: 3}
+  - {fileID: 1396829573, guid: fc4e0ff4e5916c04ab069d37e3d04969, type: 3}
+  - {fileID: -465442719, guid: fc4e0ff4e5916c04ab069d37e3d04969, type: 3}
 --- !u!114 &6504401682906475759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +220,9 @@ MonoBehaviour:
   fastShotCD: 0.3
   wp: {fileID: 6504401682517071467}
   hp: {fileID: 6504401682906475747}
-  fly: {fileID: 6504401682906475756}
+  fly: {fileID: 0}
+  sprite: {fileID: 7844299076292369615}
+  _moveDirection: {x: 0, y: 0}
 --- !u!114 &6504401682906475747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  health: 0
+  hurtColor: {r: 0, g: 0, b: 0, a: 0}
+  deathEffect: {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}

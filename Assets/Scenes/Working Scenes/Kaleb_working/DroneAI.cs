@@ -22,10 +22,11 @@ public class DroneAI : MonoBehaviour
     public ProjectileWeapon wp;
     public Health hp;
     public FlyAnimation fly;
+    public SpriteManager sprite;
 
     private IEnumerator _slowFire, _fastFire;
     private Rigidbody2D _rb;
-    private Vector2 _moveDirection;
+    [SerializeField]private Vector2 _moveDirection;
     private Transform _target;
     private state _myState;
     enum state {Chase, Pause};
@@ -96,8 +97,20 @@ public class DroneAI : MonoBehaviour
         if (_target)
         {
             Vector3 direction = (_target.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-            _rb.rotation = angle;
+            //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+            if(direction.y >= 0.4)
+            {
+                sprite.Down();
+            }
+            else if (direction.y <= -0.4)
+            {
+                sprite.Up();
+            }
+            else
+            {
+                sprite.Side();
+            }
+            //_rb.rotation = angle;
             _moveDirection = direction;
         }
     }

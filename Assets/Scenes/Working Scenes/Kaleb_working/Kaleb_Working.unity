@@ -169,7 +169,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -894,6 +894,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 497972978}
     - target: {fileID: 6504401682906475747, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
+    - target: {fileID: 6504401682906475747, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
       propertyPath: hurtColor.a
       value: 1
       objectReference: {fileID: 0}
@@ -928,6 +932,18 @@ PrefabInstance:
     - target: {fileID: 6504401682906475752, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504401682906475752, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504401682906475752, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504401682906475752, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6504401682906475752, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -969,6 +985,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6504401682906475752, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504401682906475753, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -828511721, guid: fc4e0ff4e5916c04ab069d37e3d04969, type: 3}
     - target: {fileID: 6504401682906475753, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -985,5 +1009,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6504401682906475756, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504401682906475757, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 19.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504401682906475757, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 10.820634
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6504401682906475756, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
