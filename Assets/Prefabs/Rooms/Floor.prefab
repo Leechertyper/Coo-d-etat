@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5392540130517398117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6973557679765224719}
+  - component: {fileID: 3174185994119784706}
+  - component: {fileID: 3174185994119784707}
+  m_Layer: 0
+  m_Name: Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6973557679765224719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392540130517398117}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!156049354 &3174185994119784706
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392540130517398117}
+  m_Enabled: 1
+  m_CellSize: {x: 3, y: 3, z: 0}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
+--- !u!114 &3174185994119784707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392540130517398117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a750552e606d048a7306db9a1d2c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomPrefab: {fileID: 3100153155850450629, guid: 0eaa83e816c7153468b3af95d3f23ff0, type: 3}
+  topRightCornerRoomPrefab: {fileID: 4020012201532412313, guid: 719f739dcf3ee0749a28fd47cd6ccf18, type: 3}
+  bottomLeftCornerRoomPrefab: {fileID: 8388149956747866127, guid: d74223617a160784882ca6e9724bf8a0, type: 3}
+  leftColumnRoomPrefab: {fileID: 2538501598332552775, guid: 4acd722e6afb89144a85e07f9756eba7, type: 3}
+  rightColumnRoomPrefab: {fileID: 2186457105773753216, guid: 0ffaff31a2e063d4d83d35ea5c8101f9, type: 3}
+  bottomRowRoomPrefab: {fileID: 3020622606662123872, guid: 5893857ed640d6640beb4cf5e2c817b0, type: 3}
+  topRowRoomPrefab: {fileID: 8077573189779955296, guid: 7ea1fa69b998b92419605ea84acbb547, type: 3}
+  startRoomPrefab: {fileID: 5327254564332133165, guid: e28334299e301d642931585f300e99a5, type: 3}
+  endRoomPrefab: {fileID: 4817093344726867451, guid: ce7abf726b22674428103cc9be8b3e17, type: 3}
+  camController: {fileID: 0}

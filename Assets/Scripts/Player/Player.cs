@@ -13,9 +13,9 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private Vector2 _movement;
     [SerializeField] private int _power;
+    [SerializeField] private int _maxPower;
     [SerializeField] private Text _healthText;
     public Animation death;
-    public GameObject laser;
     public GameObject hitParticles;
 
 
@@ -133,12 +133,22 @@ public class Player : MonoBehaviour
     {
         _power = newPower;
     }
+
+    public void IncreasePower(int powerAmount)
+    {        
+        _power += powerAmount;
+        if (_power > _maxPower)
+        {
+            _power = _maxPower;
+        }
+    }
     
     public void Fire()
     {
         //TODO: Projectile fire function
         Debug.DrawRay(this.transform.position, this.transform.rotation *Vector3.up*_range, Color.red, 5.0f);
         Debug.Log("Hello");
+        this.gameObject.GetComponent<ProjectileWeapon>().Shoot();
     }
     
 }
