@@ -11,6 +11,11 @@ public class CameraController : MonoBehaviour
         _mainCam = Camera.main;
     }
 
+    public void MoveCameraToStart(Transform startRoomPosition)
+    {
+        _mainCam.transform.position = new Vector3(startRoomPosition.position.x - 1.5f, startRoomPosition.position.y - 1.5f, -10);
+    }
+
     /// <summary>
     /// Moves the Camera to the room left of the current one
     /// </summary>
@@ -75,3 +80,4 @@ public class CameraController : MonoBehaviour
         IsMoving = false;
     }
 }
+

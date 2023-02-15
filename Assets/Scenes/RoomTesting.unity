@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226004309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -10}
+  m_LocalPosition: {x: 0, y: 30.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -278,4 +278,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 3100153155850450629, guid: 0eaa83e816c7153468b3af95d3f23ff0, type: 3}
+  topRightCornerRoomPrefab: {fileID: 4020012201532412313, guid: 719f739dcf3ee0749a28fd47cd6ccf18, type: 3}
+  bottomLeftCornerRoomPrefab: {fileID: 8388149956747866127, guid: d74223617a160784882ca6e9724bf8a0, type: 3}
+  leftColumnRoomPrefab: {fileID: 2538501598332552775, guid: 4acd722e6afb89144a85e07f9756eba7, type: 3}
+  rightColumnRoomPrefab: {fileID: 2186457105773753216, guid: 0ffaff31a2e063d4d83d35ea5c8101f9, type: 3}
+  bottomRowRoomPrefab: {fileID: 3020622606662123872, guid: 5893857ed640d6640beb4cf5e2c817b0, type: 3}
+  topRowRoomPrefab: {fileID: 8077573189779955296, guid: 7ea1fa69b998b92419605ea84acbb547, type: 3}
+  startRoomPrefab: {fileID: 5327254564332133165, guid: e28334299e301d642931585f300e99a5, type: 3}
+  endRoomPrefab: {fileID: 4817093344726867451, guid: ce7abf726b22674428103cc9be8b3e17, type: 3}
   camController: {fileID: 226004313}

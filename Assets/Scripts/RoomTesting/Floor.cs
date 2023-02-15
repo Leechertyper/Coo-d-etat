@@ -16,24 +16,26 @@ public static class FloorConstants
     public const float HorizontalPlayerOffset = 8f;
 }
 
-[Serializable]
-
 public class Floor : MonoBehaviour
 {
     private List<List<Room>> _rooms;
 
     [SerializeField] private GameObject roomPrefab;
+    [SerializeField] private GameObject topRightCornerRoomPrefab;
+    [SerializeField] private GameObject bottomLeftCornerRoomPrefab;
+    [SerializeField] private GameObject leftColumnRoomPrefab;
+    [SerializeField] private GameObject rightColumnRoomPrefab;
+    [SerializeField] private GameObject bottomRowRoomPrefab;
+    [SerializeField] private GameObject topRowRoomPrefab;
+    [SerializeField] private GameObject startRoomPrefab;
+    [SerializeField] private GameObject endRoomPrefab;
 
     [SerializeField] private CameraController camController;
-
-    private Tuple<int, int> _floorDimensions;
-
-    private Tuple<int, int> _playerLocation;
 
 
     private void Start()
     {
-        SpawnRooms(3, 3);
+        SpawnRooms(2, 2);
     }
 
     /// <summary>
@@ -44,24 +46,68 @@ public class Floor : MonoBehaviour
     private void SpawnRooms(int r, int c)
     {
         _rooms = new List<List<Room>>();
-        for (var i = 0; i < c; i++)
+        for (var _ = 0; _ < c; _++)
         {
             _rooms.Add(new List<Room>());
         }
+
+        var startRoom = Instantiate(startRoomPrefab, transform);
+        startRoom.transform.position = new Vector3(transform.position.x,
+            transform.position.y + FloorConstants.VerticalRoomOffset);
+        
+        camController.MoveCameraToStart(startRoom.transform);
 
         for (var i = 0; i < r; i++)
         {
             for (var j = 0; j < c; j++)
             {
-                var newRoom = Instantiate(roomPrefab, transform);
+                //DONT LOOK ITS HORRIBLE BUT IT WORKS
+                var roomToSpawn = roomPrefab;
+
+                if (i == 0 && j == 0)
+                {
+                    roomToSpawn = leftColumnRoomPrefab;
+                }
+                else if (i == 0 && j == c - 1)
+                {
+                    roomToSpawn = topRightCornerRoomPrefab;
+                }
+                else if (i == 0)
+                {
+                    roomToSpawn = topRowRoomPrefab;
+                }
+                else if (j == 0 && i == r - 1)
+                {
+                    roomToSpawn = bottomLeftCornerRoomPrefab;
+                }
+                else if (j == c - 1)
+                {
+                    roomToSpawn = rightColumnRoomPrefab;
+                }
+                else if (j == 0)
+                {
+                    roomToSpawn = leftColumnRoomPrefab;
+                }
+                else if (j == c - 1 && i == r - 1)
+                {
+                    roomToSpawn = rightColumnRoomPrefab;
+                }
+                else if (i == r - 1)
+                {
+                    roomToSpawn = bottomRowRoomPrefab;
+                }
+                
+                
+                
+                var newRoom = Instantiate(roomToSpawn, transform);
                 newRoom.transform.position = new Vector3(newRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * j, newRoom.transform.position.y - FloorConstants.VerticalRoomOffset*i);
                 _rooms[i].Add(newRoom.GetComponent<Room>());
             }
         }
-
-        _playerLocation = new Tuple<int, int>(0, 0);
-        _rooms[0][0].gameObject.SetActive(true);
-        _floorDimensions = new Tuple<int, int>(r, c);
+        
+        var endRoom = Instantiate(endRoomPrefab,transform);
+        endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (c-1),
+            endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * r);
     }
 
     /// <summary>
@@ -70,11 +116,9 @@ public class Floor : MonoBehaviour
     /// <param name="player">The game object that is tagged player (this is auto detected by the door script)</param>
     public void MoveUp(GameObject player)
     {
-        if (_playerLocation.Item2 == 0) return;
         var newPlayerLocation = new Vector3(player.transform.position.x, player.transform.position.y + FloorConstants.VerticalPlayerOffset);
         player.transform.position = newPlayerLocation;
         camController.MoveUp();
-        _playerLocation = new Tuple<int, int>(_playerLocation.Item1, _playerLocation.Item2 - 1);
     }
 
     /// <summary>
@@ -83,11 +127,9 @@ public class Floor : MonoBehaviour
     /// <param name="player">The game object that is tagged player (this is auto detected by the door script)</param>
     public void MoveDown(GameObject player)
     {
-        if (_playerLocation.Item2 == _floorDimensions.Item2) return;
         var newPlayerLocation = new Vector3(player.transform.position.x, player.transform.position.y - FloorConstants.VerticalPlayerOffset);
         player.transform.position = newPlayerLocation;
         camController.MoveDown();
-        _playerLocation = new Tuple<int, int>(_playerLocation.Item1, _playerLocation.Item2 + 1);
     }
 
     /// <summary>
@@ -96,11 +138,9 @@ public class Floor : MonoBehaviour
     /// <param name="player">The game object that is tagged player (this is auto detected by the door script)</param>
     public void MoveRight(GameObject player)
     {
-        if (_playerLocation.Item1 == _floorDimensions.Item1) return;
         var newPlayerLocation = new Vector3(player.transform.position.x + FloorConstants.HorizontalPlayerOffset, player.transform.position.y);
         camController.MoveRight();
         player.transform.position = newPlayerLocation;
-        _playerLocation = new Tuple<int, int>(_playerLocation.Item1 + 1, _playerLocation.Item2);
     }
 
     /// <summary>
@@ -109,11 +149,9 @@ public class Floor : MonoBehaviour
     /// <param name="player">The game object that is tagged player (this is auto detected by the door script)</param>
     public void MoveLeft(GameObject player)
     {
-        if (_playerLocation.Item1 == 0) return;
         var newPlayerLocation = new Vector3(player.transform.position.x - FloorConstants.HorizontalPlayerOffset, player.transform.position.y);
         player.transform.position = newPlayerLocation;
         camController.MoveLeft();
-        _playerLocation = new Tuple<int, int>(_playerLocation.Item1 - 1, _playerLocation.Item2);
     }
     
     
