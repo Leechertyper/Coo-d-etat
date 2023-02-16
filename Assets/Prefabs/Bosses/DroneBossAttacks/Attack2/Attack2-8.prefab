@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5155005238834582877}
   - component: {fileID: 5155005238834582876}
   m_Layer: 0
-  m_Name: Attack2-2
+  m_Name: Attack2-8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,15 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e696fc645861a49a433b4d2557743e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasFollowingAttack: 1
+  hasFollowingAttack: 0
   weight: 3
   positions:
-  - {x: 1, y: 0}
-  - {x: 1, y: 1}
-  - {x: 1, y: 2}
-  - {x: 1, y: 3}
-  - {x: 1, y: 4}
-  - {x: 1, y: 5}
-  - {x: 1, y: 6}
-  nextAttack: {fileID: 5155005238834582876, guid: e9e3550ff38dcd34b819bbabe40b8636, type: 3}
+  - {x: 7, y: 0}
+  - {x: 7, y: 1}
+  - {x: 7, y: 2}
+  - {x: 7, y: 3}
+  - {x: 7, y: 4}
+  - {x: 7, y: 5}
+  - {x: 7, y: 6}
+  nextAttack: {fileID: 2667128095949833860, guid: 45318e7795d060f46ab6ecb19d54ac1f, type: 3}
   nextAttackDelay: 1
