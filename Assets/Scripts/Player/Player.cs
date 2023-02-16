@@ -102,9 +102,9 @@ public class Player : MonoBehaviour
     public void Fire()
     {
         //TODO: Projectile fire function
-        Debug.DrawRay(this.transform.position, this.transform.rotation *Vector3.up*_range, Color.red, 5.0f);
+        /*Debug.DrawRay(this.transform.position, this.transform.rotation *Vector3.up*_range, Color.red, 5.0f);
         Debug.Log("Hello");
-        this.gameObject.GetComponent<ProjectileWeapon>().Shoot();
+        this.gameObject.GetComponent<ProjectileWeapon>().Shoot();*/
     }
     
 }
