@@ -18,10 +18,11 @@ public class DroneAI : MonoBehaviour
     [Header("Attack")]
     public float slowShotCD = 1;
     public float fastShotCD = 0.5f;
+    public float angle;
     [Header("Components")]
     public ProjectileWeapon wp;
     public Health hp;
-    public FlyAnimation fly;
+    public SpriteManager sprite;
 
     private IEnumerator _slowFire, _fastFire;
     private Rigidbody2D _rb;
@@ -59,7 +60,6 @@ public class DroneAI : MonoBehaviour
         if(Vector2.Distance(_target.position, transform.position) < range && _myState == state.Chase)
         {
             _myState = state.Pause;
-            fly.pause();
             _rb.velocity = Vector2.zero;
             StopCoroutine(_slowFire);
             StartCoroutine(_fastFire);
@@ -78,7 +78,6 @@ public class DroneAI : MonoBehaviour
         if (!(Vector2.Distance(_target.position, transform.position) < range))
         {
             _myState = state.Chase;
-            fly.resume();
             StopCoroutine(_fastFire);
             StartCoroutine(_slowFire);
         }
@@ -96,8 +95,19 @@ public class DroneAI : MonoBehaviour
         if (_target)
         {
             Vector3 direction = (_target.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-            _rb.rotation = angle;
+            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+            if(direction.y >= 0.4)
+            {
+                sprite.Down();
+            }
+            else if (direction.y <= -0.4)
+            {
+                sprite.Up();
+            }
+            else
+            {
+                sprite.Side();
+            }
             _moveDirection = direction;
         }
     }
@@ -121,7 +131,7 @@ public class DroneAI : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(delay);
-            wp.Shoot();
+            wp.Shoot(angle);
         }
     }
 
