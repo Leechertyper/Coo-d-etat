@@ -155,6 +155,7 @@ public class DroneAI : MonoBehaviour
     {
         StopAllCoroutines();
         _myState = state.Pause;
+        _rb.velocity = Vector2.zero;
     }
 
 
