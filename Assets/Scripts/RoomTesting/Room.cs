@@ -12,20 +12,32 @@ public class Room : MonoBehaviour
 
         public void Awaken()
         {
-            foreach (var enemy in enemies)
+            if (enemies.Count > 0)
             {
-                enemy?.gameObject.SetActive(true);
+                foreach (var enemy in enemies)
+                {
+                    enemy.enabled = true;
+                }
             }
-            boss?.Awaken();
+            if (boss)
+            {
+                boss.Sleep();
+            }
         }
 
         public void Sleep()
         {
-            foreach (var enemy in enemies)
+            if (enemies.Count > 0)
             {
-                enemy?.gameObject.SetActive(false);
+                foreach (var enemy in enemies)
+                {
+                    enemy.enabled = false;
+                }
             }
-            boss?.Sleep();
+            if (boss)
+            {
+                boss.Sleep();
+            }
         }
     }
 
