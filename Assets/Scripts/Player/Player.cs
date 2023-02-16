@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -29,11 +30,17 @@ public class Player : MonoBehaviour
                     death.Play("Death");
                 }
                 Destroy(this, 2.0f);
-                
+                SceneManager.LoadScene("Alpha Main");
             }
             GotHit();
             UpdateHealthUI();
-        }        
+        }else{
+            if(death){
+                death.Play("Death");
+            }
+            Destroy(this, 2.0f);
+            SceneManager.LoadScene("Alpha Main");
+        }      
     }
 
     private void UpdateHealthUI()

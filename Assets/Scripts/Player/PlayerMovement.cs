@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Movement speed of the player
-    public float moveSpeed = 5f;
+    public float moveSpeed = 6f;
 
     // Reference to the Rigidbody2D component
     private Rigidbody2D rb;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject projectilePrefab;
 
     //Damage of the laser
-    [SerializeField] private int _damage;
+    [SerializeField] private int _damage = 1;
 
     // Cooldown time for shooting projectiles
     public float shootCooldown = 0.2f;

@@ -22,6 +22,9 @@ public class Lazer : MonoBehaviour
         {
             collision.gameObject.GetComponent<Player>().TakeDamage(_power);
             Destroy(gameObject);
+        }else if (collision.gameObject.tag == "Enemy" && this.gameObject.tag == "PlayerProjectile"){
+            collision.gameObject.GetComponent<Health>().TakeDamage(_power);
+            Destroy(gameObject);
         }
     }
     public void SetPower(int power){
