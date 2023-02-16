@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     // Input values for horizontal and vertical movement
     private Vector2 _movement;
+    private Vector2 _movementDirection;
+    private Vector2 _lastMoveDirection;
 
     // Reference to the projectile prefab to be spawned
     public GameObject projectilePrefab;
@@ -24,7 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     public string horizontalInput = "Horizontal";
     public string verticalInput = "Vertical";
-    
+
+    public Animator animator;
     void Start()
     {
         // Get the reference to the Rigidbody component on this GameObject
@@ -36,27 +39,19 @@ public class PlayerMovement : MonoBehaviour
         
         _movement.x = Input.GetAxisRaw(horizontalInput);
         _movement.y = Input.GetAxisRaw(verticalInput);
+        animator.SetFloat("Horizontal", _movement.x);
+        animator.SetFloat("Vertical", _movement.y);
+        animator.SetFloat("Speed", _movement.sqrMagnitude);
 
-        // Check if the player is actually moving
-        //if (_movement.sqrMagnitude > 0)
-        //{
-        //    var direction = _movement;
-            
-            // Calculate the angle of movement in degrees
-            //float angle = Mathf.Atan2(_movement.y, _movement.x) * Mathf.Rad2Deg - 90f;
-            
-            
-            // Create a rotation around the Z axis based on the angle
-            //Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            
-            
-            // Set the player's rotation to the calculated rotation
-            //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
-            //transform.up = direction;
-        //}
-        // Get the input values for horizontal and vertical movement
-        // moveHorizontal = Input.GetAxis("Horizontal");
-        // moveVertical = Input.GetAxis("Vertical");
+        if ((_movement.x == 0 && _movement.y == 0) && (_movementDirection.x != 0 || _movementDirection.y != 0))
+        {
+            _lastMoveDirection = _movementDirection;
+        }
+
+        _movementDirection = new Vector2(_movement.x, _movement.y).normalized;
+
+        animator.SetFloat("LastMoveX", _lastMoveDirection.x);
+        animator.SetFloat("LastMoveY", _lastMoveDirection.y);
 
         // Check if the arrow keys are being pressed, and shoot projectiles in the corresponding direction
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -88,22 +83,7 @@ public class PlayerMovement : MonoBehaviour
         // Apply the movement vector to the Rigidbody component
         rb.velocity = movement;
         
-        if (_movement.x > 0)
-        {
-            transform.up = Vector2.right; // Face right
-        }
-        else if (_movement.x < 0)
-        {
-            transform.up = Vector2.left; // Face left
-        }
-        else if (_movement.y > 0)
-        {
-            transform.up = Vector2.up; // Face up
-        }
-        else if (_movement.y < 0)
-        {
-            transform.up = Vector2.down; // Face down
-        }
+ 
     }
 
     // Method to shoot a projectile in the specified direction
