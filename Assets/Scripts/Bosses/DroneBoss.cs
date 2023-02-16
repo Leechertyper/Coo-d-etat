@@ -63,8 +63,8 @@ public class DroneBoss : MonoBehaviour
         _movesLeft = _moves;
         _currentHealth = maxHealth;
         _healthIntervals = maxHealth / 4;
-        _nextLargeAttack = maxHealth -= _healthIntervals;
-        
+        _nextLargeAttack = maxHealth - _healthIntervals;
+        player = GameManager.Instance.GetPlayerObject();
     }
 
     public void Awaken()
@@ -84,8 +84,8 @@ public class DroneBoss : MonoBehaviour
 
         if (_healthChanging)
         {
-            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount * 100, _currentHealth, 3f * Time.deltaTime) / 100 ;
-            if(Mathf.Round(healthBar.fillAmount * 100) == Mathf.Round(_currentHealth)){
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _currentHealth/maxHealth, 3f * Time.deltaTime) ;
+            if(Mathf.Round(healthBar.fillAmount * maxHealth) == Mathf.Round(_currentHealth)){
                 _healthChanging = false;
                 _healthTrailChanging = true;
             }
@@ -97,8 +97,8 @@ public class DroneBoss : MonoBehaviour
 
         if (_healthTrailChanging)
         {
-            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount * 100, _currentHealth, 5f * Time.deltaTime) / 100;
-            if (Mathf.Round(healthTrail.fillAmount * 100) == Mathf.Round(_currentHealth))
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _currentHealth/maxHealth, 5f * Time.deltaTime);
+            if (Mathf.Round(healthTrail.fillAmount * maxHealth) == Mathf.Round(_currentHealth))
             {
                 _healthTrailChanging = false;
             }

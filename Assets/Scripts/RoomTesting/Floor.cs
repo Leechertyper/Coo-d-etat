@@ -30,7 +30,7 @@ public class Floor : MonoBehaviour
     [SerializeField] private GameObject endRoomPrefab;
 
     private CameraController _camController;
-
+    
 
     private void Start()
     {
@@ -108,6 +108,7 @@ public class Floor : MonoBehaviour
         var endRoom = Instantiate(endRoomPrefab,transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (c-1),
             endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * r);
+        GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
     }
 
     /// <summary>
@@ -157,6 +158,5 @@ public class Floor : MonoBehaviour
         player.transform.position = newPlayerLocation;
         _camController.MoveLeft();
     }
-    
     
 }

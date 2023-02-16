@@ -131,8 +131,18 @@ public class DroneBossGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(GameManager.Instance)
+        {
+            gridStartPosition.x = 116.5f;
+            gridStartPosition.y = -145.5f;
+        }
+        else
+        {
+            gridStartPosition.x = gridStartPosition.x*gridStep;
+            gridStartPosition.y = gridStartPosition.y*gridStep;
+        }
         // sets the interator to the start position of the grid
-        Vector2 iterationPosition = new Vector2(gridStartPosition.x * gridStep, gridStartPosition.y * gridStep);
+        Vector2 iterationPosition = new Vector2(gridStartPosition.x, gridStartPosition.y);
         // initializes the grid
         _grid = new Tile[(int) roomDimensions.x, (int) roomDimensions.y];
         // iterates through the width of the grid
@@ -152,7 +162,7 @@ public class DroneBossGrid : MonoBehaviour
 
             }
             // resets the x position of the iterator to the first column and moves down a row
-            iterationPosition = new Vector2(iterationPosition.x += gridStep, gridStartPosition.y * gridStep);
+            iterationPosition = new Vector2(iterationPosition.x += gridStep, gridStartPosition.y);
         }
     }
 

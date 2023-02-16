@@ -16,7 +16,11 @@ public class Room : MonoBehaviour
             {
                 foreach (var enemy in enemies)
                 {
-                    enemy.Awaken();
+                    if(enemy)
+                    {
+                        enemy.Awaken();
+                    }
+                    
                 }
             }
             if (boss)
@@ -31,7 +35,10 @@ public class Room : MonoBehaviour
             {
                 foreach (var enemy in enemies)
                 {
-                    enemy.Sleep();
+                    if(enemy)
+                    {
+                        enemy.Sleep();
+                    }
                 }
             }
             if (boss)

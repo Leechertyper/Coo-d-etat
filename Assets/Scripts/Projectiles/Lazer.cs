@@ -18,12 +18,20 @@ public class Lazer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if(collision.gameObject.tag == "Player" && this.gameObject.tag != "PlayerProjectile")
         {
             collision.gameObject.GetComponent<Player>().TakeDamage(_power);
             Destroy(gameObject);
-        }else if (collision.gameObject.tag == "Enemy" && this.gameObject.tag == "PlayerProjectile"){
+        }
+        else if (collision.gameObject.tag == "Enemy" && this.gameObject.tag == "PlayerProjectile")
+        {
             collision.gameObject.GetComponent<Health>().TakeDamage(_power);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Boss" && this.gameObject.tag == "PlayerProjectile")
+        {
+            collision.gameObject.GetComponent<DroneBoss>().TakeDamage((float)_power);
             Destroy(gameObject);
         }
     }

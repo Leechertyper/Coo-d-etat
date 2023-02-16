@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class explosion : MonoBehaviour
 {
     [SerializeField] private GameObject parent;
 
-    [SerializeField] private int damage = 20;
+    [SerializeField] private int damage = 2;
 
-    private void Start()
-    {
-
-    }
 
     /// <summary>
     /// When the animation ends, destroy self

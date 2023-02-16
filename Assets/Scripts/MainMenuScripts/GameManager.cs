@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManagerScript : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 
+    [SerializeField] GameObject _thePlayerObject;
     [SerializeField] Player _thePlayer;
-
+    private Vector2 _endRoomPos;
+    private static GameManager _instance = null;
     private ArrayList allRooms, allEnemies; //Can use list if wanted
     
     //private Boss theBoss;
@@ -15,7 +17,12 @@ public class GameManagerScript : MonoBehaviour
 
     //private List<Enemy> allEnemies; //Uncomment when there are enemies
 
+   
 
+    void Awake()
+    {
+        _instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +32,19 @@ public class GameManagerScript : MonoBehaviour
         //theBoss = null;
 
         healthItemValue = 1f;
+        
     }
-
+     public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                Debug.LogError("Game Manager is Null!");
+            }
+           return _instance;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -160,6 +178,10 @@ public class GameManagerScript : MonoBehaviour
         }
         
      }
+     public GameObject GetPlayerObject()
+     {
+        return _thePlayerObject;
+     }
 
     public void ChangePlayerSpeed(float newSpeed)
     {
@@ -220,4 +242,13 @@ public class GameManagerScript : MonoBehaviour
         return healthItemValue;
     }
 
+    public void SetEndRoomPos(Vector2 endPos)
+    {
+        _endRoomPos = endPos;
+    }
+
+    public Vector2 GetEndRoomPos()
+    {
+        return _endRoomPos;
+    }
 }

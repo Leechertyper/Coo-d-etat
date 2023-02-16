@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     private int _maxHealth = 10;
     private int _health = 10;
     private float _range = 1000f;
+    private float _invulnTime = 1.1f;
+    private bool _isInvuln = false;
     [SerializeField] private Text _healthText;
     [SerializeField] private int _power;
     [SerializeField] private int _maxPower;
@@ -17,10 +19,22 @@ public class Player : MonoBehaviour
     public Animation death;
     public GameObject hitParticles;
 
+    void Update()
+    {
+        if(_isInvuln)
+        {
+            _invulnTime -= Time.deltaTime;
+            if(_invulnTime <= 0f)
+            {
+                _isInvuln = false;
+                _invulnTime = 1f;
+            }
+        }
+    }
 
     public void TakeDamage(int damage)
     {
-        if (_health > 0)
+        if (_health > 0 && !_isInvuln)
         {
             _health -= damage;
             if (_health < 0)
@@ -29,6 +43,7 @@ public class Player : MonoBehaviour
             }
             GotHit();
             UpdateHealthUI();
+            _isInvuln = true;
         }
         if (_health == 0){
             if(death){

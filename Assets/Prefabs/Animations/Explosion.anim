@@ -793,7 +793,7 @@ AnimationClip:
   - time: 1
     functionName: OnTimeOut
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: d8605b7e645a49c4b8217e3f17392420, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
