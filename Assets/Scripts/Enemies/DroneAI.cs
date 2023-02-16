@@ -145,5 +145,17 @@ public class DroneAI : MonoBehaviour
         this.enabled = false;
     }
 
+    public void Awaken()
+    {
+        _myState = state.Chase;
+        StartCoroutine(_slowFire);
+    }
+
+    public void Sleep()
+    {
+        StopAllCoroutines();
+        _myState = state.Pause;
+    }
+
 
 }

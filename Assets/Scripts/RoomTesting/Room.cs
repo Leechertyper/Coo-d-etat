@@ -16,12 +16,12 @@ public class Room : MonoBehaviour
             {
                 foreach (var enemy in enemies)
                 {
-                    enemy.enabled = true;
+                    enemy.Awaken();
                 }
             }
             if (boss)
             {
-                boss.Sleep();
+                boss.Awaken();
             }
         }
 
@@ -31,7 +31,7 @@ public class Room : MonoBehaviour
             {
                 foreach (var enemy in enemies)
                 {
-                    enemy.enabled = false;
+                    enemy.Sleep();
                 }
             }
             if (boss)
@@ -51,13 +51,17 @@ public class Room : MonoBehaviour
         enemies.Sleep();
     }
 
-    private void OnCollisionEnter2D (Collision2D other)
+    private void OnTriggerEnter2D(Collider2D col)
     {
+        if (!col.gameObject.CompareTag("Player")) return;
+        Debug.Log("ENTERED NEW ROOM");
         enemies.Awaken();
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
+        if (!other.gameObject.CompareTag("Player")) return;
+        Debug.Log("LEFT OLD ROOM");
         enemies.Sleep();
     }
 
