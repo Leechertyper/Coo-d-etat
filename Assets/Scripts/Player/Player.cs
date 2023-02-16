@@ -10,8 +10,9 @@ public class Player : MonoBehaviour
     private int _health = 10;
     private float _range = 1000f;
     [SerializeField] private int _power;
+    [SerializeField] private int _maxPower;
     [SerializeField] private Text _healthText;
-    public GameObject laser;
+    public Animation death;
     public GameObject hitParticles;
 
 
@@ -23,6 +24,10 @@ public class Player : MonoBehaviour
             if (_health < 0)
             {
                 _health = 0;
+                if(death){
+                    death.Play("Death");
+                }
+                Destroy(this, 2.0f);
                 
             }
             GotHit();
@@ -84,12 +89,22 @@ public class Player : MonoBehaviour
     {
         _power = newPower;
     }
+
+    public void IncreasePower(int powerAmount)
+    {        
+        _power += powerAmount;
+        if (_power > _maxPower)
+        {
+            _power = _maxPower;
+        }
+    }
     
     public void Fire()
     {
         //TODO: Projectile fire function
         Debug.DrawRay(this.transform.position, this.transform.rotation *Vector3.up*_range, Color.red, 5.0f);
         Debug.Log("Hello");
+        this.gameObject.GetComponent<ProjectileWeapon>().Shoot();
     }
     
 }
