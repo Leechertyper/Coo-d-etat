@@ -25,6 +25,9 @@ public class BalanceSlider : MonoBehaviour
         }
     }
 
+    /*
+    *   this will update all the sliders
+    */
     public float GeneralFix(float changeAmount)
     {
         if(dictionaryKey!="General")

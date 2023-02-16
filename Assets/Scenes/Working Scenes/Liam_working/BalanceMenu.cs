@@ -30,28 +30,6 @@ public class BalanceMenu : MonoBehaviour
     }
 
     /*
-    *   This function will populate the sliderContent with buttons that contain sections that the user has seen since the last balance
-    */
-    private void PopulateButtons()
-    {
-        buttonParents.SetActive(true);
-        sliderParents.SetActive(false);
-        confirmButton.SetActive(false);
-        RemoveButtons();
-        for(int i=0; i<BalanceVariables.dictionaryListStrings.Count; i++)
-        {
-            if(BalanceVariables.seenDictionaries[BalanceVariables.dictionaryListStrings[i]])
-            {
-                int temp = i;
-                GameObject newButton = Instantiate(buttonPrefab, buttonContent.transform);
-                newButton.GetComponent<Button>().GetComponentInChildren<Text>().text = BalanceVariables.dictionaryListStrings[i];
-                newButton.GetComponent<Button>().onClick.AddListener(() => PopulateSliders(BalanceVariables.dictionaryList[temp]));
-            }
-            
-        }
-    }
-
-    /*
     *   When called, this will reset the scene (balance menu wise) and go to next floor
     */
     public void NextLevel()
@@ -86,7 +64,7 @@ public class BalanceMenu : MonoBehaviour
     }
 
     /*
-    *   When called, this will pause the game.
+    *   When called, this will balance the variables using what the user gives then go to the next level
     */
     public void ConfirmSelection()
     {
@@ -94,13 +72,16 @@ public class BalanceMenu : MonoBehaviour
         {
             if(child.GetComponent<BalanceSlider>().dictionaryKey!="General")
             {
-                gameManagerScript.GetComponent<newGameManager>().BalanceSection(child.GetComponent<BalanceSlider>().dictionary,child.GetComponent<BalanceSlider>().dictionaryKey, child.GetComponent<BalanceSlider>().value);
+                gameManagerScript.GetComponent<newGameManager>().BalanceValue(child.GetComponent<BalanceSlider>().dictionary,child.GetComponent<BalanceSlider>().dictionaryKey, child.GetComponent<BalanceSlider>().value);
             }
             
         }
         NextLevel();
     }
 
+    /*
+    *   This will remove all the options buttons
+    */
     void RemoveButtons()
     {
         foreach (Transform child in buttonContent.transform) {
@@ -108,15 +89,10 @@ public class BalanceMenu : MonoBehaviour
         }
 
     }
-
-    public void GeneralSliderChange(float valueChange)
-    {
-        foreach (Transform child in sliderContent.transform) 
-        {
-            child.GetComponent<Slider>().SetValueWithoutNotify(child.GetComponent<BalanceSlider>().GeneralFix(valueChange)) ;
-        }
-    }
-
+    
+    /*
+    *   This function removes all the slider options
+    */
     void RemoveSliders()
     {
         foreach (Transform child in sliderContent.transform) 
@@ -126,7 +102,40 @@ public class BalanceMenu : MonoBehaviour
     }
 
     /*
-    *   
+    *   if the user changes the general setting, it will change all the sliders
+    */
+    public void GeneralSliderChange(float valueChange)
+    {
+        foreach (Transform child in sliderContent.transform) 
+        {
+            child.GetComponent<Slider>().SetValueWithoutNotify(child.GetComponent<BalanceSlider>().GeneralFix(valueChange)) ;
+        }
+    }
+
+    /*
+    *   This function will populate the buttonContent with buttons that contain sections that the user has seen since the last balance
+    */
+    private void PopulateButtons()
+    {
+        buttonParents.SetActive(true);
+        sliderParents.SetActive(false);
+        confirmButton.SetActive(false);
+        RemoveButtons();
+        for(int i=0; i<BalanceVariables.dictionaryListStrings.Count; i++)
+        {
+            if(BalanceVariables.seenDictionaries[BalanceVariables.dictionaryListStrings[i]])
+            {
+                int temp = i;
+                GameObject newButton = Instantiate(buttonPrefab, buttonContent.transform);
+                newButton.GetComponent<Button>().GetComponentInChildren<Text>().text = BalanceVariables.dictionaryListStrings[i];
+                newButton.GetComponent<Button>().onClick.AddListener(() => PopulateSliders(BalanceVariables.dictionaryList[temp]));
+            }
+            
+        }
+    }
+
+    /*
+    *   This function will populate the sliderContent with buttons that contain sections that the user has seen since the last balance
     */
     void PopulateSliders(Dictionary<string,float> dictionary)
     {

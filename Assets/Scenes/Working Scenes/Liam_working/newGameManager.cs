@@ -19,12 +19,18 @@ public class newGameManager : MonoBehaviour
         BalanceTimer();
     }
 
+    /*
+    *   This will start the timer for the balance system
+    */
     public void BalanceTimerStart()
     {
         balanceTimerEnded=false;
         timerStartTime = Time.time;
     }
 
+    /*
+    *   This function checks the counter every second
+    */
     private void BalanceTimer()
     {
         if ((Time.time - timerStartTime) >= BalanceVariables.other["balancePointTimerSeconds"])
@@ -35,7 +41,11 @@ public class newGameManager : MonoBehaviour
             StartBalanceMenu();
         }
     }
-    public void StartBalanceMenu()
+
+    /*
+    *   This function is called when the balance menu needs to pop up (call it in BalanceTimer())
+    */
+    private void StartBalanceMenu()
     {
         GameObject.Find("BalanceMenu").GetComponent<BalanceMenu>().startBalance=true;
     }
@@ -44,7 +54,7 @@ public class newGameManager : MonoBehaviour
     *  This will change all of the values in a dictionary using the balance value provided
     *   The actual equation is still in question
     */
-    public void BalanceSection(Dictionary<string,float> dictionary,string dictionaryKey, float balanceValue)
+    public void BalanceValue(Dictionary<string,float> dictionary,string dictionaryKey, float balanceValue)
     {
         dictionary[dictionaryKey] *= balanceValue;
 
