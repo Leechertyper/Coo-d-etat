@@ -26,15 +26,11 @@ public class Player : MonoBehaviour
             if (_health < 0)
             {
                 _health = 0;
-                if(death){
-                    death.Play("Death");
-                }
-                Destroy(this, 2.0f);
-                SceneManager.LoadScene("Alpha Main");
             }
             GotHit();
             UpdateHealthUI();
-        }else{
+        }
+        if (_health == 0){
             if(death){
                 death.Play("Death");
             }
