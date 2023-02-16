@@ -18,7 +18,7 @@ public class DroneBoss : MonoBehaviour
     [SerializeField] private GameObject quickTarget;
 
     // enemies base movespeed
-    [SerializeField] private float moveSpeed = 0.01f;
+    [SerializeField] private float moveSpeed = 1f;
 
     // enemys base health
     [SerializeField] private float maxHealth = 1000;
@@ -59,8 +59,19 @@ public class DroneBoss : MonoBehaviour
         _currentHealth = maxHealth;
         _healthIntervals = maxHealth / 6;
         _nextLargeAttack = maxHealth -= _healthIntervals;
+        
+    }
+
+    public void Awaken()
+    {
         StartCoroutine(TimeUntilNextDirectAttack());
     }
+
+    void Sleep()
+    {
+        StopAllCoroutines();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -76,19 +87,25 @@ public class DroneBoss : MonoBehaviour
 
         if (_healthChanging)
         {
-            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount * 1000, _currentHealth, 2f * Time.deltaTime) / 1000 ;
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount * 1000, _currentHealth, 3f * Time.deltaTime) / 1000 ;
             if(Mathf.Round(healthBar.fillAmount * 1000) == Mathf.Round(_currentHealth)){
                 _healthChanging = false;
+                _healthTrailChanging = true;
+            }
+            else
+            {
+                _healthTrailChanging = false;
             }
         }
 
         if (_healthTrailChanging)
         {
-            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount * 1000, _currentHealth, 1.5f * Time.deltaTime) / 1000;
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount * 1000, _currentHealth, 5f * Time.deltaTime) / 1000;
             if (Mathf.Round(healthTrail.fillAmount * 1000) == Mathf.Round(_currentHealth))
             {
                 _healthTrailChanging = false;
             }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !grid.isAttacking)
@@ -199,7 +216,7 @@ public class DroneBoss : MonoBehaviour
     private void MassAttack()
     {
         grid.StartBombAttack();
-        //StopAllCoroutines();
+        StopAllCoroutines();
         StartCoroutine(MassAttackExit());
 
     }
@@ -212,8 +229,8 @@ public class DroneBoss : MonoBehaviour
     {
         _currentHealth -= damage;
         _healthChanging = true;
-        StopCoroutine(HealthBarWait());
-        StartCoroutine(HealthBarWait());
+        //StopCoroutine(HealthBarWait());
+        //StartCoroutine(HealthBarWait());
         if(_currentHealth < _nextLargeAttack)
         {
             _nextLargeAttack -= _healthIntervals;
@@ -271,11 +288,4 @@ public class DroneBoss : MonoBehaviour
         SpawnRing2(gridPos, offsetX, offsetY);
         
     }
-
-    IEnumerator HealthBarWait()
-    {
-        yield return new WaitForSeconds(0.5f);
-        _healthTrailChanging = true;
-    }
-    
 }

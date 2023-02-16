@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6863017127836866732
+--- !u!1 &5155005238834582879
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6863017127836866730}
-  - component: {fileID: 6863017127836866731}
+  - component: {fileID: 5155005238834582877}
+  - component: {fileID: 5155005238834582876}
   m_Layer: 0
   m_Name: Attack2-3
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6863017127836866730
+--- !u!4 &5155005238834582877
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6863017127836866732}
+  m_GameObject: {fileID: 5155005238834582879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6863017127836866731
+--- !u!114 &5155005238834582876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6863017127836866732}
+  m_GameObject: {fileID: 5155005238834582879}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9e696fc645861a49a433b4d2557743e, type: 3}
@@ -47,15 +47,12 @@ MonoBehaviour:
   hasFollowingAttack: 1
   weight: 3
   positions:
-  - {x: 3, y: 0}
-  - {x: 3, y: 1}
-  - {x: 3, y: 2}
-  - {x: 3, y: 3}
-  - {x: 3, y: 4}
-  - {x: 4, y: 0}
-  - {x: 4, y: 1}
-  - {x: 4, y: 2}
-  - {x: 4, y: 3}
-  - {x: 4, y: 4}
-  nextAttack: {fileID: 5999397971574516198, guid: 32c0f001e3b43ab47a3e19690178c977, type: 3}
+  - {x: 2, y: 0}
+  - {x: 2, y: 1}
+  - {x: 2, y: 2}
+  - {x: 2, y: 3}
+  - {x: 2, y: 4}
+  - {x: 2, y: 5}
+  - {x: 2, y: 6}
+  nextAttack: {fileID: 5155005238834582876, guid: d71270ec7f4f68a4c90ddb6efdf44546, type: 3}
   nextAttackDelay: 1
