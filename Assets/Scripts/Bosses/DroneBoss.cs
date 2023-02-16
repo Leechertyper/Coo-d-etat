@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DroneBoss : MonoBehaviour
 {
@@ -17,13 +18,17 @@ public class DroneBoss : MonoBehaviour
     [SerializeField] private GameObject quickTarget;
 
     // enemies base movespeed
-    [SerializeField] private float moveSpeed = 0.01f;
+    [SerializeField] private float moveSpeed = 1f;
 
     // enemys base health
     [SerializeField] private float maxHealth = 1000;
 
     
     [SerializeField] private float timeBetweenMoves = 5;
+
+    [SerializeField] private Image healthBar;
+
+    [SerializeField] private Image healthTrail;
 
 
     //enemy will start using its special attack when it gets lower than a multiple of this number
@@ -43,6 +48,10 @@ public class DroneBoss : MonoBehaviour
 
     private int _movesLeft;
 
+    private bool _healthChanging = false;
+
+    private bool _healthTrailChanging = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +59,19 @@ public class DroneBoss : MonoBehaviour
         _currentHealth = maxHealth;
         _healthIntervals = maxHealth / 6;
         _nextLargeAttack = maxHealth -= _healthIntervals;
+        
+    }
+
+    public void Awaken()
+    {
         StartCoroutine(TimeUntilNextDirectAttack());
     }
+
+    void Sleep()
+    {
+        StopAllCoroutines();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -63,6 +83,29 @@ public class DroneBoss : MonoBehaviour
             {
                 _inPosition = true;
             }
+        }
+
+        if (_healthChanging)
+        {
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount * 1000, _currentHealth, 3f * Time.deltaTime) / 1000 ;
+            if(Mathf.Round(healthBar.fillAmount * 1000) == Mathf.Round(_currentHealth)){
+                _healthChanging = false;
+                _healthTrailChanging = true;
+            }
+            else
+            {
+                _healthTrailChanging = false;
+            }
+        }
+
+        if (_healthTrailChanging)
+        {
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount * 1000, _currentHealth, 5f * Time.deltaTime) / 1000;
+            if (Mathf.Round(healthTrail.fillAmount * 1000) == Mathf.Round(_currentHealth))
+            {
+                _healthTrailChanging = false;
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !grid.isAttacking)
@@ -154,8 +197,6 @@ public class DroneBoss : MonoBehaviour
             offsetY.x = 0;
         }
 
-        
-
         for (int i = (int)(gridPos.x + offsetX.x); i <= (gridPos.x + offsetX.y); i++)
         {
             for (int j = (int)(gridPos.y + offsetY.x); j <= (gridPos.y + offsetY.y); j++)
@@ -168,9 +209,6 @@ public class DroneBoss : MonoBehaviour
             }
         }
     }
-
-
-
 
     /// <summary>
     /// Will begin the bosses AOE attack
@@ -190,6 +228,9 @@ public class DroneBoss : MonoBehaviour
     private void TakeDamage(float damage)
     {
         _currentHealth -= damage;
+        _healthChanging = true;
+        //StopCoroutine(HealthBarWait());
+        //StartCoroutine(HealthBarWait());
         if(_currentHealth < _nextLargeAttack)
         {
             _nextLargeAttack -= _healthIntervals;
@@ -247,6 +288,4 @@ public class DroneBoss : MonoBehaviour
         SpawnRing2(gridPos, offsetX, offsetY);
         
     }
-
-    
 }

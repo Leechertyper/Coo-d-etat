@@ -24,6 +24,11 @@ public class DroneBossGrid : MonoBehaviour
     [Header("The attack object prefab")]
     [SerializeField] private GameObject targetObject;
 
+    [SerializeField] Canvas bossLabel;
+
+    [SerializeField] Canvas healthBars;
+
+    [SerializeField] Canvas winText;
     // The tile grid
     private Tile[,] _grid;
 
@@ -34,6 +39,7 @@ public class DroneBossGrid : MonoBehaviour
     private int _currentAttackIndex;
 
     public bool isAttacking = false;
+
 
     /// <summary>
     /// A 2D array of Tiles
@@ -137,9 +143,9 @@ public class DroneBossGrid : MonoBehaviour
                 // creates a new tile at pos (i, j) in the grid
                 _grid[i, j] = new Tile(iterationPosition);
                 // ***TEMP*** creates a floor tile object at the tiles position
-                Instantiate(floorTile);
+                //Instantiate(floorTile);
                 // ***TEMP*** sets the floor tiles position to the tile position at (i, j)
-                floorTile.transform.position = _grid[i, j].GetPosAsVector();
+                //floorTile.transform.position = _grid[i, j].GetPosAsVector();
                 // changes the current x position of the tiles by gridstep to the next column
                 iterationPosition.y += gridStep;
 
@@ -170,6 +176,14 @@ public class DroneBossGrid : MonoBehaviour
             isAttacking = false;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Entity Entered");
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            transform.GetChild(0).GetComponent<DroneBoss>().Awaken();
+        }
+    }
 
     public void NextBombAttack()
     {
@@ -198,8 +212,4 @@ public class DroneBossGrid : MonoBehaviour
         NextBombAttack();
     }
 
-    public void Update()
-    {
-
-    }
 }

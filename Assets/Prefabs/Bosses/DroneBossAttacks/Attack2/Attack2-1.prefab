@@ -52,10 +52,7 @@ MonoBehaviour:
   - {x: 0, y: 2}
   - {x: 0, y: 3}
   - {x: 0, y: 4}
-  - {x: 1, y: 0}
-  - {x: 1, y: 1}
-  - {x: 1, y: 2}
-  - {x: 1, y: 3}
-  - {x: 1, y: 4}
-  nextAttack: {fileID: 2667128095949833860, guid: 45318e7795d060f46ab6ecb19d54ac1f, type: 3}
+  - {x: 0, y: 5}
+  - {x: 0, y: 6}
+  nextAttack: {fileID: 5155005238834582876, guid: 29a6706c695bd8143bd8f697eb3e419f, type: 3}
   nextAttackDelay: 1
