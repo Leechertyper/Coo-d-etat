@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,13 +6,13 @@ using UnityEngine;
 /// </summary>
 public static class FloorConstants
 {
-    public const float VerticalRoomOffset = 29.0f;
-    public const float HorizontalRoomOffset = 53.0f;
+    public const float VerticalRoomOffset = 35.5f;
+    public const float HorizontalRoomOffset = 69.5f;
     
     public const float TransitionSpeed = 0.25f;
 
-    public const float VerticalPlayerOffset = 8f;
-    public const float HorizontalPlayerOffset = 8f;
+    public const float VerticalPlayerOffset = 17f;
+    public const float HorizontalPlayerOffset = 27f;
 }
 
 public class Floor : MonoBehaviour
@@ -30,12 +29,13 @@ public class Floor : MonoBehaviour
     [SerializeField] private GameObject startRoomPrefab;
     [SerializeField] private GameObject endRoomPrefab;
 
-    [SerializeField] private CameraController camController;
+    private CameraController _camController;
 
 
     private void Start()
     {
-        SpawnRooms(2, 2);
+        _camController = Camera.main.GetComponent<CameraController>();
+        SpawnRooms(3, 3);
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ public class Floor : MonoBehaviour
         startRoom.transform.position = new Vector3(transform.position.x,
             transform.position.y + FloorConstants.VerticalRoomOffset);
         
-        camController.MoveCameraToStart(startRoom.transform);
+        _camController.MoveCameraToStart(startRoom.transform);
 
         for (var i = 0; i < r; i++)
         {
@@ -116,9 +116,10 @@ public class Floor : MonoBehaviour
     /// <param name="player">The game object that is tagged player (this is auto detected by the door script)</param>
     public void MoveUp(GameObject player)
     {
+        if (_camController.IsMoving) return;
         var newPlayerLocation = new Vector3(player.transform.position.x, player.transform.position.y + FloorConstants.VerticalPlayerOffset);
         player.transform.position = newPlayerLocation;
-        camController.MoveUp();
+        _camController.MoveUp();
     }
 
     /// <summary>
@@ -127,9 +128,10 @@ public class Floor : MonoBehaviour
     /// <param name="player">The game object that is tagged player (this is auto detected by the door script)</param>
     public void MoveDown(GameObject player)
     {
+        if (_camController.IsMoving) return;
         var newPlayerLocation = new Vector3(player.transform.position.x, player.transform.position.y - FloorConstants.VerticalPlayerOffset);
         player.transform.position = newPlayerLocation;
-        camController.MoveDown();
+        _camController.MoveDown();
     }
 
     /// <summary>
@@ -138,8 +140,9 @@ public class Floor : MonoBehaviour
     /// <param name="player">The game object that is tagged player (this is auto detected by the door script)</param>
     public void MoveRight(GameObject player)
     {
+        if (_camController.IsMoving) return;
         var newPlayerLocation = new Vector3(player.transform.position.x + FloorConstants.HorizontalPlayerOffset, player.transform.position.y);
-        camController.MoveRight();
+        _camController.MoveRight();
         player.transform.position = newPlayerLocation;
     }
 
@@ -149,9 +152,10 @@ public class Floor : MonoBehaviour
     /// <param name="player">The game object that is tagged player (this is auto detected by the door script)</param>
     public void MoveLeft(GameObject player)
     {
+        if (_camController.IsMoving) return;
         var newPlayerLocation = new Vector3(player.transform.position.x - FloorConstants.HorizontalPlayerOffset, player.transform.position.y);
         player.transform.position = newPlayerLocation;
-        camController.MoveLeft();
+        _camController.MoveLeft();
     }
     
     
