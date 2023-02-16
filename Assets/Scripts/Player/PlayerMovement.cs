@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     // Reference to the projectile prefab to be spawned
     public GameObject projectilePrefab;
 
+    //Damage of the laser
+    [SerializeField] private int _damage;
+
     // Cooldown time for shooting projectiles
     public float shootCooldown = 0.2f;
     private float shootTimer = 0f;
@@ -94,7 +97,8 @@ public class PlayerMovement : MonoBehaviour
         {
             // Spawn a new projectile at the player's position
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-
+            // Set the damage of the projectile
+            projectile.GetComponent<Lazer>().SetPower(_damage);
             // Set the velocity of the projectile to the specified direction
             Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
             projectileRb.velocity = direction * 10;
