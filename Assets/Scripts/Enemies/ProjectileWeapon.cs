@@ -14,14 +14,18 @@ public class ProjectileWeapon : MonoBehaviour
     public Transform anchorPoint;
     public float fireForce;
 
+    private void Update()
+    {
+
+    }
 
     /// <summary>
     /// Instantiates Lazer in direction of Weapon and add force to it
     /// </summary>
     /// Note* Force applied to lazer is increaded by change in fireForce in the inspector
-    public void Shoot()
-    {
-        GameObject newProjectile = Instantiate(projectile, anchorPoint.position, anchorPoint.rotation);
-        newProjectile.GetComponent<Rigidbody2D>().AddForce(anchorPoint.up * fireForce, ForceMode2D.Impulse);
+    public void Shoot(float angle)
+    {        
+        GameObject newProjectile = Instantiate(projectile, anchorPoint.position, Quaternion.Euler(0,0,angle));
+        newProjectile.GetComponent<Rigidbody2D>().AddForce(newProjectile.transform.up * fireForce, ForceMode2D.Impulse);
     }
 }
