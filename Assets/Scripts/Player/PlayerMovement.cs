@@ -58,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("LastMoveX", _lastMoveDirection.x);
         animator.SetFloat("LastMoveY", _lastMoveDirection.y);
 
+        //DEBUG Heal func
+        if(Input.GetKeyDown(KeyCode.H)){
+            this.gameObject.GetComponent<Player>().SetHealth(10);
+        }
         // Check if the arrow keys are being pressed, and shoot projectiles in the corresponding direction
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
