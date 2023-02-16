@@ -67,7 +67,7 @@ public class DroneBoss : MonoBehaviour
         StartCoroutine(TimeUntilNextDirectAttack());
     }
 
-    void Sleep()
+    public void Sleep()
     {
         StopAllCoroutines();
     }
