@@ -17,13 +17,6 @@ public class BalanceMenu : MonoBehaviour
     public GameObject buttonParents;
     public GameObject confirmButton;
 
-    /// <NOTE>
-    /// To make the buttons into cards, just need to change the buttonPrefab
-    /// remove slider components
-    /// Make the same sortof script as BalanceSlider.cs but it wont need to update values just keep track of the dictionary and key
-    /// </NOTE>
-
-
     // Update is called once per frame
     void Update()
     {
