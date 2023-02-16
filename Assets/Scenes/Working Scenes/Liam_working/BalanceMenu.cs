@@ -9,13 +9,13 @@ public class BalanceMenu : MonoBehaviour
     public bool gameIsPaused = false;
     public GameObject balanceMenuUI;
     public GameObject gameManagerScript;
-    public bool seenEnemy = false;
-    public bool seenBoss = false;
-    public Button buffButtonOne;
-    public Button nerfButtonOne;
-    public Button buffButtonTwo;
-    public Button nerfButtonTwo;
-
+    public GameObject buttonPrefab;
+    public GameObject buttonContent;
+    public GameObject sliderPrefab;
+    public GameObject sliderContent;
+    public GameObject sliderParents;
+    public GameObject buttonParents;
+    public GameObject confirmButton;
 
     // Update is called once per frame
     void Update()
@@ -30,7 +30,29 @@ public class BalanceMenu : MonoBehaviour
     }
 
     /*
-    *   When called, this will NextLevel the game and go to next floor
+    *   This function will populate the sliderContent with buttons that contain sections that the user has seen since the last balance
+    */
+    private void PopulateButtons()
+    {
+        buttonParents.SetActive(true);
+        sliderParents.SetActive(false);
+        confirmButton.SetActive(false);
+        RemoveButtons();
+        for(int i=0; i<BalanceVariables.dictionaryListStrings.Count; i++)
+        {
+            if(BalanceVariables.seenDictionaries[BalanceVariables.dictionaryListStrings[i]])
+            {
+                int temp = i;
+                GameObject newButton = Instantiate(buttonPrefab, buttonContent.transform);
+                newButton.GetComponent<Button>().GetComponentInChildren<Text>().text = BalanceVariables.dictionaryListStrings[i];
+                newButton.GetComponent<Button>().onClick.AddListener(() => PopulateSliders(BalanceVariables.dictionaryList[temp]));
+            }
+            
+        }
+    }
+
+    /*
+    *   When called, this will reset the scene (balance menu wise) and go to next floor
     */
     public void NextLevel()
     {
@@ -38,7 +60,18 @@ public class BalanceMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         startBalance = false;
+        Dictionary<string,bool> _temp = new Dictionary<string,bool>(BalanceVariables.seenDictionaries);
+        foreach (KeyValuePair<string, bool> kvp in _temp)
+        {
+            if(kvp.Key!="player")
+            {
+                BalanceVariables.seenDictionaries[kvp.Key] = false;
+            }
+        }
         gameManagerScript.GetComponent<newGameManager>().BalanceTimerStart();
+
+
+
     }
 
     /*
@@ -46,131 +79,76 @@ public class BalanceMenu : MonoBehaviour
     */
     void Pause()
     {
-        AssignButtonListeners();
         balanceMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        PopulateButtons();
     }
 
     /*
-    *   This function will randomize the 2 of the 4 button options
-    *   (player will stay the same for right now until more values to change)
+    *   When called, this will pause the game.
     */
-    void AssignButtonListeners()
+    public void ConfirmSelection()
     {
-        if(seenEnemy && !seenBoss)
+        foreach (Transform child in sliderContent.transform) 
         {
-            AssignEnemyButtons();
+            if(child.GetComponent<BalanceSlider>().dictionaryKey!="General")
+            {
+                gameManagerScript.GetComponent<newGameManager>().BalanceSection(child.GetComponent<BalanceSlider>().dictionary,child.GetComponent<BalanceSlider>().dictionaryKey, child.GetComponent<BalanceSlider>().value);
+            }
+            
         }
-        else if(!seenEnemy && seenBoss)
+        NextLevel();
+    }
+
+    void RemoveButtons()
+    {
+        foreach (Transform child in buttonContent.transform) {
+            Destroy(child.gameObject);
+        }
+
+    }
+
+    public void GeneralSliderChange(float valueChange)
+    {
+        foreach (Transform child in sliderContent.transform) 
         {
-            AssignBossButtons();
+            child.GetComponent<Slider>().SetValueWithoutNotify(child.GetComponent<BalanceSlider>().GeneralFix(valueChange)) ;
         }
-        else{
-            if(Random.Range(1, 3)==2)
-            {
-                AssignBossButtons();
-            }
-            else
-            {
-                AssignEnemyButtons();
-            }
+    }
+
+    void RemoveSliders()
+    {
+        foreach (Transform child in sliderContent.transform) 
+        {
+            Destroy(child.gameObject);
         }
-        AssignPlayerButtons();
-        
     }
 
     /*
-    *   Assigns the buff and nerf second buttons to the enemy
+    *   
     */
-    void AssignEnemyButtons()
+    void PopulateSliders(Dictionary<string,float> dictionary)
     {
-        buffButtonTwo.onClick.AddListener(BuffEnemy);
-        buffButtonTwo.GetComponentInChildren<Text>().text = "Buff Enemy";
-        nerfButtonTwo.onClick.AddListener(NerfEnemy);
-        nerfButtonTwo.GetComponentInChildren<Text>().text = "Nerf Enemy";
+        RemoveSliders();
+        buttonParents.SetActive(false);
+        sliderParents.SetActive(true);
+        confirmButton.SetActive(true);
+
+        GameObject newGenralSlider = Instantiate(sliderPrefab, sliderContent.transform);
+        newGenralSlider.GetComponent<BalanceSlider>().label.text = "General Change";
+        newGenralSlider.GetComponent<BalanceSlider>().dictionaryKey = "General";
+        newGenralSlider.GetComponent<BalanceSlider>().dictionary = dictionary;
+        newGenralSlider.GetComponent<BalanceSlider>().balanceLevel.text = "1.0";
+
+        foreach (KeyValuePair<string, float> kvp in dictionary)
+        {
+            GameObject newSlider = Instantiate(sliderPrefab, sliderContent.transform);
+            newSlider.GetComponent<BalanceSlider>().label.text = kvp.Key;
+            newSlider.GetComponent<BalanceSlider>().dictionaryKey = kvp.Key;
+            newSlider.GetComponent<BalanceSlider>().dictionary = dictionary;
+            newSlider.GetComponent<BalanceSlider>().balanceLevel.text = "1.0";
+        }
     }
 
-    /*
-    *   Assigns the buff and nerf second buttons to the boss
-    */
-    void AssignBossButtons()
-    {
-        buffButtonTwo.onClick.AddListener(BuffBoss);
-        buffButtonTwo.GetComponentInChildren<Text>().text = "Buff Boss";
-        nerfButtonTwo.onClick.AddListener(NerfBoss);
-        nerfButtonTwo.GetComponentInChildren<Text>().text = "Nerf Boss";
-    }
-
-    /*
-    *   Assigns the buff and nerf first buttons to the player
-    */
-    void AssignPlayerButtons()
-    {
-        buffButtonOne.onClick.AddListener(BuffPlayer);
-        buffButtonOne.GetComponentInChildren<Text>().text = "Buff Player";
-        nerfButtonOne.onClick.AddListener(NerfPlayer);
-        nerfButtonOne.GetComponentInChildren<Text>().text = "Nerf Player";
-    }
-
-    /*
-    *   This will call ChangePlayerStats to modify the values
-    *   if we dont like BalanceVariables, we can change it to the actual files
-    */
-    public void BuffPlayer()
-    {
-        gameManagerScript.GetComponent<newGameManager>().BalanceFullSection(BalanceVariables.player, BalanceVariables.other["buffValue"]);
-        NextLevel();
-
-    }
-
-    /*
-    *   This will call ChangePlayerStats to modify the values
-    *   if we dont like BalanceVariables, we can change it to the actual files
-    */
-    public void NerfPlayer()
-    {
-        gameManagerScript.GetComponent<newGameManager>().BalanceFullSection(BalanceVariables.player, BalanceVariables.other["nerfValue"]);
-        NextLevel();
-    }
-
-    /*
-    *   This will call ChangeEnemyStats to modify the values
-    *   if we dont like BalanceVariables, we can change it to the actual files
-    */
-    public void BuffEnemy()
-    {
-        gameManagerScript.GetComponent<newGameManager>().BalanceFullSection(BalanceVariables.droneEnemy, BalanceVariables.other["buffValue"]);
-        NextLevel();
-    }
-
-    /*
-    *   This will call ChangeEnemyStats to modify the values
-    *   if we dont like BalanceVariables, we can change it to the actual files
-    */
-    public void NerfEnemy()
-    {
-        gameManagerScript.GetComponent<newGameManager>().BalanceFullSection(BalanceVariables.droneEnemy, BalanceVariables.other["nerfValue"]);
-        NextLevel();
-    }
-
-    /*
-    *   This will call ChangeBossStats to modify the values
-    *   if we dont like BalanceVariables, we can change it to the actual files
-    */
-    public void BuffBoss()
-    {
-        gameManagerScript.GetComponent<newGameManager>().BalanceFullSection(BalanceVariables.droneBoss, BalanceVariables.other["buffValue"]);
-        NextLevel();
-    }
-
-    /*
-    *   This will call ChangeBossStats to modify the values
-    *   if we dont like BalanceVariables, we can change it to the actual files
-    */
-    public void NerfBoss()
-    {
-        gameManagerScript.GetComponent<newGameManager>().BalanceFullSection(BalanceVariables.droneBoss, BalanceVariables.other["nerfValue"]);
-        NextLevel();
-    }
 }

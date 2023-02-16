@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BalanceVariables : MonoBehaviour
 {
+    
+    public static List<string> dictionaryListStrings = new List<string>()
+    {
+        "player", "droneEnemy", "droneBoss", "collectables", "other"
+    };
     public static Dictionary<string,float> droneBoss = new Dictionary<string,float>()
     {
         //found in DroneBoss.cs
@@ -57,11 +62,23 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,float> other = new Dictionary<string,float>()
     {
         //will be added to gamemanager
-        {"balancePointTimerSeconds",10}, 
-        //found in BalanceMenu.cs
-        {"nerfValue",0.9f},
-        {"buffValue",1.1f},  
+        {"balancePointTimerSeconds",10},  
         {"roomSpawnChance",0f},  
+    };
+
+    public static List<Dictionary<string,float>> dictionaryList = new List<Dictionary<string,float>>()
+    {
+        player, droneEnemy, droneBoss, collectables, other
+    };
+
+    //mainly for knowing if they have been seen for balancing
+    public static Dictionary<string,bool> seenDictionaries = new Dictionary<string,bool>()
+    {
+        {"player",true},  
+        {"droneEnemy",false},  
+        {"droneBoss",false},  
+        {"collectables",false},  
+        {"other",false},  
     };
 
 }
