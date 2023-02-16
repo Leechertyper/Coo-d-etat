@@ -62,7 +62,7 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,float> other = new Dictionary<string,float>()
     {
         //will be added to gamemanager
-        {"balancePointTimerSeconds",10},  
+        {"balancePointTimerSeconds",300},  
         {"roomSpawnChance",0f},  
     };
 
