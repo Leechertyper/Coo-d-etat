@@ -29,6 +29,7 @@ public class DroneBossGrid : MonoBehaviour
     [SerializeField] Canvas healthBars;
 
     [SerializeField] Canvas winText;
+
     // The tile grid
     private Tile[,] _grid;
 
@@ -53,8 +54,8 @@ public class DroneBossGrid : MonoBehaviour
     /// </summary>
     public class Tile
     {
-        private int _x;
-        private int _y;
+        private float _x;
+        private float _y;
         private bool _active = false;
 
         /// <summary>
@@ -68,15 +69,15 @@ public class DroneBossGrid : MonoBehaviour
         /// <param name="pos">The tiles initial position</param>
         public Tile(Vector2 pos)
         {
-            _x = (int)pos.x;
-            _y = (int)pos.y;
+            _x = pos.x;
+            _y = pos.y;
         }
 
         /// <summary>
         /// Gets the x position of the tile
         /// </summary>
         /// <returns>The x position of the tile</returns>
-        public int GetX()
+        public float GetX()
         {
             return _x;
         }
@@ -85,7 +86,7 @@ public class DroneBossGrid : MonoBehaviour
         /// Gets the y position of the tile
         /// </summary>
         /// <returns>The tiles y position</returns>
-        public int GetY()
+        public float GetY()
         {
             return _y;
         }
@@ -123,8 +124,8 @@ public class DroneBossGrid : MonoBehaviour
         /// <param name="newPos">A Vector2 containing the new x and y position of the tile</param>
         public void SetPosAsVector(Vector2 newPos)
         {
-            _x = (int)newPos.x;
-            _y = (int)newPos.y;
+            _x = newPos.x;
+            _y = newPos.y;
         }
     }
     // Start is called before the first frame update

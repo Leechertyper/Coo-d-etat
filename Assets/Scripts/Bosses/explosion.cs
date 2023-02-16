@@ -6,11 +6,11 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField] private GameObject parent;
 
-    private float _damage;
+    [SerializeField] private int damage = 20;
 
     private void Start()
     {
-        _damage = 50; // this will be taken from the globals once the server is up and running
+
     }
 
     /// <summary>
@@ -29,5 +29,13 @@ public class Explosion : MonoBehaviour
     {
         // will have it check for player collision and deal damage using the players "damage" function
         // GameManager.instance.player.Damage(_damage);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Player>().TakeDamage(damage);
+        }
     }
 }
