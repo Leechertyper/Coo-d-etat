@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _movement;
     private Vector2 _movementDirection;
     private Vector2 _lastMoveDirection;
+    // Input variable for shooting angle
+    private float angle;
 
     // Reference to the projectile prefab to be spawned
     public GameObject projectilePrefab;
@@ -59,19 +61,27 @@ public class PlayerMovement : MonoBehaviour
         // Check if the arrow keys are being pressed, and shoot projectiles in the corresponding direction
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            angle = 0f;
             ShootProjectile(Vector2.up);
+            
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+            angle = 180f;
             ShootProjectile(Vector2.down);
+            
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            angle = 90f;
             ShootProjectile(Vector2.left);
+            
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            angle = -90f;
             ShootProjectile(Vector2.right);
+            
         }
 
         // Update the shoot timer
@@ -96,9 +106,10 @@ public class PlayerMovement : MonoBehaviour
         if (shootTimer <= 0f)
         {
             // Spawn a new projectile at the player's position
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            // Set the damage of the projectile
+            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0,0,angle));
+            // Set the damage and tag of the projectile
             projectile.GetComponent<Lazer>().SetPower(_damage);
+            projectile.gameObject.tag = "PlayerProjectile";
             // Set the velocity of the projectile to the specified direction
             Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
             projectileRb.velocity = direction * 10;
