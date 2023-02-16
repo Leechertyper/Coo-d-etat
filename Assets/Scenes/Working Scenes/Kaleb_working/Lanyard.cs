@@ -11,8 +11,7 @@ public class Lanyard : ItemEffect
     public override void Apply(GameObject target)
     {
         GameObject spawn = Instantiate(lanyard);
-        target.GetComponent<HingeJoint2D>().enabled = true;
-        target.GetComponent<HingeJoint2D>().connectedBody = spawn.transform.GetChild(0).gameObject.GetComponent<Rigidbody2D>();
+        spawn.GetComponent<HingeJoint2D>().connectedBody = target.GetComponent<Rigidbody2D>();
 
     }
 }
