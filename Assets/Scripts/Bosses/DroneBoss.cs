@@ -21,7 +21,7 @@ public class DroneBoss : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
 
     // enemys base health
-    [SerializeField] private float maxHealth = 1000;
+    [SerializeField] private float maxHealth = 100;
 
     
     [SerializeField] private float timeBetweenMoves = 5;
@@ -30,9 +30,11 @@ public class DroneBoss : MonoBehaviour
 
     [SerializeField] private Image healthTrail;
 
+    [SerializeField] private GameObject keycard;
+
 
     //enemy will start using its special attack when it gets lower than a multiple of this number
-    private float _healthIntervals = 250;
+    private float _healthIntervals = 25;
 
     private float _currentHealth;
 
@@ -52,18 +54,22 @@ public class DroneBoss : MonoBehaviour
 
     private bool _healthTrailChanging = false;
 
+    private float _time;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         _movesLeft = _moves;
         _currentHealth = maxHealth;
-        _healthIntervals = maxHealth / 6;
+        _healthIntervals = maxHealth / 4;
         _nextLargeAttack = maxHealth -= _healthIntervals;
         
     }
 
     public void Awaken()
     {
+        grid.GetComponent<Animator>().SetBool("AreaEntered", true);
         StartCoroutine(TimeUntilNextDirectAttack());
     }
 
@@ -72,23 +78,14 @@ public class DroneBoss : MonoBehaviour
         StopAllCoroutines();
     }
 
-
     // Update is called once per frame
     void Update()
     {
-        if (_inMotion)
-        {
-            transform.position = Vector2.Lerp(transform.position, _targetPos, moveSpeed * Time.deltaTime);
-            if(Mathf.Round(transform.position.x) == _targetPos.x && Mathf.Round(transform.position.y) == _targetPos.y)
-            {
-                _inPosition = true;
-            }
-        }
 
         if (_healthChanging)
         {
-            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount * 1000, _currentHealth, 3f * Time.deltaTime) / 1000 ;
-            if(Mathf.Round(healthBar.fillAmount * 1000) == Mathf.Round(_currentHealth)){
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount * 100, _currentHealth, 3f * Time.deltaTime) / 100 ;
+            if(Mathf.Round(healthBar.fillAmount * 100) == Mathf.Round(_currentHealth)){
                 _healthChanging = false;
                 _healthTrailChanging = true;
             }
@@ -100,17 +97,12 @@ public class DroneBoss : MonoBehaviour
 
         if (_healthTrailChanging)
         {
-            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount * 1000, _currentHealth, 5f * Time.deltaTime) / 1000;
-            if (Mathf.Round(healthTrail.fillAmount * 1000) == Mathf.Round(_currentHealth))
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount * 100, _currentHealth, 5f * Time.deltaTime) / 100;
+            if (Mathf.Round(healthTrail.fillAmount * 100) == Mathf.Round(_currentHealth))
             {
                 _healthTrailChanging = false;
             }
 
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && !grid.isAttacking)
-        {
-            TakeDamage(100);
         }
     }
 
@@ -126,6 +118,8 @@ public class DroneBoss : MonoBehaviour
             Debug.Log(_targetPos);
             _inMotion = true;
             _movesLeft--;
+            _time = Time.realtimeSinceStartup + 1;
+            StartCoroutine(LerpFunction(_targetPos, 0.1f));
             StartCoroutine(Moving());
         }
     }
@@ -216,7 +210,8 @@ public class DroneBoss : MonoBehaviour
     private void MassAttack()
     {
         grid.StartBombAttack();
-        StopAllCoroutines();
+        StopCoroutine(Moving());
+        StopCoroutine(TimeUntilNextDirectAttack());
         StartCoroutine(MassAttackExit());
 
     }
@@ -225,18 +220,25 @@ public class DroneBoss : MonoBehaviour
     /// Will deal damage to the boss
     /// </summary>
     /// <param name="damage">The amount of damage to deal to the boss</param>
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         _currentHealth -= damage;
         _healthChanging = true;
-        //StopCoroutine(HealthBarWait());
-        //StartCoroutine(HealthBarWait());
         if(_currentHealth < _nextLargeAttack)
         {
             _nextLargeAttack -= _healthIntervals;
             MassAttack();
         }
 
+        if(_currentHealth <= 0)
+        {
+            StopAllCoroutines();
+            grid.GetComponent<Animator>().SetBool("BossDead", true);
+            GameObject key = Instantiate(keycard);
+            key.transform.position = transform.position;
+            StartCoroutine(Death());
+            
+        }
     }
 
     /// <summary>
@@ -279,6 +281,7 @@ public class DroneBoss : MonoBehaviour
     IEnumerator MassAttackExit()
     {
         yield return new WaitUntil(() => !grid.isAttacking);
+        StopCoroutine(TimeUntilNextDirectAttack());
         StartCoroutine(TimeUntilNextDirectAttack());
     }
 
@@ -287,5 +290,25 @@ public class DroneBoss : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SpawnRing2(gridPos, offsetX, offsetY);
         
+    }
+
+    IEnumerator Death()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(grid.gameObject);
+    }
+    IEnumerator LerpFunction(Vector2 endValue, float duration)
+    {
+        float time = 0;
+        Vector2 startValue = transform.position;
+        while (time < duration)
+        {
+            transform.position = Vector2.Lerp(startValue, endValue, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        _inMotion = false;
+        _inPosition = true;
+        transform.position = endValue;
     }
 }
