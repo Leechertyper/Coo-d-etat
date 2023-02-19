@@ -22,7 +22,6 @@ public class DroneBoss : MonoBehaviour
 
     // enemys base health
     [SerializeField] private float maxHealth = 100;
-
     
     [SerializeField] private float timeBetweenMoves = 5;
 
@@ -56,6 +55,10 @@ public class DroneBoss : MonoBehaviour
 
     private float _time;
 
+    private bool _massAttacking = false;
+
+    private bool _dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,12 +70,18 @@ public class DroneBoss : MonoBehaviour
         player = GameManager.Instance.GetPlayerObject();
     }
 
+    /// <summary>
+    /// Called when the player enters the room
+    /// </summary>
     public void Awaken()
     {
         grid.GetComponent<Animator>().SetBool("AreaEntered", true);
         StartCoroutine(TimeUntilNextDirectAttack());
     }
 
+    /// <summary>
+    /// Called when the player leaves the room
+    /// </summary>
     public void Sleep()
     {
         StopAllCoroutines();
@@ -81,7 +90,6 @@ public class DroneBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (_healthChanging)
         {
             healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _currentHealth/maxHealth, 3f * Time.deltaTime) ;
@@ -121,16 +129,8 @@ public class DroneBoss : MonoBehaviour
             _time = Time.realtimeSinceStartup + 1;
             StartCoroutine(LerpFunction(_targetPos, 0.1f));
             StartCoroutine(Moving());
+
         }
-    }
-
-    /// <summary>
-    /// Moves the enemy to a tile where they will begin attacking
-    /// </summary>
-    /// <param name="tilePos">The index of the tile to move to</param>
-    private void MoveToTile(Vector2 tilePos)
-    {
-
     }
 
     /// <summary>
@@ -160,6 +160,11 @@ public class DroneBoss : MonoBehaviour
         SpawnTargets(target, posInGrid);
     }
 
+    /// <summary>
+    /// Spawns the start target for a basic attack then calls the Ring2Wait timer
+    /// </summary>
+    /// <param name="pos">the start tile</param>
+    /// <param name="gridPos">position of the start tile in the grid</param>
     void SpawnTargets(DroneBossGrid.Tile pos, Vector2 gridPos)
     {
         Vector2 offsetX = new Vector2(-1, 1);
@@ -171,6 +176,12 @@ public class DroneBoss : MonoBehaviour
         StartCoroutine(Ring2Wait(gridPos, offsetX, offsetY));
     }
 
+    /// <summary>
+    /// Spawns the second ring of the mini attack
+    /// </summary>
+    /// <param name="gridPos">the position of the start tile in the grid</param>
+    /// <param name="offsetX">the x offset to check if a target can spawn</param>
+    /// <param name="offsetY">the y offset to check if a target can spawn</param>
     void SpawnRing2(Vector2 gridPos, Vector2 offsetX, Vector2 offsetY)
     {
         DroneBossGrid.Tile[,] _grid = grid.Grid;
@@ -209,9 +220,9 @@ public class DroneBoss : MonoBehaviour
     /// </summary>
     private void MassAttack()
     {
+        _massAttacking = true;
         grid.StartBombAttack();
-        StopCoroutine(Moving());
-        StopCoroutine(TimeUntilNextDirectAttack());
+        healthBar.color = new Color(1, 0.2028302f, 0.2028302f);
         StartCoroutine(MassAttackExit());
 
     }
@@ -222,23 +233,27 @@ public class DroneBoss : MonoBehaviour
     /// <param name="damage">The amount of damage to deal to the boss</param>
     public void TakeDamage(float damage)
     {
-        _currentHealth -= damage;
-        _healthChanging = true;
-        if(_currentHealth < _nextLargeAttack)
+        if (!_massAttacking)
         {
-            _nextLargeAttack -= _healthIntervals;
-            MassAttack();
+            _currentHealth -= damage;
+            _healthChanging = true;
+            if (_currentHealth < _nextLargeAttack)
+            {
+                _nextLargeAttack -= _healthIntervals;
+                MassAttack();
+            }
+
+            if (_currentHealth <= 0)
+            {
+                StopAllCoroutines();
+                grid.GetComponent<Animator>().SetBool("BossDead", true);
+                //GameObject key = Instantiate(keycard);
+                //key.transform.position = transform.position;
+                StartCoroutine(Death());
+
+            }
         }
 
-        if(_currentHealth <= 0)
-        {
-            StopAllCoroutines();
-            grid.GetComponent<Animator>().SetBool("BossDead", true);
-            GameObject key = Instantiate(keycard);
-            key.transform.position = transform.position;
-            StartCoroutine(Death());
-            
-        }
     }
 
     /// <summary>
@@ -248,24 +263,40 @@ public class DroneBoss : MonoBehaviour
     IEnumerator Moving()
     {
         yield return new WaitUntil(() =>_inPosition);
-        _inMotion = false;
-        _inPosition = false;
-        if(_movesLeft > 0)
+        if (!_massAttacking)
         {
-            StartCoroutine(Pause(0.25f));
-        } 
+            _inMotion = false;
+            _inPosition = false;
+            if(_movesLeft > 0)
+            {
+                StartCoroutine(Pause(0.25f));
+            } 
+            else
+            {
+                _movesLeft = _moves;
+                StartCoroutine(TimeUntilNextDirectAttack());
+                DirectAttack();
+            }
+        }
         else
         {
             _movesLeft = _moves;
-            StartCoroutine(TimeUntilNextDirectAttack());
-            DirectAttack();
         }
     }
 
+    /// <summary>
+    /// Pauses for a set time before moving again
+    /// </summary>
+    /// <param name="duration">the amount of time to pause</param>
+    /// <returns></returns>
     IEnumerator Pause(float duration)
     {
         yield return new WaitForSeconds(duration);
-        FakeMoveToTile();
+        if (!_massAttacking)
+        {
+            FakeMoveToTile();
+        }
+        
     }
 
     /// <summary>
@@ -278,13 +309,25 @@ public class DroneBoss : MonoBehaviour
         FakeMoveToTile();
     }
 
+    /// <summary>
+    /// After a mass attack is finished, this is called
+    /// </summary>
+    /// <returns></returns>
     IEnumerator MassAttackExit()
     {
         yield return new WaitUntil(() => !grid.isAttacking);
-        StopCoroutine(TimeUntilNextDirectAttack());
+        _massAttacking = false;
+        healthBar.color = new Color(1, 0.9116114f, 0.2877358f);
         StartCoroutine(TimeUntilNextDirectAttack());
     }
 
+    /// <summary>
+    /// A time that waits to spawn the second ring
+    /// </summary>
+    /// <param name="gridPos">the position of the start tile in the grid</param>
+    /// <param name="offsetX">the x offset to check if a target can spawn</param>
+    /// <param name="offsetY">the y offset to check if a target can spawn</param>
+    /// <returns></returns>
     IEnumerator Ring2Wait(Vector2 gridPos, Vector2 offsetX, Vector2 offsetY)
     {
         yield return new WaitForSeconds(0.5f);
@@ -292,11 +335,22 @@ public class DroneBoss : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Timer before destroying the boss
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Death()
     {
         yield return new WaitForSeconds(1);
         Destroy(grid.gameObject);
     }
+
+    /// <summary>
+    /// Moves the boss from one point to another
+    /// </summary>
+    /// <param name="endValue">the target position</param>
+    /// <param name="duration">the time it takes to get there</param>
+    /// <returns></returns>
     IEnumerator LerpFunction(Vector2 endValue, float duration)
     {
         float time = 0;
