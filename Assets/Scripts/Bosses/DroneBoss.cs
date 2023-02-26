@@ -56,6 +56,8 @@ public class DroneBoss : MonoBehaviour
 
     private float _time;
 
+    private float _attackDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +73,7 @@ public class DroneBoss : MonoBehaviour
     {
         grid.GetComponent<Animator>().SetBool("AreaEntered", true);
         StartCoroutine(TimeUntilNextDirectAttack());
+        //GameManager.Instance.SetBossStats();
     }
 
     public void Sleep()
@@ -311,4 +314,24 @@ public class DroneBoss : MonoBehaviour
         _inPosition = true;
         transform.position = endValue;
     }
+
+    public void SetAttackSpeed(float newAttackSpeed)
+    {
+        timeBetweenMoves = newAttackSpeed;
+    }
+
+    public void SetDamage(float newAttackDamage)
+    {
+       _attackDamage = newAttackDamage; // Don't know what to do with this one
+    }
+
+    public void SetMaxHealth(float newMaxHealth)
+    {
+        maxHealth = newMaxHealth;
+    }
+
+    public void SetMoveSpeed(float newMoveSpeed){
+        moveSpeed = newMoveSpeed;
+    }
+
 }

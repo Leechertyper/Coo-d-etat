@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance = null;
     private ArrayList allRooms, allEnemies; //Can use list if wanted
     
-    //private Boss theBoss;
+    private DroneBoss theBoss; //When adding more bosses, we should make a boss interface
 
     private float healthItemValue; // temp var 
+
+    private BalanceVariables theVars;
 
     //private List<Enemy> allEnemies; //Uncomment when there are enemies
 
@@ -29,10 +31,11 @@ public class GameManager : MonoBehaviour
         allRooms = null;
         allEnemies = null;
 
-        //theBoss = null;
+        theBoss = null;
 
         healthItemValue = 1f;
-        
+
+        //theVars = 
     }
      public static GameManager Instance
     {
@@ -50,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
-   
+
     //My idea is that the pcg script will call this function when it has all the rooms generated
     public void SetRooms(ArrayList generatedRooms)
     {
@@ -116,28 +119,28 @@ public class GameManager : MonoBehaviour
     }
 
 
-    // public void setCurrentBoss(Boss curBoss)
-    // {
-    //     if(theBoss = null)
-    //     {
-    //         this.theBoss = curBoss;
-    //     }
-    //     else
-    //     {
-    //         Debug.Log("GameManagerScript: Warning - trying to set the boss when there is already a boss for this floor");
-    //     }
-    // }
+    public void setCurrentBoss(DroneBoss curBoss)
+    {
+        if(theBoss = null)
+        {
+            this.theBoss = curBoss;
+        }
+        else
+        {
+            Debug.Log("GameManagerScript: Warning - trying to set the boss when there is already a boss for this floor");
+        }
+    }
 
     public void ClearCurrentBoss()
     {
-    //     if(theBoss = null)
-    //     {
-    //         Debug.Log("GameManagerScript: Warning - trying to clear the boss when there is no boss for the current floor");
-    //     }
-    //     else 
-    //     {
-    //         theBoss.Clear();
-    //     }
+        if(theBoss = null)
+        {
+            Debug.Log("GameManagerScript: Warning - trying to clear the boss when there is no boss for the current floor");
+        }
+        else 
+        {
+            theBoss = null;
+        }
         Debug.Log("GameManagerScript: Warning - ClearCurrentBoss is not implemented yet");
     }
 
@@ -158,12 +161,20 @@ public class GameManager : MonoBehaviour
     public void ChangeBossStats( float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
     {
 
-        //     theBoss.setAttackSpeed();
-        //     theBoss.setDamage();
-        //     theBoss.SetMaxHealth();
-        //     theBoss.setNewSpeed();
-
+        theBoss.SetMaxHealth(newHealth);
+        theBoss.SetDamage(newDamage);
+        theBoss.SetMoveSpeed(newSpeed);
+        theBoss.SetAttackSpeed(newSpeed);
+        
+    
         Debug.Log("GameManagerScript: Warning - ChangeBossStats is not implemented yet");
+    }
+
+    // To only be called by bosses in their Awaken 
+    public void SetBossStats() 
+    {
+        this.ChangeBossStats(BalanceVariables.bossHealth,BalanceVariables.bossDamage,BalanceVariables.bossMoveSpeed,BalanceVariables.bossAttackSpeed);
+
     }
 
      public void ChangePlayerMaxHealth(int newHealth)
@@ -178,6 +189,11 @@ public class GameManager : MonoBehaviour
         }
         
      }
+
+    public void OnPlayerDeath(){
+        Debug.Log("GameManagerScript: Warning - Calling OnPlayerDeath when it is not implemented");
+    }
+
      public GameObject GetPlayerObject()
      {
         return _thePlayerObject;
