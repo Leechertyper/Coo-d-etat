@@ -5,10 +5,7 @@ using UnityEngine;
 public class BalanceVariables : MonoBehaviour
 {
     
-    public static List<string> dictionaryListStrings = new List<string>()
-    {
-        "player", "droneEnemy", "droneBoss", "collectables", "other"
-    };
+    
     public static Dictionary<string,float> droneBoss = new Dictionary<string,float>()
     {
         //found in DroneBoss.cs
@@ -68,19 +65,26 @@ public class BalanceVariables : MonoBehaviour
         {"nerfValue",0.9f}
     };
 
-    public static List<Dictionary<string,float>> dictionaryList = new List<Dictionary<string,float>>()
-    {
-        player, droneEnemy, droneBoss, collectables, other
-    };
-
-    //mainly for knowing if they have been seen for balancing
+    //mainly for knowing if they have been seen for balancing, dont need to be pushed to database
     public static Dictionary<string,bool> seenDictionaries = new Dictionary<string,bool>()
     {
         {"player",true},  
         {"droneEnemy",true},  
         {"droneBoss",true},  
         {"collectables",true},  
-        {"other",false},  
+        {"other",true},  
+    };
+
+    //mainly for balancing, dont need to be pushed to database
+    public static List<string> dictionaryListStrings = new List<string>()
+    {
+        "player", "droneEnemy", "droneBoss", "collectables", "other",
+    };
+
+    //mainly for balancing, dont need to be pushed to database
+    public static List<Dictionary<string,float>> dictionaryList = new List<Dictionary<string,float>>()
+    {
+        player, droneEnemy, droneBoss, collectables, other
     };
 
 }

@@ -10,13 +10,13 @@ public class newGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BalanceTimerStart();
+        // BalanceTimerStart();
     }
 
     // Update is called once per frame
     void Update()
     {
-        BalanceTimer();
+        // BalanceTimer();
     }
 
     /*
@@ -47,7 +47,7 @@ public class newGameManager : MonoBehaviour
     */
     private void StartBalanceMenu()
     {
-        GameObject.Find("BalanceMenu").GetComponent<BalanceMenu>().startBalance=true;
+        GameObject.Find("BalanceMenuOption3").GetComponent<BalanceMenuOption3>().startBalance=true;
     }
 
     /*

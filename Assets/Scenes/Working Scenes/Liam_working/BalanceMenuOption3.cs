@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class BalanceMenuOption2 : MonoBehaviour
+public class BalanceMenuOption3 : MonoBehaviour
 {
     public bool startBalance = false;
     public bool gameIsPaused = false;
@@ -12,7 +12,6 @@ public class BalanceMenuOption2 : MonoBehaviour
     public GameObject gameManagerScript;
     public GameObject buttonPrefab;
     public GameObject buttonContent;
-    public GameObject buttonParents;
 
     // Update is called once per frame
     void Update()
@@ -38,7 +37,7 @@ public class BalanceMenuOption2 : MonoBehaviour
         Dictionary<string,bool> _temp = new Dictionary<string,bool>(BalanceVariables.seenDictionaries);
         foreach (KeyValuePair<string, bool> kvp in _temp)
         {
-            if(kvp.Key!="player")
+            if(kvp.Key!="player" && kvp.Key!="other")
             {
                 BalanceVariables.seenDictionaries[kvp.Key] = false;
             }
@@ -77,20 +76,45 @@ public class BalanceMenuOption2 : MonoBehaviour
     {
         RemoveButtons();
         Dictionary<string,Dictionary<string,float>> _tempDict = new Dictionary<string,Dictionary<string,float>>();
+        int _numSeenDictionaries = 0;
         for(int i=0; i<BalanceVariables.dictionaryListStrings.Count; i++)
         {
             if(BalanceVariables.seenDictionaries[BalanceVariables.dictionaryListStrings[i]])
             {
                 _tempDict.Add(BalanceVariables.dictionaryListStrings[i], BalanceVariables.dictionaryList[i]);
+                _numSeenDictionaries+=1;
 
             }
  
         }
-        List<Tuple<string, string, string>> tupleList = new List<Tuple<string, string, string>>();
-        for(int i=0; i<3; i++)
+        List<string> _list = new List<string>();
+        for(int i=0; i<Mathf.Min(3,_numSeenDictionaries); i++)
         {
             string _randomDict = GetRandomKeyFromDoubleDict(_tempDict);
-            string _randomKey = GetRandomKeyFromDict(_tempDict[_randomDict]);
+            if(_list.Contains(_randomDict))
+            {
+                i-=1;
+            }
+            else
+            {
+                _list.Add(_randomDict);
+                GameObject newButton = Instantiate(buttonPrefab, buttonContent.transform);
+                newButton.GetComponent<Button>().GetComponentInChildren<Text>().text = _randomDict;
+                newButton.GetComponent<Button>().onClick.AddListener(() => LoadSpecificDictButtons(_tempDict[_randomDict])); 
+            }
+            
+ 
+        }
+        
+    }
+
+
+    private void LoadSpecificDictButtons(Dictionary<string,float> temp){
+        RemoveButtons();
+        List<Tuple<string, string>> tupleList = new List<Tuple<string, string>>();
+        for(int i=0; i<3; i++)
+        {
+            string _randomKey = GetRandomKeyFromDict(temp);
             string _modifyValue="buffValue";
             if(UnityEngine.Random.Range(0,2)==1)
             {
@@ -100,21 +124,20 @@ public class BalanceMenuOption2 : MonoBehaviour
             {
                 _modifyValue="nerfValue";
             }
-            if(tupleList.Contains(new Tuple<string, string, string>(_randomDict, _randomKey, _modifyValue)))
+            if(tupleList.Contains(new Tuple<string, string>(_randomKey, _modifyValue)))
             {
                 i-=1;
             }
             else
             {
-                tupleList.Add(new Tuple<string, string, string>(_randomDict, _randomKey, _modifyValue));
+                tupleList.Add(new Tuple<string, string>(_randomKey, _modifyValue));
                 GameObject newButton = Instantiate(buttonPrefab, buttonContent.transform);
-                newButton.GetComponent<Button>().GetComponentInChildren<Text>().text = _randomDict +"     "+ _randomKey + "     " + _modifyValue;
-                newButton.GetComponent<Button>().onClick.AddListener(() => ChangeBalanceVariables(_tempDict[_randomDict], _randomKey, _modifyValue)); 
+                newButton.GetComponent<Button>().GetComponentInChildren<Text>().text =_randomKey + "     " + _modifyValue;
+                newButton.GetComponent<Button>().onClick.AddListener(() => ChangeBalanceVariables(temp, _randomKey, _modifyValue)); 
             }
             
  
         }
-        
     }
 
     private void ChangeBalanceVariables(Dictionary<string,float> temp, string key, string modifyValue){

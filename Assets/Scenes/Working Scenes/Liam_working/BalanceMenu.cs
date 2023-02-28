@@ -16,7 +16,7 @@ public class BalanceMenu : MonoBehaviour
     public GameObject sliderParents;
     public GameObject buttonParents;
     public GameObject confirmButton;
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +32,7 @@ public class BalanceMenu : MonoBehaviour
     /*
     *   When called, this will reset the scene (balance menu wise) and go to next floor
     */
-    public void NextLevel()
+    public void ResumeGame()
     {
         balanceMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -76,7 +76,7 @@ public class BalanceMenu : MonoBehaviour
             }
             
         }
-        NextLevel();
+        ResumeGame();
     }
 
     /*
@@ -137,7 +137,7 @@ public class BalanceMenu : MonoBehaviour
     /*
     *   This function will populate the sliderContent with buttons that contain sections that the user has seen since the last balance
     */
-    void PopulateSliders(Dictionary<string,float> dictionary)
+    private void PopulateSliders(Dictionary<string,float> dictionary)
     {
         RemoveSliders();
         buttonParents.SetActive(false);
