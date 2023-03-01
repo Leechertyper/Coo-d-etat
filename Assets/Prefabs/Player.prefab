@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 947550787850258271}
   - component: {fileID: 947550787850258267}
   - component: {fileID: 947550787850258268}
+  - component: {fileID: 5324567830572157412}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -169,8 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  projectilePrefab: {fileID: 0}
-  shootCooldown: 0.2
   horizontalInput: Horizontal
   verticalInput: Vertical
   animator: {fileID: 947550787850258271}
@@ -186,8 +185,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cbccf443d43814b884514bc46e1a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthText: {fileID: 0}
   _power: 10
   _maxPower: 10
-  _healthText: {fileID: 0}
   death: {fileID: 0}
   hitParticles: {fileID: 0}
+--- !u!114 &5324567830572157412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266270020640335027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1436609151e8954e83a55c91220db7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4948620444085675658, guid: 63e5652d22f462144b74f7cc70af051c, type: 3}
+  _damage: 1
+  shootCooldown: 0.2
