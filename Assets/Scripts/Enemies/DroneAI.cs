@@ -158,5 +158,17 @@ public class DroneAI : MonoBehaviour
         _rb.velocity = Vector2.zero;
     }
 
+    public void ChangeMoveSpeed(float newMoveSpeed)
+    {
+        moveSpeed = newMoveSpeed;
+    }
+
+    public void ChangeAttackSpeed(float newAttackSpeed)
+    {
+        
+        slowShotCD = newAttackSpeed;
+
+        fastShotCD = newAttackSpeed/2; // maybe there needs to be another fast shot var?
+    }
 
 }
