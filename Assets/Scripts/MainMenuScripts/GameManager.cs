@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    
     [SerializeField] GameObject _thePlayerObject;
     [SerializeField] Player _thePlayer;
     private Vector2 _endRoomPos;
@@ -266,5 +266,16 @@ public class GameManager : MonoBehaviour
     public Vector2 GetEndRoomPos()
     {
         return _endRoomPos;
+    }
+
+    // The return list elements, 
+    // [0] player, [1] drone
+    public List<float> GetPowerValues()
+    {
+        List<float> theReturn = new List<float>();
+        //theReturn.Add(BalanceVariables.player["power"]);
+        theReturn.Add(1); 
+        theReturn.Add(BalanceVariables.droneEnemy["lazerDamage"]);
+        return theReturn;
     }
 }
