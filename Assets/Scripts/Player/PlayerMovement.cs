@@ -29,22 +29,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isMoving) // Make sure Player isn't moving
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 targetPosition = rb.position + Vector2.up * tileSize;
                 isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.S))
             {
                 targetPosition = rb.position + Vector2.down * tileSize;
                 isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.A))
             {
                 targetPosition = rb.position + Vector2.left * tileSize;
                 isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.D))
             {
                 targetPosition = rb.position + Vector2.right * tileSize;
                 isMoving = true;
