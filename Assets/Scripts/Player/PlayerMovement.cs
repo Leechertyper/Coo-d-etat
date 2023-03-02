@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 currentPosition = rb.position;
             Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.fixedDeltaTime);
+            Debug.Log("Target Position = " + newPosition);
             rb.MovePosition(newPosition);
 
             // Calculate the movement direction
