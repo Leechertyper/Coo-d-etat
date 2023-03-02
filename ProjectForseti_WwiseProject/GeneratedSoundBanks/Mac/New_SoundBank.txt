@@ -1,0 +1,88 @@
+Event	ID	Name			Wwise Object Path	Notes
+	331850419	Play_Potential_Pickup_SFX			\Default Work Unit\Play_Potential_Pickup_SFX	
+	480578592	Play_Pigeon_hoo_hoo			\Default Work Unit\Play_Pigeon_hoo_hoo	
+	516331348	Play_Heavy_Blast			\Default Work Unit\Play_Heavy_Blast	
+	698739042	Play_Reverse_Riser			\Default Work Unit\Play_Reverse_Riser	
+	774626832	Play_Pigeon_Coo_14			\Default Work Unit\Play_Pigeon_Coo_14	
+	774626833	Play_Pigeon_Coo_15			\Default Work Unit\Play_Pigeon_Coo_15	
+	774626834	Play_Pigeon_Coo_16			\Default Work Unit\Play_Pigeon_Coo_16	
+	774626836	Play_Pigeon_Coo_10			\Default Work Unit\Play_Pigeon_Coo_10	
+	774626837	Play_Pigeon_Coo_11			\Default Work Unit\Play_Pigeon_Coo_11	
+	774626838	Play_Pigeon_Coo_12			\Default Work Unit\Play_Pigeon_Coo_12	
+	774626839	Play_Pigeon_Coo_13			\Default Work Unit\Play_Pigeon_Coo_13	
+	797579801	Play_Machine_wub_2			\Default Work Unit\Play_Machine_wub_2	
+	797579802	Play_Machine_wub_1			\Default Work Unit\Play_Machine_wub_1	
+	872037337	Play_Heavy_reload			\Default Work Unit\Play_Heavy_reload	
+	1310391422	Play_Robot_Activated			\Default Work Unit\Play_Robot_Activated	
+	1477746252	Play_Pause_SFX			\Default Work Unit\Play_Pause_SFX	
+	1484908144	Play_Missle_Whistle			\Default Work Unit\Play_Missle_Whistle	
+	1808933820	Play_Robot_Ouch			\Default Work Unit\Play_Robot_Ouch	
+	1837174724	Play_Pigeon_Coo_9			\Default Work Unit\Play_Pigeon_Coo_9	
+	1837174725	Play_Pigeon_Coo_8			\Default Work Unit\Play_Pigeon_Coo_8	
+	1837174728	Play_Pigeon_Coo_5			\Default Work Unit\Play_Pigeon_Coo_5	
+	1837174729	Play_Pigeon_Coo_4			\Default Work Unit\Play_Pigeon_Coo_4	
+	1837174730	Play_Pigeon_Coo_7			\Default Work Unit\Play_Pigeon_Coo_7	
+	1837174731	Play_Pigeon_Coo_6			\Default Work Unit\Play_Pigeon_Coo_6	
+	1837174732	Play_Pigeon_Coo_1			\Default Work Unit\Play_Pigeon_Coo_1	
+	1837174734	Play_Pigeon_Coo_3			\Default Work Unit\Play_Pigeon_Coo_3	
+	1837174735	Play_Pigeon_Coo_2			\Default Work Unit\Play_Pigeon_Coo_2	
+	2531727233	Play_Screech			\Default Work Unit\Play_Screech	
+	2554379966	Play_Space_Blip			\Default Work Unit\Play_Space_Blip	
+	2873551122	Play_Machine_Thump			\Default Work Unit\Play_Machine_Thump	
+	3480038428	Play_Mystery_Get			\Default Work Unit\Play_Mystery_Get	
+	3528394261	Play_Robot_Error			\Default Work Unit\Play_Robot_Error	
+	3720347001	Play_Lazer_SFX_2			\Default Work Unit\Play_Lazer_SFX_2	
+	3744969633	Play_Hover_Click_1			\Default Work Unit\Play_Hover_Click_1	
+	3744969634	Play_Hover_Click_2			\Default Work Unit\Play_Hover_Click_2	
+	3748288237	Play_Pigeon_wing_flutter			\Default Work Unit\Play_Pigeon_wing_flutter	
+	3838884112	Play_Potential_Pickup_SFX_2			\Default Work Unit\Play_Potential_Pickup_SFX_2	
+	3969824657	Play_Robot_Alert_SFX			\Default Work Unit\Play_Robot_Alert_SFX	
+	3978470046	Play_Robot_Glitch			\Default Work Unit\Play_Robot_Glitch	
+	4146597635	Play_Machine_Buzz			\Default Work Unit\Play_Machine_Buzz	
+	4267708594	Play_Lazer_SFX			\Default Work Unit\Play_Lazer_SFX	
+	4278623891	Play_Unpause_SFX			\Default Work Unit\Play_Unpause_SFX	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	19215516	Pause SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pause SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pause SFX		33480
+	30992161	Pigeon Coo 10	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 10		98736
+	115255994	Pigeon Coo 4	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 4		60620
+	119470656	Pigeon Coo 9	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 9		66416
+	131933092	Robot Alert SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Robot Alert SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Alert SFX		156420
+	146814141	Missle Whistle	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Missle Whistle_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Missle Whistle		120188
+	155015978	Pigeon Coo 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 2		63464
+	161308221	Robot Activated	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Robot Activated_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Activated		356280
+	225419399	Machine wub 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Machine wub 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Machine wub 1		185792
+	234390179	Mystery Get	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Mystery Get_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mystery Get		300988
+	238932007	Robot Ouch	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Robot Ouch_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Ouch		101556
+	249967903	Pigeon Coo 11	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 11_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 11		52188
+	308759193	Pigeon Coo 5	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 5		122608
+	323829892	Machine Thump	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Machine Thump_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Machine Thump		85968
+	338096846	Pigeon Coo 15	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 15_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 15		36960
+	387236824	Pigeon wing flutter	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon wing flutter_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon wing flutter		511996
+	514170223	Pigeon hoo hoo	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon hoo hoo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon hoo hoo		136396
+	542053950	Machine wub 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Machine wub 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Machine wub 2		124420
+	563781845	Heavy reload	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Heavy reload_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Heavy reload		120308
+	647569083	Pigeon Coo 14	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 14_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 14		39996
+	682039198	Hover Click 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Hover Click 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hover Click 2		31032
+	719609388	Heavy Blast	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Heavy Blast_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Heavy Blast		116524
+	740621105	Pigeon Coo 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 1		72792
+	742994317	Unpause SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Unpause SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Unpause SFX		34480
+	762522150	Pigeon Coo 6	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 6		61936
+	765581632	Space Blip	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Space Blip_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Space Blip		39924
+	767001887	Lazer SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Lazer SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lazer SFX		42892
+	779570665	Pigeon Coo 13	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 13_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 13		62968
+	787886670	Robot Glitch	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Robot Glitch_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Glitch		28332
+	796248657	Pigeon Coo 16	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 16_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 16		61880
+	801503577	Potential Pickup SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Potential Pickup SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Potential Pickup SFX		58936
+	802213557	Robot Error	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Robot Error_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Error		47920
+	818060147	Potential Pickup SFX 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Potential Pickup SFX 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Potential Pickup SFX 2		98024
+	940778100	Reverse Riser	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Reverse Riser_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Reverse Riser		284576
+	978674330	Pigeon Coo 7	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 7		46848
+	983061750	Pigeon Coo 12	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 12_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 12		50844
+	987838814	Screech	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Screech_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Screech		174592
+	1003005601	Machine Buzz	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Machine Buzz_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Machine Buzz		107900
+	1015133013	Lazer SFX 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Lazer SFX 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lazer SFX 2		94416
+	1021227817	Hover Click 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Hover Click 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hover Click 1		26604
+	1037847484	Pigeon Coo 8	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 8		70688
+	1039062149	Pigeon Coo 3	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coo 3		70040
+
