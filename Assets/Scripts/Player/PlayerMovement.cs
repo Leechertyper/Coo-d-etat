@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private const float horizontalTeleportDistance = 27f;
-    private const float verticalTeleportDistance = 18f;
+    private const float horizontalTeleportDistance = 24f;
+    private const float verticalTeleportDistance = 15f;
     public string horizontalInput = "Horizontal";
     public string verticalInput = "Vertical";
 
     private float tileSize = 3f;
     public float speed = 10f;
-
+    private Vector2 _direction;
+    private Vector2 _lastMoveDirection;
     private Rigidbody2D rb;
     private Vector2 targetPosition;
     private bool isMoving = false;
     private Vector2 previousPosition;
+
+    public Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,6 +60,24 @@ public class PlayerMovement : MonoBehaviour
             Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.fixedDeltaTime);
             rb.MovePosition(newPosition);
 
+            // Calculate the movement direction
+            Vector2 movementDirection = newPosition - currentPosition;
+
+            // Set the animator parameters
+            animator.SetFloat("Horizontal", movementDirection.x * 5);
+            animator.SetFloat("Vertical", movementDirection.y * 5);
+            animator.SetFloat("Speed", movementDirection.sqrMagnitude);
+            if ((movementDirection.x <= 0.001 && movementDirection.y <= 0.001) && (_direction.x != 0 || _direction.y != 0))
+            {
+                _lastMoveDirection = _direction;
+            }
+
+            _direction = new Vector2(movementDirection.x, movementDirection.y).normalized;
+
+            animator.SetFloat("LastMoveX", _lastMoveDirection.x);
+            animator.SetFloat("LastMoveY", _lastMoveDirection.y);
+
+            Debug.Log(movementDirection.y);
             // check if the player has stopped moving
             StartCoroutine(CheckMovementDelay());
 
