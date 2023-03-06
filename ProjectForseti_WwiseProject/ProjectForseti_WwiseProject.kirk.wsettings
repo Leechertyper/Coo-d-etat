@@ -28,9 +28,9 @@
 				<Property Name="Game Profiler\Voice Monitor\LastBus" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
 				<Property Name="General\LatestLanguage" Type="int32" Value="684519430"/>
 				<Property Name="General\LatestPlatform" Type="string" Value="Windows"/>
-				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value=""/>
-				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value=""/>
-				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value=""/>
+				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="mP/CYwbA7k2XxyA5tqKVNRb5A3fN1JdFs8TE37KV+Rw="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="+SSV5662akqW/Z6e+9DWVg=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
 				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups_v2" Type="string" Value="uUa32y1hd0KGAsbVc4xxlAEAD4mEAAAAwKRez/l/AAD42U7YdAIAAAAAAAB0AgAAwKRez/l/AAAEkuDP+X8AAHCl9O50AgAAAAAAAHQCAAAIAAAAAAAAAJjoD4mEAAAAAAD1z/l/AAAfAfXP+X8AAAAA9c/5fwAAwKRez/l/AADApF7P+X8AAPjZTth0AgAAAQAAABzi2aNaUbtNt16PJtRDREEBAA+JhAAAAMCkXs/5fwAA+NlO2HQCAAAAAAAAdAIAAMCkXs/5fwAABJLgz/l/AABwpfTudAIAAAAAAAB0AgAACAAAAAAAAACY6A+JhAAAAAAA9c/5fwAAHwH1z/l/AAAAAPXP+X8AAMCkXs/5fwAAwKRez/l/AAD42U7YdAIAAAEAAAA="/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>

@@ -57,14 +57,21 @@ namespace AK
         static const AkUniqueID PLAY_UNPAUSE_SFX = 4278623891U;
     } // namespace EVENTS
 
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID SFX_PLAYING = 2234500385U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID NEW_SOUNDBANK = 4072029455U;
+        static const AkUniqueID MAIN_SOUNDBANK = 2228651116U;
     } // namespace BANKS
 
     namespace BUSSES
     {
+        static const AkUniqueID COMBAT_BUS = 2769824834U;
+        static const AkUniqueID ENVIRONMENT_BUS = 1523166483U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
     } // namespace BUSSES
 

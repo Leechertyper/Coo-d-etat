@@ -9,22 +9,36 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{986487A9-2683-E47A-8688-3D0FE6FDB954}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F989F4D5-CCB9-2C43-655F-9CD6328B441A}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
+				<ShareSets>
+					<Plugin Id="1992114213" Name="SideChain_meter" LibName="Wwise Meter" LibId="8454147"/>
+				</ShareSets>
 				<AudioDevices>
 					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
 					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="1523166483" Name="Environment_bus"/>
+				<Bus Id="2769824834" Name="Combat_bus">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1992114213"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="2234500385" Name="SFX_playing"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="4072029455" Type="User" Language="SFX" Hash="{CA8FE74A-A6C1-CEB3-ABE8-55003E4C3E80}">
-			<ShortName>New_SoundBank</ShortName>
-			<Path>New_SoundBank.bnk</Path>
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{631F7F45-D99F-E455-8FF5-DF18F59BD3AA}">
+			<ShortName>Main_SoundBank</ShortName>
+			<Path>Main_SoundBank.bnk</Path>
 			<Media>
 				<File Id="19215516" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pause SFX.wav</ShortName>
@@ -409,5 +423,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6C834265-D596-1215-29F7-5E53E8673056}</FileHash>
+	<FileHash>{7DB89E71-9399-1208-CA05-244DE8CD20A5}</FileHash>
 </SoundBanksInfo>
