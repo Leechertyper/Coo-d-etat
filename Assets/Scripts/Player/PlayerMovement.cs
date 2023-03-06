@@ -4,62 +4,124 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Movement speed of the player
-    public float moveSpeed = 6f;
-
-    // Reference to the Rigidbody2D component
-    private Rigidbody2D rb;
-
-    // Input values for horizontal and vertical movement
-    private Vector2 _movement;
-    private Vector2 _movementDirection;
-    private Vector2 _lastMoveDirection;    
-
-    
-    private float _rotationSpeed = 15f;
-
+    private const float horizontalTeleportDistance = 24f;
+    private const float verticalTeleportDistance = 15f;
     public string horizontalInput = "Horizontal";
     public string verticalInput = "Vertical";
 
+    private float tileSize = 3f;
+    public float speed = 10f;
+    private Vector2 _direction;
+    private Vector2 _lastMoveDirection;
+    private Rigidbody2D rb;
+    private Vector2 targetPosition;
+    private bool isMoving = false;
+    private Vector2 previousPosition;
+
     public Animator animator;
+
     void Start()
     {
-        // Get the reference to the Rigidbody component on this GameObject
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        
-        _movement.x = Input.GetAxisRaw(horizontalInput);
-        _movement.y = Input.GetAxisRaw(verticalInput);
-        animator.SetFloat("Horizontal", _movement.x);
-        animator.SetFloat("Vertical", _movement.y);
-        animator.SetFloat("Speed", _movement.sqrMagnitude);
-
-        if ((_movement.x == 0 && _movement.y == 0) && (_movementDirection.x != 0 || _movementDirection.y != 0))
+        if (!isMoving) // Make sure Player isn't moving
         {
-            _lastMoveDirection = _movementDirection;
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                targetPosition = rb.position + Vector2.up * tileSize;
+                isMoving = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                targetPosition = rb.position + Vector2.down * tileSize;
+                isMoving = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
+                targetPosition = rb.position + Vector2.left * tileSize;
+                isMoving = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                targetPosition = rb.position + Vector2.right * tileSize;
+                isMoving = true;
+            }
         }
-
-        _movementDirection = new Vector2(_movement.x, _movement.y).normalized;
-
-        animator.SetFloat("LastMoveX", _lastMoveDirection.x);
-        animator.SetFloat("LastMoveY", _lastMoveDirection.y);
-
-        
     }
 
     void FixedUpdate()
     {
-        // Calculate the movement vector based on the input values and the movement speed
-        Vector2 movement = new Vector2(_movement.x, _movement.y) * moveSpeed;
+        if (isMoving)
+        {
+            Vector2 currentPosition = rb.position;
+            Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.fixedDeltaTime);
+            Debug.Log("Target Position = " + newPosition);
+            rb.MovePosition(newPosition);
 
-        // Apply the movement vector to the Rigidbody component
-        rb.velocity = movement;
-        
- 
+            // Calculate the movement direction
+            Vector2 movementDirection = newPosition - currentPosition;
+
+            // Set the animator parameters
+            animator.SetFloat("Horizontal", movementDirection.x * 5);
+            animator.SetFloat("Vertical", movementDirection.y * 5);
+            animator.SetFloat("Speed", movementDirection.sqrMagnitude);
+            if ((movementDirection.x <= 0.001 && movementDirection.y <= 0.001) && (_direction.x != 0 || _direction.y != 0))
+            {
+                _lastMoveDirection = _direction;
+            }
+
+            _direction = new Vector2(movementDirection.x, movementDirection.y).normalized;
+
+            animator.SetFloat("LastMoveX", _lastMoveDirection.x);
+            animator.SetFloat("LastMoveY", _lastMoveDirection.y);
+
+            Debug.Log(movementDirection.y);
+            // check if the player has stopped moving
+            StartCoroutine(CheckMovementDelay());
+
+            previousPosition = rb.position;
+        }
     }
 
-    
+    IEnumerator CheckMovementDelay()
+    {
+        yield return new WaitForSeconds(0.01f); // Wait for 0.001 seconds after teleportation
+
+        // Check if no player movement
+        if (Vector2.Distance(previousPosition, rb.position) < 0.0001f)
+        {
+            isMoving = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.name.Contains("BottomDoor"))
+        {
+            var newPlayerLocation = new Vector2(targetPosition.x, targetPosition.y - verticalTeleportDistance);
+            targetPosition = newPlayerLocation;
+            transform.position = newPlayerLocation;
+        }
+        if (col.gameObject.name.Contains("TopDoor"))
+        {
+            var newPlayerLocation = new Vector2(targetPosition.x, targetPosition.y + verticalTeleportDistance);
+            targetPosition = newPlayerLocation;
+            transform.position = newPlayerLocation;
+        }
+        if (col.gameObject.name.Contains("LeftDoor"))
+        {
+            var newPlayerLocation = new Vector2(targetPosition.x - horizontalTeleportDistance, targetPosition.y);
+            targetPosition = newPlayerLocation;
+            transform.position = newPlayerLocation;
+        }
+        if (col.gameObject.name.Contains("RightDoor"))
+        {
+            var newPlayerLocation = new Vector2(targetPosition.x + horizontalTeleportDistance, targetPosition.y);
+            targetPosition = newPlayerLocation;
+            transform.position = newPlayerLocation;
+        }
+    }
 }
