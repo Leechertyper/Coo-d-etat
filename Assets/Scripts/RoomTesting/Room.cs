@@ -1,12 +1,75 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    [Serializable]
+    internal class EnemyObject
+    {
+        [SerializeField] private DroneBoss boss;
+        [SerializeField] private List<DroneAI> enemies;
+
+        public void Awaken()
+        {
+            if (enemies.Count > 0)
+            {
+                foreach (var enemy in enemies)
+                {
+                    if(enemy)
+                    {
+                        enemy.Awaken();
+                    }
+                    
+                }
+            }
+            if (boss)
+            {
+                boss.Awaken();
+            }
+        }
+
+        public void Sleep()
+        {
+            if (enemies.Count > 0)
+            {
+                foreach (var enemy in enemies)
+                {
+                    if(enemy)
+                    {
+                        enemy.Sleep();
+                    }
+                }
+            }
+            if (boss)
+            {
+                boss.Sleep();
+            }
+        }
+    }
+
     private Floor myFloor;
+    
+    [SerializeField] private EnemyObject enemies;
 
     private void Start()
     {
         myFloor = GetComponentInParent<Floor>();
+        enemies.Sleep();
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!col.gameObject.CompareTag("Player")) return;
+        Debug.Log("ENTERED NEW ROOM");
+        enemies.Awaken();
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag("Player")) return;
+        Debug.Log("LEFT OLD ROOM");
+        enemies.Sleep();
     }
 
 
@@ -26,6 +89,5 @@ public class Room : MonoBehaviour
     {
         myFloor.MoveRight(player);
     }
-    
     
 }

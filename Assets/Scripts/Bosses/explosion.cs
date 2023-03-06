@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class explosion : MonoBehaviour
 {
     [SerializeField] private GameObject parent;
 
-    private float _damage;
+    [SerializeField] private int damage = 2;
 
-    private void Start()
-    {
-        _damage = 50; // this will be taken from the globals once the server is up and running
-    }
 
     /// <summary>
     /// When the animation ends, destroy self
@@ -29,5 +25,13 @@ public class Explosion : MonoBehaviour
     {
         // will have it check for player collision and deal damage using the players "damage" function
         // GameManager.instance.player.Damage(_damage);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Player>().TakeDamage(damage);
+        }
     }
 }

@@ -145,5 +145,30 @@ public class DroneAI : MonoBehaviour
         this.enabled = false;
     }
 
+    public void Awaken()
+    {
+        _myState = state.Chase;
+        StartCoroutine(_slowFire);
+    }
+
+    public void Sleep()
+    {
+        StopAllCoroutines();
+        _myState = state.Pause;
+        _rb.velocity = Vector2.zero;
+    }
+
+    public void ChangeMoveSpeed(float newMoveSpeed)
+    {
+        moveSpeed = newMoveSpeed;
+    }
+
+    public void ChangeAttackSpeed(float newAttackSpeed)
+    {
+        
+        slowShotCD = newAttackSpeed;
+
+        fastShotCD = newAttackSpeed/2; // maybe there needs to be another fast shot var?
+    }
 
 }

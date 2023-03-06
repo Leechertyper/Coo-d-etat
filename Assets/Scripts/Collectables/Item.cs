@@ -8,8 +8,10 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
-        itemEffect.Apply(collision.gameObject);
-
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            itemEffect.Apply(collision.gameObject);
+        }
     }
 }

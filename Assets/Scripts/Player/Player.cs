@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -9,30 +10,48 @@ public class Player : MonoBehaviour
     private int _maxHealth = 10;
     private int _health = 10;
     private float _range = 1000f;
+    private float _invulnTime = 1.1f;
+    private bool _isInvuln = false;
+    [SerializeField] private Text _healthText;
     [SerializeField] private int _power;
     [SerializeField] private int _maxPower;
-    [SerializeField] private Text _healthText;
+
     public Animation death;
     public GameObject hitParticles;
 
+    void Update()
+    {
+        if(_isInvuln)
+        {
+            _invulnTime -= Time.deltaTime;
+            if(_invulnTime <= 0f)
+            {
+                _isInvuln = false;
+                _invulnTime = 1f;
+            }
+        }
+    }
 
     public void TakeDamage(int damage)
     {
-        if (_health > 0)
+        if (_health > 0 && !_isInvuln)
         {
             _health -= damage;
             if (_health < 0)
             {
                 _health = 0;
-                if(death){
-                    death.Play("Death");
-                }
-                Destroy(this, 2.0f);
-                
             }
             GotHit();
             UpdateHealthUI();
-        }        
+            _isInvuln = true;
+        }
+        if (_health == 0){
+            if(death){
+                death.Play("Death");
+            }
+            Destroy(this, 2.0f);
+            SceneManager.LoadScene("Alpha Main");
+        }      
     }
 
     private void UpdateHealthUI()
@@ -80,7 +99,7 @@ public class Player : MonoBehaviour
     {
         _speed = newSpeed;
     }
-
+    
     public int GetPower()
     {
         return _power;
@@ -98,13 +117,4 @@ public class Player : MonoBehaviour
             _power = _maxPower;
         }
     }
-    
-    public void Fire()
-    {
-        //TODO: Projectile fire function
-        /*Debug.DrawRay(this.transform.position, this.transform.rotation *Vector3.up*_range, Color.red, 5.0f);
-        Debug.Log("Hello");
-        this.gameObject.GetComponent<ProjectileWeapon>().Shoot();*/
-    }
-    
 }

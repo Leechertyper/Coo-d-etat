@@ -9,11 +9,12 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         _mainCam = Camera.main;
+        
     }
 
     public void MoveCameraToStart(Transform startRoomPosition)
     {
-        _mainCam.transform.position = new Vector3(startRoomPosition.position.x - 1.5f, startRoomPosition.position.y + 4f, -10);
+        _mainCam.transform.position = new Vector3(startRoomPosition.position.x - 1.5f, startRoomPosition.position.y + 3.5f, -10);
     }
 
     /// <summary>

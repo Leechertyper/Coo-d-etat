@@ -50,6 +50,7 @@ public class BoxLerp : MonoBehaviour
             yield return null;
         }
         transform.position = goal;
+        Destroy(gameObject);
         yield break;
     }
     Vector3 SampleParabola(Vector3 start, Vector3 end, float height, float t)
