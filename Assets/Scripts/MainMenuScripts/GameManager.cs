@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    
     [SerializeField] GameObject _thePlayerObject;
     [SerializeField] Player _thePlayer;
     private Vector2 _endRoomPos;
     private static GameManager _instance = null;
-    private ArrayList allRooms, allEnemies; //Can use list if wanted
-    
-    //private Boss theBoss;
+    private ArrayList allRooms;
+    // When there is more enemy types each will get their own list
+    private List<GameObject> allDroneEnemies;
+
+    private DroneBoss theBoss; //When adding more bosses, we should make a boss interface
 
     private float healthItemValue; // temp var 
 
-    //private List<Enemy> allEnemies; //Uncomment when there are enemies
+    private BalanceVariables theVars;
 
-   
 
     void Awake()
     {
@@ -27,12 +28,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         allRooms = null;
-        allEnemies = null;
+        allDroneEnemies = null;
 
-        //theBoss = null;
+        theBoss = null;
 
         healthItemValue = 1f;
-        
+
     }
      public static GameManager Instance
     {
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
-   
+
     //My idea is that the pcg script will call this function when it has all the rooms generated
     public void SetRooms(ArrayList generatedRooms)
     {
@@ -90,11 +91,11 @@ public class GameManager : MonoBehaviour
     }
 
     //Used to give this script all the enemies in the floor
-    public void SetAllEnemies(ArrayList allBads)
+    public void SetAllDroneEnemies(List<GameObject> allBads)
     {
-        if(allEnemies == null)
+        if(allDroneEnemies == null)
         {
-            this.allEnemies = allBads;
+            this.allDroneEnemies = allBads;
         }
         else
         {
@@ -105,79 +106,81 @@ public class GameManager : MonoBehaviour
     //Used to clear all enemies in the floor
     public void ClearAllEnemies()
     {
-        if(allEnemies == null)
+        if(allDroneEnemies == null)
         {
             Debug.Log("GameManagerScript: Warning - trying to clear the array of enemies when the array is empty"); 
         }
         else 
         {
-            this.allEnemies.Clear();
+            this.allDroneEnemies.Clear();
         }
     }
 
 
-    // public void setCurrentBoss(Boss curBoss)
-    // {
-    //     if(theBoss = null)
-    //     {
-    //         this.theBoss = curBoss;
-    //     }
-    //     else
-    //     {
-    //         Debug.Log("GameManagerScript: Warning - trying to set the boss when there is already a boss for this floor");
-    //     }
-    // }
+    public void setCurrentBoss(DroneBoss curBoss)
+    {
+        if(theBoss = null)
+        {
+            this.theBoss = curBoss;
+        }
+        else
+        {
+            Debug.Log("GameManagerScript: Warning - trying to set the boss when there is already a boss for this floor");
+        }
+    }
 
     public void ClearCurrentBoss()
     {
-    //     if(theBoss = null)
-    //     {
-    //         Debug.Log("GameManagerScript: Warning - trying to clear the boss when there is no boss for the current floor");
-    //     }
-    //     else 
-    //     {
-    //         theBoss.Clear();
-    //     }
+        if(theBoss = null)
+        {
+            Debug.Log("GameManagerScript: Warning - trying to clear the boss when there is no boss for the current floor");
+        }
+        else 
+        {
+            theBoss = null;
+        }
         Debug.Log("GameManagerScript: Warning - ClearCurrentBoss is not implemented yet");
     }
 
     //The stat changing functions are broad, will need refactoring when/if more then one emeny is in game
-    public void ChangeEnemyStats(float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
+    public void ChangeEnemyStats(float newHealth, float newDamage, float newMoveSpeed, float newAttackSpeed)
     {
-        // foreach (Enemy aFoe in allEnemies)
-        // {
-        //     aFoe.ChangeHealth(newHealth);
-        //     aFoe.ChangeDamage(newDamage);
-        //     aFoe.ChangeMoveSpeed(newSpeed);
-        //     aFoe.ChangeAttackSpeed(newAttackSpeed);
-        // }
+
 
         Debug.Log("GameManagerScript: Warning - ChangeEnemyStats is not implemented yet");
+        foreach (GameObject aDrone in allDroneEnemies)
+        {
+            Debug.Log("+1 drone");
+            aDrone.GetComponent<DroneAI>().ChangeMoveSpeed(newMoveSpeed);
+            aDrone.GetComponent<DroneAI>().ChangeAttackSpeed(newAttackSpeed);
+        }
     }
     
-    public void ChangeBossStats( float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
+
+
+    public void ChangeBossStats(float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
     {
 
-        //     theBoss.setAttackSpeed();
-        //     theBoss.setDamage();
-        //     theBoss.SetMaxHealth();
-        //     theBoss.setNewSpeed();
-
+        theBoss.SetMaxHealth(newHealth);
+        theBoss.SetDamage(newDamage);
+        theBoss.SetMoveSpeed(newSpeed);
+        theBoss.SetAttackSpeed(newSpeed);
+        
+    
         Debug.Log("GameManagerScript: Warning - ChangeBossStats is not implemented yet");
     }
 
-     public void ChangePlayerMaxHealth(int newHealth)
-     {
-        if(newHealth <= 0)
-        {
-            Debug.Log("GameManagerScript: Warning - Trying to apply one a negative max health value to the player"); 
-        }
-        else
-        {
-            _thePlayer.SetMaxHealth(newHealth);
-        }
-        
-     }
+    // To only be called by bosses in their Awaken 
+    public void SetBossStats() 
+    {
+        this.ChangeBossStats(BalanceVariables.bossHealth,BalanceVariables.bossDamage,BalanceVariables.bossMoveSpeed,BalanceVariables.bossAttackSpeed);
+
+    }
+
+    public void OnPlayerDeath(){
+        Debug.Log("GameManagerScript: Warning - Calling OnPlayerDeath when it is not implemented");
+    }
+
      public GameObject GetPlayerObject()
      {
         return _thePlayerObject;
@@ -204,7 +207,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            _thePlayer.TakeDamage(theDamage);
+           _thePlayer.GetComponent<Player>().TakeDamage(theDamage);
         }
     }
 
@@ -216,6 +219,7 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
+            
             _thePlayer.SetMaxHealth((int)newHealth);
             //_thePlayer.SetDamage(newDamage);
             _thePlayer.SetSpeed(newSpeed);
@@ -250,5 +254,16 @@ public class GameManager : MonoBehaviour
     public Vector2 GetEndRoomPos()
     {
         return _endRoomPos;
+    }
+
+    // The return list elements, 
+    // [0] player, [1] drone
+    public List<float> GetPowerValues()
+    {
+        List<float> theReturn = new List<float>();
+        //theReturn.Add(BalanceVariables.player["power"]);
+        theReturn.Add(1);  //Remove this when the balanceVariables values get changed
+        theReturn.Add(BalanceVariables.droneEnemy["lazerDamage"]);
+        return theReturn;
     }
 }
