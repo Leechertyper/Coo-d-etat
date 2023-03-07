@@ -75,7 +75,6 @@ ProjectForseti_WwiseProject/.cache/
 ProjectForseti_WwiseProject/*.prof
 ProjectForseti_WwiseProject/*_WwiseProject.*.validationcache
 ProjectForseti_WwiseProject/*_WwiseProject.*.wsettings
-ProjectForseti_WwiseProject/**/*.akd
 
 # build stuff (unsure?)
 Assets/Wwise/Deployment/Plugins/Windows/**/*.meta

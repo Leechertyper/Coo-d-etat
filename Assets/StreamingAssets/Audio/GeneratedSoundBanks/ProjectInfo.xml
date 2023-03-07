@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ProjectInfo>
-	<Project Name="ProjectForseti_WwiseProject" GUID="{8703747B-E51C-42AF-815E-B3C8F65B4490}" Generator="2022.1.1.8100"/>
+	<Project Name="ProjectForseti_WwiseProject" GUID="{8703747B-E51C-42AF-815E-B3C8F65B4490}" Generator="2022.1.2.8150"/>
 	<CacheRoot>../../../../ProjectForseti_WwiseProject/.cache</CacheRoot>
 	<Platforms>
 		<Platform Name="Mac" GUID="{63C2FF98-C006-4DEE-97C7-2039B6A29535}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../ProjectForseti_WwiseProject/GeneratedSoundBanks/Mac"/>
@@ -9,5 +9,5 @@
 	<Languages>
 		<Language Name="English(US)" Id="684519430" GUID="{B77C7A16-E632-4925-B7D9-72FB3F3CC0D2}" Default="true" UseAsStandIn="true"/>
 	</Languages>
-	<FileHash>{F27A0E9D-37CF-B695-2D32-E407449017AC}</FileHash>
+	<FileHash>{FB6D35D5-1A13-7565-33BB-DA622CD62F85}</FileHash>
 </ProjectInfo>
