@@ -72,7 +72,8 @@ public class PlayerMovement : MonoBehaviour
             // Set the animator parameters
             animator.SetFloat("Horizontal", movementDirection.x * 5);
             animator.SetFloat("Vertical", movementDirection.y * 5);
-            animator.SetFloat("Speed", movementDirection.sqrMagnitude);
+            animator.SetFloat("Speed", movementDirection.sqrMagnitude * 5);
+            animator.SetFloat("PlayerSpeed", speed);
             if ((movementDirection.x <= 0.001 && movementDirection.y <= 0.001) && (_direction.x != 0 || _direction.y != 0))
             {
                 _lastMoveDirection = _direction;
