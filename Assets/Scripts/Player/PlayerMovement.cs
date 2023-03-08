@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public string verticalInput = "Vertical";
 
     public Animator animator;
+    public Vector2 direction;
     void Start()
     {
         // Get the reference to the Rigidbody component on this GameObject
@@ -30,7 +31,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+
+        transform.up = direction;
+
         _movement.x = Input.GetAxisRaw(horizontalInput);
         _movement.y = Input.GetAxisRaw(verticalInput);
         animator.SetFloat("Horizontal", _movement.x);
@@ -42,7 +49,8 @@ public class PlayerMovement : MonoBehaviour
             _lastMoveDirection = _movementDirection;
         }
 
-        _movementDirection = new Vector2(_movement.x, _movement.y).normalized;
+        //_movementDirection = new Vector2(_movement.x, _movement.y).normalized;
+        _movementDirection = new Vector2(direction.x,direction.y).normalized;
 
         animator.SetFloat("LastMoveX", _lastMoveDirection.x);
         animator.SetFloat("LastMoveY", _lastMoveDirection.y);

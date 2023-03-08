@@ -18,10 +18,15 @@ public class Player : MonoBehaviour
 
     public Animation death;
     public GameObject hitParticles;
+    
+
+   
+
+
 
     void Update()
     {
-        if(_isInvuln)
+        if (_isInvuln)
         {
             _invulnTime -= Time.deltaTime;
             if(_invulnTime <= 0f)
@@ -31,6 +36,8 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    
 
     public void TakeDamage(int damage)
     {
@@ -56,7 +63,8 @@ public class Player : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        _healthText.text = "HP " + _health + "/" + _maxHealth;
+        //_healthText.text = "HP " + _health + "/" + _maxHealth;
+        Debug.Log("update health");
     }
 
     private void GotHit()
