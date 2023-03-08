@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 targetPosition;
     private bool isMoving = false;
     private Vector2 previousPosition;
+    private Vector2 startMovePosition;
 
     public Animator animator;
 
@@ -29,23 +30,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isMoving) // Make sure Player isn't moving
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.W))
             {
+                startMovePosition = rb.position;
                 targetPosition = rb.position + Vector2.up * tileSize;
                 isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKey(KeyCode.S))
             {
+                startMovePosition = rb.position;
                 targetPosition = rb.position + Vector2.down * tileSize;
                 isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.A))
+            else if (Input.GetKey(KeyCode.A))
             {
+                startMovePosition = rb.position;
                 targetPosition = rb.position + Vector2.left * tileSize;
                 isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D))
             {
+                startMovePosition = rb.position;
                 targetPosition = rb.position + Vector2.right * tileSize;
                 isMoving = true;
             }
@@ -94,6 +99,23 @@ public class PlayerMovement : MonoBehaviour
         if (Vector2.Distance(previousPosition, rb.position) < 0.0001f)
         {
             isMoving = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Contains("Wall")) // If collision with "Wall"
+        {
+            // Get the direction the player is moving in
+            Vector2 movementDirection = targetPosition - rb.position;
+            movementDirection.Normalize();
+
+            // Move the player back to its previous position
+            transform.position = startMovePosition;
+
+            // Set isMoving to false to allow the player to move again
+            isMoving = false;
+            animator.SetFloat("Speed", 0f);
         }
     }
 
