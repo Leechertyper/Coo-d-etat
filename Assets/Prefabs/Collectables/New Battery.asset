@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9ee4c84c3ba5440974ce0999008d10, type: 3}
   m_Name: New Battery
   m_EditorClassIdentifier: 
-  amount: 0
+  amount: 50
