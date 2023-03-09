@@ -6,19 +6,22 @@ public class GlobalGrid : MonoBehaviour
 {
     // the size of a room prefab
     [Header("The size of a room")]
-    [SerializeField] private Vector2Int roomSize = new Vector2Int(15, 7);
+    [SerializeField] private Vector2Int roomSize = new Vector2Int(17, 10);
 
     // the offset of the rooms
     [Header("The offset between each room")]
-    [SerializeField] private int roomOffset = 1;
+    [SerializeField] private Vector2Int roomOffset = new Vector2Int(6,2);
 
     // the amount of rooms in the floor in vector form
     [Header("The dimesions of the floor")]
-    [SerializeField] private Vector2Int floorDimesions = new Vector2Int(3, 3);
+    [SerializeField] private Vector2Int floorDimesions = new Vector2Int(3, 5);
 
     // the scale of the tiles
     [Header("The scaling of the tiles")]
     [SerializeField] private int tileScale = 3;
+
+    // temp for testing
+    [SerializeField] private GameObject tileObj;
 
     // the global game grid array
     private GlobalTile[,] _grid;
@@ -27,7 +30,7 @@ public class GlobalGrid : MonoBehaviour
     private Vector2Int _size;
 
     // the center of the rooms
-    private List<List<int>> _roomCenters;
+    private List<List<int>> _roomCenters = new List<List<int>>();
 
     // the current offset
     private Vector2Int _currentOffset = new Vector2Int(0,0);
@@ -44,6 +47,9 @@ public class GlobalGrid : MonoBehaviour
         [Header("Can the player move onto this tile")]
         public bool blocked = false;
 
+        [Header("Is this the center of a room?")]
+        public bool center = false;
+
         /// <summary>
         /// Global tile constructor
         /// </summary>
@@ -57,20 +63,22 @@ public class GlobalGrid : MonoBehaviour
 
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
         // calculating the total size of the grid
         // start with the amount of rooms and the size of each one
-        _size.x = (roomSize.x * floorDimesions.x) + (roomOffset * (floorDimesions.x - 1));
-        _size.y = (roomSize.y * floorDimesions.y) + (roomOffset * (floorDimesions.y - 1));
+        _size.x = (roomSize.x * floorDimesions.x) + (roomOffset.x * (floorDimesions.x - 1));
+        // gets an extra one cause the room has an open bottom
+        _size.y = (roomSize.y * floorDimesions.y) + (roomOffset.y * (floorDimesions.y - 1));
 
         // initialize the grid
         _grid = new GlobalTile[_size.x, _size.y];
-
-        // sets the interator to the top left corner of the parent
-        Vector2 iterationPosition = new Vector2(transform.position.x - _size.x/2, transform.position.y - _size.y/2);
+        
+        // get the start pos
+        Vector2 startPos = new Vector2(transform.position.x - ((roomSize.x - 1) / 2) * 3, transform.position.y + (2 * 3) + ((roomSize.y - 1) / 2) * 3);
+        // sets the interator to the center of the parent
+        Vector2 iterationPosition = startPos;
 
         // iterates through the width of the grid
         for (int i = 0; i < _size.x; i++)
@@ -81,18 +89,21 @@ public class GlobalGrid : MonoBehaviour
                 // creates a new tile at pos (i, j) in the grid
                 _grid[i, j] = new GlobalTile(iterationPosition);
 
+                // TEMP MAKE A TILE
+                GameObject tempTile = Instantiate(tileObj);
+                tempTile.transform.position = iterationPosition;
                 // iterates the y pos
-                iterationPosition.y += tileScale;
+                iterationPosition.y -= tileScale;
 
             }
             // resets the x position of the iterator to the first column and moves down a row
-            iterationPosition = new Vector2(iterationPosition.x += tileScale, transform.position.y);
+            iterationPosition = new Vector2(iterationPosition.x += tileScale, startPos.y);
         }
 
         // go through and find the centers of the rooms
-        for (int i = 8; i < _size.x; i += 9)
+        for (int i = 8; i < _size.x; i++)
         {
-            for(int j = 6; j < _size.y; j += 10)
+            for(int j = 4; j < _size.y; j++)
             {
                 // add the coordinates into a temp list
                 List<int> _t = new List<int>();
@@ -102,12 +113,15 @@ public class GlobalGrid : MonoBehaviour
                 // add the temp list into the room centers list
                 _roomCenters.Add(_t);
 
+                // mark the tile as center
+                _grid[i, j].center = true;
+
                 // add an offset value to j
-                j++;
+                j += roomOffset.y + roomSize.y - 1;
             }
 
             // add an offset value to i
-            i++;
+            i += roomOffset.x + roomSize.x - 1;
         }
 
         // now go through each room center and add the boundaries
@@ -118,18 +132,20 @@ public class GlobalGrid : MonoBehaviour
             int yIter = curList[1];
 
             // run through the new 17x10 area - im only checking for the top wall and the offset space at the bottom
-            for(int i = xIter - 8; i < xIter + 8; i++)
+            for(int i = xIter - 8; i <= xIter + 8; i++)
             {
-                for(int j = yIter - 4; j < yIter + 4; j++)
+                for(int j = yIter - 4; j <= yIter + 4; j++)
                 {
                     // if the current position is on the outside, block that tile
-                    if (i == 0 || j == 0 || i == 16 || j == 10)
+                    if (i == xIter - 8 || j == yIter - 4 || i == xIter + 8 || j == yIter + 4)
                     {
                         _grid[i, j].blocked = true;
                     }
                 }
             }
         }
+
+        Debug.Log(GetRoomsAsString());
     }
 
 
@@ -137,5 +153,37 @@ public class GlobalGrid : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public string GetRoomsAsString()
+    {
+        string returnString = "    X\nY    ";
+        for (int j = 0; j < _grid.GetLength(1); j++){
+            for (int i = 0; i < _grid.GetLength(0); i++)
+            {
+                if(j == 0)
+                {
+                    returnString += " "+ i.ToString() + "  ";
+                }
+                else
+                {
+                    if (_grid[i, j-1].blocked)
+                    {
+                        returnString += "[b] ";
+                    }
+                    else if (_grid[i, j-1].center)
+                    {
+                        returnString += "[c] ";
+                    }
+                    else
+                    {
+                        returnString += "[_] ";
+                    }
+                }
+
+            }
+            returnString += "\n" + j.ToString() + "    ";
+        }
+        return returnString;
     }
 }
