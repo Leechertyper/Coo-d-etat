@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using theNameSpace;
 /*
  * Changable values for balance
  *  
@@ -26,6 +26,7 @@ public class ProjectileWeapon : MonoBehaviour
     public void Shoot(float angle)
     {        
         GameObject newProjectile = Instantiate(projectile, anchorPoint.position, Quaternion.Euler(0,0,angle));
+        newProjectile.GetComponent<Lazer>().setParentType(theNameSpace.TheParentTypes.droneType);
         newProjectile.GetComponent<Rigidbody2D>().AddForce(newProjectile.transform.up * fireForce, ForceMode2D.Impulse);
     }
 }

@@ -9,19 +9,419 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F56A610C-C7C4-F874-B68B-7ADDF94EBB7A}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F1F0054B-477B-A560-C90C-E5988C3362EE}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
+				<ShareSets>
+					<Plugin Id="1992114213" Name="SideChain_meter" LibName="Wwise Meter" LibId="8454147"/>
+				</ShareSets>
 				<AudioDevices>
 					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
 					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="1523166483" Name="Environment_bus"/>
+				<Bus Id="2769824834" Name="Combat_bus">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1992114213"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="2234500385" Name="SFX_playing"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{631F7F45-D99F-E455-8FF5-DF18F59BD3AA}">
+			<ShortName>Main_SoundBank</ShortName>
+			<Path>Main_SoundBank.bnk</Path>
+			<Media>
+				<File Id="19215516" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pause SFX.wav</ShortName>
+					<CachePath>SFX/Pause SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="30992161" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 10.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 10_10C4C929.wem</CachePath>
+				</File>
+				<File Id="115255994" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 4.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 4_10C4C929.wem</CachePath>
+				</File>
+				<File Id="119470656" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 9.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 9_10C4C929.wem</CachePath>
+				</File>
+				<File Id="131933092" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Robot Alert SFX.wav</ShortName>
+					<CachePath>SFX/Robot Alert SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="146814141" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Missle Whistle.wav</ShortName>
+					<CachePath>SFX/Missle Whistle_10C4C929.wem</CachePath>
+				</File>
+				<File Id="155015978" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 2.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="161308221" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Robot Activated.wav</ShortName>
+					<CachePath>SFX/Robot Activated_10C4C929.wem</CachePath>
+				</File>
+				<File Id="225419399" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Machine wub 1.wav</ShortName>
+					<CachePath>SFX/Machine wub 1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="234390179" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mystery Get.wav</ShortName>
+					<CachePath>SFX/Mystery Get_10C4C929.wem</CachePath>
+				</File>
+				<File Id="238932007" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Robot Ouch.wav</ShortName>
+					<CachePath>SFX/Robot Ouch_10C4C929.wem</CachePath>
+				</File>
+				<File Id="249967903" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 11.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 11_10C4C929.wem</CachePath>
+				</File>
+				<File Id="308759193" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 5.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 5_10C4C929.wem</CachePath>
+				</File>
+				<File Id="323829892" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Machine Thump.wav</ShortName>
+					<CachePath>SFX/Machine Thump_10C4C929.wem</CachePath>
+				</File>
+				<File Id="338096846" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 15.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 15_10C4C929.wem</CachePath>
+				</File>
+				<File Id="387236824" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon wing flutter.wav</ShortName>
+					<CachePath>SFX/Pigeon wing flutter_10C4C929.wem</CachePath>
+				</File>
+				<File Id="514170223" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon hoo hoo.wav</ShortName>
+					<CachePath>SFX/Pigeon hoo hoo_10C4C929.wem</CachePath>
+				</File>
+				<File Id="542053950" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Machine wub 2.wav</ShortName>
+					<CachePath>SFX/Machine wub 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="563781845" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Heavy reload.wav</ShortName>
+					<CachePath>SFX/Heavy reload_10C4C929.wem</CachePath>
+				</File>
+				<File Id="647569083" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 14.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 14_10C4C929.wem</CachePath>
+				</File>
+				<File Id="682039198" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Hover Click 2.wav</ShortName>
+					<CachePath>SFX/Hover Click 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="719609388" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Heavy Blast.wav</ShortName>
+					<CachePath>SFX/Heavy Blast_10C4C929.wem</CachePath>
+				</File>
+				<File Id="740621105" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 1.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="742994317" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Unpause SFX.wav</ShortName>
+					<CachePath>SFX/Unpause SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="762522150" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 6.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 6_10C4C929.wem</CachePath>
+				</File>
+				<File Id="765581632" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Space Blip.wav</ShortName>
+					<CachePath>SFX/Space Blip_10C4C929.wem</CachePath>
+				</File>
+				<File Id="767001887" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lazer SFX.wav</ShortName>
+					<CachePath>SFX/Lazer SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="779570665" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 13.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 13_10C4C929.wem</CachePath>
+				</File>
+				<File Id="787886670" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Robot Glitch.wav</ShortName>
+					<CachePath>SFX/Robot Glitch_10C4C929.wem</CachePath>
+				</File>
+				<File Id="796248657" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 16.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 16_10C4C929.wem</CachePath>
+				</File>
+				<File Id="801503577" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Potential Pickup SFX.wav</ShortName>
+					<CachePath>SFX/Potential Pickup SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="802213557" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Robot Error.wav</ShortName>
+					<CachePath>SFX/Robot Error_10C4C929.wem</CachePath>
+				</File>
+				<File Id="818060147" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Potential Pickup SFX 2.wav</ShortName>
+					<CachePath>SFX/Potential Pickup SFX 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="940778100" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Reverse Riser.wav</ShortName>
+					<CachePath>SFX/Reverse Riser_10C4C929.wem</CachePath>
+				</File>
+				<File Id="978674330" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 7.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 7_10C4C929.wem</CachePath>
+				</File>
+				<File Id="983061750" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 12.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 12_10C4C929.wem</CachePath>
+				</File>
+				<File Id="987838814" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Screech.wav</ShortName>
+					<CachePath>SFX/Screech_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1003005601" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Machine Buzz.wav</ShortName>
+					<CachePath>SFX/Machine Buzz_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1015133013" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lazer SFX 2.wav</ShortName>
+					<CachePath>SFX/Lazer SFX 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1021227817" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Hover Click 1.wav</ShortName>
+					<CachePath>SFX/Hover Click 1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1037847484" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 8.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 8_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1039062149" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pigeon Coo 3.wav</ShortName>
+					<CachePath>SFX/Pigeon Coo 3_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="516331348" Name="Play_Heavy_Blast" DurationType="OneShot" DurationMin="0.6600227" DurationMax="0.6600227">
+					<MediaRefs>
+						<MediaRef Id="719609388"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="872037337" Name="Play_Heavy_reload" DurationType="OneShot" DurationMin="0.6814739" DurationMax="0.6814739">
+					<MediaRefs>
+						<MediaRef Id="563781845"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3744969633" Name="Play_Hover_Click_1" DurationType="OneShot" DurationMin="0.15027212" DurationMax="0.15027212">
+					<MediaRefs>
+						<MediaRef Id="1021227817"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3744969634" Name="Play_Hover_Click_2" DurationType="OneShot" DurationMin="0.17537415" DurationMax="0.17537415">
+					<MediaRefs>
+						<MediaRef Id="682039198"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4267708594" Name="Play_Lazer_SFX" DurationType="OneShot" DurationMin="0.24260771" DurationMax="0.24260771">
+					<MediaRefs>
+						<MediaRef Id="767001887"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3720347001" Name="Play_Lazer_SFX_2" DurationType="OneShot" DurationMin="0.5346939" DurationMax="0.5346939">
+					<MediaRefs>
+						<MediaRef Id="1015133013"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4146597635" Name="Play_Machine_Buzz" DurationType="OneShot" DurationMin="0.6111338" DurationMax="0.6111338">
+					<MediaRefs>
+						<MediaRef Id="1003005601"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2873551122" Name="Play_Machine_Thump" DurationType="OneShot" DurationMin="0.48680273" DurationMax="0.48680273">
+					<MediaRefs>
+						<MediaRef Id="323829892"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="797579802" Name="Play_Machine_wub_1" DurationType="OneShot" DurationMin="1.0526984" DurationMax="1.0526984">
+					<MediaRefs>
+						<MediaRef Id="225419399"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="797579801" Name="Play_Machine_wub_2" DurationType="OneShot" DurationMin="0.7047846" DurationMax="0.7047846">
+					<MediaRefs>
+						<MediaRef Id="542053950"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1484908144" Name="Play_Missle_Whistle" DurationType="OneShot" DurationMin="0.68079364" DurationMax="0.68079364">
+					<MediaRefs>
+						<MediaRef Id="146814141"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3480038428" Name="Play_Mystery_Get" DurationType="OneShot" DurationMin="1.705737" DurationMax="1.705737">
+					<MediaRefs>
+						<MediaRef Id="234390179"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1477746252" Name="Play_Pause_SFX" DurationType="OneShot" DurationMin="0.1892517" DurationMax="0.1892517">
+					<MediaRefs>
+						<MediaRef Id="19215516"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1837174732" Name="Play_Pigeon_Coo_1" DurationType="OneShot" DurationMin="0.41210884" DurationMax="0.41210884">
+					<MediaRefs>
+						<MediaRef Id="740621105"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="774626836" Name="Play_Pigeon_Coo_10" DurationType="OneShot" DurationMin="0.55918366" DurationMax="0.55918366">
+					<MediaRefs>
+						<MediaRef Id="30992161"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="774626837" Name="Play_Pigeon_Coo_11" DurationType="OneShot" DurationMin="0.29530612" DurationMax="0.29530612">
+					<MediaRefs>
+						<MediaRef Id="249967903"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="774626838" Name="Play_Pigeon_Coo_12" DurationType="OneShot" DurationMin="0.28768706" DurationMax="0.28768706">
+					<MediaRefs>
+						<MediaRef Id="983061750"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="774626839" Name="Play_Pigeon_Coo_13" DurationType="OneShot" DurationMin="0.35641724" DurationMax="0.35641724">
+					<MediaRefs>
+						<MediaRef Id="779570665"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="774626832" Name="Play_Pigeon_Coo_14" DurationType="OneShot" DurationMin="0.22619048" DurationMax="0.22619048">
+					<MediaRefs>
+						<MediaRef Id="647569083"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="774626833" Name="Play_Pigeon_Coo_15" DurationType="OneShot" DurationMin="0.20897959" DurationMax="0.20897959">
+					<MediaRefs>
+						<MediaRef Id="338096846"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="774626834" Name="Play_Pigeon_Coo_16" DurationType="OneShot" DurationMin="0.35024944" DurationMax="0.35024944">
+					<MediaRefs>
+						<MediaRef Id="796248657"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1837174735" Name="Play_Pigeon_Coo_2" DurationType="OneShot" DurationMin="0.35922903" DurationMax="0.35922903">
+					<MediaRefs>
+						<MediaRef Id="155015978"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1837174734" Name="Play_Pigeon_Coo_3" DurationType="OneShot" DurationMin="0.39650795" DurationMax="0.39650795">
+					<MediaRefs>
+						<MediaRef Id="1039062149"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1837174729" Name="Play_Pigeon_Coo_4" DurationType="OneShot" DurationMin="0.34310657" DurationMax="0.34310657">
+					<MediaRefs>
+						<MediaRef Id="115255994"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1837174728" Name="Play_Pigeon_Coo_5" DurationType="OneShot" DurationMin="0.6945125" DurationMax="0.6945125">
+					<MediaRefs>
+						<MediaRef Id="308759193"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1837174731" Name="Play_Pigeon_Coo_6" DurationType="OneShot" DurationMin="0.3505669" DurationMax="0.3505669">
+					<MediaRefs>
+						<MediaRef Id="762522150"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1837174730" Name="Play_Pigeon_Coo_7" DurationType="OneShot" DurationMin="0.26503402" DurationMax="0.26503402">
+					<MediaRefs>
+						<MediaRef Id="978674330"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1837174725" Name="Play_Pigeon_Coo_8" DurationType="OneShot" DurationMin="0.4001814" DurationMax="0.4001814">
+					<MediaRefs>
+						<MediaRef Id="1037847484"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1837174724" Name="Play_Pigeon_Coo_9" DurationType="OneShot" DurationMin="0.37596372" DurationMax="0.37596372">
+					<MediaRefs>
+						<MediaRef Id="119470656"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="480578592" Name="Play_Pigeon_hoo_hoo" DurationType="OneShot" DurationMin="0.77267575" DurationMax="0.77267575">
+					<MediaRefs>
+						<MediaRef Id="514170223"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3748288237" Name="Play_Pigeon_wing_flutter" DurationType="OneShot" DurationMin="2.9019275" DurationMax="2.9019275">
+					<MediaRefs>
+						<MediaRef Id="387236824"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="331850419" Name="Play_Potential_Pickup_SFX" DurationType="OneShot" DurationMin="0.33356008" DurationMax="0.33356008">
+					<MediaRefs>
+						<MediaRef Id="801503577"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3838884112" Name="Play_Potential_Pickup_SFX_2" DurationType="OneShot" DurationMin="0.5551474" DurationMax="0.5551474">
+					<MediaRefs>
+						<MediaRef Id="818060147"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="698739042" Name="Play_Reverse_Riser" DurationType="OneShot" DurationMin="1.6126984" DurationMax="1.6126984">
+					<MediaRefs>
+						<MediaRef Id="940778100"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1310391422" Name="Play_Robot_Activated" DurationType="OneShot" DurationMin="2.0191836" DurationMax="2.0191836">
+					<MediaRefs>
+						<MediaRef Id="161308221"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3969824657" Name="Play_Robot_Alert_SFX" DurationType="OneShot" DurationMin="0.8861905" DurationMax="0.8861905">
+					<MediaRefs>
+						<MediaRef Id="131933092"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3528394261" Name="Play_Robot_Error" DurationType="OneShot" DurationMin="0.2711111" DurationMax="0.2711111">
+					<MediaRefs>
+						<MediaRef Id="802213557"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3978470046" Name="Play_Robot_Glitch" DurationType="OneShot" DurationMin="0.16006802" DurationMax="0.16006802">
+					<MediaRefs>
+						<MediaRef Id="787886670"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1808933820" Name="Play_Robot_Ouch" DurationType="OneShot" DurationMin="0.57517004" DurationMax="0.57517004">
+					<MediaRefs>
+						<MediaRef Id="238932007"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2531727233" Name="Play_Screech" DurationType="OneShot" DurationMin="0.9892064" DurationMax="0.9892064">
+					<MediaRefs>
+						<MediaRef Id="987838814"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2554379966" Name="Play_Space_Blip" DurationType="OneShot" DurationMin="0.22578232" DurationMax="0.22578232">
+					<MediaRefs>
+						<MediaRef Id="765581632"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4278623891" Name="Play_Unpause_SFX" DurationType="OneShot" DurationMin="0.19492063" DurationMax="0.19492063">
+					<MediaRefs>
+						<MediaRef Id="742994317"/>
+					</MediaRefs>
+				</Event>
+			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{85FB997E-979E-429B-B6F1-CF88BB808457}</FileHash>
+	<FileHash>{EC5A4EDB-D3EB-CDCE-F480-924D91038C02}</FileHash>
 </SoundBanksInfo>

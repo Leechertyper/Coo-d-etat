@@ -133,8 +133,8 @@ public class DroneBossGrid : MonoBehaviour
     {
         if(GameManager.Instance)
         {
-            gridStartPosition.x = 116.5f;
-            gridStartPosition.y = -145.5f;
+            gridStartPosition.x = 115.5f;
+            gridStartPosition.y = -147f;
         }
         else
         {
