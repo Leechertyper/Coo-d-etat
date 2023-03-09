@@ -150,8 +150,8 @@ public class GlobalGrid : MonoBehaviour
             switch(index)
             {
                 case 0:
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
                     break;
                 case 1:
                     _grid[xIter, yIter - 4].blocked = false;
@@ -170,16 +170,8 @@ public class GlobalGrid : MonoBehaviour
                     _grid[xIter + 8, yIter].door = true;
                     break;
                 case 3:
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
-                    _grid[xIter + 8, yIter].blocked = false;
-                    _grid[xIter + 8, yIter].door = true;
-                    break;
-                case 5:
-                    _grid[xIter - 8, yIter].blocked = false;
-                    _grid[xIter - 8, yIter].door = true;
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
                     _grid[xIter + 8, yIter].blocked = false;
                     _grid[xIter + 8, yIter].door = true;
                     break;
@@ -188,34 +180,34 @@ public class GlobalGrid : MonoBehaviour
                     _grid[xIter - 8, yIter].door = true;
                     _grid[xIter, yIter + 4].blocked = false;
                     _grid[xIter, yIter + 4].door = true;
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
                     _grid[xIter + 8, yIter].blocked = false;
                     _grid[xIter + 8, yIter].door = true;
                     break;
                 case 7:
                     _grid[xIter - 8, yIter].blocked = false;
                     _grid[xIter - 8, yIter].door = true;
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
                     _grid[xIter, yIter - 4].blocked = false;
                     _grid[xIter, yIter - 4].door = true;
                     _grid[xIter + 8, yIter].blocked = false;
                     _grid[xIter + 8, yIter].door = true;
                     break;
-                case 9:
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
+                case 8:
                     _grid[xIter - 8, yIter].blocked = false;
                     _grid[xIter - 8, yIter].door = true;
-                    break;
-                case 10:
                     _grid[xIter, yIter - 4].blocked = false;
                     _grid[xIter, yIter - 4].door = true;
-                    _grid[xIter - 8, yIter].blocked = false;
-                    _grid[xIter - 8, yIter].door = true;
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
+                    _grid[xIter + 8, yIter].blocked = false;
+                    _grid[xIter + 8, yIter].door = true;
                     break;
                 case 11:
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    _grid[xIter - 8, yIter].blocked = false;
+                    _grid[xIter - 8, yIter].door = true;
+                    break;
+                case 12:
                     _grid[xIter, yIter - 4].blocked = false;
                     _grid[xIter, yIter - 4].door = true;
                     _grid[xIter - 8, yIter].blocked = false;
@@ -223,7 +215,15 @@ public class GlobalGrid : MonoBehaviour
                     _grid[xIter, yIter + 4].blocked = false;
                     _grid[xIter, yIter + 4].door = true;
                     break;
-                case 12:
+                case 13:
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
+                    _grid[xIter - 8, yIter].blocked = false;
+                    _grid[xIter - 8, yIter].door = true;
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    break;
+                case 14:
                     _grid[xIter, yIter - 4].blocked = false;
                     _grid[xIter, yIter - 4].door = true;
                     break;
