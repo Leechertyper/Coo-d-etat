@@ -35,8 +35,6 @@ public class Lazer : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player" && this.gameObject.tag != "PlayerProjectile")
         {
-            
-
             float tempVar = 0;
             switch(_parentType){
                 case theNameSpace.TheParentTypes.droneType:
