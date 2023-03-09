@@ -50,6 +50,9 @@ public class GlobalGrid : MonoBehaviour
         [Header("Is this the center of a room?")]
         public bool center = false;
 
+        [Header("Is this a door?")]
+        public bool door = false;
+
         /// <summary>
         /// Global tile constructor
         /// </summary>
@@ -70,7 +73,7 @@ public class GlobalGrid : MonoBehaviour
         // start with the amount of rooms and the size of each one
         _size.x = (roomSize.x * floorDimesions.x) + (roomOffset.x * (floorDimesions.x - 1));
         // gets an extra one cause the room has an open bottom
-        _size.y = (roomSize.y * floorDimesions.y) + (roomOffset.y * (floorDimesions.y - 1));
+        _size.y = (roomSize.y * floorDimesions.y) + (roomOffset.y * (floorDimesions.y - 1) + 2);
 
         // initialize the grid
         _grid = new GlobalTile[_size.x, _size.y];
@@ -103,7 +106,7 @@ public class GlobalGrid : MonoBehaviour
         // go through and find the centers of the rooms
         for (int i = 8; i < _size.x; i++)
         {
-            for(int j = 4; j < _size.y; j++)
+            for(int j = 6; j < _size.y; j++)
             {
                 // add the coordinates into a temp list
                 List<int> _t = new List<int>();
@@ -123,7 +126,7 @@ public class GlobalGrid : MonoBehaviour
             // add an offset value to i
             i += roomOffset.x + roomSize.x - 1;
         }
-
+        int index = 0;
         // now go through each room center and add the boundaries
         foreach(List<int> curList in _roomCenters)
         {
@@ -141,8 +144,94 @@ public class GlobalGrid : MonoBehaviour
                     {
                         _grid[i, j].blocked = true;
                     }
+
                 }
             }
+            switch(index)
+            {
+                case 0:
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
+                    break;
+                case 1:
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    _grid[xIter + 8, yIter].blocked = false;
+                    _grid[xIter + 8, yIter].door = true;
+                    break;
+                case 2:
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    _grid[xIter + 8, yIter].blocked = false;
+                    _grid[xIter + 8, yIter].door = true;
+                    break;
+                case 3:
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    _grid[xIter + 8, yIter].blocked = false;
+                    _grid[xIter + 8, yIter].door = true;
+                    break;
+                case 5:
+                    _grid[xIter - 8, yIter].blocked = false;
+                    _grid[xIter - 8, yIter].door = true;
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    _grid[xIter + 8, yIter].blocked = false;
+                    _grid[xIter + 8, yIter].door = true;
+                    break;
+                case 6:
+                    _grid[xIter - 8, yIter].blocked = false;
+                    _grid[xIter - 8, yIter].door = true;
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
+                    _grid[xIter + 8, yIter].blocked = false;
+                    _grid[xIter + 8, yIter].door = true;
+                    break;
+                case 7:
+                    _grid[xIter - 8, yIter].blocked = false;
+                    _grid[xIter - 8, yIter].door = true;
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
+                    _grid[xIter + 8, yIter].blocked = false;
+                    _grid[xIter + 8, yIter].door = true;
+                    break;
+                case 9:
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    _grid[xIter - 8, yIter].blocked = false;
+                    _grid[xIter - 8, yIter].door = true;
+                    break;
+                case 10:
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
+                    _grid[xIter - 8, yIter].blocked = false;
+                    _grid[xIter - 8, yIter].door = true;
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    break;
+                case 11:
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
+                    _grid[xIter - 8, yIter].blocked = false;
+                    _grid[xIter - 8, yIter].door = true;
+                    _grid[xIter, yIter + 4].blocked = false;
+                    _grid[xIter, yIter + 4].door = true;
+                    break;
+                case 12:
+                    _grid[xIter, yIter - 4].blocked = false;
+                    _grid[xIter, yIter - 4].door = true;
+                    break;
+            }
+
+
+
+            index++;
         }
 
         Debug.Log(GetRoomsAsString());
@@ -174,6 +263,10 @@ public class GlobalGrid : MonoBehaviour
                     else if (_grid[i, j-1].center)
                     {
                         returnString += "[c] ";
+                    }
+                    else if (_grid[i, j - 1].door)
+                    {
+                        returnString += "[d] ";
                     }
                     else
                     {
