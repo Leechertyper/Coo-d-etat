@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
         direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
 
-        transform.up = direction;
+        //transform.up = direction;
 
         _movement.x = Input.GetAxisRaw(horizontalInput);
         _movement.y = Input.GetAxisRaw(verticalInput);
@@ -49,8 +49,7 @@ public class PlayerMovement : MonoBehaviour
             _lastMoveDirection = _movementDirection;
         }
 
-        //_movementDirection = new Vector2(_movement.x, _movement.y).normalized;
-        _movementDirection = new Vector2(direction.x,direction.y).normalized;
+        _movementDirection = new Vector2(_movement.x, _movement.y).normalized;
 
         animator.SetFloat("LastMoveX", _lastMoveDirection.x);
         animator.SetFloat("LastMoveY", _lastMoveDirection.y);
