@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7716e0d6b394a4db4920db1fa94345, type: 3}
   m_Name: New Garlic
   m_EditorClassIdentifier: 
-  amount: 0
+  amount: 2
