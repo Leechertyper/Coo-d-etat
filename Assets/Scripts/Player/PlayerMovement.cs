@@ -41,11 +41,11 @@ public class PlayerMovement : MonoBehaviour
 
         //transform.up = direction;
 
-        _movement.x = Input.GetAxisRaw(horizontalInput);
+        /*_movement.x = Input.GetAxisRaw(horizontalInput);
         _movement.y = Input.GetAxisRaw(verticalInput);
         animator.SetFloat("Horizontal", _movement.x);
         animator.SetFloat("Vertical", _movement.y);
-        animator.SetFloat("Speed", _movement.sqrMagnitude);
+        animator.SetFloat("Speed", _movement.sqrMagnitude);*/
 
         if (!isMoving) // Make sure Player isn't moving
 
