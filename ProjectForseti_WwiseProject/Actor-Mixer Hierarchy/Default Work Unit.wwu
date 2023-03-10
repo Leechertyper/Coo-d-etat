@@ -289,358 +289,6 @@
 						<ActiveSource Name="Pause SFX" ID="{623F14C3-842D-4F23-87B0-1B0FBF99F4CF}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="Pigeon Coo 1" ID="{83EA07E3-3F21-477B-829B-D9D97CC7BF45}" ShortID="181045297">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 1" ID="{DDAB7882-0489-4446-B713-FD3586E19A4F}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 1.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="740621105"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 1" ID="{DDAB7882-0489-4446-B713-FD3586E19A4F}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 2" ID="{467F6E65-AC4D-47D4-8F5C-FA6788F17BCA}" ShortID="1043606512">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 2" ID="{3E29C3A8-4E70-4328-AC70-E165C80E57E1}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 2.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="155015978"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 2" ID="{3E29C3A8-4E70-4328-AC70-E165C80E57E1}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 3" ID="{7F6CCC39-83CC-485E-9B1E-BE80D3AA2285}" ShortID="985253176">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 3" ID="{C704F01A-867E-47AB-B315-6C4396FFBF68}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 3.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="1039062149"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 3" ID="{C704F01A-867E-47AB-B315-6C4396FFBF68}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 4" ID="{992720B5-D769-4973-91DF-5032D6138C58}" ShortID="162615135">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 4" ID="{58BB8B5D-37A5-4514-B3D5-689BD7F40AB4}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 4.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="115255994"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 4" ID="{58BB8B5D-37A5-4514-B3D5-689BD7F40AB4}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 5" ID="{B2667F76-B9D5-4483-A972-8C8D4D0D38ED}" ShortID="33218044">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 5" ID="{1E755265-29BA-46A8-BF81-98CDA6A4E4AC}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 5.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="308759193"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 5" ID="{1E755265-29BA-46A8-BF81-98CDA6A4E4AC}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 6" ID="{748840B4-2FCF-48C4-AA22-928B7F5CAF0D}" ShortID="394110882">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 6" ID="{27831E50-8B18-4996-91E6-B907F3458EA4}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 6.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="762522150"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 6" ID="{27831E50-8B18-4996-91E6-B907F3458EA4}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 7" ID="{5C334433-2752-4B03-9249-ABF2ADA49B1E}" ShortID="1050520965">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 7" ID="{7EDA9B0F-F369-48D4-8A64-50F4715A76CF}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 7.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="978674330"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 7" ID="{7EDA9B0F-F369-48D4-8A64-50F4715A76CF}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 8" ID="{6E0EFB3B-D360-44E8-AF84-D57635240A92}" ShortID="810718356">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 8" ID="{8CFD72B8-2560-47F1-AAE0-40E01C85FAE1}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 8.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="1037847484"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 8" ID="{8CFD72B8-2560-47F1-AAE0-40E01C85FAE1}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 9" ID="{28F36F35-85EF-4AF3-9910-BF23706979C2}" ShortID="710520198">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 9" ID="{76C53DC3-8B17-4DEA-AEA7-8FBAFC2F8AD8}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 9.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="119470656"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 9" ID="{76C53DC3-8B17-4DEA-AEA7-8FBAFC2F8AD8}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 10" ID="{33646594-81D1-4EFD-A6F5-F34CC6AB5D56}" ShortID="456166344">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 10" ID="{61B56445-A1A0-4D07-8FAC-C7838A9568B5}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 10.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="30992161"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 10" ID="{61B56445-A1A0-4D07-8FAC-C7838A9568B5}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 11" ID="{A7491CB3-7E1B-4A32-A43B-B9C0CAE392CB}" ShortID="643011234">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 11" ID="{43382405-73EC-44A8-9DD8-21AC7A2D97B8}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 11.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="249967903"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 11" ID="{43382405-73EC-44A8-9DD8-21AC7A2D97B8}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 12" ID="{AD4763FA-50BC-4512-AC7C-0F46E6671123}" ShortID="95501532">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 12" ID="{72CB933D-5CDB-4085-A60F-D7634E389F85}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 12.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="983061750"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 12" ID="{72CB933D-5CDB-4085-A60F-D7634E389F85}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 13" ID="{F37CCBE6-45EA-4D29-95EA-BF7225FBD396}" ShortID="519188373">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 13" ID="{BF636019-DA6D-4579-AFDD-D27498716AF0}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 13.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="779570665"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 13" ID="{BF636019-DA6D-4579-AFDD-D27498716AF0}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 14" ID="{52D021D7-15BE-4E82-8C3E-C22DDF956FCE}" ShortID="353311064">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 14" ID="{4B4A052A-F11B-433A-8BFB-C9FC4E21C33F}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 14.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="647569083"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 14" ID="{4B4A052A-F11B-433A-8BFB-C9FC4E21C33F}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 15" ID="{82AACB90-FD92-4A5A-ADAB-BF352A473DE4}" ShortID="38929671">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 15" ID="{753AF655-EB41-4C43-ABDD-D21ED3F4BC32}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 15.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="338096846"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 15" ID="{753AF655-EB41-4C43-ABDD-D21ED3F4BC32}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Pigeon Coo 16" ID="{02000620-2E35-456B-A9A9-F3DB459B4213}" ShortID="592705628">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Pigeon Coo 16" ID="{A71316C7-6997-41D3-BDC5-5C7E3DAEE581}">
-							<Language>SFX</Language>
-							<AudioFile>Pigeon Coo 16.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="796248657"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Pigeon Coo 16" ID="{A71316C7-6997-41D3-BDC5-5C7E3DAEE581}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<Sound Name="Pigeon hoo hoo" ID="{FCBB53CA-2201-416E-A6B4-1C7FE1B0EFC8}" ShortID="1024600845">
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -664,6 +312,26 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Pigeon wing flutter" ID="{60A036F0-C57C-4EF5-8E38-49A41D5957E3}" ShortID="94894406">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>26</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{AF3BBBDE-4E71-4F39-8A95-11EB2A361CF0}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="400"/>
+											<Property Name="Min" Type="Real64" Value="-400"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -674,6 +342,13 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="Pigeon wing flutter" ID="{5B3640C0-69DF-4126-A274-96082765751E}">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.621841593780367"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.621841593780367"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.14461432413497"/>
+								<Property Name="TrimEnd" Type="Real64" Value="1.19065793537792"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Pigeon wing flutter.wav</AudioFile>
 							<MediaIDList>
@@ -925,6 +600,444 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Unpause SFX" ID="{DBB7571D-DABB-4FF6-A924-DB3973696C0D}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<RandomSequenceContainer Name="Pigeon Coos" ID="{D85FAB02-B7CA-49C1-9DE0-B5E0A92CC6B0}" ShortID="232983258">
+					<PropertyList>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Pigeon Coo 1" ID="{83EA07E3-3F21-477B-829B-D9D97CC7BF45}" ShortID="181045297">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 1" ID="{DDAB7882-0489-4446-B713-FD3586E19A4F}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="740621105"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 1" ID="{DDAB7882-0489-4446-B713-FD3586E19A4F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 2" ID="{467F6E65-AC4D-47D4-8F5C-FA6788F17BCA}" ShortID="1043606512">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 2" ID="{3E29C3A8-4E70-4328-AC70-E165C80E57E1}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="155015978"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 2" ID="{3E29C3A8-4E70-4328-AC70-E165C80E57E1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 3" ID="{7F6CCC39-83CC-485E-9B1E-BE80D3AA2285}" ShortID="985253176">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 3" ID="{C704F01A-867E-47AB-B315-6C4396FFBF68}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1039062149"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 3" ID="{C704F01A-867E-47AB-B315-6C4396FFBF68}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 4" ID="{992720B5-D769-4973-91DF-5032D6138C58}" ShortID="162615135">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 4" ID="{58BB8B5D-37A5-4514-B3D5-689BD7F40AB4}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="115255994"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 4" ID="{58BB8B5D-37A5-4514-B3D5-689BD7F40AB4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 5" ID="{B2667F76-B9D5-4483-A972-8C8D4D0D38ED}" ShortID="33218044">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 5" ID="{1E755265-29BA-46A8-BF81-98CDA6A4E4AC}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 5.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="308759193"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 5" ID="{1E755265-29BA-46A8-BF81-98CDA6A4E4AC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 6" ID="{748840B4-2FCF-48C4-AA22-928B7F5CAF0D}" ShortID="394110882">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 6" ID="{27831E50-8B18-4996-91E6-B907F3458EA4}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 6.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="762522150"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 6" ID="{27831E50-8B18-4996-91E6-B907F3458EA4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 7" ID="{5C334433-2752-4B03-9249-ABF2ADA49B1E}" ShortID="1050520965">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 7" ID="{7EDA9B0F-F369-48D4-8A64-50F4715A76CF}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 7.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="978674330"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 7" ID="{7EDA9B0F-F369-48D4-8A64-50F4715A76CF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 8" ID="{6E0EFB3B-D360-44E8-AF84-D57635240A92}" ShortID="810718356">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 8" ID="{8CFD72B8-2560-47F1-AAE0-40E01C85FAE1}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 8.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1037847484"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 8" ID="{8CFD72B8-2560-47F1-AAE0-40E01C85FAE1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 9" ID="{28F36F35-85EF-4AF3-9910-BF23706979C2}" ShortID="710520198">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 9" ID="{76C53DC3-8B17-4DEA-AEA7-8FBAFC2F8AD8}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 9.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="119470656"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 9" ID="{76C53DC3-8B17-4DEA-AEA7-8FBAFC2F8AD8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 10" ID="{33646594-81D1-4EFD-A6F5-F34CC6AB5D56}" ShortID="456166344">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 10" ID="{61B56445-A1A0-4D07-8FAC-C7838A9568B5}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 10.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="30992161"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 10" ID="{61B56445-A1A0-4D07-8FAC-C7838A9568B5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 11" ID="{A7491CB3-7E1B-4A32-A43B-B9C0CAE392CB}" ShortID="643011234">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 11" ID="{43382405-73EC-44A8-9DD8-21AC7A2D97B8}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 11.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="249967903"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 11" ID="{43382405-73EC-44A8-9DD8-21AC7A2D97B8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 12" ID="{AD4763FA-50BC-4512-AC7C-0F46E6671123}" ShortID="95501532">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 12" ID="{72CB933D-5CDB-4085-A60F-D7634E389F85}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 12.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="983061750"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 12" ID="{72CB933D-5CDB-4085-A60F-D7634E389F85}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 13" ID="{F37CCBE6-45EA-4D29-95EA-BF7225FBD396}" ShortID="519188373">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 13" ID="{BF636019-DA6D-4579-AFDD-D27498716AF0}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 13.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="779570665"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 13" ID="{BF636019-DA6D-4579-AFDD-D27498716AF0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 14" ID="{52D021D7-15BE-4E82-8C3E-C22DDF956FCE}" ShortID="353311064">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 14" ID="{4B4A052A-F11B-433A-8BFB-C9FC4E21C33F}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 14.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="647569083"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 14" ID="{4B4A052A-F11B-433A-8BFB-C9FC4E21C33F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 15" ID="{82AACB90-FD92-4A5A-ADAB-BF352A473DE4}" ShortID="38929671">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 15" ID="{753AF655-EB41-4C43-ABDD-D21ED3F4BC32}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 15.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="338096846"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 15" ID="{753AF655-EB41-4C43-ABDD-D21ED3F4BC32}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pigeon Coo 16" ID="{02000620-2E35-456B-A9A9-F3DB459B4213}" ShortID="592705628">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pigeon Coo 16" ID="{A71316C7-6997-41D3-BDC5-5C7E3DAEE581}">
+									<Language>SFX</Language>
+									<AudioFile>Pigeon Coo 16.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="796248657"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pigeon Coo 16" ID="{A71316C7-6997-41D3-BDC5-5C7E3DAEE581}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="heartbeat" ID="{2DC69635-A3E4-4F8A-A1AB-CB7C32E1415B}" ShortID="378144639">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="heartbeat" ID="{2865936B-0950-4292-8E49-982C10C0DE93}">
+							<Language>SFX</Language>
+							<AudioFile>heartbeat.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="715870971"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{BECE146D-E6D6-4442-9298-E10EEFE38460}" ShortID="54965360">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="PlayerHealth" ID="{9E42C623-40D3-496F-AD4A-0B51CD74ED53}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{06A5ADC9-73DC-403A-967E-79A790BAF155}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+																<SegmentShape>Log3</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>50</XPos>
+																<YPos>-200</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>-200</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+					<ActiveSourceList>
+						<ActiveSource Name="heartbeat" ID="{2865936B-0950-4292-8E49-982C10C0DE93}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
