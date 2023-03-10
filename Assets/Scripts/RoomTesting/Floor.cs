@@ -6,13 +6,13 @@ using UnityEngine;
 /// </summary>
 public static class FloorConstants
 {
-    public const float VerticalRoomOffset = 35.5f;
-    public const float HorizontalRoomOffset = 69.5f;
+    public const float VerticalRoomOffset = 36f;
+    public const float HorizontalRoomOffset = 69f;
     
     public const float TransitionSpeed = 0.25f;
 
-    public const float VerticalPlayerOffset = 17f;
-    public const float HorizontalPlayerOffset = 27f;
+    public const float VerticalPlayerOffset = 18f;
+    public const float HorizontalPlayerOffset = 28.5f;
 }
 
 public class Floor : MonoBehaviour
@@ -118,8 +118,9 @@ public class Floor : MonoBehaviour
     public void MoveUp(GameObject player)
     {
         if (_camController.IsMoving) return;
-        var newPlayerLocation = new Vector3(player.transform.position.x, player.transform.position.y + FloorConstants.VerticalPlayerOffset);
-        player.transform.position = newPlayerLocation;
+/*        var newPlayerLocation = new Vector3(player.transform.position.x, player.transform.position.y + FloorConstants.VerticalPlayerOffset);
+        Debug.Log("Changing position = " + player.transform.position.y);
+        player.transform.position = newPlayerLocation;*/
         _camController.MoveUp();
     }
 
@@ -130,8 +131,9 @@ public class Floor : MonoBehaviour
     public void MoveDown(GameObject player)
     {
         if (_camController.IsMoving) return;
-        var newPlayerLocation = new Vector3(player.transform.position.x, player.transform.position.y - FloorConstants.VerticalPlayerOffset);
-        player.transform.position = newPlayerLocation;
+/*        var newPlayerLocation = new Vector3(player.transform.position.x, player.transform.position.y - FloorConstants.VerticalPlayerOffset);
+        Debug.Log("Changing position = " + player.transform.position.y);
+        player.transform.position = newPlayerLocation;*/
         _camController.MoveDown();
     }
 
@@ -142,9 +144,10 @@ public class Floor : MonoBehaviour
     public void MoveRight(GameObject player)
     {
         if (_camController.IsMoving) return;
-        var newPlayerLocation = new Vector3(player.transform.position.x + FloorConstants.HorizontalPlayerOffset, player.transform.position.y);
-        _camController.MoveRight();
-        player.transform.position = newPlayerLocation;
+        /*var newPlayerLocation = new Vector3(player.transform.position.x + FloorConstants.HorizontalPlayerOffset, player.transform.position.y);
+        Debug.Log("Changing position = " + player.transform.position.x);
+        player.transform.position = newPlayerLocation;*/
+        _camController.MoveRight();        
     }
 
     /// <summary>
@@ -154,8 +157,9 @@ public class Floor : MonoBehaviour
     public void MoveLeft(GameObject player)
     {
         if (_camController.IsMoving) return;
-        var newPlayerLocation = new Vector3(player.transform.position.x - FloorConstants.HorizontalPlayerOffset, player.transform.position.y);
-        player.transform.position = newPlayerLocation;
+        /*var newPlayerLocation = new Vector3(player.transform.position.x - FloorConstants.HorizontalPlayerOffset, player.transform.position.y);
+        Debug.Log("Changing position = " + player.transform.position.x);
+        player.transform.position = newPlayerLocation;*/
         _camController.MoveLeft();
     }
     
