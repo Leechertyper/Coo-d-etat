@@ -43,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse clicked");
+            //Debug.Log("Mouse clicked");
             ShootProjectile(gameObject.GetComponent<PlayerMovement>().direction);
 
 
@@ -101,7 +101,7 @@ public class PlayerAttack : MonoBehaviour
                 // Reset the shoot timer
                 shootTimer = shootCooldown;
                 RemoveAmmo(_ammoPerShot);
-                //Debug.Log("All ammo " + _curAmmo);
+                Debug.Log("All ammo " + _curAmmo);
             }
             else
             {

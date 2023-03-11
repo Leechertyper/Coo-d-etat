@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class deathItems : MonoBehaviour
 {
-
-
-    private int _spawnChance = 30; // Here just in case its needed for stat stuff 
-
     public GameObject batteryItem;
 
     public GameObject healthItem;
@@ -16,7 +12,7 @@ public class deathItems : MonoBehaviour
     private int _timeSinceLastBattery = 0;
 
     private int _timeSinceLastHealth = 0; 
-
+  
     // the amount reference for failed rolls 
     private int _batteryTime = 3; 
 
@@ -26,22 +22,30 @@ public class deathItems : MonoBehaviour
 
     private int _totalItems = 2;
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            this.SpawnItem(new Vector3(0,0,-1));
+        }
+    }
 
     //With this funtion, if battery and health time are at max then the battery will always spawn first, 
     // I would like to make a check to see which one is lower then give that item, but only if time allows 
-    public void SpawnItem(Transform thePlace)
+    public void SpawnItem(Vector3 thePlace)
     {
+        Debug.Log("CHECKING IF SPAWN ITEM");
         if(_timeSinceLastBattery >= _batteryTime) // Spawn battery if timer is up
         {
-            GameObject aBattery = Instantiate(batteryItem,thePlace);
+            Instantiate(batteryItem, thePlace,Quaternion.identity);
             _timeSinceLastBattery = 0;
-            _healthTime ++;
+            _timeSinceLastHealth ++;
         }
         else if(_timeSinceLastHealth >= _healthTime) // Spawn health if timer is up
         {
-            GameObject aHealth = Instantiate(healthItem,thePlace);
+            Instantiate(healthItem, thePlace,Quaternion.identity);
             _timeSinceLastHealth = 0;
-            _batteryTime ++;
+            _timeSinceLastBattery ++;
         }
         else
         {
@@ -50,13 +54,18 @@ public class deathItems : MonoBehaviour
             //Default is 15% chance per item
             if(temp >= (100-_itemSpawnChance)) 
             {
-                GameObject aBattery = Instantiate(batteryItem,thePlace);
+                Instantiate(batteryItem, thePlace,Quaternion.identity);
                 _timeSinceLastBattery = 0;
             }
             else if(temp <= _itemSpawnChance)
             {
-                GameObject aHealth = Instantiate(healthItem,thePlace);
+                Instantiate(healthItem, thePlace,Quaternion.identity);
                 _timeSinceLastHealth = 0;
+            }
+            else
+            {
+                _timeSinceLastBattery ++;
+                _timeSinceLastHealth ++;
             }
 
             
