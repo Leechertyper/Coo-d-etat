@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        //_healthText.text = "HP " + _health + "/" + _maxHealth;
+        _healthText.text = "HP " + _health + "/" + _maxHealth;
         Debug.Log("update health");
     }
 
@@ -84,6 +84,16 @@ public class Player : MonoBehaviour
     public void SetHealth(int newHealth)
     {
         _health = newHealth;
+        UpdateHealthUI();
+    }
+
+    public void AddHealth(int plusHealth)
+    {
+        _health += plusHealth;
+        if(_health > _maxHealth)
+        {
+            _health = _maxHealth;
+        }
         UpdateHealthUI();
     }
 
