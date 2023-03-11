@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    public Vector2 direction;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,7 +33,22 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+
+        //transform.up = direction;
+
+        /*_movement.x = Input.GetAxisRaw(horizontalInput);
+        _movement.y = Input.GetAxisRaw(verticalInput);
+        animator.SetFloat("Horizontal", _movement.x);
+        animator.SetFloat("Vertical", _movement.y);
+        animator.SetFloat("Speed", _movement.sqrMagnitude);*/
+
         if (!isMoving) // Make sure Player isn't moving
+
         {
             if (Input.GetKey(KeyCode.W))
             {
