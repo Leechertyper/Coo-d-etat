@@ -21,17 +21,33 @@ public class PlayerAttack : MonoBehaviour
     //Damage of the laser
     [SerializeField] private int _damage = 1;
 
+
+
     // Cooldown time for shooting projectiles
     public float shootCooldown = 0.2f;
     private float shootTimer = 0f;
 
+
+
     // Update is called once per frame
     void Update()
     {
+
+
+
         //DEBUG Heal func
         if (Input.GetKeyDown(KeyCode.H))
         {
             this.gameObject.GetComponent<Player>().SetHealth(10);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Mouse clicked");
+            ShootProjectile(gameObject.GetComponent<PlayerMovement>().direction);
+
+
+
         }
         // Check if the arrow keys are being pressed, and shoot projectiles in the corresponding direction
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -114,7 +130,7 @@ public class PlayerAttack : MonoBehaviour
             _curAmmo = _maxAmmo;
         }
     }
- 
+
     public void RemoveAmmo(float lessAmmo)
     {
         _curAmmo -= lessAmmo;
