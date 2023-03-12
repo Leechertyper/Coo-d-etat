@@ -77,8 +77,9 @@ public class GlobalGrid : MonoBehaviour
     [Header("The scaling of the tiles")]
     [SerializeField] private int tileScale = 3;
 
-    // temp for testing
-    [SerializeField] private GameObject tileObj;
+    // if you want the grid to be printed out
+    [Header("Whether or not to print out the grid")]
+    [SerializeField] private bool printGrid;
 
     // the global game grid array
     private GlobalTile[,] _grid;
@@ -121,9 +122,6 @@ public class GlobalGrid : MonoBehaviour
                 // creates a new tile at pos (i, j) in the grid
                 _grid[i, j] = new GlobalTile(iterationPosition);
 
-                // TEMP MAKE A TILE
-                GameObject tempTile = Instantiate(tileObj);
-                tempTile.transform.position = iterationPosition;
                 // iterates the y pos
                 iterationPosition.y -= tileScale;
 
@@ -370,8 +368,8 @@ public class GlobalGrid : MonoBehaviour
         }
 
         Random.Range(0, freeTiles.Count);
-        Instantiate(item);
-        item.transform.position = _grid[freeTiles[0], freeTiles[1]].position;
+        GameObject newItem = Instantiate(item);
+        newItem.transform.position = _grid[freeTiles[0], freeTiles[1]].position;
 
     }
 }
