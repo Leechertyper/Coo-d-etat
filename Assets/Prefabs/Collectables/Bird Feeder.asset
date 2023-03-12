@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f9ee4c84c3ba5440974ce0999008d10, type: 3}
-  m_Name: New Battery
+  m_Script: {fileID: 11500000, guid: d9b59670edbbcac40a663c764fc28a4f, type: 3}
+  m_Name: Bird Feeder
   m_EditorClassIdentifier: 
-  amount: 50

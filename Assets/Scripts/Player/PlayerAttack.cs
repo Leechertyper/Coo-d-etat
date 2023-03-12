@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using theNameSpace;
+using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     //Damage of the laser
     [SerializeField] private int _damage = 1;
 
-
+    //[SerializeField] private Text _ammoText;
 
     // Cooldown time for shooting projectiles
     public float shootCooldown = 0.2f;
@@ -110,6 +111,10 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    private void UpdateAmmoUI()
+    {
+        //_ammoText.text =  "Ammo: " + _curAmmo;
+    } 
     public void SetMaxAmmo(float newMaxAmmo)
     {
         _ammoPerShot = newMaxAmmo;
@@ -129,6 +134,13 @@ public class PlayerAttack : MonoBehaviour
         {
             _curAmmo = _maxAmmo;
         }
+        UpdateAmmoUI();
+    }
+
+    public void MakeMaxAmmo()
+    {
+        _curAmmo = _maxAmmo;
+        UpdateAmmoUI();
     }
 
     public void RemoveAmmo(float lessAmmo)
@@ -138,6 +150,7 @@ public class PlayerAttack : MonoBehaviour
         {
             _curAmmo = 0;
         }
+        UpdateAmmoUI();
     }
 
     public float GetCurrentAmmo()
