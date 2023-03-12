@@ -279,4 +279,60 @@ public class GlobalGrid : MonoBehaviour
         }
         return returnString;
     }
+
+    /// <summary>
+    /// Moves an entity to tile in the grid, if the move is not possible, then it will not make that move.
+    /// </summary>
+    /// <param name="entity">the entity to be moved</param>
+    /// <param name="currentPosition">the current tile the entity is on</param>
+    /// <param name="destination">the tile to move to</param>
+    /// <param name="diagonalAllowed">if the entity is allowed to travel diagonally</param>
+    /// <returns>the new current position of this entity in the grid</returns>
+    public Vector2Int MoveToTile(GameObject entity, Vector2Int currentPosition, Vector2Int destination, bool diagonalAllowed = false)
+    {
+        Mover mover = new Mover();
+        // check the destination tile
+        if (!_grid[destination.x, destination.y].blocked)
+        {
+            StartCoroutine(mover.LerpFunction(entity, _grid[destination.x, destination.y].position, 2f));
+            while (!mover.isDone)
+            {
+                // do nothing just waiting
+            }
+            return destination;
+        } 
+        // if its blocked
+        else
+        {
+            // just return where they started
+            return currentPosition;
+        }
+    }
+
+    public class Mover
+    {
+        // if the movement is done
+        public bool isDone = false;
+
+        /// <summary>
+        /// Moves an entity from one location to another over time
+        /// </summary>
+        /// <param name="entity">the entity that will be moved</param>
+        /// <param name="endValue">the location after the lerp</param>
+        /// <param name="duration">how long it takes in seconds</param>
+        /// <returns></returns>
+        public IEnumerator LerpFunction(GameObject entity, Vector2 endValue, float duration)
+        {
+            float time = 0;
+            Vector2 startValue = entity.transform.position;
+            while (time < duration)
+            {
+                entity.transform.position = Vector2.Lerp(startValue, endValue, time / duration);
+                time += Time.deltaTime;
+                yield return null;
+            }
+            entity.transform.position = endValue;
+            isDone = true;
+        }
+    }
 }
