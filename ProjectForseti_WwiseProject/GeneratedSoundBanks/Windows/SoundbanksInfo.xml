@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F989F4D5-CCB9-2C43-655F-9CD6328B441A}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{BBD9C754-38F2-21F3-979E-C1B3BE5C5DE5}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -33,10 +33,11 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<GameParameters>
+				<GameParameter Id="151362964" Name="PlayerHealth"/>
 				<GameParameter Id="2234500385" Name="SFX_playing"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{631F7F45-D99F-E455-8FF5-DF18F59BD3AA}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{AF3116C9-AF2A-2F78-E017-4E6C67BDEF28}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -102,7 +103,7 @@
 				</File>
 				<File Id="387236824" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon wing flutter.wav</ShortName>
-					<CachePath>SFX/Pigeon wing flutter_10C4C929.wem</CachePath>
+					<CachePath>SFX/Pigeon wing flutter_409A61EF.wem</CachePath>
 				</File>
 				<File Id="514170223" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon hoo hoo.wav</ShortName>
@@ -123,6 +124,10 @@
 				<File Id="682039198" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Hover Click 2.wav</ShortName>
 					<CachePath>SFX/Hover Click 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="715870971" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>heartbeat.wav</ShortName>
+					<CachePath>SFX/heartbeat_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="719609388" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Heavy Blast.wav</ShortName>
@@ -210,6 +215,11 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="3765695918" Name="Play_heartbeat" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="715870971"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="516331348" Name="Play_Heavy_Blast" DurationType="OneShot" DurationMin="0.6600227" DurationMax="0.6600227">
 					<MediaRefs>
 						<MediaRef Id="719609388"/>
@@ -360,7 +370,7 @@
 						<MediaRef Id="514170223"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3748288237" Name="Play_Pigeon_wing_flutter" DurationType="OneShot" DurationMin="2.9019275" DurationMax="2.9019275">
+				<Event Id="3748288237" Name="Play_Pigeon_wing_flutter" DurationType="OneShot" DurationMin="0.8302454" DurationMax="1.3179324">
 					<MediaRefs>
 						<MediaRef Id="387236824"/>
 					</MediaRefs>
@@ -421,7 +431,10 @@
 					</MediaRefs>
 				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="151362964" Name="PlayerHealth"/>
+			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{7DB89E71-9399-1208-CA05-244DE8CD20A5}</FileHash>
+	<FileHash>{5EED0863-C767-28B3-EA2C-B3FE50490262}</FileHash>
 </SoundBanksInfo>

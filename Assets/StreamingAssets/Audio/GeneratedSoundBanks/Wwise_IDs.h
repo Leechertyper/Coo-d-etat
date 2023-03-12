@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_HEARTBEAT = 3765695918U;
         static const AkUniqueID PLAY_HEAVY_BLAST = 516331348U;
         static const AkUniqueID PLAY_HEAVY_RELOAD = 872037337U;
         static const AkUniqueID PLAY_HOVER_CLICK_1 = 3744969633U;
@@ -59,6 +60,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID PLAYERHEALTH = 151362964U;
         static const AkUniqueID SFX_PLAYING = 2234500385U;
     } // namespace GAME_PARAMETERS
 

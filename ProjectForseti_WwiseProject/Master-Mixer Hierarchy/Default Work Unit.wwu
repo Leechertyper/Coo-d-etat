@@ -39,7 +39,7 @@
 																<PointList>
 																	<Point>
 																		<XPos>-48</XPos>
-																		<YPos>-0</YPos>
+																		<YPos>0</YPos>
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
@@ -65,6 +65,31 @@
 							</ObjectLists>
 						</Bus>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Music_State" ID="{302B8AB5-FD46-490D-94EE-47BAE515E0A8}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Rest_Room" ID="{5F26696E-37DC-4070-9FDF-0914FDE09867}"/>
+								<CustomState Name="" ID="{8D01EC83-62C5-4E90-8274-A7B3F4E913E8}" ShortID="462833594"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
+								<CustomState Name="" ID="{5C893735-5E66-416E-AD17-7295B0546EF9}" ShortID="412216865"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
+								<CustomState Name="" ID="{EB73D90D-D4A9-4D53-9D9F-F221D0B9152D}" ShortID="614608130"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
+								<CustomState Name="" ID="{1953485D-77EE-41B5-8C95-A068DD8684AF}" ShortID="282996192"/>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

@@ -40,6 +40,7 @@
 						<ObjectRef Name="Play_Pigeon_Coo_10" ID="{9096F001-1E3D-468C-810A-75D8184C9842}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Pigeon_Coo_14" ID="{A0216187-9F11-4708-B526-5C16EF11CBBA}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hover_Click_1" ID="{92A64396-1826-4733-A1E9-35EF21BE2B61}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_heartbeat" ID="{3D5E390C-9804-4793-9B66-88EBA4213D6D}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Heavy_Blast" ID="{2FFCFB70-65A0-48ED-89AA-8BAB01EB4340}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Missle_Whistle" ID="{6CC7511C-A8C8-4984-92F3-6815AF3E6274}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Robot_Ouch" ID="{345A550D-BE06-49BF-BB20-B268573B8A74}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
