@@ -108,6 +108,12 @@ public class Player : MonoBehaviour
         UpdateHealthUI();
     }
 
+    public void MakeMaxHealth()
+    {
+        _health = _maxHealth;
+        UpdateHealthUI();
+    }
+
     public float GetSpeed()
     {
         return _speed;
