@@ -164,6 +164,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /*
+    *   This function is called when the balance menu needs to pop up (call it in BalanceTimer())
+    */
+    private void StartBalanceMenu()
+    {
+        GameObject.Find("BalanceMenu").GetComponent<BalanceMenu>().startBalance=true;
+    }
+
+    /*
+    *  This will change all of the values in a dictionary using the balance value provided
+    *   The actual equation is still in question
+    */
+    public void BalanceValue(Dictionary<string,float> dictionary,string dictionaryKey, float balanceValue)
+    {
+        dictionary[dictionaryKey] *= balanceValue;
+
+    } 
     public void ChangeHealthItemValue(float newHealth)
     {
         if(newHealth <= 0)

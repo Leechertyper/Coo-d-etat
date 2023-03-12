@@ -8,7 +8,6 @@ public class BalanceMenu : MonoBehaviour
     public bool startBalance = false;
     public bool gameIsPaused = false;
     public GameObject balanceMenuUI;
-    public GameObject gameManagerScript;
     public GameObject buttonPrefab;
     public GameObject buttonContent;
     public GameObject sliderPrefab;
@@ -16,7 +15,7 @@ public class BalanceMenu : MonoBehaviour
     public GameObject sliderParents;
     public GameObject buttonParents;
     public GameObject confirmButton;
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -46,9 +45,6 @@ public class BalanceMenu : MonoBehaviour
                 BalanceVariables.seenDictionaries[kvp.Key] = false;
             }
         }
-        gameManagerScript.GetComponent<newGameManager>().BalanceTimerStart();
-
-
 
     }
 
@@ -70,11 +66,10 @@ public class BalanceMenu : MonoBehaviour
     {
         foreach (Transform child in sliderContent.transform) 
         {
-            if(child.GetComponent<BalanceSlider>().dictionaryKey!="General")
+            if (child != null && child.GetComponent<BalanceSlider>() != null && child.GetComponent<BalanceSlider>().dictionaryKey != "General")
             {
-                gameManagerScript.GetComponent<newGameManager>().BalanceValue(child.GetComponent<BalanceSlider>().dictionary,child.GetComponent<BalanceSlider>().dictionaryKey, child.GetComponent<BalanceSlider>().value);
+                GameManager.Instance.BalanceValue(child.GetComponent<BalanceSlider>().dictionary,child.GetComponent<BalanceSlider>().dictionaryKey, child.GetComponent<BalanceSlider>().value);
             }
-            
         }
         ResumeGame();
     }
