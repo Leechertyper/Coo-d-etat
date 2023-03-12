@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomSize: {x: 17, y: 10}
   roomOffset: {x: 6, y: 2}
-  floorDimesions: {x: 3, y: 5}
+  floorDimesions: {x: 3, y: 3}
   tileScale: 3
   tileObj: {fileID: 294601776}
 --- !u!4 &391427061

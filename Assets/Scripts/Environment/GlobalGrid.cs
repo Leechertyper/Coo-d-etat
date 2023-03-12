@@ -4,37 +4,32 @@ using UnityEngine;
 
 public class GlobalGrid : MonoBehaviour
 {
-    // the size of a room prefab
-    [Header("The size of a room")]
-    [SerializeField] private Vector2Int roomSize = new Vector2Int(17, 10);
+    private class Mover
+    {
+        // if the movement is done
+        public bool isDone = false;
 
-    // the offset of the rooms
-    [Header("The offset between each room")]
-    [SerializeField] private Vector2Int roomOffset = new Vector2Int(6,2);
-
-    // the amount of rooms in the floor in vector form
-    [Header("The dimesions of the floor")]
-    [SerializeField] private Vector2Int floorDimesions = new Vector2Int(3, 5);
-
-    // the scale of the tiles
-    [Header("The scaling of the tiles")]
-    [SerializeField] private int tileScale = 3;
-
-    // temp for testing
-    [SerializeField] private GameObject tileObj;
-
-    // the global game grid array
-    private GlobalTile[,] _grid;
-
-    // the size of the grid
-    private Vector2Int _size;
-
-    // the center of the rooms
-    private List<List<int>> _roomCenters = new List<List<int>>();
-
-    // the current offset
-    private Vector2Int _currentOffset = new Vector2Int(0,0);
-
+        /// <summary>
+        /// Moves an entity from one location to another over time
+        /// </summary>
+        /// <param name="entity">the entity that will be moved</param>
+        /// <param name="endValue">the location after the lerp</param>
+        /// <param name="duration">how long it takes in seconds</param>
+        /// <returns></returns>
+        public IEnumerator LerpFunction(GameObject entity, Vector2 endValue, float duration)
+        {
+            float time = 0;
+            Vector2 startValue = entity.transform.position;
+            while (time < duration)
+            {
+                entity.transform.position = Vector2.Lerp(startValue, endValue, time / duration);
+                time += Time.deltaTime;
+                yield return null;
+            }
+            entity.transform.position = endValue;
+            isDone = true;
+        }
+    }
 
     /// <summary>
     /// Global Tile Class - Holds data for each tile in the global grid
@@ -66,6 +61,40 @@ public class GlobalGrid : MonoBehaviour
 
     }
 
+    // the size of a room prefab
+    [Header("The size of a room")]
+    [SerializeField] private Vector2Int roomSize = new Vector2Int(17, 10);
+
+    // the offset of the rooms
+    [Header("The offset between each room")]
+    [SerializeField] private Vector2Int roomOffset = new Vector2Int(6,2);
+
+    // the amount of rooms in the floor in vector form
+    [Header("The dimesions of the floor")]
+    [SerializeField] private Vector2Int floorDimesions = new Vector2Int(3, 3);
+
+    // the scale of the tiles
+    [Header("The scaling of the tiles")]
+    [SerializeField] private int tileScale = 3;
+
+    // temp for testing
+    [SerializeField] private GameObject tileObj;
+
+    // the global game grid array
+    private GlobalTile[,] _grid;
+
+    // the size of the grid
+    private Vector2Int _size;
+
+    // the center of the rooms
+    private List<List<int>> _roomCenters = new List<List<int>>();
+
+    // the current offset
+    private Vector2Int _currentOffset = new Vector2Int(0,0);
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +108,7 @@ public class GlobalGrid : MonoBehaviour
         _grid = new GlobalTile[_size.x, _size.y];
         
         // get the start pos
-        Vector2 startPos = new Vector2(transform.position.x - ((roomSize.x - 1) / 2) * 3, transform.position.y + (2 * 3) + ((roomSize.y - 1) / 2) * 3);
+        Vector2 startPos = new Vector2(transform.position.x - ((roomSize.x - 1) / 2) * tileScale, transform.position.y + (2 * tileScale) + ((roomSize.y - 1) / 2) * tileScale);
         // sets the interator to the center of the parent
         Vector2 iterationPosition = startPos;
 
@@ -104,40 +133,43 @@ public class GlobalGrid : MonoBehaviour
         }
 
         // go through and find the centers of the rooms
-        for (int i = 8; i < _size.x; i++)
+        // for y I know the offset is different, we need to shift the full size plus 1 because our room is placed under the room
+        for (int i = roomSize.y / 2 + 1; i < _size.y; i++)
         {
-            for(int j = 6; j < _size.y; j++)
+            // since the rooms x isnt even, I need to floor the result to make it get the exact center 17 / 2 = 8.5 -> floor => 8
+            for(int j = Mathf.FloorToInt(roomSize.x/2); j < _size.x; j++)
             {
                 // add the coordinates into a temp list
                 List<int> _t = new List<int>();
-                _t.Add(i);
                 _t.Add(j);
+                _t.Add(i);
+
 
                 // add the temp list into the room centers list
                 _roomCenters.Add(_t);
 
                 // mark the tile as center
-                _grid[i, j].center = true;
+                _grid[j, i].center = true;
 
                 // add an offset value to j
-                j += roomOffset.y + roomSize.y - 1;
+                j += roomOffset.x + roomSize.x - 1;
             }
 
             // add an offset value to i
-            i += roomOffset.x + roomSize.x - 1;
+            i += roomOffset.y + roomSize.y - 1;
         }
         int index = 0;
         // now go through each room center and add the boundaries
-        foreach(List<int> curList in _roomCenters)
+        foreach (List<int> curList in _roomCenters)
         {
             // get the starting locations at the top left
             int xIter = curList[0];
             int yIter = curList[1];
 
             // run through the new 17x10 area - im only checking for the top wall and the offset space at the bottom
-            for(int i = xIter - 8; i <= xIter + 8; i++)
+            for (int i = xIter - 8; i <= xIter + 8; i++)
             {
-                for(int j = yIter - 4; j <= yIter + 4; j++)
+                for (int j = yIter - 4; j <= yIter + 4; j++)
                 {
                     // if the current position is on the outside, block that tile
                     if (i == xIter - 8 || j == yIter - 4 || i == xIter + 8 || j == yIter + 4)
@@ -147,93 +179,94 @@ public class GlobalGrid : MonoBehaviour
 
                 }
             }
-            switch(index)
+            // for each room I need to place doors based on where it is
+            // top left corner
+            if (index == 0)
             {
-                case 0:
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
-                    break;
-                case 1:
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
-                    _grid[xIter + 8, yIter].blocked = false;
-                    _grid[xIter + 8, yIter].door = true;
-                    break;
-                case 2:
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
-                    _grid[xIter + 8, yIter].blocked = false;
-                    _grid[xIter + 8, yIter].door = true;
-                    break;
-                case 3:
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
-                    _grid[xIter + 8, yIter].blocked = false;
-                    _grid[xIter + 8, yIter].door = true;
-                    break;
-                case 6:
-                    _grid[xIter - 8, yIter].blocked = false;
-                    _grid[xIter - 8, yIter].door = true;
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
-                    _grid[xIter + 8, yIter].blocked = false;
-                    _grid[xIter + 8, yIter].door = true;
-                    break;
-                case 7:
-                    _grid[xIter - 8, yIter].blocked = false;
-                    _grid[xIter - 8, yIter].door = true;
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
-                    _grid[xIter + 8, yIter].blocked = false;
-                    _grid[xIter + 8, yIter].door = true;
-                    break;
-                case 8:
-                    _grid[xIter - 8, yIter].blocked = false;
-                    _grid[xIter - 8, yIter].door = true;
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
-                    _grid[xIter + 8, yIter].blocked = false;
-                    _grid[xIter + 8, yIter].door = true;
-                    break;
-                case 11:
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
-                    _grid[xIter - 8, yIter].blocked = false;
-                    _grid[xIter - 8, yIter].door = true;
-                    break;
-                case 12:
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
-                    _grid[xIter - 8, yIter].blocked = false;
-                    _grid[xIter - 8, yIter].door = true;
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
-                    break;
-                case 13:
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
-                    _grid[xIter - 8, yIter].blocked = false;
-                    _grid[xIter - 8, yIter].door = true;
-                    _grid[xIter, yIter + 4].blocked = false;
-                    _grid[xIter, yIter + 4].door = true;
-                    break;
-                case 14:
-                    _grid[xIter, yIter - 4].blocked = false;
-                    _grid[xIter, yIter - 4].door = true;
-                    break;
+                _grid[xIter + 8, yIter].blocked = false;
+                _grid[xIter + 8, yIter].door = true;
+                _grid[xIter, yIter + 4].blocked = false;
+                _grid[xIter, yIter + 4].door = true;
             }
-
-
+            // top right corner
+            else if (index == floorDimesions.x - 1)
+            {
+                _grid[xIter - 8, yIter].blocked = false;
+                _grid[xIter - 8, yIter].door = true;
+                _grid[xIter, yIter + 4].blocked = false;
+                _grid[xIter, yIter + 4].door = true;
+            }
+            // bottom left corner
+            else if (index == floorDimesions.x * floorDimesions.y - (floorDimesions.x))
+            {
+                _grid[xIter + 8, yIter].blocked = false;
+                _grid[xIter + 8, yIter].door = true;
+                _grid[xIter, yIter - 4].blocked = false;
+                _grid[xIter, yIter - 4].door = true;
+            }
+            // bottom right corner
+            else if (index == floorDimesions.x * floorDimesions.y - 1)
+            {
+                _grid[xIter - 8, yIter].blocked = false;
+                _grid[xIter - 8, yIter].door = true;
+                _grid[xIter, yIter - 4].blocked = false;
+                _grid[xIter, yIter - 4].door = true;
+            }
+            // anywhere on the top
+            else if (index < floorDimesions.x)
+            {
+                _grid[xIter, yIter + 4].blocked = false;
+                _grid[xIter, yIter + 4].door = true;
+                _grid[xIter + 8, yIter].blocked = false;
+                _grid[xIter + 8, yIter].door = true;
+                _grid[xIter - 8, yIter].blocked = false;
+                _grid[xIter - 8, yIter].door = true;
+            }
+            // anywhere on the bottom
+            else if(index >= floorDimesions.x * floorDimesions.y - floorDimesions.x)
+            {
+                _grid[xIter, yIter - 4].blocked = false;
+                _grid[xIter, yIter - 4].door = true;
+                _grid[xIter + 8, yIter].blocked = false;
+                _grid[xIter + 8, yIter].door = true;
+                _grid[xIter - 8, yIter].blocked = false;
+                _grid[xIter - 8, yIter].door = true;
+            }
+            // this is anywhere on the left side
+            else if ((index + 1) % 4 == 0)
+            {
+                _grid[xIter + 8, yIter].blocked = false;
+                _grid[xIter + 8, yIter].door = true;
+                _grid[xIter, yIter + 4].blocked = false;
+                _grid[xIter, yIter + 4].door = true;
+                _grid[xIter, yIter - 4].blocked = false;
+                _grid[xIter, yIter - 4].door = true;
+            }
+            // anywhere on the right
+            else if ((index + 1) % 3 == 0)
+            {
+                _grid[xIter - 8, yIter].blocked = false;
+                _grid[xIter - 8, yIter].door = true;
+                _grid[xIter, yIter + 4].blocked = false;
+                _grid[xIter, yIter + 4].door = true;
+                _grid[xIter, yIter - 4].blocked = false;
+                _grid[xIter, yIter - 4].door = true;
+            }
+            // else its in the middle
+            else
+            {
+                _grid[xIter - 8, yIter].blocked = false;
+                _grid[xIter - 8, yIter].door = true;
+                _grid[xIter + 8, yIter].blocked = false;
+                _grid[xIter + 8, yIter].door = true;
+                _grid[xIter, yIter + 4].blocked = false;
+                _grid[xIter, yIter + 4].door = true;
+                _grid[xIter, yIter - 4].blocked = false;
+                _grid[xIter, yIter - 4].door = true;
+            }
 
             index++;
         }
-
         Debug.Log(GetRoomsAsString());
     }
 
@@ -244,6 +277,10 @@ public class GlobalGrid : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// creates a string of the rooms and their status
+    /// </summary>
+    /// <returns>the string to print</returns>
     public string GetRoomsAsString()
     {
         string returnString = "    X\nY    ";
@@ -266,7 +303,7 @@ public class GlobalGrid : MonoBehaviour
                     }
                     else if (_grid[i, j - 1].door)
                     {
-                        returnString += "[d] ";
+                        returnString += "[D] ";
                     }
                     else
                     {
@@ -309,30 +346,14 @@ public class GlobalGrid : MonoBehaviour
         }
     }
 
-    public class Mover
+    /// <summary>
+    /// Places the given item in the room representing the index
+    /// </summary>
+    /// <param name="item"></param>
+    /// <param name="roomIndex"></param>
+    public void PlaceIteminRoom(GameObject item, int roomIndex)
     {
-        // if the movement is done
-        public bool isDone = false;
 
-        /// <summary>
-        /// Moves an entity from one location to another over time
-        /// </summary>
-        /// <param name="entity">the entity that will be moved</param>
-        /// <param name="endValue">the location after the lerp</param>
-        /// <param name="duration">how long it takes in seconds</param>
-        /// <returns></returns>
-        public IEnumerator LerpFunction(GameObject entity, Vector2 endValue, float duration)
-        {
-            float time = 0;
-            Vector2 startValue = entity.transform.position;
-            while (time < duration)
-            {
-                entity.transform.position = Vector2.Lerp(startValue, endValue, time / duration);
-                time += Time.deltaTime;
-                yield return null;
-            }
-            entity.transform.position = endValue;
-            isDone = true;
-        }
     }
+
 }
