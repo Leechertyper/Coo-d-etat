@@ -142,40 +142,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManagerScript: Warning - ClearCurrentBoss is not implemented yet");
     }
 
-    //The stat changing functions are broad, will need refactoring when/if more then one emeny is in game
-    public void ChangeEnemyStats(float newHealth, float newDamage, float newMoveSpeed, float newAttackSpeed)
-    {
-
-
-        Debug.Log("GameManagerScript: Warning - ChangeEnemyStats is not implemented yet");
-        foreach (GameObject aDrone in allDroneEnemies)
-        {
-            Debug.Log("+1 drone");
-            aDrone.GetComponent<DroneAI>().ChangeMoveSpeed(newMoveSpeed);
-            aDrone.GetComponent<DroneAI>().ChangeAttackSpeed(newAttackSpeed);
-        }
-    }
-    
-
-
-    public void ChangeBossStats(float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
-    {
-
-        theBoss.SetMaxHealth(newHealth);
-        theBoss.SetDamage(newDamage);
-        theBoss.SetMoveSpeed(newSpeed);
-        theBoss.SetAttackSpeed(newSpeed);
-        
-    
-        Debug.Log("GameManagerScript: Warning - ChangeBossStats is not implemented yet");
-    }
-
-    // To only be called by bosses in their Awaken 
-    public void SetBossStats() 
-    {
-        this.ChangeBossStats(BalanceVariables.bossHealth,BalanceVariables.bossDamage,BalanceVariables.bossMoveSpeed,BalanceVariables.bossAttackSpeed);
-
-    }
 
     public void OnPlayerDeath(){
         Debug.Log("GameManagerScript: Warning - Calling OnPlayerDeath when it is not implemented");
@@ -185,19 +151,6 @@ public class GameManager : MonoBehaviour
      {
         return _thePlayerObject;
      }
-
-    public void ChangePlayerSpeed(float newSpeed)
-    {
-        if(newSpeed <= 0)
-        {
-            Debug.Log("GameManagerScript: Warning - Trying to apply a negative speed value to the player"); 
-        }
-        else
-        {
-            _thePlayer.SetSpeed(newSpeed);
-        }
-       
-    }
 
     public void DamagePlayer(int theDamage)
     {
@@ -209,23 +162,6 @@ public class GameManager : MonoBehaviour
         {
            _thePlayer.GetComponent<Player>().TakeDamage(theDamage);
         }
-    }
-
-    public void ChangePlayerStats(float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
-    {
-        if(newHealth <= 0 || newDamage <= 0 || newSpeed <= 0 || newAttackSpeed <= 0)
-        {
-            Debug.Log("GameManagerScript: Warning - Trying to apply one or more negative values to the player"); 
-        }
-        else 
-        {
-            
-            _thePlayer.SetMaxHealth((int)newHealth);
-            //_thePlayer.SetDamage(newDamage);
-            _thePlayer.SetSpeed(newSpeed);
-            //_thePlayer.SetAttackSpeed(newAttackSpeed);
-        }
-
     }
 
     public void ChangeHealthItemValue(float newHealth)

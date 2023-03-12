@@ -47,7 +47,7 @@ public class newGameManager : MonoBehaviour
     */
     private void StartBalanceMenu()
     {
-        GameObject.Find("BalanceMenuOption3").GetComponent<BalanceMenuOption3>().startBalance=true;
+        GameObject.Find("BalanceMenuOption1").GetComponent<BalanceMenu>().startBalance=true;
     }
 
     /*
