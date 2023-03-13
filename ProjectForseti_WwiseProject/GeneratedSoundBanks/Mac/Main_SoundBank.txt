@@ -20,6 +20,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2554379966	Play_Space_Blip			\Default Work Unit\Play_Space_Blip	
 	2639148008	Play_Heal			\Default Work Unit\Play_Heal	
 	2873551122	Play_Machine_Thump			\Default Work Unit\Play_Machine_Thump	
+	2911254633	Play_Controller_Switch			\Default Work Unit\Play_Controller_Switch	
 	3029328387	Play_Pigeon_Coos			\Default Work Unit\Play_Pigeon_Coos	
 	3480038428	Play_Mystery_Get			\Default Work Unit\Play_Mystery_Get	
 	3528394261	Play_Robot_Error			\Default Work Unit\Play_Robot_Error	
@@ -47,39 +48,35 @@ State	ID	Name	State Group			Notes
 	748895195	None	Music_State			
 	1198379314	End_Room	Music_State			
 	1233056360	Objective_Room	Music_State			
-	1648378601	Basic_Room	Music_State			
 	3269879827	Rest_Room	Music_State			
 	3359767828	Boss_Room	Music_State			
+	3900115470	Normal_Room	Music_State			
 
 Custom State	ID	Name	State Group	Owner		Notes
 	13437614	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 1		
 	93179532	Objective_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 2		
 	107686206	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 1		
 	114860018	Objective_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 1		
-	139045281	Basic_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\boss theme		
 	151686061	Boss_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 1		
+	247555310	Normal_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 2		
 	251886136	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 1		
 	290867954	Objective_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\potential stat screen theme 1		
 	298473820	Boss_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\potential stat screen theme 1		
 	399546270	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\potential stat screen theme 1		
-	426915505	Basic_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 2		
 	433613408	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 2		
 	479947881	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 2		
 	550598205	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\potential stat screen theme 1		
 	599960516	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\boss theme		
 	618991699	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\boss theme		
 	620800003	Objective_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\boss theme		
-	670174209	Boss_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 1		
+	636658271	Normal_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 2		
 	719646458	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 2		
 	727937948	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\boss theme		
 	754853744	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 1		
 	777976718	Boss_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 2		
-	782030028	Basic_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 2		
-	800197856	Basic_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\potential stat screen theme 1		
-	826109480	Basic_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 1		
 	935783918	Boss_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 2		
 	992019537	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 2		
-	1008829999	Objective_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 1		
+	1011639352	Normal_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\boss theme		
 	1060622201	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 2		
 	1067095110	Defeated	PlayerLife	\Actor-Mixer Hierarchy\Default Work Unit\Heartbeat		
 	1072518496	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\lab theme 1		
@@ -101,7 +98,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	161308221	Robot Activated	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Robot Activated_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Activated		356280
 	223278938	potential stat screen theme 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\potential stat screen theme 1_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\potential stat screen theme 1\potential stat screen theme 1		16934544
 	225419399	Machine wub 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Machine wub 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Machine wub 1		185792
-	234390179	Mystery Get	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Mystery Get_F059C390.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mystery Get		231864
+	234390179	Mystery Get	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Mystery Get_3BAC181A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mystery Get		231864
 	238932007	Robot Ouch	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Robot Ouch_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Ouch		101556
 	249967903	Pigeon Coo 11	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 11_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 11		52188
 	308759193	Pigeon Coo 5	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 5		122608
@@ -112,7 +109,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	338096846	Pigeon Coo 15	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 15_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 15		36960
 	346885790	wing flap	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\wing flap_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\wing flap		208692
 	360692969	lab rest theme 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\lab rest theme 2_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 2\lab rest theme 2		10502096
-	387236824	Pigeon wing flutter	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon wing flutter_B99114C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon wing flutter		184620
+	387236824	Pigeon wing flutter	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon wing flutter_882601FA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon wing flutter		184620
 	427093008	boss theme	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\boss theme_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\boss theme\boss theme		12637756
 	483069929	lab theme 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\lab theme 1_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\lab theme 1\lab theme 1		10502096
 	509622454	lab rest theme 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\lab rest theme 1_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\lab rest theme 1\lab rest theme 1		10502096
@@ -128,22 +125,22 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	740621105	Pigeon Coo 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 1		72792
 	742994317	Unpause SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Unpause SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Unpause SFX		34480
 	762522150	Pigeon Coo 6	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 6		61936
-	765581632	Space Blip	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Space Blip_DEB8DFF4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Space Blip		39924
-	767001887	Lazer SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Lazer SFX_90EA28A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lazer SFX		42892
+	765581632	Space Blip	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Space Blip_8B867DC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Space Blip		39924
+	767001887	Lazer SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Lazer SFX_05631FA3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lazer SFX		42892
 	779570665	Pigeon Coo 13	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 13_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 13		62968
 	787886670	Robot Glitch	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Robot Glitch_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Glitch		28332
 	796248657	Pigeon Coo 16	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 16_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 16		61880
 	801503577	Potential Pickup SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Potential Pickup SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Potential Pickup SFX		58936
 	802213557	Robot Error	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Robot Error_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Error		47920
 	818060147	Potential Pickup SFX 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Potential Pickup SFX 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Potential Pickup SFX 2		98024
-	847018787	wind noise 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\wind noise 1_2C5B01F9.wem		\Actor-Mixer Hierarchy\Default Work Unit\wind noise 1		157076
+	847018787	wind noise 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\wind noise 1_CB8CCBB2.wem		\Actor-Mixer Hierarchy\Default Work Unit\wind noise 1		157076
 	873893434	lab theme 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\lab theme 2_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\lab theme 2\lab theme 2		10502096
-	909240164	Tornado	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\tornado_8A7FBEE1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tornado		216288
+	909240164	Tornado	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\tornado_14EEFC23.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tornado		216288
 	978674330	Pigeon Coo 7	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 7		46848
 	983061750	Pigeon Coo 12	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 12_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 12		50844
 	987838814	Screech	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Screech_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Screech		174592
 	1003005601	Machine Buzz	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Machine Buzz_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Machine Buzz		107900
-	1015133013	Lazer SFX 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Lazer SFX 2_D300EA96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lazer SFX 2		94416
+	1015133013	Lazer SFX 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Lazer SFX 2_847B26BB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Lazer SFX 2		94416
 	1018935198	Hurt Noise 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\hurt noise 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hurt Noise 1		32932
 	1021227817	Hover Click 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Hover Click 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hover Click 1		26604
 	1037847484	Pigeon Coo 8	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Mac\SFX\Pigeon Coo 8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 8		70688

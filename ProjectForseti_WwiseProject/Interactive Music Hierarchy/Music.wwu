@@ -101,14 +101,6 @@
 										</CustomState>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-										<CustomState Name="" ID="{6AB6C925-8A23-4622-9032-FD39A37A1C29}" ShortID="826109480">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="-108"/>
-											</PropertyList>
-										</CustomState>
-									</CustomState>
-									<CustomState>
 										<StateRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
 										<CustomState Name="" ID="{B7DECB15-E1A6-44AF-8004-E7D935A41BFB}" ShortID="114860018">
 											<PropertyList>
@@ -123,6 +115,10 @@
 												<Property Name="Volume" Type="Real64" Value="-108"/>
 											</PropertyList>
 										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+										<CustomState Name="" ID="{275720F6-01E1-448A-B509-4CEB73E14270}" ShortID="69330764"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
@@ -243,20 +239,20 @@
 										</CustomState>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-										<CustomState Name="" ID="{AB8CB451-9B7B-4A1F-90C7-D496BE3D858E}" ShortID="426915505">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="-108"/>
-											</PropertyList>
-										</CustomState>
-									</CustomState>
-									<CustomState>
 										<StateRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
 										<CustomState Name="" ID="{AB2C13FC-0AFD-45D1-89CA-A58373EFD89F}" ShortID="529057198"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
 										<CustomState Name="" ID="{334C3129-45D5-4949-A653-7C3A95E0A159}" ShortID="992019537">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-108"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+										<CustomState Name="" ID="{B70D551C-3971-4E9C-8DAC-FFF72E155F77}" ShortID="636658271">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64" Value="-108"/>
 											</PropertyList>
@@ -381,14 +377,6 @@
 										</CustomState>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-										<CustomState Name="" ID="{1C6399DE-1A51-48FA-A4C9-C7C8B720FCD2}" ShortID="782030028">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="-108"/>
-											</PropertyList>
-										</CustomState>
-									</CustomState>
-									<CustomState>
 										<StateRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
 										<CustomState Name="" ID="{0D60AB96-2FCA-40FC-A4C0-6E54104E7E05}" ShortID="93179532">
 											<PropertyList>
@@ -399,6 +387,14 @@
 									<CustomState>
 										<StateRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
 										<CustomState Name="" ID="{6F53F143-9750-4B24-8A4B-10BABAFFA3DC}" ShortID="632400341"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+										<CustomState Name="" ID="{940C72D3-C97A-4AF1-9968-D977632EBB0D}" ShortID="247555310">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-108"/>
+											</PropertyList>
+										</CustomState>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
@@ -512,23 +508,11 @@
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Boss_Room" ID="{6F040040-FD4F-452D-8CC5-7D03B0B857DB}"/>
-										<CustomState Name="" ID="{83626BAA-DC1F-4E4D-BAAD-17E3EF4CCACF}" ShortID="670174209">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="-108"/>
-											</PropertyList>
-										</CustomState>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-										<CustomState Name="" ID="{14742B3F-A271-49CC-82AD-ED7482A9413A}" ShortID="893175594"/>
+										<CustomState Name="" ID="{83626BAA-DC1F-4E4D-BAAD-17E3EF4CCACF}" ShortID="670174209"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
-										<CustomState Name="" ID="{03F60F82-2C10-4600-9092-F49EC4FCFDAA}" ShortID="1008829999">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="-108"/>
-											</PropertyList>
-										</CustomState>
+										<CustomState Name="" ID="{03F60F82-2C10-4600-9092-F49EC4FCFDAA}" ShortID="1008829999"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
@@ -537,6 +521,10 @@
 												<Property Name="Volume" Type="Real64" Value="-108"/>
 											</PropertyList>
 										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+										<CustomState Name="" ID="{8D494D83-AF44-4449-8CB0-AC0BEC99F65A}" ShortID="406355341"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
@@ -905,14 +893,6 @@
 										</CustomState>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-										<CustomState Name="" ID="{75DE0391-F496-4983-AE45-45348F70BD05}" ShortID="800197856">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="-108"/>
-											</PropertyList>
-										</CustomState>
-									</CustomState>
-									<CustomState>
 										<StateRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
 										<CustomState Name="" ID="{06852BC0-C68B-41B1-9105-7EF452B5AB05}" ShortID="290867954">
 											<PropertyList>
@@ -927,6 +907,10 @@
 												<Property Name="Volume" Type="Real64" Value="-108"/>
 											</PropertyList>
 										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+										<CustomState Name="" ID="{3ACF7D99-BAEA-47CE-8A61-57A9BFADE985}" ShortID="282422113"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
@@ -1126,14 +1110,6 @@
 										<CustomState Name="" ID="{D1F8F23C-3422-4B28-837C-242CA2F97982}" ShortID="20651257"/>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-										<CustomState Name="" ID="{E170825A-B802-4005-B5A3-C4DD7520D6B3}" ShortID="139045281">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="-108"/>
-											</PropertyList>
-										</CustomState>
-									</CustomState>
-									<CustomState>
 										<StateRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
 										<CustomState Name="" ID="{291F5B43-E142-44F7-87A8-AB6B30BA4D2E}" ShortID="620800003">
 											<PropertyList>
@@ -1144,6 +1120,14 @@
 									<CustomState>
 										<StateRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
 										<CustomState Name="" ID="{AEABD3FC-AB08-4D03-8961-97F6DB7AF855}" ShortID="727937948">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-108"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+										<CustomState Name="" ID="{851BE3E5-197D-44EE-83D1-A831DB565B82}" ShortID="1011639352">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64" Value="-108"/>
 											</PropertyList>
@@ -1305,15 +1289,6 @@
 						<Entry>
 							<Path>
 								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
-								<PathElementRef Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-							</Path>
-							<AudioNodeInfo>
-								<AudioNodeRef Name="lab theme 1" ID="{BA57AF71-2CAE-4FC6-AB68-0FBE31C86CCF}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}" Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
 								<PathElementRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
 							</Path>
 							<AudioNodeInfo>
@@ -1372,6 +1347,15 @@
 							</Path>
 							<AudioNodeInfo>
 								<AudioNodeRef Name="boss theme" ID="{E31FA11C-BCEA-4599-AD4D-512879EB39E2}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="lab theme 1" ID="{BA57AF71-2CAE-4FC6-AB68-0FBE31C86CCF}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 					</EntryList>

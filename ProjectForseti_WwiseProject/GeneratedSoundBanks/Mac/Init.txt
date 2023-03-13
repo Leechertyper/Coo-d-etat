@@ -10,9 +10,9 @@ State	ID	Name	State Group			Notes
 	748895195	None	Music_State			
 	1198379314	End_Room	Music_State			
 	1233056360	Objective_Room	Music_State			
-	1648378601	Basic_Room	Music_State			
 	3269879827	Rest_Room	Music_State			
 	3359767828	Boss_Room	Music_State			
+	3900115470	Normal_Room	Music_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	2234500385	SFX_playing			\Default Work Unit\SFX_playing	

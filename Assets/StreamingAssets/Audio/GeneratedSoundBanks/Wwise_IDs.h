@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_CONTROLLER_SWITCH = 2911254633U;
         static const AkUniqueID PLAY_HEAL = 2639148008U;
         static const AkUniqueID PLAY_HEARTBEAT = 3765695918U;
         static const AkUniqueID PLAY_HEAVY_BLAST = 516331348U;
@@ -58,11 +59,11 @@ namespace AK
 
             namespace STATE
             {
-                static const AkUniqueID BASIC_ROOM = 1648378601U;
                 static const AkUniqueID BOSS_ROOM = 3359767828U;
                 static const AkUniqueID END_ROOM = 1198379314U;
                 static const AkUniqueID MYSTERY_ROOM = 502402914U;
                 static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID NORMAL_ROOM = 3900115470U;
                 static const AkUniqueID OBJECTIVE_ROOM = 1233056360U;
                 static const AkUniqueID REST_ROOM = 3269879827U;
             } // namespace STATE

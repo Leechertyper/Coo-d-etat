@@ -388,6 +388,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Controller_Switch" ID="{0BD60D91-C42C-4F82-8939-97282BFEF024}">
+					<ChildrenList>
+						<Action Name="" ID="{EE0173A1-A1FA-40C6-8D5B-EEB89BBC69B2}" ShortID="992727432">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Controller Switch" ID="{583E17DE-26AB-4F32-BC70-A1AECA0CBD75}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

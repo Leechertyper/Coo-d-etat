@@ -27,45 +27,13 @@
 				<StateGroup Name="Music_State" ID="{302B8AB5-FD46-490D-94EE-47BAE515E0A8}">
 					<ChildrenList>
 						<State Name="None" ID="{8C9785A5-A4D8-4B68-B66E-E6C88CE8A4E6}"/>
-						<State Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
 						<State Name="Rest_Room" ID="{5F26696E-37DC-4070-9FDF-0914FDE09867}"/>
 						<State Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
 						<State Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
 						<State Name="Boss_Room" ID="{6F040040-FD4F-452D-8CC5-7D03B0B857DB}"/>
 						<State Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
+						<State Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
 					</ChildrenList>
-					<TransitionList>
-						<Transition>
-							<StartState Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-							<EndState Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
-							<Time>0</Time>
-							<IsShared>true</IsShared>
-						</Transition>
-						<Transition>
-							<StartState Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-							<EndState Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
-							<Time>0</Time>
-							<IsShared>true</IsShared>
-						</Transition>
-						<Transition>
-							<StartState Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-							<EndState Name="Rest_Room" ID="{5F26696E-37DC-4070-9FDF-0914FDE09867}"/>
-							<Time>0</Time>
-							<IsShared>true</IsShared>
-						</Transition>
-						<Transition>
-							<StartState Name="Boss_Room" ID="{6F040040-FD4F-452D-8CC5-7D03B0B857DB}"/>
-							<EndState Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-							<Time>0</Time>
-							<IsShared>true</IsShared>
-						</Transition>
-						<Transition>
-							<StartState Name="Basic_Room" ID="{A957314D-E172-4988-A4DA-6ACF3CA5972A}"/>
-							<EndState Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
-							<Time>0</Time>
-							<IsShared>true</IsShared>
-						</Transition>
-					</TransitionList>
 				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
