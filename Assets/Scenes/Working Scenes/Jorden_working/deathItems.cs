@@ -37,7 +37,7 @@ public class deathItems : MonoBehaviour
         Debug.Log("CHECKING IF SPAWN ITEM");
         if(_timeSinceLastBattery >= _batteryTime) // Spawn battery if timer is up
         {
-            Instantiate(batteryItem, thePlace,Quaternion.identity);
+            Instantiate(batteryItem, thePlace,Quaternion.AngleAxis(90,thePlace));
             _timeSinceLastBattery = 0;
             _timeSinceLastHealth ++;
         }
@@ -54,7 +54,7 @@ public class deathItems : MonoBehaviour
             //Default is 15% chance per item
             if(temp >= (100-_itemSpawnChance)) 
             {
-                Instantiate(batteryItem, thePlace,Quaternion.identity);
+                Instantiate(batteryItem, thePlace,Quaternion.AngleAxis(90,thePlace));
                 _timeSinceLastBattery = 0;
             }
             else if(temp <= _itemSpawnChance)
@@ -78,7 +78,7 @@ public class deathItems : MonoBehaviour
     //For use with the boss's packages
     public void JustSpawnBattery(Vector3 thePlace)
     {
-        Instantiate(batteryItem, thePlace,Quaternion.identity);
+        Instantiate(batteryItem, thePlace,Quaternion.AngleAxis(90,thePlace));
     }
 
 
