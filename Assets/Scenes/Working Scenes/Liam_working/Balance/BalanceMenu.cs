@@ -39,7 +39,7 @@ public class BalanceMenu : MonoBehaviour
         Dictionary<string,bool> _temp = new Dictionary<string,bool>(BalanceVariables.seenDictionaries);
         foreach (KeyValuePair<string, bool> kvp in _temp)
         {
-            if(kvp.Key!="player")
+            if(kvp.Key!="player" || kvp.Key!="other" || kvp.Key!="collectables")
             {
                 BalanceVariables.seenDictionaries[kvp.Key] = false;
             }
@@ -82,6 +82,7 @@ public class BalanceMenu : MonoBehaviour
         }
         else
         {
+            ///<TODO> call database saving </TODO>
             ResumeGame();
         }
     }
