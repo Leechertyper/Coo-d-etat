@@ -24,11 +24,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        } else {
-            if (Instance == null) // If there is no instance already
+        if (Instance == null) // If there is no instance already
         {
             DontDestroyOnLoad(gameObject); // Keep the GameObject, this component is attached to, across different scenes
             Instance = this;
@@ -37,9 +33,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Destroy the GameObject, this component is attached to
         }
-        }
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update
