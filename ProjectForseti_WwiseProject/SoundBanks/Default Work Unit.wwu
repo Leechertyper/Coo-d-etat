@@ -4,57 +4,9 @@
 		<WorkUnit Name="Default Work Unit" ID="{E217D65B-B96F-468B-BF26-5BB8A5BD16B9}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundBank Name="Main_SoundBank" ID="{E79524F9-B6AE-4A6A-96FD-9E9EFBD0D656}">
-					<PropertyList>
-						<Property Name="Maximum" Type="int32">
-							<ValueList>
-								<Value>5242880</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_Pause_SFX" ID="{9A4D69AB-E743-4009-8145-40B86C32C3B8}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Mystery_Get" ID="{DE14D0DF-5AA3-401C-9486-350CC1FFF1BE}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_7" ID="{19C9585A-497B-404D-9AF5-C2847009F90D}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_1" ID="{ABFD7D5D-DAD1-4087-8365-721ACD6104C2}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Lazer_SFX_2" ID="{99BE15B8-2A8B-4165-9B08-8F349C076200}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_3" ID="{6DD97E7C-9F30-41AD-B608-FDCCB5F11072}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Screech" ID="{20D9252A-F9DC-4271-BAFA-AF9942A1533C}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Heavy_reload" ID="{F84CF1D3-D197-42C3-868F-F035CD6BD6A5}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Machine_Thump" ID="{6B05DEE0-4F17-42CD-8C8F-D6170B52FC24}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_5" ID="{24E461FA-E733-435C-9BB0-E172DCEFA8B7}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Robot_Glitch" ID="{495BFC0B-59FF-436A-9051-46295B05D3CA}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Hover_Click_2" ID="{AADE38EA-181E-43B3-BC9C-32EDAE7FE6DA}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Robot_Activated" ID="{5D432765-40C7-4452-A869-B9DAC6FAC471}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Machine_wub_2" ID="{4E61830E-7DA9-4468-9A5A-19F65AF95600}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Robot_Error" ID="{A94118C8-6BE8-44E0-AA35-BDABC53482AE}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_13" ID="{0FFFB3B1-5770-44E7-B6EF-D0460F687999}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Potential_Pickup_SFX_2" ID="{7BE1D7CA-2662-44F5-A2B8-5E937B4A0864}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_9" ID="{084CEDDF-025E-4503-8CB7-D9B9BF14E986}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_wing_flutter" ID="{F1DB329A-EABB-4523-A549-7E5A10D8BE1C}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_4" ID="{A56AFD3B-1F22-4585-BAF9-A0A0EAF41452}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Machine_Buzz" ID="{0BF0278E-30E1-45AE-909F-76348F90BB59}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_15" ID="{8A0CA9AF-52B3-4618-A3EF-BEBC978FC42E}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_hoo_hoo" ID="{DD60F355-03A4-461A-8F8A-72A266DF2368}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Unpause_SFX" ID="{7728D8EF-58B7-4620-A21E-D06B4E04B8F8}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Space_Blip" ID="{502E8DED-FAEB-462F-9311-EEEBF721BC4B}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_10" ID="{9096F001-1E3D-468C-810A-75D8184C9842}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_14" ID="{A0216187-9F11-4708-B526-5C16EF11CBBA}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Hover_Click_1" ID="{92A64396-1826-4733-A1E9-35EF21BE2B61}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_heartbeat" ID="{3D5E390C-9804-4793-9B66-88EBA4213D6D}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Heavy_Blast" ID="{2FFCFB70-65A0-48ED-89AA-8BAB01EB4340}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Missle_Whistle" ID="{6CC7511C-A8C8-4984-92F3-6815AF3E6274}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Robot_Ouch" ID="{345A550D-BE06-49BF-BB20-B268573B8A74}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Potential_Pickup_SFX" ID="{C0C8F00F-28DE-4B10-98C7-2635F9AA4027}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_11" ID="{2ED97019-DD49-4B12-930A-8C949F8E0ABC}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_8" ID="{43ACAE87-6651-4B41-8859-79C1AB233BAD}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Lazer_SFX" ID="{7105BF0E-5A69-4BD3-9DC4-3F4E45B2CAEA}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Reverse_Riser" ID="{24409264-507B-4C0C-9010-EB4DCC102C80}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Robot_Alert_SFX" ID="{18ED9EDC-C50F-4CBC-AFFD-242B5450103F}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_6" ID="{DC743422-6AEF-4CC4-BFA9-B042CFEBECA8}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Machine_wub_1" ID="{1760CF61-D3D7-4CDA-BB0B-5E0D0DF3A2D5}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_2" ID="{AA351394-51EE-4D13-93D4-8CF9C806659E}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_12" ID="{4676FB25-23ED-4E48-92A6-7E159821EA65}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_Pigeon_Coo_16" ID="{0640ACD4-F706-4F0B-A2A5-4F0C41BBE5D8}" WorkUnitID="{2BE036FD-FD30-40D5-B1F2-850FAC7C48C5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Interactive Music Hierarchy" ID="{49FED366-B530-42A8-993B-924873AAB707}" WorkUnitID="{49FED366-B530-42A8-993B-924873AAB707}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Events" ID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" WorkUnitID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
