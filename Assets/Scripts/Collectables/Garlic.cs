@@ -7,10 +7,10 @@ public class Garlic : ItemEffect
 {
     //the amount that a stat changes 
     //after garlic is picked up
-    public float amount;
+    public int amount;
     public override void Apply(GameObject target)
     {
-        //to do
+        target.GetComponent<Player>().AddHealth(amount);
 
     }
 }

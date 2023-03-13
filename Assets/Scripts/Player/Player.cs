@@ -18,10 +18,15 @@ public class Player : MonoBehaviour
 
     public Animation death;
     public GameObject hitParticles;
+    
+
+   
+
+
 
     void Update()
     {
-        if(_isInvuln)
+        if (_isInvuln)
         {
             _invulnTime -= Time.deltaTime;
             if(_invulnTime <= 0f)
@@ -31,6 +36,8 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    
 
     public void TakeDamage(int damage)
     {
@@ -57,6 +64,7 @@ public class Player : MonoBehaviour
     private void UpdateHealthUI()
     {
         _healthText.text = "HP " + _health + "/" + _maxHealth;
+        Debug.Log("update health");
     }
 
     private void GotHit()
@@ -79,6 +87,16 @@ public class Player : MonoBehaviour
         UpdateHealthUI();
     }
 
+    public void AddHealth(int plusHealth)
+    {
+        _health += plusHealth;
+        if(_health > _maxHealth)
+        {
+            _health = _maxHealth;
+        }
+        UpdateHealthUI();
+    }
+
     public int GetMaxHealth()
     {
         return _maxHealth;
@@ -87,6 +105,12 @@ public class Player : MonoBehaviour
     public void SetMaxHealth(int newMaxHealth)
     {
         _maxHealth = newMaxHealth;
+        UpdateHealthUI();
+    }
+
+    public void MakeMaxHealth()
+    {
+        _health = _maxHealth;
         UpdateHealthUI();
     }
 

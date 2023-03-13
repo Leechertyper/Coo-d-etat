@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private const float horizontalTeleportDistance = 24f;
-    private const float verticalTeleportDistance = 15f;
+    private const float horizontalTeleportDistance = 25f;
+    private const float verticalTeleportDistance = 16f;
     public string horizontalInput = "Horizontal";
     public string verticalInput = "Vertical";
 
     private float tileSize = 3f;
     public float speed = 10f;
+    public float dashDistance = 3f;
     private Vector2 _direction;
     private Vector2 _lastMoveDirection;
     private Rigidbody2D rb;
     private Vector2 targetPosition;
     private bool isMoving = false;
+    private bool readyForDash = false;
+    private bool dashing = false;
     private Vector2 previousPosition;
+    private Vector2 startMovePosition;
 
     public Animator animator;
+
+    public Vector2 direction;
 
     void Start()
     {
@@ -27,27 +33,62 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+
+        //transform.up = direction;
+
+        /*_movement.x = Input.GetAxisRaw(horizontalInput);
+        _movement.y = Input.GetAxisRaw(verticalInput);
+        animator.SetFloat("Horizontal", _movement.x);
+        animator.SetFloat("Vertical", _movement.y);
+        animator.SetFloat("Speed", _movement.sqrMagnitude);*/
+
         if (!isMoving) // Make sure Player isn't moving
+
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.W))
             {
-                targetPosition = rb.position + Vector2.up * tileSize;
+                startMovePosition = rb.position;
+                targetPosition = startMovePosition + Vector2.up * tileSize;
                 isMoving = true;
+                readyForDash = true;
             }
-            else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKey(KeyCode.S))
             {
-                targetPosition = rb.position + Vector2.down * tileSize;
+                startMovePosition = rb.position;
+                targetPosition = startMovePosition + Vector2.down * tileSize;
                 isMoving = true;
+                readyForDash = true;
             }
-            else if (Input.GetKeyDown(KeyCode.A))
+            else if (Input.GetKey(KeyCode.A))
             {
-                targetPosition = rb.position + Vector2.left * tileSize;
+                startMovePosition = rb.position;
+                targetPosition = startMovePosition + Vector2.left * tileSize;
                 isMoving = true;
+                readyForDash = true;
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D))
             {
-                targetPosition = rb.position + Vector2.right * tileSize;
+                startMovePosition = rb.position;
+                targetPosition = startMovePosition + Vector2.right * tileSize;
                 isMoving = true;
+                readyForDash = true;
+            }
+        }
+        else if (readyForDash)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                readyForDash = false;
+                Vector2 direction = targetPosition - startMovePosition;
+                direction.Normalize();
+                targetPosition = startMovePosition + direction * tileSize * dashDistance;
+                dashing = true;
+                animator.SetBool("Dash", true);
             }
         }
     }
@@ -56,9 +97,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isMoving)
         {
+            float moveSpeed = speed;
+            if (dashing)
+            {
+                moveSpeed *= dashDistance;
+            } else
+            {
+                moveSpeed = speed;
+            }
             Vector2 currentPosition = rb.position;
-            Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.fixedDeltaTime);
-            Debug.Log("Target Position = " + newPosition);
+            Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, moveSpeed * Time.fixedDeltaTime);
             rb.MovePosition(newPosition);
 
             // Calculate the movement direction
@@ -67,7 +115,8 @@ public class PlayerMovement : MonoBehaviour
             // Set the animator parameters
             animator.SetFloat("Horizontal", movementDirection.x * 5);
             animator.SetFloat("Vertical", movementDirection.y * 5);
-            animator.SetFloat("Speed", movementDirection.sqrMagnitude);
+            animator.SetFloat("Speed", movementDirection.sqrMagnitude * 5);
+            animator.SetFloat("PlayerSpeed", speed);
             if ((movementDirection.x <= 0.001 && movementDirection.y <= 0.001) && (_direction.x != 0 || _direction.y != 0))
             {
                 _lastMoveDirection = _direction;
@@ -78,7 +127,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("LastMoveX", _lastMoveDirection.x);
             animator.SetFloat("LastMoveY", _lastMoveDirection.y);
 
-            Debug.Log(movementDirection.y);
             // check if the player has stopped moving
             StartCoroutine(CheckMovementDelay());
 
@@ -93,33 +141,72 @@ public class PlayerMovement : MonoBehaviour
         // Check if no player movement
         if (Vector2.Distance(previousPosition, rb.position) < 0.0001f)
         {
-            isMoving = false;
+            ResetPlayerState();
+            Debug.Log("Rounding Player...");
+            RoundPlayerToNearestTile();
         }
     }
+
+    private void RoundPlayerToNearestTile()
+    {
+        // Move Player to nearest Tile (Accounts for Dash)
+        float nearestX = Mathf.Round(transform.position.x + 0.45F);
+        float nearestY = Mathf.Round(transform.position.y / tileSize) * tileSize;
+        transform.position = new Vector2((nearestX - 0.55f), nearestY);
+        Debug.Log("Nearest Tile is " + transform.position);
+    }
+
+    private void ResetPlayerState()
+    {
+        isMoving = false;
+        dashing = false;
+        readyForDash = false;
+        animator.SetBool("Dash", false);
+        animator.SetFloat("Speed", 0f);
+    }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Contains("Wall")) // If collision with "Wall"
+        {
+            // Get the direction the player is moving in
+            Vector2 movementDirection = targetPosition - rb.position;
+            movementDirection.Normalize();
+
+            RoundPlayerToNearestTile();
+
+            // Set isMoving to false to allow the player to move again
+            ResetPlayerState();
+        }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name.Contains("BottomDoor"))
         {
-            var newPlayerLocation = new Vector2(targetPosition.x, targetPosition.y - verticalTeleportDistance);
+            StartCoroutine(CheckMovementDelay());
+            var newPlayerLocation = new Vector2(col.gameObject.transform.position.x, col.gameObject.transform.position.y - verticalTeleportDistance);
             targetPosition = newPlayerLocation;
-            transform.position = newPlayerLocation;
+            transform.position = newPlayerLocation;            
         }
         if (col.gameObject.name.Contains("TopDoor"))
         {
-            var newPlayerLocation = new Vector2(targetPosition.x, targetPosition.y + verticalTeleportDistance);
+            StartCoroutine(CheckMovementDelay());
+            var newPlayerLocation = new Vector2(col.gameObject.transform.position.x, col.gameObject.transform.position.y + verticalTeleportDistance);
             targetPosition = newPlayerLocation;
             transform.position = newPlayerLocation;
         }
         if (col.gameObject.name.Contains("LeftDoor"))
         {
-            var newPlayerLocation = new Vector2(targetPosition.x - horizontalTeleportDistance, targetPosition.y);
+            StartCoroutine(CheckMovementDelay());
+            var newPlayerLocation = new Vector2(col.gameObject.transform.position.x - horizontalTeleportDistance, col.gameObject.transform.position.y);
             targetPosition = newPlayerLocation;
             transform.position = newPlayerLocation;
         }
         if (col.gameObject.name.Contains("RightDoor"))
         {
-            var newPlayerLocation = new Vector2(targetPosition.x + horizontalTeleportDistance, targetPosition.y);
+            StartCoroutine(CheckMovementDelay());
+            var newPlayerLocation = new Vector2(col.gameObject.transform.position.x + horizontalTeleportDistance, col.gameObject.transform.position.y);
             targetPosition = newPlayerLocation;
             transform.position = newPlayerLocation;
         }
