@@ -7,6 +7,11 @@ public class MainMenu : MonoBehaviour
 {
     public int startScene;
 
+    public void Start()
+    {
+        ///<TODO> UPDATE BASE BALANCEVARIABLES HERE </TODO>
+    }
+
     /*
     *   When called, this will load the scene from an int in the build scene order.
     *   The startScene can be updated in unity under the MenuCanvas

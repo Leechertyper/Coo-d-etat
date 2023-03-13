@@ -1,0 +1,16 @@
+what to still do:
+	1) in every file where a value is needed (simple ctrl f): 
+		BalanceVariables.dictionaryName["name"]
+
+	2) make MainMenu scene the start scene in build
+	3) after build set, change the MainMenu(gameobject) StartScene value
+
+	4) on player death/ level clear, call gamemanager startbalance or setup gamemanager ondeath
+	5) on enemy spawn, set seen to true for that enemy (needed for boss, enemy types
+		ex: when spawn do BalanceVariables.seenDictionaries["droneEnemy"] = true;
+
+	6) make a terminal for shop doing what is shown in the scene Shop under the canvas called SHowingOpenShop's button called OpenShop
+	7) add other enemy types and other values to the BalanceVariables.cs (simple copy paste and change dictionary name)
+
+	8) in BalanceMenu.cs line 85 call database saving (unless we want to do it on close)
+	9) in MainMenu.cs start function, update base balancevariables from the database by replacing the dictionaries
