@@ -12,19 +12,18 @@ public class BalanceMenu : MonoBehaviour
     public GameObject buttonContent;
     public GameObject sliderPrefab;
     public GameObject sliderContent;
-    public GameObject sliderParents;
-    public GameObject buttonParents;
+    public GameObject sliderScrollView;
+    public GameObject buttonScrollView;
     public GameObject confirmButton;
+    public Text remainingPoints;
 
     // Update is called once per frame
     void Update()
     {
         if(startBalance && Time.timeScale == 1f)
         {
-            if(!gameIsPaused)
-            {
-                Pause();
-            }
+            Pause();
+            
         }
     }
 
@@ -45,6 +44,7 @@ public class BalanceMenu : MonoBehaviour
                 BalanceVariables.seenDictionaries[kvp.Key] = false;
             }
         }
+        GameManager.Instance.EndBalanceMenu(this.gameObject);
 
     }
 
@@ -59,6 +59,11 @@ public class BalanceMenu : MonoBehaviour
         PopulateButtons();
     }
 
+    private void SetRemainingPoints()
+    {
+        remainingPoints.text = "Remaining Points: " + PointBalanceTimer.Instance.counter.ToString();
+    }
+
     /*
     *   When called, this will balance the variables using what the user gives then go to the next level
     */
@@ -71,7 +76,14 @@ public class BalanceMenu : MonoBehaviour
                 GameManager.Instance.BalanceValue(child.GetComponent<BalanceSlider>().dictionary,child.GetComponent<BalanceSlider>().dictionaryKey, child.GetComponent<BalanceSlider>().value);
             }
         }
-        ResumeGame();
+        if(PointBalanceTimer.Instance.counter >0)
+        {
+            PopulateButtons();
+        }
+        else
+        {
+            ResumeGame();
+        }
     }
 
     /*
@@ -112,9 +124,11 @@ public class BalanceMenu : MonoBehaviour
     */
     private void PopulateButtons()
     {
-        buttonParents.SetActive(true);
-        sliderParents.SetActive(false);
+        buttonScrollView.SetActive(true);
+        sliderScrollView.SetActive(false);
         confirmButton.SetActive(false);
+        SetRemainingPoints();
+        PointBalanceTimer.Instance.counter-=1;
         RemoveButtons();
         for(int i=0; i<BalanceVariables.dictionaryListStrings.Count; i++)
         {
@@ -135,8 +149,8 @@ public class BalanceMenu : MonoBehaviour
     private void PopulateSliders(Dictionary<string,float> dictionary)
     {
         RemoveSliders();
-        buttonParents.SetActive(false);
-        sliderParents.SetActive(true);
+        buttonScrollView.SetActive(false);
+        sliderScrollView.SetActive(true);
         confirmButton.SetActive(true);
 
         GameObject newGenralSlider = Instantiate(sliderPrefab, sliderContent.transform);

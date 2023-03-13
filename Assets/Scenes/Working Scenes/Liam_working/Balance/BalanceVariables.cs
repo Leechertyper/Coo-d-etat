@@ -40,8 +40,9 @@ public class BalanceVariables : MonoBehaviour
         {"power", 0f},
         //may remove???
         {"maxPower", 0f},
-        //Not currently implemented
+        //Not currently implemented / dont know location
         {"attackSpeed", 0f},
+        {"battery", 0f},
     };
     public static Dictionary<string,float> collectables = new Dictionary<string,float>()
     {

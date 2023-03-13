@@ -19,11 +19,19 @@ public class GameManager : MonoBehaviour
 
     private BalanceVariables theVars;
 
+    public GameObject balanceMenu;
 
     void Awake()
     {
-        _instance = this;
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +57,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     //My idea is that the pcg script will call this function when it has all the rooms generated
@@ -145,6 +152,7 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerDeath(){
         Debug.Log("GameManagerScript: Warning - Calling OnPlayerDeath when it is not implemented");
+        StartBalanceMenu();
     }
 
      public GameObject GetPlayerObject()
@@ -167,9 +175,20 @@ public class GameManager : MonoBehaviour
     /*
     *   This function is called when the balance menu needs to pop up (call it in BalanceTimer())
     */
-    private void StartBalanceMenu()
+    public void StartBalanceMenu()
     {
-        GameObject.Find("BalanceMenu").GetComponent<BalanceMenu>().startBalance=true;
+        if (PointBalanceTimer.Instance.counter > 0)
+        {
+            GameObject bm = Instantiate(balanceMenu, new Vector3(0, 0, 0), Quaternion.identity);
+            // This will need to be changed to the actual balance menu
+            bm.GetComponent<BalanceMenu>().startBalance=true;
+        }
+
+    }
+
+    public void EndBalanceMenu(GameObject balanceMenu)
+    {
+        Destroy(balanceMenu);
     }
 
     /*
