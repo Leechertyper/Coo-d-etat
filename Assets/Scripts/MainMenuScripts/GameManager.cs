@@ -19,11 +19,19 @@ public class GameManager : MonoBehaviour
 
     private BalanceVariables theVars;
 
+    public GameObject balanceMenu;
 
     void Awake()
     {
-        _instance = this;
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +57,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     //My idea is that the pcg script will call this function when it has all the rooms generated
@@ -142,62 +149,16 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManagerScript: Warning - ClearCurrentBoss is not implemented yet");
     }
 
-    //The stat changing functions are broad, will need refactoring when/if more then one emeny is in game
-    public void ChangeEnemyStats(float newHealth, float newDamage, float newMoveSpeed, float newAttackSpeed)
-    {
-
-
-        Debug.Log("GameManagerScript: Warning - ChangeEnemyStats is not implemented yet");
-        foreach (GameObject aDrone in allDroneEnemies)
-        {
-            Debug.Log("+1 drone");
-            aDrone.GetComponent<DroneAI>().ChangeMoveSpeed(newMoveSpeed);
-            aDrone.GetComponent<DroneAI>().ChangeAttackSpeed(newAttackSpeed);
-        }
-    }
-    
-
-
-    public void ChangeBossStats(float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
-    {
-
-        theBoss.SetMaxHealth(newHealth);
-        theBoss.SetDamage(newDamage);
-        theBoss.SetMoveSpeed(newSpeed);
-        theBoss.SetAttackSpeed(newSpeed);
-        
-    
-        Debug.Log("GameManagerScript: Warning - ChangeBossStats is not implemented yet");
-    }
-
-    // To only be called by bosses in their Awaken 
-    public void SetBossStats() 
-    {
-        this.ChangeBossStats(BalanceVariables.bossHealth,BalanceVariables.bossDamage,BalanceVariables.bossMoveSpeed,BalanceVariables.bossAttackSpeed);
-
-    }
 
     public void OnPlayerDeath(){
         Debug.Log("GameManagerScript: Warning - Calling OnPlayerDeath when it is not implemented");
+        StartBalanceMenu();
     }
 
      public GameObject GetPlayerObject()
      {
         return _thePlayerObject;
      }
-
-    public void ChangePlayerSpeed(float newSpeed)
-    {
-        if(newSpeed <= 0)
-        {
-            Debug.Log("GameManagerScript: Warning - Trying to apply a negative speed value to the player"); 
-        }
-        else
-        {
-            _thePlayer.SetSpeed(newSpeed);
-        }
-       
-    }
 
     public void DamagePlayer(int theDamage)
     {
@@ -211,23 +172,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangePlayerStats(float newHealth, float newDamage, float newSpeed, float newAttackSpeed)
+    /*
+    *   This function is called when the balance menu needs to pop up (call it in BalanceTimer())
+    */
+    public void StartBalanceMenu()
     {
-        if(newHealth <= 0 || newDamage <= 0 || newSpeed <= 0 || newAttackSpeed <= 0)
+        if (PointBalanceTimer.Instance.counter > 0)
         {
-            Debug.Log("GameManagerScript: Warning - Trying to apply one or more negative values to the player"); 
-        }
-        else 
-        {
-            
-            _thePlayer.SetMaxHealth((int)newHealth);
-            //_thePlayer.SetDamage(newDamage);
-            _thePlayer.SetSpeed(newSpeed);
-            //_thePlayer.SetAttackSpeed(newAttackSpeed);
+            GameObject bm = Instantiate(balanceMenu, new Vector3(0, 0, 0), Quaternion.identity);
+            // This will need to be changed to the actual balance menu
+            bm.GetComponent<BalanceMenu>().startBalance=true;
         }
 
     }
 
+    public void EndBalanceMenu(GameObject balanceMenu)
+    {
+        Destroy(balanceMenu);
+    }
+
+    /*
+    *  This will change all of the values in a dictionary using the balance value provided
+    *   The actual equation is still in question
+    */
+    public void BalanceValue(Dictionary<string,float> dictionary,string dictionaryKey, float balanceValue)
+    {
+        dictionary[dictionaryKey] *= balanceValue;
+
+    } 
     public void ChangeHealthItemValue(float newHealth)
     {
         if(newHealth <= 0)
