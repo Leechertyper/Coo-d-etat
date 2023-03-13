@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _thePlayerObject;
     [SerializeField] Player _thePlayer;
     private Vector2 _endRoomPos;
-    private static GameManager _instance = null;
     private ArrayList allRooms;
     // When there is more enemy types each will get their own list
     private List<GameObject> allDroneEnemies;
@@ -20,10 +19,21 @@ public class GameManager : MonoBehaviour
     private BalanceVariables theVars;
 
 
+    public static GameManager Instance; // A static reference to the GameManager instance
+
     void Awake()
     {
-        _instance = this;
+        if (Instance == null) // If there is no instance already
+        {
+            DontDestroyOnLoad(gameObject); // Keep the GameObject, this component is attached to, across different scenes
+            Instance = this;
+        }
+        else if (Instance != this) // If there is already an instance and it's not `this` instance
+        {
+            Destroy(gameObject); // Destroy the GameObject, this component is attached to
+        }
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,17 +45,7 @@ public class GameManager : MonoBehaviour
         healthItemValue = 1f;
 
     }
-     public static GameManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                Debug.LogError("Game Manager is Null!");
-            }
-           return _instance;
-        }
-    }
+    
     // Update is called once per frame
     void Update()
     {

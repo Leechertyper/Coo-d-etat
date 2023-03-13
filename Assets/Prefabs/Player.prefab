@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1436609151e8954e83a55c91220db7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4948620444085675658, guid: 63e5652d22f462144b74f7cc70af051c, type: 3}
+  projectilePrefab: {fileID: 4504184925908081350, guid: e38f13ceb411992458e896547ab62a01, type: 3}
   _damage: 1
   shootCooldown: 0.2
 --- !u!1 &6501350809439891655

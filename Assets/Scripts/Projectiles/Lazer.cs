@@ -15,8 +15,8 @@ public class Lazer : MonoBehaviour
     // I tried to use Game Object tags but I couldn't get it to work, so I use this emun  
     private theNameSpace.TheParentTypes _parentType;
 
-    // When off screen Destroy Lazer
-    // NOTE* this only deletes when off camera including the inspector camera
+    
+    
     private void Awake()
     {
        
@@ -26,6 +26,9 @@ public class Lazer : MonoBehaviour
         _dronePower = tempList[1];
         _parentType = theNameSpace.TheParentTypes.nullType;
     }
+
+    // When off screen Destroy Lazer 
+    // NOTE* this only deletes when off camera including the inspector camera
     private void OnBecameInvisible()
     {
         Destroy(gameObject);   

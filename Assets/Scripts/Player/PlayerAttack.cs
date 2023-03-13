@@ -57,17 +57,13 @@ public class PlayerAttack : MonoBehaviour
     }
 
     // Method to shoot a projectile in the specified direction
-    void ShootProjectile(Vector2 direction)
+    private void ShootProjectile(Vector2 direction)
     {
         // Check if the shoot timer has expired
         if (shootTimer <= 0f)
         {
             // Spawn a new projectile at the player's position
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0, 0, angle));
-            // Set the damage and tag of the projectile
-            //projectile.GetComponent<Lazer>().SetPower(_damage);
-            projectile.GetComponent<Lazer>().setParentType(theNameSpace.TheParentTypes.playerType);
-            projectile.gameObject.tag = "PlayerProjectile";
             // Set the velocity of the projectile to the specified direction
             Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
             projectileRb.velocity = direction * 10;

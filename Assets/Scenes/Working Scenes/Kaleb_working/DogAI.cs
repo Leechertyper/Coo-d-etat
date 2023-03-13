@@ -13,12 +13,12 @@ public class DogAI : Enemy
 
     private float distX;
     private float distY;
-    enum state { Dash, Leap };
+    enum state { Dash, Leap, Next };
 
     // Start is called before the first frame update
     void Start()
     {
-        _myState = state.Dash;
+        _myState = state.Next;
         _target = GameObject.FindGameObjectWithTag("Player").transform;
         animator.SetInteger("Direction", 2);
     }
@@ -26,8 +26,14 @@ public class DogAI : Enemy
     // Update is called once per frame
     void Update()
     {
+        if (_myState == state.Next)
+        {
+
+        }
+
         if(_myState == state.Dash)
         {
+            _myState = state.Next;
             distX = _target.transform.position.x - transform.transform.position.x;
             distY = _target.transform.position.y - transform.transform.position.y;
             if (Mathf.Abs(distX) > Mathf.Abs(distY))
@@ -65,7 +71,7 @@ public class DogAI : Enemy
 
 
 
-        if (Input.GetKeyDown(KeyCode.Keypad8))
+/*        if (Input.GetKeyDown(KeyCode.Keypad8))
         {
             StartCoroutine(Dash(0, 2));
         }
@@ -84,7 +90,7 @@ public class DogAI : Enemy
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(LeapAtPlayer());
-        }
+        }*/
     }
 
 
