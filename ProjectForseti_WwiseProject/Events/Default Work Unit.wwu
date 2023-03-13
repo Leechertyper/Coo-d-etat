@@ -399,6 +399,20 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Heartbeat" ID="{C53F8F2D-0B03-413C-A87F-E6372647ED2E}">
+					<ChildrenList>
+						<Action Name="" ID="{245DBC1C-F56A-4E75-9AFD-4AC9DE18F39B}" ShortID="268439249">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Heartbeat" ID="{2DC69635-A3E4-4F8A-A1AB-CB7C32E1415B}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

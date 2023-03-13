@@ -58,7 +58,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{A3D82A8B-BB6B-E227-136E-3E61191B4703}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{DEC05E4C-845D-BAED-1065-FDE08217CA43}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -678,6 +678,7 @@
 						<MediaRef Id="346885790"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3319673256" Name="Stop_Heartbeat" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 			<GameParameters>
 				<GameParameter Id="151362964" Name="PlayerHealth"/>
@@ -704,5 +705,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{13AB99DB-5DF1-C717-7AA0-6385E1D18EF5}</FileHash>
+	<FileHash>{D0299621-08DA-0587-A815-F624AB222687}</FileHash>
 </SoundBanksInfo>

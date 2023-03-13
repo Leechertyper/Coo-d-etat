@@ -49,6 +49,7 @@ namespace AK
         static const AkUniqueID PLAY_UNPAUSE_SFX = 4278623891U;
         static const AkUniqueID PLAY_WIND_NOISE_1 = 252290767U;
         static const AkUniqueID PLAY_WING_FLAP = 2509893943U;
+        static const AkUniqueID STOP_HEARTBEAT = 3319673256U;
     } // namespace EVENTS
 
     namespace STATES
