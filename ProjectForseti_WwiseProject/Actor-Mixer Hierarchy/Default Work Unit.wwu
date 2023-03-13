@@ -477,6 +477,21 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Potential Pickup SFX 2" ID="{E3839B62-8035-4B6C-BD7B-1CD64479539D}" ShortID="347758779">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{B6BD6DF9-2B41-472D-95AC-C164892B0FCB}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="200"/>
+											<Property Name="Min" Type="Real64" Value="-200"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -552,6 +567,21 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Potential Pickup SFX" ID="{9E111498-9AE7-4494-B0C3-DC1DC4DE2C20}" ShortID="288605072">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{B72EE83A-CB65-4F7C-8E25-1DABC65BBC50}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="200"/>
+											<Property Name="Min" Type="Real64" Value="-200"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -1373,7 +1403,7 @@
 					<PropertyList>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
-								<Value>30</Value>
+								<Value>10</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Pitch" Type="int32">
