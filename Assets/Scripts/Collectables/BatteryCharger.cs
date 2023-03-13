@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Items/BatteryCharger")]
 public class BatteryCharger : ItemEffect
 {
-    
     //public int amount;
     public override void Apply(GameObject target) 
     {

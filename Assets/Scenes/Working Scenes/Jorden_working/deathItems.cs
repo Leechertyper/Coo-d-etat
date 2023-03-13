@@ -75,6 +75,12 @@ public class deathItems : MonoBehaviour
 
     } 
 
+    //For use with the boss's packages
+    public void JustSpawnBattery(Vector3 thePlace)
+    {
+        Instantiate(batteryItem, thePlace,Quaternion.identity);
+    }
+
 
     public void SetSpawnChance(int newValue)
     {
