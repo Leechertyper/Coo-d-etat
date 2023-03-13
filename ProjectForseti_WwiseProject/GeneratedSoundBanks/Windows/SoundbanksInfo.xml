@@ -58,7 +58,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{A3D82A8B-BB6B-E227-136E-3E61191B4703}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{958BB790-1776-7DA2-793E-B82C28E41EA2}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -165,6 +165,10 @@
 				<File Id="427093008" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>boss theme.wav</ShortName>
 					<CachePath>SFX/boss theme_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="446377031" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>swoosh.wav</ShortName>
+					<CachePath>SFX/swoosh_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="483069929" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>lab theme 1.wav</ShortName>
@@ -307,6 +311,7 @@
 				<Event Id="2911254633" Name="Play_Controller_Switch" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="129237829"/>
+						<MediaRef Id="446377031"/>
 						<MediaRef Id="526647897"/>
 					</MediaRefs>
 					<SwitchContainers>
@@ -613,12 +618,12 @@
 						<MediaRef Id="16925174"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="331850419" Name="Play_Potential_Pickup_SFX" DurationType="OneShot" DurationMin="0.33356008" DurationMax="0.33356008">
+				<Event Id="331850419" Name="Play_Potential_Pickup_SFX" DurationType="OneShot" DurationMin="0.29716825" DurationMax="0.3744085">
 					<MediaRefs>
 						<MediaRef Id="801503577"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3838884112" Name="Play_Potential_Pickup_SFX_2" DurationType="OneShot" DurationMin="0.5551474" DurationMax="0.5551474">
+				<Event Id="3838884112" Name="Play_Potential_Pickup_SFX_2" DurationType="OneShot" DurationMin="0.49458012" DurationMax="0.6231319">
 					<MediaRefs>
 						<MediaRef Id="818060147"/>
 					</MediaRefs>
@@ -678,6 +683,7 @@
 						<MediaRef Id="346885790"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3319673256" Name="Stop_Heartbeat" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 			<GameParameters>
 				<GameParameter Id="151362964" Name="PlayerHealth"/>
@@ -704,5 +710,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{664C90A0-7486-FDB3-1A78-DAF0F0618596}</FileHash>
+	<FileHash>{ADC4C3C5-1D5A-DA1E-F0B6-F03B5DF7A174}</FileHash>
 </SoundBanksInfo>
