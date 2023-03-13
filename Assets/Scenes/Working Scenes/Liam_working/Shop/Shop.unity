@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 1581788187}
   - component: {fileID: 1581788186}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: OpenShopButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1275,7 +1275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Open Shop
 --- !u!222 &1581788187
 CanvasRenderer:
   m_ObjectHideFlags: 0
