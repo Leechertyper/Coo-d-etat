@@ -68,7 +68,12 @@ public class Floor : MonoBehaviour
         {
             _rooms.Add(new List<Room>());
         }
-        
+
+        while (!GameManager.Instance.Grid.gridGenerated)
+        {
+            //We do a little waiting :)
+        }
+
         for (var i = 0; i < r; i++)
         {
             for (var j = 0; j < c; j++)
