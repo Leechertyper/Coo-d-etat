@@ -16,6 +16,8 @@ public class DroneBossGrid : MonoBehaviour
     // ----TEMP---- this is to show the grid in the worldspace
     [SerializeField] private GameObject floorTile;
 
+    [SerializeField] private bool showGridTiles = false;
+
     // The Patterns for a bomb attack, uses a arraylist the first parameter is list of tile indexes and the second is the attacks spawn weight
     [Header("The air attack for the enemy, takes two parameters. First is the index of the tiles to be affected and the second is the attacks weight")]
     [SerializeField] private AttackPattern[] attacks;
@@ -133,12 +135,12 @@ public class DroneBossGrid : MonoBehaviour
     {
         if(GameManager.Instance)
         {
-            gridStartPosition.x = transform.position.x - ((Mathf.FloorToInt(roomDimensions.x / 2) - 1) * 3);
+            gridStartPosition.x = transform.position.x - ((Mathf.FloorToInt(roomDimensions.x / 2)) * 3);
             gridStartPosition.y = transform.position.y - (Mathf.FloorToInt(roomDimensions.y / 2) * 3);
         }
         else
         {
-            gridStartPosition.x = gridStartPosition.x*gridStep;
+            gridStartPosition.x = (gridStartPosition.x*gridStep) - gridStep;
             gridStartPosition.y = gridStartPosition.y*gridStep;
         }
         // sets the interator to the start position of the grid
@@ -146,13 +148,18 @@ public class DroneBossGrid : MonoBehaviour
         // initializes the grid
         _grid = new Tile[(int) roomDimensions.x, (int) roomDimensions.y];
         // iterates through the width of the grid
-        for (int i = 0; i < (int) roomDimensions.x - 1; i++)
+        for (int i = 0; i < (int) roomDimensions.x; i++)
         {
             // iterates through the length of the grid
             for (int j = 0; j < (int) roomDimensions.y; j++)
             {
                 // creates a new tile at pos (i, j) in the grid
                 _grid[i, j] = new Tile(iterationPosition);
+                if (showGridTiles)
+                {
+                    var newTile = Instantiate(floorTile);
+                    newTile.transform.position = _grid[i, j].GetPosAsVector();
+                }
                 // ***TEMP*** creates a floor tile object at the tiles position
                 //Instantiate(floorTile);
                 // ***TEMP*** sets the floor tiles position to the tile position at (i, j)

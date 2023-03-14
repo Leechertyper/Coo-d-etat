@@ -824,6 +824,10 @@ PrefabInstance:
       propertyPath: leftColumnRoomPrefab
       value: 
       objectReference: {fileID: 4814595759074515201, guid: a4420084ad9715e4f8d53e271964d70a, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableEnemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 2278889589388841408, guid: 451058ecd3453a7448dade22c966f765, type: 3}
     - target: {fileID: 5392540130517398117, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: m_Name
       value: Floor
