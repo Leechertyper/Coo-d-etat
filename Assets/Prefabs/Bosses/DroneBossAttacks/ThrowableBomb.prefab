@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8002535939877646685}
   - component: {fileID: 5206301058814122358}
   - component: {fileID: 1992552651}
+  - component: {fileID: 3248653475944485955}
   m_Layer: 0
   m_Name: ThrowableBomb
   m_TagString: Untagged
@@ -97,3 +98,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c278ac1be87588f428b4e0cd1377af88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3248653475944485955
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187918097288055020}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ece91b87bcfc32e44b0a1c74cfba57b5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
