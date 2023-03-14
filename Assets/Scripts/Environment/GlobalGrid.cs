@@ -98,7 +98,7 @@ public class GlobalGrid : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // calculating the total size of the grid
         // start with the amount of rooms and the size of each one

@@ -320,6 +320,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+--- !u!1 &753873357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 205730632174011306, guid: 52754418ab76ed9409cfe57b19aa6b1a, type: 3}
+  m_PrefabInstance: {fileID: 350138840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &753873360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753873357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b6fa3e7598be846855a655362a22ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Host: db.cs.usask.ca
+  User: coo_d_etat_user
+  Password: 2kkj23hvuiio32hlasjvkaf
+  Database: coo_d_etat
 --- !u!1 &1072917463 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2266270020640335027, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
@@ -645,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6973557679765224719, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6973557679765224719, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: m_LocalPosition.z
