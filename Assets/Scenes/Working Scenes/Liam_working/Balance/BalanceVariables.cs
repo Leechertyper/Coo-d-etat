@@ -52,7 +52,7 @@ public class BalanceVariables : MonoBehaviour
         {"maxPower", 10f},
         //in PlayerAttack.cs
         {"attackDamage",1f}, // this one is not implemented
-        {"maxAmmo", 10f},
+        {"maxAmmo", 100f},
         {"attackSpeed", 0.2f},
         //Not currently implemented / dont know location
         {"battery", 0f},

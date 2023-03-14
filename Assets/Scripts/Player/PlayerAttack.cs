@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
 {
     //For the players ammo
     private float _curAmmo = 100;
-
+    private float _maxAmmo = 100;
 
     private float _ammoPerShot = 2;
     // Input variable for shooting angle
@@ -23,16 +23,17 @@ public class PlayerAttack : MonoBehaviour
     //Damage of the laser
     [SerializeField] private int _damage = 10;
 
+    [SerializeField] private Image energyBar;
+    [SerializeField] private Image energyTrail;
+
+    private bool _energyChanging = false;
+    private bool _energyTrailChanging = false;
     //[SerializeField] private Text _ammoText;
 
     // Cooldown time for shooting projectiles
     private float shootTimer = 0f;
     public Vector2 direction;
     public float rotZ;
-
-    
-
-
 
     // Update is called once per frame
     void Update()
@@ -45,7 +46,29 @@ public class PlayerAttack : MonoBehaviour
 
         direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
 
+        if (_energyChanging)
+        {
+            energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, _curAmmo / _maxAmmo, 3f * Time.deltaTime);
+            if (Mathf.Round(energyBar.fillAmount * _maxAmmo) == Mathf.Round(_curAmmo))
+            {
+                _energyChanging = false;
+                _energyTrailChanging = true;
+            }
+            else
+            {
+                _energyTrailChanging = false;
+            }
+        }
 
+        if (_energyTrailChanging)
+        {
+            energyTrail.fillAmount = Mathf.Lerp(energyTrail.fillAmount, _curAmmo / _maxAmmo, 5f * Time.deltaTime);
+            if (Mathf.Round(energyTrail.fillAmount * _maxAmmo) == Mathf.Round(_curAmmo))
+            {
+                _energyTrailChanging = false;
+            }
+
+        }
 
         //DEBUG Heal func
         if (Input.GetKeyDown(KeyCode.H))
@@ -126,15 +149,17 @@ public class PlayerAttack : MonoBehaviour
 
     private void UpdateAmmoUI()
     {
-        //_ammoText.text =  "Ammo: " + _curAmmo;
+        _energyChanging = true;
     } 
     public void SetMaxAmmo(float newMaxAmmo)
     {
+        UpdateAmmoUI();
         _ammoPerShot = newMaxAmmo;
     }
 
     public void SetAmmoPerShot(float newAmmoPerShot)
     {
+        UpdateAmmoUI();
         _ammoPerShot = newAmmoPerShot;
     }
 
@@ -143,16 +168,16 @@ public class PlayerAttack : MonoBehaviour
     {
         //Debug.Log("The added ammo is " + moreAmmo);
         _curAmmo += moreAmmo;
-        if(_curAmmo > BalanceVariables.player["_maxAmmo"])
+        if(_curAmmo > BalanceVariables.player["maxAmmo"])
         {
-            _curAmmo = BalanceVariables.player["_maxAmmo"];
+            _curAmmo = BalanceVariables.player["maxAmmo"];
         }
         UpdateAmmoUI();
     }
 
     public void MakeMaxAmmo()
     {
-        _curAmmo = BalanceVariables.player["_maxAmmo"];
+        _curAmmo = BalanceVariables.player["maxAmmo"];
         UpdateAmmoUI();
     }
 
