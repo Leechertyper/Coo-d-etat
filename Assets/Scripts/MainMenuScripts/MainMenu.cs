@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+        ///<TODO> UPDATE BASE BALANCEVARIABLES HERE </TODO>
+        AkSoundEngine.SetState("PlayerLife", "None");
+        AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
+
     }
 
     /*
@@ -17,6 +21,7 @@ public class MainMenu : MonoBehaviour
     */
     public void StartGame()
     {
+        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
         SceneManager.LoadScene(startScene); 
     }
 
@@ -26,6 +31,13 @@ public class MainMenu : MonoBehaviour
     */
     public void QuitGame()
     {
+        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
         Application.Quit();
     }
+
+    public void Clickybutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
+    }
+
 }

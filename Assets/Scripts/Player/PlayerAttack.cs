@@ -12,7 +12,6 @@ public class PlayerAttack : MonoBehaviour
     //For the players ammo
     private float _curAmmo = 100;
 
-    private float _maxAmmo = 100;
 
     private float _ammoPerShot = 2;
     // Input variable for shooting angle
@@ -27,19 +26,11 @@ public class PlayerAttack : MonoBehaviour
     //[SerializeField] private Text _ammoText;
 
     // Cooldown time for shooting projectiles
-    public float shootCooldown = 0.2f;
     private float shootTimer = 0f;
     public Vector2 direction;
     public float rotZ;
 
-    private bool _energyChanging = false;
-    private bool _energyTrailChanging = false;
-
-    [SerializeField] private Image energyBar;
-    [SerializeField] private Image energyTrail;
-
-
-
+    
 
 
 
@@ -54,29 +45,7 @@ public class PlayerAttack : MonoBehaviour
 
         direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
 
-        if (_energyChanging)
-        {
-            energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, _curAmmo / _maxAmmo, 3f * Time.deltaTime);
-            if (Mathf.Round(energyBar.fillAmount * _maxAmmo) == Mathf.Round(_curAmmo))
-            {
-                _energyChanging = false;
-                _energyTrailChanging = true;
-            }
-            else
-            {
-                _energyTrailChanging = false;
-            }
-        }
 
-        if (_energyTrailChanging)
-        {
-            energyTrail.fillAmount = Mathf.Lerp(energyTrail.fillAmount, _curAmmo / _maxAmmo, 5f * Time.deltaTime);
-            if (Mathf.Round(energyTrail.fillAmount * _maxAmmo) == Mathf.Round(_curAmmo))
-            {
-                _energyTrailChanging = false;
-            }
-
-        }
 
         //DEBUG Heal func
         if (Input.GetKeyDown(KeyCode.H))
@@ -88,6 +57,36 @@ public class PlayerAttack : MonoBehaviour
         {
             
             ShootProjectile(direction);
+            
+
+
+
+
+        }
+        // Check if the arrow keys are being pressed, and shoot projectiles in the corresponding direction
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            angle = 0f;
+            ShootProjectile(Vector2.up);
+
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            angle = 180f;
+            ShootProjectile(Vector2.down);
+
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            angle = 90f;
+            ShootProjectile(Vector2.left);
+
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            angle = -90f;
+            ShootProjectile(Vector2.right);
+
         }
 
         // Update the shoot timer
@@ -114,7 +113,7 @@ public class PlayerAttack : MonoBehaviour
                 //projectile.GetComponent<Projectile>().speed;
 
                 // Reset the shoot timer
-                shootTimer = BalanceVariables.player["shootCooldown"];
+                shootTimer = BalanceVariables.player["attackSpeed"];
                 RemoveAmmo(_ammoPerShot);
                 Debug.Log("All ammo " + _curAmmo);
             }
@@ -139,6 +138,7 @@ public class PlayerAttack : MonoBehaviour
         _ammoPerShot = newAmmoPerShot;
     }
 
+
     public void AddAmmo(float moreAmmo)
     {
         //Debug.Log("The added ammo is " + moreAmmo);
@@ -147,14 +147,13 @@ public class PlayerAttack : MonoBehaviour
         {
             _curAmmo = BalanceVariables.player["_maxAmmo"];
         }
-        _energyChanging = true;
+        UpdateAmmoUI();
     }
 
     public void MakeMaxAmmo()
     {
-
         _curAmmo = BalanceVariables.player["_maxAmmo"];
-        _energyChanging = true;
+        UpdateAmmoUI();
     }
 
     public void RemoveAmmo(float lessAmmo)
@@ -164,7 +163,7 @@ public class PlayerAttack : MonoBehaviour
         {
             _curAmmo = 0;
         }
-        _energyChanging = true;
+        UpdateAmmoUI();
     }
 
     public float GetCurrentAmmo()
