@@ -17,7 +17,8 @@ public class DogAI : Enemy
     private float _distX;
     private float _distY;
     private bool _awake;
-    enum state { Dash, Leap, Next, Wait};
+    private bool _attackReady = true;
+    enum state { Dash, Leap, Next, Wait, Attack};
     
 
     public override void Awaken()
@@ -49,16 +50,14 @@ public class DogAI : Enemy
         if (_awake) {
             if (_myState == state.Next)
             {
-                /*            if (Vector2.Distance(_target.transform.position, transform.position) > leapDistance)
-                            {
-                                _myState = state.Leap;
-                            }
-                            else
-                            {
-                                _myState = state.Dash;
-                            }*/
-
-                _myState = state.Dash;
+                if (Vector2.Distance(_target.transform.position, transform.position) > leapDistance)
+                {
+                    _myState = state.Leap;
+                }
+                else
+                {
+                    _myState = state.Dash;
+                }
             }
 
             if (_myState == state.Dash)
@@ -96,6 +95,27 @@ public class DogAI : Enemy
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (_attackReady)
+            {
+                collision.gameObject.GetComponent<Player>().TakeDamage(2);
+                StartCoroutine(AttackCooldown(2));
+            }           
+        }
+    }
+
+    private IEnumerator AttackCooldown(float time)
+    {
+        _attackReady = false;
+        while (true)
+        {
+            yield return new WaitForSeconds(time);
+            _attackReady = true;
+        }
+    }
 
     private IEnumerator Dash(int direction, int distance)
     {
@@ -156,7 +176,7 @@ public class DogAI : Enemy
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        transform.position = player;
+        transform.position = _grid.GetTile(player, out _gridPos);
         _myState = state.Next;
         yield break;
     }

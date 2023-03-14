@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5995990536877060841}
   m_Layer: 0
   m_Name: Wall3
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1235649281519049528}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -750,14 +750,14 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: f94fdb44dfb40f3449544f78b3e4f76c, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 2cbb4827a136cfe4c9af06415e3de8c2, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 15
     m_Data: {fileID: 21300000, guid: 3c7f2b211edfe084583b798f90ea4213, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 1520031309, guid: 4af13c28de370cd459e0feaecf3aef09, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 2cbb4827a136cfe4c9af06415e3de8c2, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1236380970, guid: 4af13c28de370cd459e0feaecf3aef09, type: 3}
   - m_RefCount: 7
@@ -917,7 +917,7 @@ GameObject:
   - component: {fileID: 8718376111363498152}
   m_Layer: 0
   m_Name: Wall12
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 9206161509706969232}
   m_Layer: 0
   m_Name: Wall9
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1079,7 +1079,7 @@ GameObject:
   - component: {fileID: 8765668068935866004}
   m_Layer: 0
   m_Name: Wall5
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 2629555094567712840}
   m_Layer: 0
   m_Name: Wall11
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1195,7 +1195,7 @@ GameObject:
   - component: {fileID: 5311565519653906684}
   m_Layer: 0
   m_Name: Wall6
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1653,7 +1653,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 09b8744565da46a4cab00d9673859f0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1677,7 +1677,7 @@ GameObject:
   - component: {fileID: 4838588640712891483}
   m_Layer: 0
   m_Name: Wall7
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1735,7 +1735,7 @@ GameObject:
   - component: {fileID: 9159661561320533594}
   m_Layer: 0
   m_Name: Wall1
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1866,7 +1866,7 @@ GameObject:
   - component: {fileID: 448296108739241805}
   m_Layer: 0
   m_Name: Wall2
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3617,7 +3617,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fe521e876d07d85429d95c1062d68fe0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4013,7 +4013,7 @@ GameObject:
   - component: {fileID: 2972019438748317604}
   m_Layer: 0
   m_Name: Wall14
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4277,7 +4277,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 329c5d851b7c73144a2e50a782263197, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4301,7 +4301,7 @@ GameObject:
   - component: {fileID: 7389118749068290951}
   m_Layer: 0
   m_Name: Wall15
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4359,7 +4359,7 @@ GameObject:
   - component: {fileID: 2523058581147238251}
   m_Layer: 0
   m_Name: Wall13
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4417,7 +4417,7 @@ GameObject:
   - component: {fileID: 7787287505244818548}
   m_Layer: 0
   m_Name: Wall10
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4475,7 +4475,7 @@ GameObject:
   - component: {fileID: 3784261450356525688}
   m_Layer: 0
   m_Name: Wall4
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4533,7 +4533,7 @@ GameObject:
   - component: {fileID: 9116806787804769734}
   m_Layer: 0
   m_Name: Wall8
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

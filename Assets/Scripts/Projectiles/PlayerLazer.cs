@@ -26,6 +26,10 @@ public class PlayerLazer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Walls")
+        {
+            Destroy(gameObject);
+        }
         if (collision.gameObject.tag == "Enemy")
         {   // Remove type casting later
             collision.gameObject.GetComponent<Health>().TakeDamage((int)_playerPower);

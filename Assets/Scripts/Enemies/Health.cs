@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 
-
+    public int maxHealth;
     public int health;
     public Color hurtColor;
     public GameObject[] deathEffects;
@@ -13,9 +13,8 @@ public class Health : MonoBehaviour
     public GameObject theDeathItems;
     private void Start()
     {
-        health = Mathf.RoundToInt(BalanceVariables.droneEnemy["maxHealth"]);
-
-        
+        maxHealth = Mathf.RoundToInt(BalanceVariables.droneEnemy["maxHealth"]);
+        health = maxHealth;
     }
 
     /// <summary>

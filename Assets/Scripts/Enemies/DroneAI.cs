@@ -99,15 +99,15 @@ public class DroneAI : Enemy
             angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
             if(direction.y >= 0.4)
             {
-                animator.SetBool("IsSide", false);
+                animator.SetBool("IsSide", true);
             }
             else if (direction.y <= -0.4)
             {
-                animator.SetBool("IsSide", false);
+                animator.SetBool("IsSide", true);
             }
             else
             {
-                animator.SetBool("IsSide", true);
+                animator.SetBool("IsSide", false);
             }
             _moveDirection = direction;
         }
@@ -152,15 +152,14 @@ public class DroneAI : Enemy
     public override void Awaken()
     {
         AkSoundEngine.PostEvent("Play_Robot_Alert_SFX", this.gameObject);
-        _awake = false;
-
+        _awake = true;
         _myState = state.Chase;
         StartCoroutine(_slowFire);
     }
 
     public override void Sleep()
     {
-        _awake = true;
+        _awake = false;
         StopAllCoroutines();
         _myState = state.Pause;
         _rb.velocity = Vector2.zero;

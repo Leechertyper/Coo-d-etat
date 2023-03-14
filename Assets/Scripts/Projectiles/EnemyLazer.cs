@@ -7,14 +7,9 @@ public class EnemyLazer : MonoBehaviour
 
     public Rigidbody2D rb;
     private float _dronePower;
-
-    private GameManager _gameManager;
-
     private void Awake()
     {
-        _gameManager = GameManager.Instance;
-        List<float> tempList = _gameManager.GetPowerValues();
-        _dronePower = tempList[1]+ 9;
+        _dronePower = BalanceVariables.droneEnemy["lazerDamage"];
     }
 
     // When off screen Destroy Lazer
@@ -26,6 +21,10 @@ public class EnemyLazer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Walls")
+        {
+            Destroy(gameObject);
+        }
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Player>().TakeDamage(_dronePower);

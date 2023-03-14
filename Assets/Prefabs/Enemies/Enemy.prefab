@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 4948620444085675658, guid: 63e5652d22f462144b74f7cc70af051c, type: 3}
   anchorPoint: {fileID: 6504401682517071477}
+  speed: 20
 --- !u!1 &6504401682906475754
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,10 +214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1192c88dd8088a428afe962fde587d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   health: 100
-  hurtColor: {r: 0, g: 0, b: 0, a: 0}
-  deathEffects: []
-  theDeathItems: {fileID: 0}
+  hurtColor: {r: 0.8773585, g: 0, b: 0, a: 0.89411765}
+  deathEffects:
+  - {fileID: 8606886347650838750, guid: 7c67529689d72c74397e9b585fc54ef3, type: 3}
+  - {fileID: 5449004760661852625, guid: e5b1cf84ff9e27043a52bebd09141843, type: 3}
+  - {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
+  theDeathItems: {fileID: 797528522590726285, guid: 3c741d512f5354744a9b75aa113c068d, type: 3}
 --- !u!95 &4271788366279071293
 Animator:
   serializedVersion: 5
