@@ -90,7 +90,7 @@ public class Health : MonoBehaviour
     /// <returns>IEnum</returns>
     private IEnumerator Death()
     {
-        GetComponent<DroneAI>().Die();
+        GetComponent<Enemy>().Die();
         float timeElapsed = 0;
         while (timeElapsed < 0.5f)
         {

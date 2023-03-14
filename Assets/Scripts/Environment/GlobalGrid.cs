@@ -344,6 +344,28 @@ public class GlobalGrid : MonoBehaviour
         }
     }
 
+
+    public Vector2 TileLocation(Vector3 currentPosition, Vector2Int destination)
+    {
+        // check the destination tile
+        if (!_grid[destination.x, destination.y].blocked)
+        {
+            return _grid[destination.x, destination.y].position;
+        }
+        // if its blocked
+        else
+        {
+            // just return where they started
+            return currentPosition;
+        }
+    }
+
+    public Vector2 GetTile(Vector2 pos)
+    {
+        return new Vector2(0, 0);
+    }
+
+
     /// <summary>
     /// Places the given item in the room representing the index
     /// </summary>

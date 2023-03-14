@@ -45,7 +45,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2266270020640335027}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -57,7 +57,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &947550787850258265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68,10 +68,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.106600404, y: -0.0066365004}
+  m_Offset: {x: -0.07988751, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -82,7 +82,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.306637, y: 2.4806845}
+  m_Size: {x: 2.6271918, y: 3}
   m_EdgeRadius: 0
 --- !u!114 &947550787850258267
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   _power: 10
   _maxPower: 10
   death: {fileID: 0}
-  hitParticles: {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
+  hitParticles: {fileID: 0}
 --- !u!114 &5324567830572157412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1436609151e8954e83a55c91220db7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4948620444085675658, guid: 63e5652d22f462144b74f7cc70af051c, type: 3}
+  projectilePrefab: {fileID: 4504184925908081350, guid: e38f13ceb411992458e896547ab62a01, type: 3}
   _damage: 1
   shootCooldown: 0.2
 --- !u!1 &6501350809439891655
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8343657424115867566}
   m_Layer: 0
   m_Name: PlayerAnimation
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +225,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fa5fd8ed26e3c944081bdda3f6f955f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
