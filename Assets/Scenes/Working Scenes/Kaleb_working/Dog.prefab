@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2278889589388841410}
   - component: {fileID: 2278889589388841409}
   - component: {fileID: 2278889589388841411}
-  - component: {fileID: 2278889589388841421}
+  - component: {fileID: 5191893465051956686}
   - component: {fileID: 2278889589388841420}
   - component: {fileID: 2278889589388841423}
   - component: {fileID: 2278889589388841422}
@@ -102,8 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2278889589388841420}
-  hp: {fileID: 2278889589388841421}
---- !u!114 &2278889589388841421
+  hp: {fileID: 5191893465051956686}
+  leapDistance: 20
+--- !u!114 &5191893465051956686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,16 +113,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2278889589388841408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 709df2d7e169e8a4d8eea62c483c2609, type: 3}
+  m_Script: {fileID: 11500000, guid: b1192c88dd8088a428afe962fde587d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   health: 0
-  hurtColor: {r: 1, g: 0, b: 0, a: 1}
-  deathEffects:
-  - {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
-  - {fileID: 6192724089161036641, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
-  - {fileID: 8038344524183138613, guid: 0277167a12290af47801444830a2be97, type: 3}
+  hurtColor: {r: 0, g: 0, b: 0, a: 0}
+  deathEffects: []
+  theDeathItems: {fileID: 0}
 --- !u!95 &2278889589388841420
 Animator:
   serializedVersion: 5
