@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scenes/MainMenu.unity
     guid: 7cfadb23a54e5ae41b6cf558d2454e9e
   - enabled: 1
+    path: Assets/Scenes/Main Scenes/Beta Main.unity
+    guid: 48ed123ef7a81ad49a5f1b783ac15d4c
+  - enabled: 1
     path: Assets/Scenes/Main Scenes/Alpha Main.unity
     guid: d37c1a478c02a7144923b559c2023da0
-  - enabled: 1
-    path: Assets/Scenes/Main Scenes/Beta Main.unity
-    guid: 868944a48f25fd240bfd3b21b00e8877
   - enabled: 1
     path: Assets/Scenes/Working Scenes/Liam_working/Balance/Balance.unity
     guid: cf8cbd9524d5de94db3b75bc566cdc6c
