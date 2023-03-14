@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
     private float _speed = 5f;
     private float _maxHealth = 100f;
     private float _health = 100f;
@@ -19,10 +20,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Text _healthText;
     [SerializeField] private int _power;
     [SerializeField] private int _maxPower;
-
     [SerializeField] private Image healthBar;
     [SerializeField] private Image healthTrail;
-
     [SerializeField] private AK.Wwise.RTPC _rtpc;
     //[SerializeField] private AK.Wwise.State _playerState;
 
@@ -136,38 +135,38 @@ public class Player : MonoBehaviour
     public void AddHealth(int plusHealth)
     {
         _health += plusHealth;
-        if(_health > _maxHealth)
+        if(_health > BalanceVariables.player["_maxHealth"])
         {
-            _health = _maxHealth;
+            _health = BalanceVariables.player["_maxHealth"];
         }
         UpdateHealthUI();
     }
 
     public float GetMaxHealth()
     {
-        return _maxHealth;
+        return BalanceVariables.player["_maxHealth"];
     }
 
     public void SetMaxHealth(float newMaxHealth)
     {
-        _maxHealth = newMaxHealth;
+        BalanceVariables.player["_maxHealth"] = newMaxHealth;
         UpdateHealthUI();
     }
 
     public void MakeMaxHealth()
     {
-        _health = _maxHealth;
+        _health = BalanceVariables.player["_maxHealth"];
         UpdateHealthUI();
     }
 
     public float GetSpeed()
     {
-        return _speed;
+        return BalanceVariables.player["_speed"];
     }
 
     public void SetSpeed(float newSpeed)
     {
-        _speed = newSpeed;
+        BalanceVariables.player["_speed"] = newSpeed;
     }
     
     public int GetPower()
@@ -182,9 +181,9 @@ public class Player : MonoBehaviour
     public void IncreasePower(int powerAmount)
     {        
         _power += powerAmount;
-        if (_power > _maxPower)
+        if (_power > BalanceVariables.player["_maxPower"])
         {
-            _power = _maxPower;
+            _power = Mathf.RoundToInt(BalanceVariables.player["_maxPower"]);
         }
     }
     

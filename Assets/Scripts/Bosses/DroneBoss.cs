@@ -18,13 +18,10 @@ public class DroneBoss : MonoBehaviour
     [SerializeField] private GameObject quickTarget;
 
     // enemies base movespeed
-    [SerializeField] private float moveSpeed = 1f;
 
     // enemys base health
-    [SerializeField] private float maxHealth = 100;
 
     
-    [SerializeField] private float timeBetweenMoves = 5;
 
     [SerializeField] private Image healthBar;
 
@@ -63,9 +60,9 @@ public class DroneBoss : MonoBehaviour
     {
         
         _movesLeft = _moves;
-        _currentHealth = maxHealth;
-        _healthIntervals = maxHealth / 4;
-        _nextLargeAttack = maxHealth - _healthIntervals;
+        _currentHealth = BalanceVariables.droneBoss["maxHealth"];
+        _healthIntervals = BalanceVariables.droneBoss["maxHealth"] / 4;
+        _nextLargeAttack = BalanceVariables.droneBoss["maxHealth"] - _healthIntervals;
         player = GameManager.Instance.GetPlayerObject();
     }
 
@@ -88,8 +85,8 @@ public class DroneBoss : MonoBehaviour
 
         if (_healthChanging)
         {
-            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _currentHealth/maxHealth, 3f * Time.deltaTime) ;
-            if(Mathf.Round(healthBar.fillAmount * maxHealth) == Mathf.Round(_currentHealth)){
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _currentHealth/BalanceVariables.droneBoss["maxHealth"], 3f * Time.deltaTime) ;
+            if(Mathf.Round(healthBar.fillAmount * BalanceVariables.droneBoss["maxHealth"]) == Mathf.Round(_currentHealth)){
                 _healthChanging = false;
                 _healthTrailChanging = true;
             }
@@ -101,8 +98,8 @@ public class DroneBoss : MonoBehaviour
 
         if (_healthTrailChanging)
         {
-            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _currentHealth/maxHealth, 5f * Time.deltaTime);
-            if (Mathf.Round(healthTrail.fillAmount * maxHealth) == Mathf.Round(_currentHealth))
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _currentHealth/BalanceVariables.droneBoss["maxHealth"], 5f * Time.deltaTime);
+            if (Mathf.Round(healthTrail.fillAmount * BalanceVariables.droneBoss["maxHealth"]) == Mathf.Round(_currentHealth))
             {
                 _healthTrailChanging = false;
             }
@@ -281,7 +278,7 @@ public class DroneBoss : MonoBehaviour
     /// <returns></returns>
     IEnumerator TimeUntilNextDirectAttack()
     {
-        yield return new WaitForSeconds(timeBetweenMoves);
+        yield return new WaitForSeconds(BalanceVariables.droneBoss["timeBetweenMoves"]);
         FakeMoveToTile();
     }
 
@@ -321,7 +318,7 @@ public class DroneBoss : MonoBehaviour
 
     public void SetAttackSpeed(float newAttackSpeed)
     {
-        timeBetweenMoves = newAttackSpeed;
+        BalanceVariables.droneBoss["timeBetweenMoves"] = newAttackSpeed;
     }
 
     public void SetDamage(float newAttackDamage)
@@ -331,11 +328,11 @@ public class DroneBoss : MonoBehaviour
 
     public void SetMaxHealth(float newMaxHealth)
     {
-        maxHealth = newMaxHealth;
+        BalanceVariables.droneBoss["maxHealth"] = newMaxHealth;
     }
 
     public void SetMoveSpeed(float newMoveSpeed){
-        moveSpeed = newMoveSpeed;
+        BalanceVariables.droneBoss["moveSpeed"] = newMoveSpeed;
     }
 
     IEnumerator DelayExplosionSound(float seconds)
