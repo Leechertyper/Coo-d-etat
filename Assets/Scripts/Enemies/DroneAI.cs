@@ -9,7 +9,7 @@ using UnityEngine;
  *  float range - The range when the enemy will stop chaseing you
  *  float pauseTime - The time before the enemy will continue to chase you
  */
-public class DroneAI : MonoBehaviour
+public class DroneAI : Enemy
 {
     [Header("Movement")]
     public float moveSpeed = 2f;
@@ -22,7 +22,7 @@ public class DroneAI : MonoBehaviour
     [Header("Components")]
     public ProjectileWeapon wp;
     public Health hp;
-    public SpriteManager sprite;
+    public Animator animator;
 
     private IEnumerator _slowFire, _fastFire;
     private Rigidbody2D _rb;
@@ -98,15 +98,15 @@ public class DroneAI : MonoBehaviour
             angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
             if(direction.y >= 0.4)
             {
-                sprite.Down();
+                animator.SetBool("IsSide", false);
             }
             else if (direction.y <= -0.4)
             {
-                sprite.Up();
+                animator.SetBool("IsSide", false);
             }
             else
             {
-                sprite.Side();
+                animator.SetBool("IsSide", true);
             }
             _moveDirection = direction;
         }
@@ -138,7 +138,7 @@ public class DroneAI : MonoBehaviour
     /// <summary>
     /// Stops all action in this script for death
     /// </summary>
-    public void Die()
+    public override void Die()
     {
         _rb.velocity = Vector2.zero;
         StopAllCoroutines();

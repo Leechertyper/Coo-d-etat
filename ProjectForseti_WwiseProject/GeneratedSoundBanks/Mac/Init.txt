@@ -1,5 +1,30 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	444815956	PlayerLife			\Default Work Unit\PlayerLife	
+	3826569560	Music_State			\Default Work Unit\Music_State	
+
+State	ID	Name	State Group			Notes
+	655265632	Alive	PlayerLife			
+	748895195	None	PlayerLife			
+	2791675679	Defeated	PlayerLife			
+	502402914	Mystery_Room	Music_State			
+	748895195	None	Music_State			
+	1198379314	End_Room	Music_State			
+	1233056360	Objective_Room	Music_State			
+	3269879827	Rest_Room	Music_State			
+	3359767828	Boss_Room	Music_State			
+	3900115470	Normal_Room	Music_State			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2234500385	SFX_playing			\Default Work Unit\SFX_playing	
+	2536527299	Game_Is_Paused			\Default Work Unit\Game_Is_Paused	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	1523166483	Environment_bus			\Default Work Unit\Master Audio Bus\Environment_bus	
+	2769824834	Combat_bus			\Default Work Unit\Master Audio Bus\Combat_bus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1992114213	SideChain_meter	Wwise Meter			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

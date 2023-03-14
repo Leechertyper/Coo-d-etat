@@ -10,7 +10,9 @@ public class Battery : ItemEffect
     public float amount;
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Player>().IncreasePower(((int)amount));
+        //IDK what power is, maybe player damage??
+        //target.GetComponent<Player>().IncreasePower(((int)amount)); 
+        target.GetComponent<PlayerAttack>().AddAmmo(amount);
 
     }
 }

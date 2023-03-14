@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{5BB5AF98-6530-4184-82E9-26C9C41D3B59}" SchemaVersion="110">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{5BB5AF98-6530-4184-82E9-26C9C41D3B59}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{5BB5AF98-6530-4184-82E9-26C9C41D3B59}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="PlayerLife" ID="{EE541A4C-66D6-43D5-BAF3-F4035B08890E}">
+					<ChildrenList>
+						<State Name="None" ID="{E2164554-9031-47FB-ABA1-A6F20978094A}"/>
+						<State Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+						<State Name="Defeated" ID="{5484FB74-FC79-4084-B939-1D22B2ADD5C3}"/>
+					</ChildrenList>
+					<TransitionList>
+						<Transition>
+							<StartState Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+							<EndState Name="Defeated" ID="{5484FB74-FC79-4084-B939-1D22B2ADD5C3}"/>
+							<Time>3</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="Defeated" ID="{5484FB74-FC79-4084-B939-1D22B2ADD5C3}"/>
+							<EndState Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+					</TransitionList>
+				</StateGroup>
+				<StateGroup Name="Music_State" ID="{302B8AB5-FD46-490D-94EE-47BAE515E0A8}">
+					<ChildrenList>
+						<State Name="None" ID="{8C9785A5-A4D8-4B68-B66E-E6C88CE8A4E6}"/>
+						<State Name="Rest_Room" ID="{5F26696E-37DC-4070-9FDF-0914FDE09867}"/>
+						<State Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
+						<State Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
+						<State Name="Boss_Room" ID="{6F040040-FD4F-452D-8CC5-7D03B0B857DB}"/>
+						<State Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
+						<State Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>
