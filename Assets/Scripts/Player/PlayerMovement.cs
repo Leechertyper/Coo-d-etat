@@ -37,9 +37,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-       startInt = new Vector2Int(8,4);
-
-        //theGrid.MoveToTile(this.gameObject,startInt,startInt);
+        startInt = new Vector2Int(8,4);
+        transform.position = GameManager.Instance.Grid.TileLocation(transform.position,
+                                                            new Vector2Int((int)transform.position.x,
+                                                                           (int)transform.position.y));
     }
 
     void Update()
@@ -165,11 +166,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void RoundPlayerToNearestTile()
     {
-        // Move Player to nearest Tile (Accounts for Dash)
-        float nearestX = Mathf.Round(transform.position.x);
-        float nearestY = Mathf.Round(transform.position.y / tileSize) * tileSize - 0.5f;
-        transform.position = new Vector2((nearestX), nearestY);
-        Debug.Log("Nearest Tile is " + transform.position);
+
+        transform.position = GameManager.Instance.Grid.TileLocation(transform.position, 
+                                                                    new Vector2Int((int)transform.position.x, 
+                                                                                   (int)transform.position.y));
     }
 
     private void ResetPlayerState()
