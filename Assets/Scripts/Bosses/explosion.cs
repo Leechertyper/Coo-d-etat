@@ -8,6 +8,10 @@ public class explosion : MonoBehaviour
 
     [SerializeField] private int damage = 2;
 
+    private int _updateIterator = 0;
+
+    private bool _frame2 = false;
+
 
     /// <summary>
     /// When the animation ends, destroy self
@@ -18,13 +22,28 @@ public class explosion : MonoBehaviour
         Destroy(parent);
     }
 
+    public void Start()
+    {
+        Destroy(GetComponent<CircleCollider2D>(), .1f);
+    }
+
     /// <summary>
     /// Called every frame
     /// </summary>
     private void Update()
     {
-        // will have it check for player collision and deal damage using the players "damage" function
-        // GameManager.instance.player.Damage(_damage);
+        //if(_updateIterator == 2)
+        //{
+        //    _frame2 = true;
+        //} else
+        //{
+        //    _updateIterator++;
+        //}
+        //if (_frame2)
+        //{
+        //    Destroy(GetComponent<CircleCollider2D>());
+        //    _frame2 = false;
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,4 +53,5 @@ public class explosion : MonoBehaviour
             collision.gameObject.GetComponent<Player>().TakeDamage(damage);
         }
     }
+
 }

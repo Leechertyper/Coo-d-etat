@@ -193,4 +193,14 @@ public class DogAI : Enemy
         StopAllCoroutines();
         this.enabled = false;
     }
+
+    public override void Awaken()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Sleep()
+    {
+        throw new System.NotImplementedException();
+    }
 }

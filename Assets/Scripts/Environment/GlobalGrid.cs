@@ -367,7 +367,7 @@ public class GlobalGrid : MonoBehaviour
 
 
     /// <summary>
-    /// Places the given item in the room representing the index
+    /// Instantiates and places the given item in the room representing the index
     /// </summary>
     /// <param name="item">the item to be placed</param>
     /// <param name="roomIndex">the index of the room, they </param>

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fc4e0ff4e5916c04ab069d37e3d04969
+guid: 7f5fa0f3ff35424449abd6f3cdd4a122
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,64 +117,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Back
+      name: drone_box_right_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1082
-        width: 1922
-        height: 1082
+        x: 874
+        y: 2381
+        width: 171
+        height: 264
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5ca42a5585373d478f0e6b718cabe22
-      internalID: -465442719
+      spriteID: d2ae4d6e6a6287448b936a33b9aa911a
+      internalID: 5659332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side
+      name: drone_box_right_1
       rect:
         serializedVersion: 2
-        x: 1922
-        y: 1082
-        width: 1922
-        height: 1082
+        x: 2758
+        y: 2355
+        width: 264
+        height: 310
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5604f1ff434921d4e8bce5696178d3e9
-      internalID: 1396829573
+      spriteID: 05d42887eefe4094fa62e6ae408cc53b
+      internalID: -1359023567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Front
+      name: drone_box_right_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1922
-        height: 1082
+        x: 4704
+        y: 2392
+        width: 216
+        height: 222
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38bc3710bfb289d40822eb98ba0d9baf
-      internalID: -828511721
+      spriteID: 6a06e25f8a926d344b5caa34dc367b89
+      internalID: 1872709055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drone_box_right_3
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1259
+        width: 264
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e8b2bb430ea114d8eeb576bd671da3
+      internalID: -31706868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drone_box_right_4
+      rect:
+        serializedVersion: 2
+        x: 2794
+        y: 1278
+        width: 172
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69cb8a51b34d31c4180502f8b09778db
+      internalID: -1970245909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drone_box_right_5
+      rect:
+        serializedVersion: 2
+        x: 4659
+        y: 1259
+        width: 264
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610e4252d6495c947afad770662b6af8
+      internalID: 315479382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drone_box_right_6
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 232
+        width: 216
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf517f325d610134da903b887a9cbf0f
+      internalID: 458087151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drone_box_right_7
+      rect:
+        serializedVersion: 2
+        x: 2738
+        y: 195
+        width: 264
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f067c1da7fa64c64fb4efbc367180a9a
+      internalID: 733513513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drone_box_right_8
+      rect:
+        serializedVersion: 2
+        x: 4715
+        y: 221
+        width: 171
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80110cabb1b8a454582dbf7a8b459bb9
+      internalID: 192315154
       vertices: []
       indices: 
       edges: []
@@ -190,9 +316,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Side: 1396829573
-      Front: -828511721
-      Back: -465442719
+      drone_box_right_7: 733513513
+      drone_box_right_4: -1970245909
+      drone_box_right_3: -31706868
+      drone_box_right_1: -1359023567
+      drone_box_right_5: 315479382
+      drone_box_right_0: 5659332
+      drone_box_right_6: 458087151
+      drone_box_right_8: 192315154
+      drone_box_right_2: 1872709055
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
