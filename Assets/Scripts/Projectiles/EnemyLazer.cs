@@ -14,7 +14,7 @@ public class EnemyLazer : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
         List<float> tempList = _gameManager.GetPowerValues();
-        _dronePower = tempList[1];
+        _dronePower = tempList[1]+ 9;
     }
 
     // When off screen Destroy Lazer
@@ -28,7 +28,7 @@ public class EnemyLazer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().TakeDamage((int)_dronePower);
+            collision.gameObject.GetComponent<Player>().TakeDamage(_dronePower);
 
             Destroy(gameObject);
         }

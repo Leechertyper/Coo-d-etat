@@ -71,6 +71,7 @@ public class DroneBoss : MonoBehaviour
 
     public void Awaken()
     {
+        AkSoundEngine.PostEvent("Play_Machine_wub_2", this.gameObject);
         grid.GetComponent<Animator>().SetBool("AreaEntered", true);
         StartCoroutine(TimeUntilNextDirectAttack());
         //GameManager.Instance.SetBossStats();
@@ -120,6 +121,7 @@ public class DroneBoss : MonoBehaviour
             _targetPos = grid.Grid[(int)Mathf.Round(Random.Range(0, grid.Grid.GetLength(0))), (int)Mathf.Round(Random.Range(0, grid.Grid.GetLength(1)))].GetPosAsVector();
             Debug.Log(_targetPos);
             _inMotion = true;
+            AkSoundEngine.PostEvent("Play_Space_Blip", this.gameObject);
             _movesLeft--;
             _time = Time.realtimeSinceStartup + 1;
             StartCoroutine(LerpFunction(_targetPos, 0.1f));
@@ -160,6 +162,7 @@ public class DroneBoss : MonoBehaviour
         GameObject projectile = Instantiate(throwablePackage);
         projectile.transform.position = transform.position;
         projectile.GetComponent<BoxLerp>().Throw(new Vector3(target.GetX(), target.GetY(), 0));
+        StartCoroutine(DelayExplosionSound(1f));
         SpawnTargets(target, posInGrid);
     }
 
@@ -199,6 +202,7 @@ public class DroneBoss : MonoBehaviour
             for (int j = (int)(gridPos.y + offsetY.x); j <= (gridPos.y + offsetY.y); j++)
             {
                 if(!Equals(new Vector2(i, j), gridPos)){
+                    StartCoroutine(DelayExplosionSound(1f));
                     GameObject target = Instantiate(quickTarget);
                     target.transform.position = _grid[i, j].GetPosAsVector();
                 }
@@ -334,4 +338,9 @@ public class DroneBoss : MonoBehaviour
         moveSpeed = newMoveSpeed;
     }
 
+    IEnumerator DelayExplosionSound(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        AkSoundEngine.PostEvent("Play_Launcher_Explosion", this.gameObject);
+    }
 }

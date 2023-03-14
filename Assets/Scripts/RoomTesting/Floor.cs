@@ -25,10 +25,9 @@ public class Floor : MonoBehaviour
     private int _floorXDimension;
     private int _floorYDimension;
     
-    private List<List<Room>> _rooms;
+    public List<List<Room>> _rooms;
 
     [SerializeField] private GameObject roomPrefab;
-    [SerializeField] private GameObject startRoomPrefab;
     [SerializeField] private GameObject endRoomPrefab;
 
     private CameraController _camController;
@@ -40,8 +39,10 @@ public class Floor : MonoBehaviour
     private float _verticalGap = 0;
     private bool _areGapsCalculated = false;
 
-    [SerializeField] private int numberOfKeyRooms = 1;
-    [SerializeField] private int numberOfBossRooms = 1;
+
+    [SerializeField] private List<GameObject> spawnableEnemies;
+    [SerializeField] private GameObject charger;
+    [SerializeField] private GameObject boss; 
     
     
     
@@ -90,28 +91,48 @@ public class Floor : MonoBehaviour
             bossRoom.SetRoomType(Room.RoomType.Boss);
             break;
         }
+        
+        
         while (true)
         {
-            var chargerRoom = _rooms[Random.Range(0, 3)][Random.Range(0, 3)];
+            var randomX = Random.Range(0, 3);
+            var randomY = Random.Range(0, 3);
+            var chargerRoom = _rooms[randomX][randomY];
             if (chargerRoom.roomHasBeenInitialized || chargerRoom == _rooms[0][0]) continue;
             chargerRoom.SetRoomType(Room.RoomType.Charger);
+            
+            
+            GameManager.Instance.Grid.PlaceIteminRoom(charger, _floorXDimension* randomX + randomY);
             break;
         }
 
-        foreach (var room in _rooms.SelectMany(row => row.Where(room => !room.roomHasBeenInitialized)))
+
+        for (var i = 0; i < _rooms.Count; i++)
         {
-            room.SetRoomType(Room.RoomType.Enemy);
+            for (var j = 0; j < _rooms.Count; j++)
+            {
+                if (_rooms[i][j].roomHasBeenInitialized) continue;
+                _rooms[i][j].SetRoomType(Room.RoomType.Enemy);
+                var amountOfEnemiesInRoom = Random.Range(2, 3);
+
+                for (var k = 0; k < amountOfEnemiesInRoom; k++)
+                {
+                    var randomEnemy = spawnableEnemies[Random.Range(0, spawnableEnemies.Count)];
+            
+                    GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,_floorXDimension*i + j);
+                }
+            }
         }
-        
-        
-        
-        
+
+
+
+
         _camController.MoveCameraToStart(_rooms[0][0].transform);
 
         var endRoom = Instantiate(endRoomPrefab,transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (c-1),
             endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * r);
-        GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
+        //GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
         
         
         //MINIMAP STUFF

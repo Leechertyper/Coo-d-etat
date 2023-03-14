@@ -15,6 +15,7 @@ State	ID	Name	State Group			Notes
 	3900115470	Normal_Room	Music_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
+	151362964	PlayerHealth			\Default Work Unit\PlayerHealth	
 	2234500385	SFX_playing			\Default Work Unit\SFX_playing	
 	2536527299	Game_Is_Paused			\Default Work Unit\Game_Is_Paused	
 

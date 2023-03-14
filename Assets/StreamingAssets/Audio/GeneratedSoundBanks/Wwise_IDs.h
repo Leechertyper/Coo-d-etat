@@ -34,6 +34,7 @@ namespace AK
         static const AkUniqueID PLAY_PAUSE_SFX = 1477746252U;
         static const AkUniqueID PLAY_PIGEON_COOS = 3029328387U;
         static const AkUniqueID PLAY_PIGEON_HOO_HOO = 480578592U;
+        static const AkUniqueID PLAY_PIGEON_HURT = 3699947824U;
         static const AkUniqueID PLAY_PIGEON_WING_FLUTTER = 3748288237U;
         static const AkUniqueID PLAY_PIRATE_NOISE = 201053746U;
         static const AkUniqueID PLAY_POTENTIAL_PICKUP_SFX = 331850419U;
@@ -42,6 +43,7 @@ namespace AK
         static const AkUniqueID PLAY_ROBOT_ALERT_SFX = 3969824657U;
         static const AkUniqueID PLAY_ROBOT_ERROR = 3528394261U;
         static const AkUniqueID PLAY_ROBOT_GLITCH = 3978470046U;
+        static const AkUniqueID PLAY_ROBOT_HURT = 1023908386U;
         static const AkUniqueID PLAY_ROBOT_OUCH = 1808933820U;
         static const AkUniqueID PLAY_SCREECH = 2531727233U;
         static const AkUniqueID PLAY_SPACE_BLIP = 2554379966U;
@@ -49,6 +51,7 @@ namespace AK
         static const AkUniqueID PLAY_UNPAUSE_SFX = 4278623891U;
         static const AkUniqueID PLAY_WIND_NOISE_1 = 252290767U;
         static const AkUniqueID PLAY_WING_FLAP = 2509893943U;
+        static const AkUniqueID STOP_CONTROLLER_SWITCH = 2615316899U;
         static const AkUniqueID STOP_HEARTBEAT = 3319673256U;
     } // namespace EVENTS
 

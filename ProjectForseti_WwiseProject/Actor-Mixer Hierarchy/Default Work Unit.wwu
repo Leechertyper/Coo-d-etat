@@ -7,6 +7,11 @@
 					<PropertyList>
 						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -371,29 +376,21 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
-				<Sound Name="Robot Glitch" ID="{8447C48B-E70E-45FC-9241-541201D7B68E}" ShortID="755472599">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Robot Glitch" ID="{C6C3D865-4BC9-44BE-A4B2-C81A752D6954}">
-							<Language>SFX</Language>
-							<AudioFile>Robot Glitch.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="787886670"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Robot Glitch" ID="{C6C3D865-4BC9-44BE-A4B2-C81A752D6954}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<Sound Name="Screech" ID="{BAFFE148-CC06-48A5-8789-8250824394D5}" ShortID="841224770">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{D1FA9CB5-C8FE-436F-A6F3-02BFFD86DFC1}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-24</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -425,6 +422,16 @@
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
 								<Value>-1640</Value>
+							</ValueList>
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{DFF3E14B-61AC-4F81-8702-3AB8E3A9B3F0}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -513,38 +520,37 @@
 						<ActiveSource Name="Potential Pickup SFX 2" ID="{53CC5618-3B98-4D08-933D-68B8088C3036}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="Robot Ouch" ID="{32574FA1-8893-4ED4-B990-91BF8D3E21EA}" ShortID="635691158">
+				<Sound Name="Robot Activated" ID="{E5BF9F0F-2F5F-46F9-B6F4-B396A40FEEC6}" ShortID="246581357">
 					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>28</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>21</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ModifierList>
 								<ModifierInfo>
-									<Modifier Name="" ID="{49991D24-9125-4DDC-9665-B0F0C913644B}"/>
+									<Modifier Name="" ID="{A5E6F949-83E4-4E08-86E9-04B32D0BFAD7}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="400"/>
+											<Property Name="Min" Type="Real64" Value="-400"/>
+										</PropertyList>
+									</Modifier>
 								</ModifierInfo>
 							</ModifierList>
 						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-11</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Robot Ouch" ID="{1253854D-C32C-4E9C-8D29-852F62092994}">
-							<Language>SFX</Language>
-							<AudioFile>Robot Ouch.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="238932007"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Robot Ouch" ID="{1253854D-C32C-4E9C-8D29-852F62092994}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Robot Activated" ID="{E5BF9F0F-2F5F-46F9-B6F4-B396A40FEEC6}" ShortID="246581357">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -604,6 +610,26 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Robot Alert SFX" ID="{34296C9D-01B7-40C6-BB00-C6471F3D5215}" ShortID="816447361">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{91FFEB53-DDA1-4B1D-866E-A7A1D12A8F28}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="400"/>
+											<Property Name="Min" Type="Real64" Value="-400"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-18</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -651,10 +677,18 @@
 					<PropertyList>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
-								<Value>26</Value>
+								<Value>20</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>10</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>230</Value>
+							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
 									<Modifier Name="" ID="{AF3BBBDE-4E71-4F39-8A95-11EB2A361CF0}">
@@ -669,7 +703,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>5</Value>
+								<Value>-1</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -684,11 +718,11 @@
 					<ChildrenList>
 						<AudioFileSource Name="Pigeon wing flutter" ID="{5B3640C0-69DF-4126-A274-96082765751E}">
 							<PropertyList>
-								<Property Name="FadeInDuration" Type="Real64" Value="0.302517532109367"/>
-								<Property Name="FadeOutDuration" Type="Real64" Value="0.4089588859997"/>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.252067318092422"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.207336259323378"/>
 								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 								<Property Name="TrimBegin" Type="Real64" Value="0.14461432413497"/>
-								<Property Name="TrimEnd" Type="Real64" Value="1.19065793537792"/>
+								<Property Name="TrimEnd" Type="Real64" Value="0.625928318418742"/>
 							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Pigeon wing flutter.wav</AudioFile>
@@ -701,31 +735,12 @@
 						<ActiveSource Name="Pigeon wing flutter" ID="{5B3640C0-69DF-4126-A274-96082765751E}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="Robot Error" ID="{6116493C-96AB-4F38-9D3D-49CDDD8E4E54}" ShortID="628903801">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Robot Error" ID="{F57989A3-11C9-445A-B6BD-8808B02C9CCE}">
-							<Language>SFX</Language>
-							<AudioFile>Robot Error.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="802213557"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Robot Error" ID="{F57989A3-11C9-445A-B6BD-8808B02C9CCE}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<Sound Name="Lazer SFX" ID="{8F8D38E8-4AB7-48D6-933F-092CFB4E6593}" ShortID="367868119">
 					<PropertyList>
 						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>200</Value>
+							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
 									<Modifier Name="" ID="{C058E3D9-E38F-4A86-A73F-918740E87198}">
@@ -737,6 +752,11 @@
 									</Modifier>
 								</ModifierInfo>
 							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-17</Value>
+							</ValueList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
@@ -750,7 +770,7 @@
 					<ChildrenList>
 						<AudioFileSource Name="Lazer SFX" ID="{C69177CD-D1DD-467B-87FC-70885F84D538}">
 							<PropertyList>
-								<Property Name="FadeInDuration" Type="Real64" Value="0.0725949710643589"/>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.0149694118782265"/>
 								<Property Name="FadeOutDuration" Type="Real64" Value="0.20701275619643"/>
 								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 							</PropertyList>
@@ -788,6 +808,18 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Machine wub 2" ID="{B7684D11-AE5C-4B1A-B03B-F07734C1FCF6}" ShortID="661833231">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-1730</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -824,6 +856,11 @@
 								</ModifierInfo>
 							</ModifierList>
 						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -835,6 +872,11 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="Missle Whistle" ID="{A6F71B66-5844-4862-A7C6-BA751E5E3AAB}">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.1174568610247"/>
+								<Property Name="LoopBegin" Type="Real64" Value="0"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Missle Whistle.wav</AudioFile>
 							<MediaIDList>
@@ -873,6 +915,29 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Heavy Blast" ID="{5BCFADD9-8074-437B-B380-2573F578F67D}" ShortID="277812551">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-560</Value>
+							</ValueList>
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{3407B877-C4E1-4E43-9AB3-99CA1CDDE12E}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="100"/>
+											<Property Name="Min" Type="Real64" Value="-200"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-12</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -939,6 +1004,36 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Machine Buzz" ID="{2E3E5E42-9B02-4D54-9B98-B5EAEC0E4C3E}" ShortID="845876556">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>32</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>35</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{A93402BA-BDFD-4B3D-BC07-EA6BE710F497}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="400"/>
+											<Property Name="Min" Type="Real64" Value="-400"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-18</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -1018,6 +1113,11 @@
 									</Modifier>
 								</ModifierInfo>
 							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-16</Value>
+							</ValueList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
@@ -1136,7 +1236,7 @@
 																<SegmentShape>Log3</SegmentShape>
 															</Point>
 															<Point>
-																<XPos>50</XPos>
+																<XPos>67.34104</XPos>
 																<YPos>-200</YPos>
 																<Flags>0</Flags>
 															</Point>
@@ -1157,80 +1257,6 @@
 					</ObjectLists>
 					<ActiveSourceList>
 						<ActiveSource Name="heartbeat" ID="{2865936B-0950-4292-8E49-982C10C0DE93}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Hurt Noise 1" ID="{F9727051-CDD7-437C-AC4C-1EAE6CE99BC9}" ShortID="523838622">
-					<PropertyList>
-						<Property Name="Pitch" Type="int32">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{F965485C-39F7-48C2-B944-2B6BAF1E7A2B}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="100"/>
-											<Property Name="Min" Type="Real64" Value="-100"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="hurt noise 1" ID="{4D14C593-8414-4A1E-9B6E-131CD6A670D5}">
-							<Language>SFX</Language>
-							<AudioFile>hurt noise 1.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="1018935198"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="hurt noise 1" ID="{4D14C593-8414-4A1E-9B6E-131CD6A670D5}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Hurt Noise 2" ID="{9AD88D24-4623-4C57-9BFE-E69EDFA5305C}" ShortID="49586048">
-					<PropertyList>
-						<Property Name="Pitch" Type="int32">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{16707D2D-1D03-4E19-9CAB-4901C59DEFAA}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="100"/>
-											<Property Name="Min" Type="Real64" Value="-100"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="hurt noise 2" ID="{5F10DC88-C036-40FA-813C-4C867A83F1EF}">
-							<Language>SFX</Language>
-							<AudioFile>hurt noise 2.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="326578771"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="hurt noise 2" ID="{5F10DC88-C036-40FA-813C-4C867A83F1EF}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Heal" ID="{CE5025E1-1E72-4A08-9CF3-57E50E9C0BB2}" ShortID="966908537">
@@ -1378,6 +1404,31 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="wing flap" ID="{DB6CB1B7-7F40-4160-A15F-D56813B10E24}" ShortID="253137837">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>20</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>15</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{A4D63539-A876-4197-A7D3-02F87FE80CA3}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="200"/>
+											<Property Name="Min" Type="Real64" Value="-200"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -1388,6 +1439,10 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="wing flap" ID="{40F50CB1-007C-4EB0-9FA4-0C4162D8599E}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimEnd" Type="Real64" Value="0.355438637882894"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>wing flap.wav</AudioFile>
 							<MediaIDList>
@@ -1419,6 +1474,11 @@
 								</ModifierInfo>
 							</ModifierList>
 						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>4</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -1444,6 +1504,255 @@
 						<ActiveSource Name="Launcher_Explosion" ID="{71B02BE8-0328-43EF-AFCE-2C168E12D818}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<RandomSequenceContainer Name="Pigeon Hurt" ID="{2408C704-6B7A-4BF8-BBCE-58747FE3DB76}" ShortID="841009042">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-730</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-16</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Hurt Noise 1" ID="{F9727051-CDD7-437C-AC4C-1EAE6CE99BC9}" ShortID="523838622">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F965485C-39F7-48C2-B944-2B6BAF1E7A2B}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="hurt noise 1" ID="{4D14C593-8414-4A1E-9B6E-131CD6A670D5}">
+									<Language>SFX</Language>
+									<AudioFile>hurt noise 1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1018935198"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="hurt noise 1" ID="{4D14C593-8414-4A1E-9B6E-131CD6A670D5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Hurt Noise 2" ID="{9AD88D24-4623-4C57-9BFE-E69EDFA5305C}" ShortID="49586048">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{16707D2D-1D03-4E19-9CAB-4901C59DEFAA}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="hurt noise 2" ID="{5F10DC88-C036-40FA-813C-4C867A83F1EF}">
+									<Language>SFX</Language>
+									<AudioFile>hurt noise 2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="326578771"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="hurt noise 2" ID="{5F10DC88-C036-40FA-813C-4C867A83F1EF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Robot Hurt" ID="{D67177A1-5CA4-4154-A0F0-A4680D53297C}" ShortID="301956071">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Robot Error" ID="{6116493C-96AB-4F38-9D3D-49CDDD8E4E54}" ShortID="628903801">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>30</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{910F5FB8-2BBE-4DC1-9D9F-002BA7A06925}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="250"/>
+													<Property Name="Min" Type="Real64" Value="-250"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Robot Error" ID="{F57989A3-11C9-445A-B6BD-8808B02C9CCE}">
+									<Language>SFX</Language>
+									<AudioFile>Robot Error.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="802213557"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Robot Error" ID="{F57989A3-11C9-445A-B6BD-8808B02C9CCE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Robot Glitch" ID="{8447C48B-E70E-45FC-9241-541201D7B68E}" ShortID="755472599">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{FF43D3EB-17D8-463B-86DF-630D03E66F2C}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="1000"/>
+													<Property Name="Min" Type="Real64" Value="-1000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-16</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Robot Glitch" ID="{C6C3D865-4BC9-44BE-A4B2-C81A752D6954}">
+									<Language>SFX</Language>
+									<AudioFile>Robot Glitch.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="787886670"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Robot Glitch" ID="{C6C3D865-4BC9-44BE-A4B2-C81A752D6954}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Robot Ouch" ID="{32574FA1-8893-4ED4-B990-91BF8D3E21EA}" ShortID="635691158">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{49991D24-9125-4DDC-9665-B0F0C913644B}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="400"/>
+													<Property Name="Min" Type="Real64" Value="-400"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-18</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Robot Ouch" ID="{1253854D-C32C-4E9C-8D29-852F62092994}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Robot Ouch.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="238932007"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Robot Ouch" ID="{1253854D-C32C-4E9C-8D29-852F62092994}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
