@@ -85,8 +85,6 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-
-                print("MySQL - Opened Connection");
                 string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `value` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
                 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -120,8 +118,6 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-
-                print("MySQL - Opened Connection");
                 string sql = "SELECT value FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
                 Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
@@ -142,7 +138,7 @@ public class DatabaseManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Got nothing back from database.");
+            Debug.Log("Got nothing back from database. Replacing with -9999");
             return -9999f;
         }
     }
