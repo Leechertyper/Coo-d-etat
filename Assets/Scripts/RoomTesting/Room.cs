@@ -48,6 +48,7 @@ public class Room : MonoBehaviour
 
     private void EnemiesAwake()
     {
+        if (_enemies == null) return;
         foreach (var enemy in _enemies)
         {
             enemy.Awaken();
@@ -55,6 +56,7 @@ public class Room : MonoBehaviour
     }
     private void EnemiesSleep()
     {
+        if (_enemies == null) return;
         foreach (var enemy in _enemies)
         {
             enemy.Sleep();
