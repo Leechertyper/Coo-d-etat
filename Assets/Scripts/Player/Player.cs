@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private float _speed = 5f;
-    private int _maxHealth = 10;
+    private int _maxHealth = 100;
     private int _health = 10;
     private float _range = 1000f;
     private float _invulnTime = 1.1f;
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
                 death.Play("Death");
             }
             Destroy(this, 2.0f);
-            SceneManager.LoadScene("Alpha Main");
+            GameManager.Instance.OnPlayerDeath();
         }      
     }
 

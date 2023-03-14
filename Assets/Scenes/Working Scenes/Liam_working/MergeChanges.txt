@@ -14,3 +14,18 @@ what to still do:
 
 	8) in BalanceMenu.cs line 85 call database saving (unless we want to do it on close)
 	9) in MainMenu.cs start function, update base balancevariables from the database by replacing the dictionaries
+
+
+
+Enemy/boss files:
+	in start:
+		set variables to BalanceVariables: ex maxHealth = BalanceVariables.droneBoss["maxHealth"];
+		add seen as true: BalanceVariables.seenDictionaries["droneBoss"] = true;
+
+player:
+	in start:
+		set variables to BalanceVariables: ex maxHealth = BalanceVariables.player["maxHealth"];
+	in TakeDamage:
+		add to death:
+		GameManager.Instance.OnPlayerDeath();
+		

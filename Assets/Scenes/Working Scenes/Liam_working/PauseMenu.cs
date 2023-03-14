@@ -5,35 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool gameIsPaused = false;
+    public bool gameIsPaused;
     public GameObject pauseMenuUI;
-
-    private static PauseMenu _instance;
-
-    public static PauseMenu Instance { get { return _instance; } }
-
-    void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        } else {
-            _instance = this;
-        }
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            gameIsPaused = !gameIsPaused;
             if(gameIsPaused)
             {
-                Resume();
+                Pause();
             } else
             {
-                Pause();
+                Resume();
             }
         }
     }
@@ -43,9 +29,10 @@ public class PauseMenu : MonoBehaviour
     */
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = 1.0f;
         gameIsPaused = false;
+        pauseMenuUI.SetActive(false);
+        
     }
 
     /*
@@ -53,9 +40,10 @@ public class PauseMenu : MonoBehaviour
     */
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        pauseMenuUI.SetActive(true);
+        
     }
 
     /*
@@ -73,7 +61,7 @@ public class PauseMenu : MonoBehaviour
     */
     public void BackToMenu()
     {
-        Time.timeScale = 1f;
+        Resume();
         SceneManager.LoadScene("MainMenu");
     }
 }

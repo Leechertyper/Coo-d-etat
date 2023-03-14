@@ -60,7 +60,7 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,float> other = new Dictionary<string,float>()
     {
         //will be added to gamemanager
-        {"balancePointTimerSeconds",300},  
+        {"balancePointTimerSeconds",120},  
         {"roomSpawnChance",0f},  
         {"buffValue",1.1f},
         {"nerfValue",0.9f}
@@ -70,8 +70,8 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,bool> seenDictionaries = new Dictionary<string,bool>()
     {
         {"player",true},  
-        {"droneEnemy",true},  
-        {"droneBoss",true},  
+        {"droneEnemy",false},  
+        {"droneBoss",false},  
         {"collectables",true},  
         {"other",true},  
     };

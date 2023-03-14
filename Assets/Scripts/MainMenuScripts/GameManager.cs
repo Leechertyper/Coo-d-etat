@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     
@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance; // A static reference to the GameManager instance
     public static DatabaseManager dbInstance;
+
+    private bool _skipBalance = false;
 
     void Awake()
     {
@@ -157,8 +159,19 @@ public class GameManager : MonoBehaviour
 
 
     public void OnPlayerDeath(){
-        Debug.Log("GameManagerScript: Warning - Calling OnPlayerDeath when it is not implemented");
-        StartBalanceMenu();
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void GoToNextFloor(){
+        if (PointBalanceTimer.Instance.counter > 0 || !_skipBalance)
+        {
+            StartBalanceMenu();
+        }
+        else{
+            _skipBalance = false;
+            //update load next floor here
+            SceneManager.LoadScene(1);
+        }
     }
 
      public GameObject GetPlayerObject()
@@ -183,18 +196,13 @@ public class GameManager : MonoBehaviour
     */
     public void StartBalanceMenu()
     {
-        if (PointBalanceTimer.Instance.counter > 0)
-        {
-            GameObject bm = Instantiate(balanceMenu, new Vector3(0, 0, 0), Quaternion.identity);
-            // This will need to be changed to the actual balance menu
-            bm.GetComponent<BalanceMenu>().startBalance=true;
-        }
-
+        SceneManager.LoadScene("Balance");
     }
 
     public void EndBalanceMenu(GameObject balanceMenu)
     {
-        Destroy(balanceMenu);
+        _skipBalance = true;
+        GoToNextFloor();
     }
 
     /*
