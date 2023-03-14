@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 947550787850258267}
   - component: {fileID: 947550787850258268}
   - component: {fileID: 5324567830572157412}
+  - component: {fileID: 7630468496995806263}
+  - component: {fileID: -3911660119976563207}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -99,7 +101,9 @@ MonoBehaviour:
   horizontalInput: Horizontal
   verticalInput: Vertical
   speed: 10
+  dashDistance: 3
   animator: {fileID: 3804453515987180958}
+  direction: {x: 0, y: 0}
 --- !u!114 &947550787850258268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +136,64 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4504184925908081350, guid: e38f13ceb411992458e896547ab62a01, type: 3}
   _damage: 1
   shootCooldown: 0.2
+  direction: {x: 0, y: 0}
+  rotZ: 0
+--- !u!114 &7630468496995806263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266270020640335027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3236fa1d2f65f8a4b85046285a3cb663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &-3911660119976563207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266270020640335027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35c17aef880d2841b89b603c731934b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
+  MultiPositionType: 1
+  multiPositionTypeLabel: 0
+  attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
+  LargeModePositions: []
+  multiPositionArray: []
 --- !u!1 &6501350809439891655
 GameObject:
   m_ObjectHideFlags: 0
