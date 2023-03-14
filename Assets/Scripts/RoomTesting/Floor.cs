@@ -25,8 +25,11 @@ public class Floor : MonoBehaviour
 
     private int _floorXDimension;
     private int _floorYDimension;
-    
     public List<List<Room>> _rooms;
+    public Room.RoomType currentRoomType;
+    public int currentRoom;
+
+
 
     [SerializeField] private GameObject roomPrefab;
     [SerializeField] private GameObject endRoomPrefab;
@@ -141,7 +144,7 @@ public class Floor : MonoBehaviour
                     var randomEnemy = spawnableEnemies[Random.Range(0, spawnableEnemies.Count)];
             
                     var returnEnemy = GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,_floorXDimension*i + j);
-                    Debug.Log(returnEnemy.GetComponent<Enemy>());
+                    //Debug.Log(returnEnemy.GetComponent<Enemy>());
                     while (!returnEnemy.GetComponent<Enemy>())
                     {
                         // wait
@@ -155,7 +158,8 @@ public class Floor : MonoBehaviour
 
 
         _camController.MoveCameraToStart(_rooms[0][0].transform);
-
+        currentRoomType = _rooms[0][0].roomType;
+        currentRoom = 0;
         var endRoom = Instantiate(endRoomPrefab,transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
             endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
@@ -220,6 +224,10 @@ public class Floor : MonoBehaviour
         Debug.Log("Changing position = " + player.transform.position.y);
         player.transform.position = newPlayerLocation;*/
         _camController.MoveUp();
+        currentRoom += -3;
+        currentRoomType = _rooms[currentRoom][0].roomType;
+        Debug.Log(currentRoom);
+        Debug.Log(currentRoomType);
     }
 
     /// <summary>
@@ -233,6 +241,10 @@ public class Floor : MonoBehaviour
         Debug.Log("Changing position = " + player.transform.position.y);
         player.transform.position = newPlayerLocation;*/
         _camController.MoveDown();
+        currentRoom += 3;
+        currentRoomType = _rooms[currentRoom][0].roomType;
+        Debug.Log(currentRoom);
+        Debug.Log(currentRoomType);
     }
 
     /// <summary>
@@ -245,7 +257,11 @@ public class Floor : MonoBehaviour
         /*var newPlayerLocation = new Vector3(player.transform.position.x + FloorConstants.HorizontalPlayerOffset, player.transform.position.y);
         Debug.Log("Changing position = " + player.transform.position.x);
         player.transform.position = newPlayerLocation;*/
-        _camController.MoveRight();        
+        _camController.MoveRight();
+        currentRoom += 1;
+        currentRoomType = _rooms[currentRoom][0].roomType;
+        Debug.Log(currentRoom);
+        Debug.Log(currentRoomType);
     }
 
     /// <summary>
@@ -259,6 +275,10 @@ public class Floor : MonoBehaviour
         Debug.Log("Changing position = " + player.transform.position.x);
         player.transform.position = newPlayerLocation;*/
         _camController.MoveLeft();
+        currentRoom += -1;
+        currentRoomType = _rooms[currentRoom][0].roomType;
+        Debug.Log(currentRoom);
+        Debug.Log(currentRoomType);
     }
     
 }

@@ -150,7 +150,7 @@ public class DogAI : Enemy
 
         Vector3 inital = transform.position;
         Vector3 goal = new Vector3(move.x, move.y, 0);
-        Debug.Log(goal);
+       // Debug.Log(goal);
         while (timeElapsed < runTime)
         {
             transform.position = Vector2.Lerp(inital, goal, timeElapsed / runTime);
