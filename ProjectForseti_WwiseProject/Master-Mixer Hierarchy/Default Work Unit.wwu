@@ -61,6 +61,88 @@
 											</RTPC>
 										</Local>
 									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{4DE9C2DD-0C33-47CF-9DD8-ED0E6EE2C124}" ShortID="402802993">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Highpass"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="PlayerHealth" ID="{9E42C623-40D3-496F-AD4A-0B51CD74ED53}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{0AEA9BEA-982C-4210-9DFA-2E2DDEEBC8FF}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>60</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Log3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>40</XPos>
+																		<YPos>0</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{4AC0A062-916A-4DCC-8B45-05011B458183}" ShortID="511467138">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Lowpass"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="PlayerHealth" ID="{9E42C623-40D3-496F-AD4A-0B51CD74ED53}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{9FDADD40-F0F9-416B-A808-863B5C3B9EE2}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>60</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Log3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>40</XPos>
+																		<YPos>0</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
 								</ObjectList>
 							</ObjectLists>
 						</Bus>
@@ -69,9 +151,9 @@
 						<ObjectList Name="RTPC">
 							<Reference>
 								<Local>
-									<RTPC Name="" ID="{A4A1A7E3-A70E-414B-B858-1129AA0B5DFB}" ShortID="3488374">
+									<RTPC Name="" ID="{BF682D61-CFA0-4EFA-BFE1-17AB822B7D7C}" ShortID="759943394">
 										<PropertyList>
-											<Property Name="PropertyName" Type="string" Value="Lowpass"/>
+											<Property Name="PropertyName" Type="string" Value="Highpass"/>
 										</PropertyList>
 										<ReferenceList>
 											<Reference Name="ControlInput">
@@ -79,7 +161,7 @@
 											</Reference>
 											<Reference Name="Curve">
 												<Custom>
-													<Curve Name="" ID="{272E309E-1CB3-4457-BC5C-42CAD7BCEC16}">
+													<Curve Name="" ID="{2F94F4A3-D7BB-4655-86C9-56B02C5E7BE9}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="65537"/>
 														</PropertyList>
@@ -91,7 +173,7 @@
 															</Point>
 															<Point>
 																<XPos>100</XPos>
-																<YPos>64</YPos>
+																<YPos>50</YPos>
 																<Flags>37</Flags>
 															</Point>
 														</PointList>
@@ -104,9 +186,9 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<RTPC Name="" ID="{30F30B81-88F4-4273-83B8-0757FBA5E600}" ShortID="800747345">
+									<RTPC Name="" ID="{BFB660D0-31EF-4492-9E59-383C75E92B1B}" ShortID="374872585">
 										<PropertyList>
-											<Property Name="PropertyName" Type="string" Value="Highpass"/>
+											<Property Name="PropertyName" Type="string" Value="Lowpass"/>
 										</PropertyList>
 										<ReferenceList>
 											<Reference Name="ControlInput">
@@ -114,7 +196,7 @@
 											</Reference>
 											<Reference Name="Curve">
 												<Custom>
-													<Curve Name="" ID="{E061274E-6267-4762-A95D-C30EEA579CE4}">
+													<Curve Name="" ID="{73857315-9778-4399-8872-1E4E46408364}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="65537"/>
 														</PropertyList>
@@ -126,7 +208,7 @@
 															</Point>
 															<Point>
 																<XPos>100</XPos>
-																<YPos>40</YPos>
+																<YPos>50</YPos>
 																<Flags>37</Flags>
 															</Point>
 														</PointList>

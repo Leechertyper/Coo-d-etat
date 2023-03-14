@@ -168,6 +168,7 @@ public class DroneBossGrid : MonoBehaviour
 
     public void StartBombAttack()
     {
+        StartCoroutine(DelayExplosionSound(4f));
         _currentAttackIndex = (int) Mathf.Round(Random.Range(0, attacks.Length));
         _currentAttack = attacks[_currentAttackIndex];
         for(int i = 0; i < _currentAttack.Positions.Length; i++)
@@ -198,6 +199,7 @@ public class DroneBossGrid : MonoBehaviour
 
     public void NextBombAttack()
     {
+        StartCoroutine(DelayExplosionSound(4f));
         _currentAttack = _currentAttack.NextAttack;
         for (int i = 0; i < _currentAttack.Positions.Length; i++)
         {
@@ -223,4 +225,9 @@ public class DroneBossGrid : MonoBehaviour
         NextBombAttack();
     }
 
+    IEnumerator DelayExplosionSound(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        AkSoundEngine.PostEvent("Play_Launcher_Explosion", this.gameObject);
+    }
 }

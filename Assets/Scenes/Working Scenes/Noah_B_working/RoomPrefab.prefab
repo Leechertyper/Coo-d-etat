@@ -301,16 +301,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -1, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 1
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 0, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -739,8 +729,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 06ebd38dd91f6584d96902cc82059c48, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: ccc822fa0b4b45841bc6bb493f0e7b07, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 3d9d1481aa5d4204bb7308ff335618b2, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 019d1d02cba9180439b5452f9239e7d2, type: 2}
   - m_RefCount: 7
@@ -766,8 +756,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 3c7f2b211edfe084583b798f90ea4213, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 1520031309, guid: 4af13c28de370cd459e0feaecf3aef09, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1596140408, guid: 4af13c28de370cd459e0feaecf3aef09, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1236380970, guid: 4af13c28de370cd459e0feaecf3aef09, type: 3}
   - m_RefCount: 7
@@ -805,7 +795,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 41
+  - m_RefCount: 40
     m_Data:
       e00: 1
       e01: 0
@@ -824,7 +814,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 63
+  - m_RefCount: 62
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -1506,7 +1496,6 @@ MonoBehaviour:
   chargerRoomSprite: {fileID: 3291743592886757213}
   keyRoomSprite: {fileID: 5003316272309817385}
   bossRoomSprite: {fileID: 7194898681720877103}
-  roomType: 0
   roomHasBeenInitialized: 0
 --- !u!61 &2517681754602600307
 BoxCollider2D:

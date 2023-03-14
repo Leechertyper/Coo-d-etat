@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private float _speed = 5f;
-    private int _maxHealth = 100;
-    private int _health = 100;
+    private float _maxHealth = 100f;
+    private float _health = 100f;
     private float _range = 1000f;
     private float _invulnTime = 1.1f;
     private bool _isInvuln = false;
@@ -18,13 +19,27 @@ public class Player : MonoBehaviour
     [SerializeField] private Text _healthText;
     [SerializeField] private int _power;
     [SerializeField] private int _maxPower;
+
     [SerializeField] private Image healthBar;
     [SerializeField] private Image healthTrail;
 
+    [SerializeField] private AK.Wwise.RTPC _rtpc;
+    //[SerializeField] private AK.Wwise.State _playerState;
 
     public Animation death;
     public GameObject hitParticles;
-    
+
+    private void Start()
+    {
+        AkSoundEngine.SetState("PlayerLife", "Alive");
+        AkSoundEngine.SetState("Music_State", "Normal_Room");
+        AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
+
+        _rtpc.SetGlobalValue(_health);
+        AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
+
+    }
+
     void Update()
     {
         if (_healthChanging)
@@ -63,11 +78,16 @@ public class Player : MonoBehaviour
 
     
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (_health > 0 && !_isInvuln)
         {
+
+            //StartCoroutine(subtractOverTime(damage, _health, 1f));
             _health -= damage;
+            _rtpc.SetGlobalValue(_health);
+            AkSoundEngine.PostEvent("Play_Pigeon_Hurt", this.gameObject);
+            AkSoundEngine.PostEvent("Play_Pigeon_Coos", this.gameObject);
             if (_health < 0)
             {
                 _health = 0;
@@ -77,6 +97,9 @@ public class Player : MonoBehaviour
             _isInvuln = true;
         }
         if (_health == 0){
+            AkSoundEngine.PostEvent("Stop_Heartbeat", this.gameObject);
+            //AkSoundEngine.PostEvent("Stop_Controller_Switch", this.gameObject);
+            AkSoundEngine.SetState("PlayerLife", "Defeated");
             if(death){
                 death.Play("Death");
             }
@@ -87,7 +110,7 @@ public class Player : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        _healthText.text = "HP " + _health + "/" + _maxHealth;
+        _healthText.text = "HP " + _health/10 + "/" + _maxHealth;
         Debug.Log("update health");
     }
 
@@ -100,7 +123,7 @@ public class Player : MonoBehaviour
         Instantiate(hitParticles, this.transform.position, qRotation);
     }
 
-    public int GetHealth()
+    public float GetHealth()
     {
         return _health;
     }
@@ -164,5 +187,20 @@ public class Player : MonoBehaviour
         {
             _power = _maxPower;
         }
+    }
+    
+    public IEnumerator subtractOverTime(float subtractor, float total, float duration) {
+        float startTime = Time.time;
+        float elapsedTime = 0f;
+        while (elapsedTime < duration) {
+            float t = elapsedTime / duration;
+            float currentA = Mathf.Lerp(subtractor, 0f, t);
+            float currentB = Mathf.Lerp(total, total - subtractor, t);
+            float result = currentB - currentA;
+            _rtpc.SetGlobalValue(result);
+            elapsedTime = Time.time - startTime;
+            yield return null;
+        }
+        _rtpc.SetGlobalValue(total - subtractor);
     }
 }

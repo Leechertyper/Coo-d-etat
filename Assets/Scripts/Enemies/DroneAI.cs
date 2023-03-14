@@ -137,6 +137,7 @@ public class DroneAI : Enemy
         while (true)
         {
             yield return new WaitForSeconds(delay);
+            AkSoundEngine.PostEvent("Play_Lazer_SFX", this.gameObject);
             wp.Shoot(angle);
         }
     }
@@ -148,12 +149,16 @@ public class DroneAI : Enemy
     {
         _rb.velocity = Vector2.zero;
         StopAllCoroutines();
+        //AkSoundEngine.PostEvent("Play_Robot_Ouch", this.gameObject);
         this.enabled = false;
+
     }
 
     public override void Awaken()
     {
+        AkSoundEngine.PostEvent("Play_Robot_Alert_SFX", this.gameObject);
         _awake = false;
+
         _myState = state.Chase;
         StartCoroutine(_slowFire);
     }

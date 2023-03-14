@@ -99,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
                 direction.Normalize();
                 targetPosition = startMovePosition + direction * tileSize * dashDistance;
                 dashing = true;
+                AkSoundEngine.PostEvent("Play_Pigeon_wing_flutter", this.gameObject);
                 animator.SetBool("Dash", true);
             }
         }

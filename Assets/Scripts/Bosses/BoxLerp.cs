@@ -40,6 +40,7 @@ public class BoxLerp : MonoBehaviour
 
     private IEnumerator Test2(Vector3 goal)
     {
+        AkSoundEngine.PostEvent("Play_Missle_Whistle", this.gameObject);
         float timeElapsed = 0;
         float runTime = 1f;
         Vector3 inital = transform.position;

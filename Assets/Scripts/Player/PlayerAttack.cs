@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using UnityEngine;
 using theNameSpace;
 using UnityEngine.UI;
+using AK;
+using Unity.VisualScripting;
 
 public class PlayerAttack : MonoBehaviour
 {
-
     //For the players ammo
     private float _curAmmo = 100;
 
@@ -100,10 +102,12 @@ public class PlayerAttack : MonoBehaviour
         {
             if(_curAmmo >= _ammoPerShot)
             {
-                
                 // Spawn a new projectile at the player's position
                 
                 GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0,0,rotZ - 90));
+                AkSoundEngine.PostEvent("Play_Lazer_SFX_2", projectile);
+                //AkSoundEngine.StopPlayingID(playing, 500, AkCurveInterpolation.AkCurveInterpolation_Constant);
+
                 // Set the velocity of the projectile to the specified direction
                 Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
                 projectileRb.velocity = direction * 10;
