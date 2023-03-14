@@ -413,6 +413,42 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Controller_Switch" ID="{5F2FE890-3499-4257-BDB0-1916EFAE4DA3}">
+					<ChildrenList>
+						<Action Name="" ID="{0EEA8568-DB31-4C20-91ED-27DC64174B79}" ShortID="373920524">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Controller Switch" ID="{583E17DE-26AB-4F32-BC70-A1AECA0CBD75}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Pigeon_Hurt" ID="{65DD0456-939D-4702-97A1-A41596F54A22}">
+					<ChildrenList>
+						<Action Name="" ID="{FE1CE04B-A89A-449E-8516-A10A67646CC4}" ShortID="547660069">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pigeon Hurt" ID="{2408C704-6B7A-4BF8-BBCE-58747FE3DB76}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Robot_Hurt" ID="{8A60ABFC-3CCA-4BFD-A90F-78D41EFF5979}">
+					<ChildrenList>
+						<Action Name="" ID="{B6CC32CA-F979-4602-A0E3-13F8D8038D46}" ShortID="518496436">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Robot Hurt" ID="{D67177A1-5CA4-4154-A0F0-A4680D53297C}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

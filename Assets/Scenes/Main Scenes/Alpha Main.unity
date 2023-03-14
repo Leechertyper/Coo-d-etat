@@ -206,6 +206,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3911660119976563207, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: data.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 130c438610913964686488524ce4173b, type: 2}
     - target: {fileID: 52211094606755849, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -286,6 +290,14 @@ PrefabInstance:
       propertyPath: hitParticles
       value: 
       objectReference: {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
+    - target: {fileID: 947550787850258268, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: _rtpc.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 43932307d80dbaf498a15d72a37fcac5, type: 2}
+    - target: {fileID: 947550787850258268, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: _playerState.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: bd8f3bbba21d2fe4394ceb6d6ed69127, type: 2}
     - target: {fileID: 2266270020640335027, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
       propertyPath: m_Name
       value: Player

@@ -22,6 +22,7 @@ public class Health : MonoBehaviour
     /// <param name="damage">Damage Taken</param>
     public void TakeDamage(int damage)
     {
+        AkSoundEngine.PostEvent("Play_Robot_Hurt", this.gameObject);
         if (health > 0)
         {
             StartCoroutine(DamageFlash());
@@ -102,6 +103,7 @@ public class Health : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.red;
         var deathExplosion = Instantiate(deathEffects[0], transform.position, transform.rotation);
         Destroy(deathExplosion,1.5f);
+        AkSoundEngine.PostEvent("Play_Heavy_Blast", this.gameObject);
         Destroy(gameObject);
     }
 }
