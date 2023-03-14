@@ -8,11 +8,13 @@ public class DogAI : Enemy
 
     public Animator animator;
     public Health hp;
+
+    private GlobalGrid _grid;
+    private Vector2Int _gridPos;
     private Transform _target;
     private state _myState;
-
-    private float distX;
-    private float distY;
+    private float _distX;
+    private float _distY;
     enum state { Dash, Leap, Next };
 
     // Start is called before the first frame update
@@ -21,12 +23,17 @@ public class DogAI : Enemy
         _myState = state.Next;
         _target = GameObject.FindGameObjectWithTag("Player").transform;
         animator.SetInteger("Direction", 2);
+        _grid = GameManager.Instance.Grid.GetComponent<GlobalGrid>();
+        _gridPos = new Vector2Int(8, 4);
+        transform.position = _grid.TileLocation(transform.position, new Vector2Int(8, 4));
+        
+        //_grid.MoveToTile(gameObject, new Vector2Int(5,5), new Vector2Int(5,6));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_myState == state.Next)
+/*        if (_myState == state.Next)
         {
 
         }
@@ -34,11 +41,11 @@ public class DogAI : Enemy
         if(_myState == state.Dash)
         {
             _myState = state.Next;
-            distX = _target.transform.position.x - transform.transform.position.x;
-            distY = _target.transform.position.y - transform.transform.position.y;
-            if (Mathf.Abs(distX) > Mathf.Abs(distY))
+            _distX = _target.transform.position.x - transform.transform.position.x;
+            _distY = _target.transform.position.y - transform.transform.position.y;
+            if (Mathf.Abs(_distX) > Mathf.Abs(_distY))
             {
-                if (distX > 0)
+                if (_distX > 0)
                 {
                     StartCoroutine(Dash(1, 2));
                 }
@@ -49,7 +56,7 @@ public class DogAI : Enemy
             }
             else
             {
-                if (distY > 0)
+                if (_distY > 0)
                 {
                     StartCoroutine(Dash(0, 2));
                 }
@@ -58,7 +65,7 @@ public class DogAI : Enemy
                     StartCoroutine(Dash(2, 2));
                 }
             }
-        }
+        }*/
 /*        if (_myState == state.Leap)
         {
             StartCoroutine(LeapAtPlayer());
@@ -71,7 +78,7 @@ public class DogAI : Enemy
 
 
 
-/*        if (Input.GetKeyDown(KeyCode.Keypad8))
+        if (Input.GetKeyDown(KeyCode.Keypad8))
         {
             StartCoroutine(Dash(0, 2));
         }
@@ -90,31 +97,35 @@ public class DogAI : Enemy
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(LeapAtPlayer());
-        }*/
+        }
     }
 
 
-    private IEnumerator Dash(int direction, float distance)
+    private IEnumerator Dash(int direction, int distance)
     {
         animator.SetInteger("Direction", direction);
         animator.SetBool("IsRunning", true);
-        distance *= 3f;
+        distance *= 3;
         float timeElapsed = 0;
         float runTime = 1f;
         Vector3 move;
         switch (direction)
         {
             case 0:
-                move = new Vector3(0, distance, 0);
+                _gridPos += new Vector2Int(0, 1);
+                move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             case 1:
-                move = new Vector3(distance, 0, 0);
+                _gridPos += new Vector2Int(1, 0);
+                move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             case 2:
-                move = new Vector3(0, -distance, 0);
+                _gridPos += new Vector2Int(0, -1);
+                move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             case 3:
-                move = new Vector3(-distance, 0, 0);
+                _gridPos += new Vector2Int(-1, 0);
+                move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             default:
                 move = new Vector3(0, 0, 0);
@@ -122,10 +133,11 @@ public class DogAI : Enemy
         }
 
         Vector3 inital = transform.position;
-        Vector3 goal = transform.position + move;
+        Vector3 goal = new Vector3(move.x, move.y, 0);
+        Debug.Log(goal);
         while (timeElapsed < runTime)
         {
-            transform.position = Vector3.Lerp(inital, goal, timeElapsed / runTime);
+            transform.position = Vector2.Lerp(inital, goal, timeElapsed / runTime);
             timeElapsed += Time.deltaTime;
             yield return null;
         }

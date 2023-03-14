@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject balanceMenu;
 
+    public GameObject Grid;
+
     public static GameManager Instance; // A static reference to the GameManager instance
 
     void Awake()
