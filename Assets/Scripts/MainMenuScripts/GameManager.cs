@@ -34,12 +34,12 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject); // Keep the GameObject, this component is attached to, across different scenes
             Instance = this;
             dbInstance = this.gameObject.GetComponent<DatabaseManager>();
-            foreach(Dictionary<string,float> dict in BalanceVariables.dictionaryList)
+            for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
             {
-                List<string> keys = new List<string>(dict.Keys);
+                List<string> keys = new List<string>(BalanceVariables.dictionaryList[i].Keys);
                 foreach(string key in keys)
                 {
-                    dict[key] = dbInstance.GetValue(key);
+                    BalanceVariables.dictionaryList[i][key] = dbInstance.GetValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
                 }
             }
         }
