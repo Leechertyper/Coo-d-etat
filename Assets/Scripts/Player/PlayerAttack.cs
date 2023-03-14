@@ -27,12 +27,23 @@ public class PlayerAttack : MonoBehaviour
     // Cooldown time for shooting projectiles
     public float shootCooldown = 0.2f;
     private float shootTimer = 0f;
+    public Vector2 direction;
+    public float rotZ;
+
+    
 
 
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector3 rotation = mousePosition - transform.position;
+        rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        
+
+        direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
 
 
 
@@ -44,8 +55,10 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            //Debug.Log("Mouse clicked");
-            ShootProjectile(gameObject.GetComponent<PlayerMovement>().direction);
+            
+            ShootProjectile(direction);
+            
+
 
 
 
@@ -81,19 +94,17 @@ public class PlayerAttack : MonoBehaviour
     }
 
     // Method to shoot a projectile in the specified direction
-    void ShootProjectile(Vector2 direction)
+    private void ShootProjectile(Vector2 direction)
     {
         // Check if the shoot timer has expired
         if (shootTimer <= 0f)
         {
             if(_curAmmo >= _ammoPerShot)
             {
+                
                 // Spawn a new projectile at the player's position
-                GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0, 0, angle));
-                // Set the damage and tag of the projectile
-                //projectile.GetComponent<Lazer>().SetPower(_damage);
-                projectile.GetComponent<Lazer>().setParentType(theNameSpace.TheParentTypes.playerType);
-                projectile.gameObject.tag = "PlayerProjectile";
+                
+                GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0,0,rotZ - 90));
                 // Set the velocity of the projectile to the specified direction
                 Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
                 projectileRb.velocity = direction * 10;
