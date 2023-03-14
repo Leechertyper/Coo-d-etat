@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
 
 
-    public int maxHealth = 10;
+    public int maxHealth = 100;
     public int health;
     public Color hurtColor;
     public GameObject[] deathEffects;
