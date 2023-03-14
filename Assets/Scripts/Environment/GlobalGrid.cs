@@ -93,6 +93,8 @@ public class GlobalGrid : MonoBehaviour
     // the current offset
     private Vector2Int _currentOffset = new Vector2Int(0,0);
 
+    public bool gridGenerated = false;
+
 
 
     // Start is called before the first frame update
@@ -264,7 +266,13 @@ public class GlobalGrid : MonoBehaviour
 
             index++;
         }
-        Debug.Log(GetRoomsAsString());
+
+
+        if (printGrid)
+        {
+            Debug.Log(GetRoomsAsString());
+        }
+        
     }
 
 
