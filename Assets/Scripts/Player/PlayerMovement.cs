@@ -166,9 +166,9 @@ public class PlayerMovement : MonoBehaviour
     private void RoundPlayerToNearestTile()
     {
         // Move Player to nearest Tile (Accounts for Dash)
-        float nearestX = Mathf.Round(transform.position.x + 0.45F);
-        float nearestY = Mathf.Round(transform.position.y / tileSize) * tileSize;
-        transform.position = new Vector2((nearestX - 0.55f), nearestY);
+        float nearestX = Mathf.Round(transform.position.x);
+        float nearestY = Mathf.Round(transform.position.y / tileSize) * tileSize - 0.5f;
+        transform.position = new Vector2((nearestX), nearestY);
         Debug.Log("Nearest Tile is " + transform.position);
     }
 
