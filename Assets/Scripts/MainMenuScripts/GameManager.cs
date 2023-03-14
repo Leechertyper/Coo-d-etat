@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance; // A static reference to the GameManager instance
 
+    private bool _skipBalance = false;
+
     void Awake()
     {
         if (Instance == null) // If there is no instance already
@@ -152,11 +154,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void GoToNextFloor(){
-        if (PointBalanceTimer.Instance.counter > 0)
+        if (PointBalanceTimer.Instance.counter > 0 || !_skipBalance)
         {
             StartBalanceMenu();
         }
         else{
+            _skipBalance = false;
             //load next floor here
         }
     }
@@ -188,7 +191,8 @@ public class GameManager : MonoBehaviour
 
     public void EndBalanceMenu(GameObject balanceMenu)
     {
-        SceneManager.LoadScene(1);
+        _skipBalance = true;
+        GoToNextFloor();
     }
 
     /*
