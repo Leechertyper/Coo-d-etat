@@ -384,7 +384,7 @@ public class GlobalGrid : MonoBehaviour
     /// Instantiates and places the given item in the room representing the index
     /// </summary>
     /// <param name="item">the item to be placed</param>
-    /// <param name="roomIndex">the index of the room, they </param>
+    /// <param name="roomIndex">the index of the room </param>
     public void PlaceIteminRoom(GameObject item, int roomIndex)
     {
         // grab the room being checked
@@ -392,18 +392,44 @@ public class GlobalGrid : MonoBehaviour
         // grab the center coordinates
         Vector2Int roomCoordinates = new Vector2Int(room[0], room[1]);
         // init empty list
-        List<int> freeTiles = new List<int>();
+        List<Vector2Int> freeTiles = new List<Vector2Int>();
         // get the top row, if there is a door above, dont include it
         for(int i = roomCoordinates.x - Mathf.FloorToInt(roomSize.x/2) - 1; i < roomCoordinates.x + Mathf.FloorToInt(roomSize.x / 2) - 1; i++)
         {
             if(!_grid[i, (roomCoordinates.y - roomSize.y/2) - 1].door)
             {
-                freeTiles.Add(i);
-                freeTiles.Add((roomCoordinates.y - roomSize.y / 2) - 2);
+                freeTiles.Add(new Vector2Int(i, (roomCoordinates.y - roomSize.y / 2) - 2));
             }
         }
-        Random.Range(0, freeTiles.Count);
+        int randomNum = Random.Range(0, freeTiles.Count);
         GameObject newItem = Instantiate(item);
-        newItem.transform.position = _grid[freeTiles[0], freeTiles[1]].position;
+        newItem.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
+    }
+
+    /// <summary>
+    /// Instantiates and places an enemy in the given indexed room
+    /// </summary>
+    /// <param name="enemy">the enemy to be placed</param>
+    /// <param name="roomIndex">the index of the room </param>
+    public void PlaceEnemyinRoom(GameObject enemy, int roomIndex)
+    {
+        // grab the room being checked
+        List<int> room = _roomCenters[roomIndex];
+        // grab the center coordinates
+        Vector2Int roomCoordinates = new Vector2Int(room[0], room[1]);
+        // init empty list
+        List<Vector2Int> freeTiles = new List<Vector2Int>();
+        // get the top row, if there is a door above, dont include it
+        for (int i = roomCoordinates.x - Mathf.FloorToInt(roomSize.x / 2) - 2; i < roomCoordinates.x + Mathf.FloorToInt(roomSize.x / 2) - 2; i++)
+        {
+            for(int j = roomCoordinates.y - Mathf.FloorToInt(roomSize.y/2) - 2; j < roomCoordinates.y + Mathf.FloorToInt(roomSize.y / 2) - 2; j++)
+            {
+                freeTiles.Add(new Vector2Int(i, j));
+            }
+
+        }
+        int randomNum = Random.Range(0, freeTiles.Count);
+        GameObject newEnemy = Instantiate(enemy);
+        newEnemy.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
     }
 }
