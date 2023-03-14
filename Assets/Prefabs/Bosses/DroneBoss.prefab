@@ -103,12 +103,9 @@ MonoBehaviour:
   grid: {fileID: 9013856346985390216}
   throwablePackage: {fileID: 2187918097288055020, guid: 7899c9f4582ff394e9a50a79a241f7e1, type: 3}
   quickTarget: {fileID: 2099484151427840445, guid: 7eaec06071283bf438cd4529316bb8e0, type: 3}
-  moveSpeed: 50
-  maxHealth: 30
-  timeBetweenMoves: 5
   healthBar: {fileID: 9013856348419376824}
   healthTrail: {fileID: 9013856347591361018}
-  keycard: {fileID: 0}
+  keycard: {fileID: 6636575890706902654, guid: 891a51383063aad4099474d1417a63fe, type: 3}
 --- !u!50 &3776133700095437518
 Rigidbody2D:
   serializedVersion: 4

@@ -133,8 +133,8 @@ public class DroneBossGrid : MonoBehaviour
     {
         if(GameManager.Instance)
         {
-            gridStartPosition.x = 115.5f;
-            gridStartPosition.y = -147f;
+            gridStartPosition.x = transform.position.x - ((Mathf.FloorToInt(roomDimensions.x / 2) - 1) * 3);
+            gridStartPosition.y = transform.position.y - (Mathf.FloorToInt(roomDimensions.y / 2) * 3);
         }
         else
         {
@@ -146,7 +146,7 @@ public class DroneBossGrid : MonoBehaviour
         // initializes the grid
         _grid = new Tile[(int) roomDimensions.x, (int) roomDimensions.y];
         // iterates through the width of the grid
-        for (int i = 0; i < (int) roomDimensions.x; i++)
+        for (int i = 0; i < (int) roomDimensions.x - 1; i++)
         {
             // iterates through the length of the grid
             for (int j = 0; j < (int) roomDimensions.y; j++)
