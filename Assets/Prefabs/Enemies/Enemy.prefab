@@ -224,6 +224,7 @@ MonoBehaviour:
   - {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
   - {fileID: 6192724089161036641, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
   - {fileID: 8038344524183138613, guid: 0277167a12290af47801444830a2be97, type: 3}
+  theDeathItems: {fileID: 2887637984562674970, guid: cff8afb325b205346b551f5590444fdc, type: 3}
 --- !u!95 &4271788366279071293
 Animator:
   serializedVersion: 5

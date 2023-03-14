@@ -9,16 +9,16 @@ public class deathItems : MonoBehaviour
     public GameObject healthItem;
 
     //Keeps track of the amount of failed rolls
-    private int _timeSinceLastBattery = 0;
+    private int _timeSinceLastBattery = 1;
 
-    private int _timeSinceLastHealth = 0; 
+    private int _timeSinceLastHealth = 1; 
   
     // the amount reference for failed rolls 
-    private int _batteryTime = 3; 
+    private int _batteryTime = 2; 
 
-    private int _healthTime = 4;
+    private int _healthTime = 3;
 
-    private int _itemSpawnChance = 15;
+    private int _itemSpawnChance = 25;
 
     private int _totalItems = 2;
 
@@ -37,14 +37,14 @@ public class deathItems : MonoBehaviour
         Debug.Log("CHECKING IF SPAWN ITEM");
         if(_timeSinceLastBattery >= _batteryTime) // Spawn battery if timer is up
         {
-            Instantiate(batteryItem, thePlace,Quaternion.AngleAxis(90,thePlace));
-            _timeSinceLastBattery = 0;
+            Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
+            _timeSinceLastBattery = 1;
             _timeSinceLastHealth ++;
         }
         else if(_timeSinceLastHealth >= _healthTime) // Spawn health if timer is up
         {
             Instantiate(healthItem, thePlace,Quaternion.identity);
-            _timeSinceLastHealth = 0;
+            _timeSinceLastHealth = 1;
             _timeSinceLastBattery ++;
         }
         else
@@ -54,13 +54,13 @@ public class deathItems : MonoBehaviour
             //Default is 15% chance per item
             if(temp >= (100-_itemSpawnChance)) 
             {
-                Instantiate(batteryItem, thePlace,Quaternion.AngleAxis(90,thePlace));
-                _timeSinceLastBattery = 0;
+                Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
+                _timeSinceLastBattery = 1;
             }
             else if(temp <= _itemSpawnChance)
             {
                 Instantiate(healthItem, thePlace,Quaternion.identity);
-                _timeSinceLastHealth = 0;
+                _timeSinceLastHealth = 1;
             }
             else
             {
@@ -78,7 +78,15 @@ public class deathItems : MonoBehaviour
     //For use with the boss's packages
     public void JustSpawnBattery(Vector3 thePlace)
     {
-        Instantiate(batteryItem, thePlace,Quaternion.AngleAxis(90,thePlace));
+        thePlace = new Vector3(thePlace.x,thePlace.y,-1);
+        Debug.Log(thePlace.ToString());
+
+        GameObject temp = Instantiate(batteryItem,thePlace,Quaternion.Euler(0,0,-90));
+
+
+       
+       
+        
     }
 
 
