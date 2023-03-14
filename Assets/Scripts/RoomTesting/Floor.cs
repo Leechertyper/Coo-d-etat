@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -38,6 +39,12 @@ public class Floor : MonoBehaviour
     private float _horizontalGap = 0;
     private float _verticalGap = 0;
     private bool _areGapsCalculated = false;
+
+    [SerializeField] private int numberOfKeyRooms = 1;
+    [SerializeField] private int numberOfBossRooms = 1;
+    
+    
+    
     
 
     private void Start()
@@ -60,13 +67,7 @@ public class Floor : MonoBehaviour
         {
             _rooms.Add(new List<Room>());
         }
-
-        var startRoom = Instantiate(startRoomPrefab, transform);
-        startRoom.transform.position = new Vector3(transform.position.x,
-            transform.position.y + FloorConstants.VerticalRoomOffset);
         
-        _camController.MoveCameraToStart(startRoom.transform);
-
         for (var i = 0; i < r; i++)
         {
             for (var j = 0; j < c; j++)
@@ -80,6 +81,32 @@ public class Floor : MonoBehaviour
                 _rooms[i].Add(newRoomScript);
             }
         }
+        _rooms[0][0].SetRoomType(Room.RoomType.Start);
+        
+        while (true)
+        {
+            var bossRoom = _rooms[Random.Range(0, 3)][Random.Range(0, 3)];
+            if (bossRoom.roomHasBeenInitialized || bossRoom == _rooms[0][0]) continue;
+            bossRoom.SetRoomType(Room.RoomType.Boss);
+            break;
+        }
+        while (true)
+        {
+            var chargerRoom = _rooms[Random.Range(0, 3)][Random.Range(0, 3)];
+            if (chargerRoom.roomHasBeenInitialized || chargerRoom == _rooms[0][0]) continue;
+            chargerRoom.SetRoomType(Room.RoomType.Charger);
+            break;
+        }
+
+        foreach (var room in _rooms.SelectMany(row => row.Where(room => !room.roomHasBeenInitialized)))
+        {
+            room.SetRoomType(Room.RoomType.Enemy);
+        }
+        
+        
+        
+        
+        _camController.MoveCameraToStart(_rooms[0][0].transform);
 
         var endRoom = Instantiate(endRoomPrefab,transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (c-1),
@@ -90,45 +117,47 @@ public class Floor : MonoBehaviour
         //MINIMAP STUFF
         
         //CALCULATING GAPS
-        var roomOne = _rooms[0][0].transform;           //  1   -   2   -   3
-        var roomTwo = _rooms[0][1].transform;           //  4   -   5   -   6
-        var roomFour = _rooms[1][0].transform;          //  7   -   8   -   9
-        float newXCoord = 0;
-        float newYCoord = 0;
+        // var roomOne = _rooms[0][0].transform;           //  1   -   2   -   3
+        // var roomTwo = _rooms[0][1].transform;           //  4   -   5   -   6
+        // var roomFour = _rooms[1][0].transform;          //  7   -   8   -   9
+        // float newXCoord = 0;
+        // float newYCoord = 0;
+        //
+        // //TODO FIX THIS
+        // _horizontalGap = roomTwo.transform.position.x - roomOne.transform.position.x;
+        // _verticalGap = roomFour.transform.position.y - roomOne.transform.position.y;
+        //
+        //
+        //
+        // if (_floorXDimension % 2 == 0)
+        // {
+        //     //even
+        //     
+        // }
+        // else
+        // {
+        //     //odd
+        //     var placeholderNum = Mathf.Floor(_floorXDimension/2f);
+        //     Debug.Log("X: " + placeholderNum);
+        //     newXCoord = FloorConstants.RoomSizeX / 2 * placeholderNum +
+        //                     _horizontalGap * placeholderNum;
+        // }
+        //
+        // if (_floorYDimension % 2 == 0)
+        // {
+        //     
+        // }
+        // else
+        // {
+        //     var placeholderNum = Mathf.Floor(_floorXDimension/2f);
+        //     Debug.Log("Y: " + placeholderNum);
+        //     newYCoord = FloorConstants.RoomSizeY / 2 * placeholderNum +
+        //                     _verticalGap * placeholderNum;
+        // }
 
-        //TODO FIX THIS
-        _horizontalGap = roomTwo.transform.position.x - roomOne.transform.position.x;
-        _verticalGap = roomFour.transform.position.y - roomOne.transform.position.y;
-
-        
-
-        if (_floorXDimension % 2 == 0)
-        {
-            //even
-            
-        }
-        else
-        {
-            //odd
-            var placeholderNum = Mathf.Floor(_floorXDimension/2f);
-            Debug.Log("X: " + placeholderNum);
-            newXCoord = FloorConstants.RoomSizeX / 2 * placeholderNum +
-                            _horizontalGap * placeholderNum;
-        }
-        
-        if (_floorYDimension % 2 == 0)
-        {
-            
-        }
-        else
-        {
-            var placeholderNum = Mathf.Floor(_floorXDimension/2f);
-            Debug.Log("Y: " + placeholderNum);
-            newYCoord = FloorConstants.RoomSizeY / 2 * placeholderNum +
-                            _verticalGap * placeholderNum;
-        }
-
-        var miniMapCamPos = new Vector3(newXCoord, newYCoord, -10);
+        //JUST HARDCODED FOR NOW, WONT BE LATER
+        var middleRoom = _rooms[1][1].transform.position;
+        var miniMapCamPos = new Vector3(middleRoom.x,middleRoom.y, -10);
         miniMapCamera.transform.position = miniMapCamPos;
     }
 

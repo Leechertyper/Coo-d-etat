@@ -93,6 +93,16 @@ public class Player : MonoBehaviour
         Instantiate(hitParticles, this.transform.position, qRotation);
     }
 
+    public void AddHealth(int plusHealth)
+    {
+        _health += plusHealth;
+        if(_health > _maxHealth)
+        {
+            _health = _maxHealth;
+        }
+        UpdateHealthUI();
+    }
+    
     public int GetHealth()
     {
         return _health;
@@ -107,6 +117,12 @@ public class Player : MonoBehaviour
     public int GetMaxHealth()
     {
         return _maxHealth;
+    }
+    
+    public void MakeMaxHealth()
+    {
+        _health = _maxHealth;
+        UpdateHealthUI();
     }
 
     public void SetMaxHealth(int newMaxHealth)

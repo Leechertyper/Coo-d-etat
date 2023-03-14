@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    private Floor myFloor;
+    private Floor _myFloor;
     
     [SerializeField] private GameObject topWallPiece;
     [SerializeField] private GameObject topDoorCollider;
@@ -14,20 +16,74 @@ public class Room : MonoBehaviour
     [SerializeField] private GameObject leftWallPiece;
     [SerializeField] private GameObject leftDoorCollider;
 
-    [SerializeField] private SpriteRenderer miniMapIcon;
-    
-    [Serializable]
+    [SerializeField] private GameObject chargerRoomSprite;
+    [SerializeField] private GameObject keyRoomSprite;
+    [SerializeField] private GameObject bossRoomSprite;
+
+    private bool _hasBeenCleared;
+    [SerializeField] private RoomType roomType;
+    [DoNotSerialize] public bool roomHasBeenInitialized;
+
+    private List<Enemy> _enemies;
+
     public enum RoomType
     {
-        Normal,
+        Start,
         Enemy,
         Key,
-        Boss
+        Boss,
+        Charger,
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!col.CompareTag("Player")) return;
+        EnemiesAwake();
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        EnemiesSleep();
+    }
+
+    private void EnemiesAwake()
+    {
+        foreach (var enemy in _enemies)
+        {
+            enemy.Awaken();
+        }
+    }
+    private void EnemiesSleep()
+    {
+        foreach (var enemy in _enemies)
+        {
+            enemy.Sleep();
+        }
+    }
+    
+    public void SetRoomType(RoomType roomType)
+    {
+        this.roomType = roomType;
+        switch (this.roomType)
+        {
+            case RoomType.Boss:
+                bossRoomSprite.SetActive(true);
+                break;
+            case RoomType.Charger:
+                chargerRoomSprite.SetActive(true);
+                break;
+            case RoomType.Key:
+                keyRoomSprite.SetActive(true);
+                break;
+        }
+
+        roomHasBeenInitialized = true;
+    }
+    
     private void Start()
     {
-        myFloor = GetComponentInParent<Floor>();
+        _myFloor = GetComponentInParent<Floor>();
     }
 
     private void DisableLeftDoor()
@@ -62,24 +118,17 @@ public class Room : MonoBehaviour
     /// <param name="columns">number of columns in the current floor</param>
     public void InitializeRoom(int x, int y, int rows, int columns)
     {
-        SetUpDoors(x,y,rows,columns);
+        SetUpDoors(y,x,rows,columns);
     }
 
     private void SetUpDoors(int x, int y, int rows, int columns)
     {
-        if (x == 0 && y == 0)
-        {
-            //first room, needs to have door for starting room
-            DisableLeftDoor();
-            return;
-        }
         if (y == columns - 1 && x == rows - 1)
         {
             //last room
             DisableRightDoor();
             return;
         }
-
         if (x == 0)
         {
             DisableLeftDoor();
@@ -88,7 +137,6 @@ public class Room : MonoBehaviour
         {
             DisableRightDoor();
         }
-
         if (y == 0)
         {
             DisableTopDoor();
@@ -101,19 +149,19 @@ public class Room : MonoBehaviour
     
     public void TopDoor(GameObject player)
     {
-        myFloor.MoveUp(player);
+        _myFloor.MoveUp(player);
     }
     public void BottomDoor(GameObject player)
     {
-        myFloor.MoveDown(player);
+        _myFloor.MoveDown(player);
     }
     public void LeftDoor(GameObject player)
     {
-        myFloor.MoveLeft(player);
+        _myFloor.MoveLeft(player);
     }
     public void RightDoor(GameObject player)
     {
-        myFloor.MoveRight(player);
+        _myFloor.MoveRight(player);
     }
     
     

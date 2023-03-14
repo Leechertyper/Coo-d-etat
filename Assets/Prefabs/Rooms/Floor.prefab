@@ -42,7 +42,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.27367392, g: 0.27730808, b: 0.2830189, a: 0.29803923}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -59,13 +59,13 @@ Camera:
   far clip plane: 1000
   field of view: 165
   orthographic: 1
-  orthographic size: 100
+  orthographic size: 104.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 1048576
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 15d85fd9f4e979f449299561d4104101, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 0d6f14e3e4bb2f34aa22cd4fdd6d5ed5, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -134,12 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 3100153155850450629, guid: 0eaa83e816c7153468b3af95d3f23ff0, type: 3}
-  topRightCornerRoomPrefab: {fileID: 3848584594099886911, guid: 719f739dcf3ee0749a28fd47cd6ccf18, type: 3}
-  bottomLeftCornerRoomPrefab: {fileID: 565085066368813716, guid: d74223617a160784882ca6e9724bf8a0, type: 3}
-  leftColumnRoomPrefab: {fileID: 4814595759074515201, guid: 4acd722e6afb89144a85e07f9756eba7, type: 3}
-  rightColumnRoomPrefab: {fileID: 2684474037184533331, guid: 0ffaff31a2e063d4d83d35ea5c8101f9, type: 3}
-  bottomRowRoomPrefab: {fileID: 4286898721916287976, guid: 5893857ed640d6640beb4cf5e2c817b0, type: 3}
-  topRowRoomPrefab: {fileID: 8954846568772749312, guid: 7ea1fa69b998b92419605ea84acbb547, type: 3}
   startRoomPrefab: {fileID: 3543569143708864123, guid: 3ea99d750e3639b4eb6279bf5bc34c07, type: 3}
   endRoomPrefab: {fileID: 7424634987486067247, guid: 9d04bdb97d991174880d638600cd56be, type: 3}
   miniMapCamera: {fileID: 1055407728}
+  numberOfKeyRooms: 1
+  numberOfBossRooms: 1
