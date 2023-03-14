@@ -81,6 +81,9 @@ public class GlobalGrid : MonoBehaviour
     [Header("Whether or not to print out the grid")]
     [SerializeField] private bool printGrid;
 
+    [Header("For Debugging to show rooms")]
+    [SerializeField] private bool spawnTiles;
+
     // the global game grid array
     private GlobalTile[,] _grid;
 
@@ -124,8 +127,12 @@ public class GlobalGrid : MonoBehaviour
             {
                 // creates a new tile at pos (i, j) in the grid
                 _grid[i, j] = new GlobalTile (iterationPosition);
-                GameObject newTile = Instantiate(testTile);
-                newTile.transform.position = _grid[i, j].position;
+                if (spawnTiles)
+                {
+                    GameObject newTile = Instantiate(testTile);
+                    newTile.transform.position = _grid[i, j].position;
+                }
+
 
                 // iterates the y pos
                 iterationPosition.y -= tileScale;
@@ -147,9 +154,12 @@ public class GlobalGrid : MonoBehaviour
                 _t.Add(j);
                 _t.Add(i);
 
+                if (spawnTiles)
+                {
                 GameObject newTile = Instantiate(testTile);
                 newTile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
                 newTile.transform.position = _grid[j, i].position;
+                }
 
                 // add the temp list into the room centers list
                 _roomCenters.Add(_t);
@@ -429,11 +439,11 @@ public class GlobalGrid : MonoBehaviour
         // init empty list
         List<Vector2Int> freeTiles = new List<Vector2Int>();
         // get the top row, if there is a door above, dont include it
-        for(int i = roomCoordinates.x - Mathf.FloorToInt(roomSize.x/2) - 1; i < roomCoordinates.x + Mathf.FloorToInt(roomSize.x / 2) - 1; i++)
+        for(int i = roomCoordinates.x - (Mathf.FloorToInt(roomSize.x/2) - 1); i < roomCoordinates.x + (Mathf.FloorToInt(roomSize.x / 2) - 1); i++)
         {
-            if(!_grid[i, (roomCoordinates.y - roomSize.y/2) - 1].door)
+            if(!_grid[i, roomCoordinates.y - (roomSize.y/2 - 1)].door)
             {
-                freeTiles.Add(new Vector2Int(i, (roomCoordinates.y - roomSize.y / 2) - 2));
+                freeTiles.Add(new Vector2Int(i, roomCoordinates.y - (roomSize.y / 2 - 1)));
             }
         }
         int randomNum = Random.Range(0, freeTiles.Count);
@@ -446,7 +456,7 @@ public class GlobalGrid : MonoBehaviour
     /// </summary>
     /// <param name="enemy">the enemy to be placed</param>
     /// <param name="roomIndex">the index of the room </param>
-    public void PlaceEnemyinRoom(GameObject enemy, int roomIndex)
+    public GameObject PlaceEnemyinRoom(GameObject enemy, int roomIndex)
     {
         // grab the room being checked
         List<int> room = _roomCenters[roomIndex];
@@ -455,9 +465,9 @@ public class GlobalGrid : MonoBehaviour
         // init empty list
         List<Vector2Int> freeTiles = new List<Vector2Int>();
         // get the top row, if there is a door above, dont include it
-        for (int i = roomCoordinates.x - Mathf.FloorToInt(roomSize.x / 2) - 2; i < roomCoordinates.x + Mathf.FloorToInt(roomSize.x / 2) - 2; i++)
+        for (int i = roomCoordinates.x - (Mathf.FloorToInt(roomSize.x / 2) - 2); i < roomCoordinates.x + (Mathf.FloorToInt(roomSize.x / 2) - 2); i++)
         {
-            for(int j = roomCoordinates.y - Mathf.FloorToInt(roomSize.y/2) - 2; j < roomCoordinates.y + Mathf.FloorToInt(roomSize.y / 2) - 2; j++)
+            for(int j = roomCoordinates.y - (Mathf.FloorToInt(roomSize.y/2) - 2); j < roomCoordinates.y + (Mathf.FloorToInt(roomSize.y / 2) - 2); j++)
             {
                 freeTiles.Add(new Vector2Int(i, j));
             }
@@ -466,5 +476,7 @@ public class GlobalGrid : MonoBehaviour
         int randomNum = Random.Range(0, freeTiles.Count);
         GameObject newEnemy = Instantiate(enemy);
         newEnemy.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
+
+        return newEnemy;
     }
 }

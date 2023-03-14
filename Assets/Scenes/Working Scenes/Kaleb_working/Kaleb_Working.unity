@@ -789,6 +789,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 9013856346985390219, guid: be9b5e9e5ebce89449cf15ab9bfc930f, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: camController
       value: 
       objectReference: {fileID: 1532740465}
@@ -877,9 +881,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomSize: {x: 17, y: 10}
   roomOffset: {x: 6, y: 2}
-  floorDimesions: {x: 3, y: 3}
+  floorDimesions: {x: 3, y: 4}
   tileScale: 3
   printGrid: 1
+  spawnTiles: 0
   gridGenerated: 0
   testTile: {fileID: 440095756}
 --- !u!4 &1771262087

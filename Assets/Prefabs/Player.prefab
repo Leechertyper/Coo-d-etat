@@ -275,6 +275,10 @@ MonoBehaviour:
   _maxPower: 10
   healthBar: {fileID: 8575993587833810258}
   healthTrail: {fileID: 6426230801123098920}
+  _rtpc:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a6d541285a4142045878bea40498eba3, type: 2}
   death: {fileID: 0}
   hitParticles: {fileID: 0}
 --- !u!114 &5324567830572157412
@@ -291,11 +295,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4504184925908081350, guid: e38f13ceb411992458e896547ab62a01, type: 3}
   _damage: 1
-  shootCooldown: 0.2
-  direction: {x: 0, y: 0}
-  rotZ: 0
   energyBar: {fileID: 6811424902835070980}
   energyTrail: {fileID: 4044683969654011520}
+  direction: {x: 0, y: 0}
+  rotZ: 0
 --- !u!1 &2492124759210950604
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +712,7 @@ GameObject:
   - component: {fileID: 8512616171005060977}
   - component: {fileID: 6681276923065439315}
   m_Layer: 0
-  m_Name: HealthLabel
+  m_Name: EnergyLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -730,9 +733,9 @@ RectTransform:
   m_Father: {fileID: 3536108143313672692}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1223.2, y: -32}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -275.4, y: -32}
   m_SizeDelta: {x: 534.1279, y: 53.698975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3982797129306547161
