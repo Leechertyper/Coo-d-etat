@@ -62,10 +62,8 @@ public class Floor : MonoBehaviour
     {
         while (!GameManager.Instance.Grid.gridGenerated)
         {
-            Debug.Log(GameManager.Instance.Grid.gridGenerated);
             yield return null;
         }
-        Debug.Log("Spawner Ready");
         FinishRoomSetup();
     }
     /// <summary>
@@ -128,7 +126,7 @@ public class Floor : MonoBehaviour
 
         for (var i = 0; i < _rooms.Count; i++)
         {
-            for (var j = 0; j < _rooms.Count; j++)
+            for (var j = 0; j < _rooms[i].Count; j++)
             {
                 if (_rooms[i][j].roomHasBeenInitialized) continue;
                 _rooms[i][j].SetRoomType(Room.RoomType.Enemy);
@@ -138,8 +136,13 @@ public class Floor : MonoBehaviour
                 {
                     var randomEnemy = spawnableEnemies[Random.Range(0, spawnableEnemies.Count)];
             
-                    GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,_floorXDimension*i + j);
-                    _rooms[i][j].SpawnEnemy(randomEnemy.GetComponent<Enemy>()); 
+                    var returnEnemy = GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,_floorXDimension*i + j);
+                    Debug.Log(returnEnemy.GetComponent<Enemy>());
+                    while (!returnEnemy.GetComponent<Enemy>())
+                    {
+                        // wait
+                    }
+                        _rooms[i][j].SpawnEnemy(returnEnemy.GetComponent<Enemy>()); 
                 }
             }
         }

@@ -23,7 +23,7 @@ public class Room : MonoBehaviour
     public RoomType roomType { get; private set; }
     public bool roomHasBeenInitialized;
 
-    private List<Enemy> _enemies;
+    private List<Enemy> _enemies = new List<Enemy>();
 
     public enum RoomType
     {
