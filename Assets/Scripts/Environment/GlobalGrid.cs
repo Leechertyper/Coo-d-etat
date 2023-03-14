@@ -272,6 +272,8 @@ public class GlobalGrid : MonoBehaviour
         {
             Debug.Log(GetRoomsAsString());
         }
+
+        gridGenerated = true;
         
     }
 

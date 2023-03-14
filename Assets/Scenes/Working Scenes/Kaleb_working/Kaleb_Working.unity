@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: hitParticles
       value: 
       objectReference: {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
+    - target: {fileID: 947550787850258268, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: _rtpc.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: a6d541285a4142045878bea40498eba3, type: 2}
     - target: {fileID: 2266270020640335027, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
       propertyPath: m_Name
       value: Player
