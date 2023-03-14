@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     //For the players ammo
     private float _curAmmo = 100;
 
+    private float _maxAmmo = 100;
 
     private float _ammoPerShot = 2;
     // Input variable for shooting angle
@@ -26,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
     //[SerializeField] private Text _ammoText;
 
     // Cooldown time for shooting projectiles
+    public float shootCooldown = 0.2f;
     private float shootTimer = 0f;
     public Vector2 direction;
     public float rotZ;
