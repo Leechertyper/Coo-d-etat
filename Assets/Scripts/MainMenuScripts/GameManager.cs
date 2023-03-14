@@ -160,7 +160,8 @@ public class GameManager : MonoBehaviour
         }
         else{
             _skipBalance = false;
-            //load next floor here
+            //update load next floor here
+            SceneManager.LoadScene(1);
         }
     }
 
