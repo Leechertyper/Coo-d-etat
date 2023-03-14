@@ -75,9 +75,30 @@ public class DatabaseManager : MonoBehaviour
     ***/
     public void UpdateValue(string variable, float value)
     {
-        string sql = "UPDATE coo_d_etat.GameBalance SET value = " + value + " WHERE variableName = " + variable +";"; 
-        MySqlCommand cmd = new MySqlCommand(sql, conn);
-        cmd.ExecuteNonQuery();
+         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+        builder.Server = Host;
+        builder.UserID = User;
+        builder.Password = Password;
+        builder.Database = Database;
+         try
+        {
+            using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
+            {
+                connection.Open();
+
+                print("MySQL - Opened Connection");
+                string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `value` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
+                
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        catch (MySqlException exception)
+        {   
+            
+            print(exception.Message);
+        }
+        
     }
     /***
     *Retrieves a value from the database using a string
@@ -87,9 +108,32 @@ public class DatabaseManager : MonoBehaviour
     ***/
     public float GetValue(string variable)
     {
-        string sql = "SELECT value FROM coo_d_etat.GameBalance WHERE variableName = " + variable;
-        MySqlCommand cmd = new MySqlCommand(sql, conn);
-        object result = cmd.ExecuteScalar();
+        MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+        builder.Server = Host;
+        builder.UserID = User;
+        builder.Password = Password;
+        builder.Database = Database;
+
+        object result = null;
+        try
+        {
+            using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
+            {
+                connection.Open();
+
+                print("MySQL - Opened Connection");
+                string sql = "SELECT value FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
+                Debug.Log(sql);
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
+                result = cmd.ExecuteScalar();
+            }
+        }
+        catch (MySqlException exception)
+        {   
+            
+            print(exception.Message);
+        }
+        
         if (result != null)
         {
             float r = Convert.ToSingle(result);
