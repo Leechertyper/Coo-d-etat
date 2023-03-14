@@ -9,94 +9,89 @@ public class DogAI : Enemy
     public Animator animator;
     public Health hp;
 
+    [SerializeField] private int leapDistance = 20;
     private GlobalGrid _grid;
     private Vector2Int _gridPos;
     private Transform _target;
     private state _myState;
     private float _distX;
     private float _distY;
-    enum state { Dash, Leap, Next };
+    private bool _awake;
+    enum state { Dash, Leap, Next, Wait};
+    
+
+    public override void Awaken()
+    {
+        _awake = true;
+    }
+
+    public override void Sleep()
+    {
+        StopAllCoroutines();
+        _awake = false;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        _awake = false;
         _myState = state.Next;
         _target = GameObject.FindGameObjectWithTag("Player").transform;
         animator.SetInteger("Direction", 2);
-        _grid = GameManager.Instance.Grid.GetComponent<GlobalGrid>();
-        _gridPos = new Vector2Int(8, 4);
-        transform.position = _grid.TileLocation(transform.position, new Vector2Int(8, 4));
-        
-        //_grid.MoveToTile(gameObject, new Vector2Int(5,5), new Vector2Int(5,6));
+        _grid = GameManager.Instance.Grid;
+        _grid.GetTile(transform.position, out _gridPos);
     }
 
     // Update is called once per frame
     void Update()
     {
-/*        if (_myState == state.Next)
-        {
-
-        }
-
-        if(_myState == state.Dash)
-        {
-            _myState = state.Next;
-            _distX = _target.transform.position.x - transform.transform.position.x;
-            _distY = _target.transform.position.y - transform.transform.position.y;
-            if (Mathf.Abs(_distX) > Mathf.Abs(_distY))
+        if (_awake) {
+            if (_myState == state.Next)
             {
-                if (_distX > 0)
+                /*            if (Vector2.Distance(_target.transform.position, transform.position) > leapDistance)
+                            {
+                                _myState = state.Leap;
+                            }
+                            else
+                            {
+                                _myState = state.Dash;
+                            }*/
+
+                _myState = state.Dash;
+            }
+
+            if (_myState == state.Dash)
+            {
+                _myState = state.Wait;
+                _distX = _target.transform.position.x - transform.transform.position.x;
+                _distY = _target.transform.position.y - transform.transform.position.y;
+                if (Mathf.Abs(_distX) > Mathf.Abs(_distY))
                 {
-                    StartCoroutine(Dash(1, 2));
+                    if (_distX > 0)
+                    {
+                        StartCoroutine(Dash(1, 2));
+                    }
+                    else
+                    {
+                        StartCoroutine(Dash(3, 2));
+                    }
                 }
                 else
                 {
-                    StartCoroutine(Dash(3, 2));
+                    if (_distY > 0)
+                    {
+                        StartCoroutine(Dash(0, 2));
+                    }
+                    else
+                    {
+                        StartCoroutine(Dash(2, 2));
+                    }
                 }
             }
-            else
+            if (_myState == state.Leap)
             {
-                if (_distY > 0)
-                {
-                    StartCoroutine(Dash(0, 2));
-                }
-                else
-                {
-                    StartCoroutine(Dash(2, 2));
-                }
+                StartCoroutine(LeapAtPlayer());
             }
-        }*/
-/*        if (_myState == state.Leap)
-        {
-            StartCoroutine(LeapAtPlayer());
-            _myState = state.Dash;
-        }
-        if (Vector2.Distance(_target.position, transform.position) > 20)
-        {
-            _myState = state.Leap;
-        }*/
-
-
-
-        if (Input.GetKeyDown(KeyCode.Keypad8))
-        {
-            StartCoroutine(Dash(0, 2));
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad6))
-        {
-            StartCoroutine(Dash(1, 2));
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad5))
-        {
-            StartCoroutine(Dash(2, 2));
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            StartCoroutine(Dash(3, 2));
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(LeapAtPlayer());
         }
     }
 
@@ -112,7 +107,7 @@ public class DogAI : Enemy
         switch (direction)
         {
             case 0:
-                _gridPos += new Vector2Int(0, 1);
+                _gridPos += new Vector2Int(0, -1);
                 move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             case 1:
@@ -120,7 +115,7 @@ public class DogAI : Enemy
                 move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             case 2:
-                _gridPos += new Vector2Int(0, -1);
+                _gridPos += new Vector2Int(0, 1);
                 move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             case 3:
@@ -143,11 +138,13 @@ public class DogAI : Enemy
         }
         transform.position = goal;
         animator.SetBool("IsRunning", false);
+        _myState = state.Next;
         yield break;
     }
 
     private IEnumerator LeapAtPlayer()
     {
+        _myState = state.Wait;
         Vector3 player = _target.transform.position;
         float timeElapsed = 0;
         float runTime = 1f;
@@ -159,6 +156,7 @@ public class DogAI : Enemy
             yield return null;
         }
         transform.position = player;
+        _myState = state.Next;
         yield break;
     }
 

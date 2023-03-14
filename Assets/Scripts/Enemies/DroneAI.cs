@@ -29,43 +29,49 @@ public class DroneAI : Enemy
     private Vector2 _moveDirection;
     private Transform _target;
     private state _myState;
+    private bool _awake;
     enum state {Chase, Pause};
 
     // Start is called before the first frame update
     void Start()
     {
+        _awake = false;
         _myState = state.Chase;
         _rb = GetComponent<Rigidbody2D>();
         _target = GameObject.FindGameObjectWithTag("Player").transform;
         _slowFire = TimedShoot(slowShotCD);
         _fastFire = TimedShoot(fastShotCD);
-        StartCoroutine(_slowFire);
     }
 
     // Update is called once per frame
     void Update()
     {
-        LookAt();
+        if (_awake)
+        {
+            LookAt();
+        }
     }
 
     private void FixedUpdate()
     {
-        if(_myState == state.Chase)
+        if (_awake)
         {
-            if (_target)
+            if(_myState == state.Chase)
             {
-                Move(_moveDirection);
+                if (_target)
+                {
+                    Move(_moveDirection);
+                }
+            }
+            if(Vector2.Distance(_target.position, transform.position) < range && _myState == state.Chase)
+            {
+                _myState = state.Pause;
+                _rb.velocity = Vector2.zero;
+                StopCoroutine(_slowFire);
+                StartCoroutine(_fastFire);
+                Invoke("resumeChase", pauseTime);
             }
         }
-        if(Vector2.Distance(_target.position, transform.position) < range && _myState == state.Chase)
-        {
-            _myState = state.Pause;
-            _rb.velocity = Vector2.zero;
-            StopCoroutine(_slowFire);
-            StartCoroutine(_fastFire);
-            Invoke("resumeChase", pauseTime);
-        }
-
     }
 
     /// <summary>
@@ -148,15 +154,18 @@ public class DroneAI : Enemy
 
     }
 
-    public void Awaken()
+    public override void Awaken()
     {
         AkSoundEngine.PostEvent("Play_Robot_Alert_SFX", this.gameObject);
+        _awake = false;
+
         _myState = state.Chase;
         StartCoroutine(_slowFire);
     }
 
-    public void Sleep()
+    public override void Sleep()
     {
+        _awake = true;
         StopAllCoroutines();
         _myState = state.Pause;
         _rb.velocity = Vector2.zero;

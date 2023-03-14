@@ -4,90 +4,163 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [Serializable]
-    internal class EnemyObject
-    {
-        [SerializeField] private DroneBoss boss;
-        [SerializeField] private List<DroneAI> enemies;
-
-        public void Awaken()
-        {
-            if (enemies.Count > 0)
-            {
-                foreach (var enemy in enemies)
-                {
-                    if(enemy)
-                    {
-                        enemy.Awaken();
-                    }
-                    
-                }
-            }
-            if (boss)
-            {
-                boss.Awaken();
-            }
-        }
-
-        public void Sleep()
-        {
-            if (enemies.Count > 0)
-            {
-                foreach (var enemy in enemies)
-                {
-                    if(enemy)
-                    {
-                        enemy.Sleep();
-                    }
-                }
-            }
-            if (boss)
-            {
-                boss.Sleep();
-            }
-        }
-    }
-
-    private Floor myFloor;
+    private Floor _myFloor;
     
-    [SerializeField] private EnemyObject enemies;
+    [SerializeField] private GameObject topWallPiece;
+    [SerializeField] private GameObject topDoorCollider;
+    [SerializeField] private GameObject bottomWallPiece;
+    [SerializeField] private GameObject bottomDoorCollider;
+    [SerializeField] private GameObject rightWallPiece;
+    [SerializeField] private GameObject rightDoorCollider;
+    [SerializeField] private GameObject leftWallPiece;
+    [SerializeField] private GameObject leftDoorCollider;
 
-    private void Start()
+    [SerializeField] private GameObject chargerRoomSprite;
+    [SerializeField] private GameObject keyRoomSprite;
+    [SerializeField] private GameObject bossRoomSprite;
+
+    private bool _hasBeenCleared;
+    public RoomType roomType { get; private set; }
+    public bool roomHasBeenInitialized;
+
+    private List<Enemy> _enemies;
+
+    public enum RoomType
     {
-        myFloor = GetComponentInParent<Floor>();
-        enemies.Sleep();
+        Start,
+        Enemy,
+        Key,
+        Boss,
+        Charger,
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col.gameObject.CompareTag("Player")) return;
-        Debug.Log("ENTERED NEW ROOM");
-        enemies.Awaken();
+        if (!col.CompareTag("Player")) return;
+        EnemiesAwake();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("Player")) return;
-        Debug.Log("LEFT OLD ROOM");
-        enemies.Sleep();
+        if (!other.CompareTag("Player")) return;
+        EnemiesSleep();
     }
 
+    private void EnemiesAwake()
+    {
+        foreach (var enemy in _enemies)
+        {
+            enemy.Awaken();
+        }
+    }
+    private void EnemiesSleep()
+    {
+        foreach (var enemy in _enemies)
+        {
+            enemy.Sleep();
+        }
+    }
+    
+    public void SetRoomType(RoomType roomType)
+    {
+        this.roomType = roomType;
+        switch (this.roomType)
+        {
+            case RoomType.Boss:
+                bossRoomSprite.SetActive(true);
+                break;
+            case RoomType.Charger:
+                chargerRoomSprite.SetActive(true);
+                break;
+            case RoomType.Key:
+                keyRoomSprite.SetActive(true);
+                break;
+        }
 
+        roomHasBeenInitialized = true;
+    }
+    
+    private void Start()
+    {
+        _myFloor = GetComponentInParent<Floor>();
+    }
+
+    private void DisableLeftDoor()
+    {
+        leftWallPiece.SetActive(true);
+        leftDoorCollider.SetActive(false);
+    }
+    private void DisableRightDoor()
+    {
+        rightWallPiece.SetActive(true);
+        rightDoorCollider.SetActive(false);
+    }
+    private void DisableTopDoor()
+    {
+        topWallPiece.SetActive(true);
+        topDoorCollider.SetActive(false);
+    }
+    private void DisableBottomDoor()
+    {
+        bottomWallPiece.SetActive(true);
+        bottomDoorCollider.SetActive(false);
+    }
+    
+    
+    
+    /// <summary>
+    /// Initializes everything to do with the room, but for now it just sets up the doors
+    /// </summary>
+    /// <param name="x">X coordinate of this room</param>
+    /// <param name="y">Y coordinate of this room</param>
+    /// <param name="rows">number of rows in the current floor</param>
+    /// <param name="columns">number of columns in the current floor</param>
+    public void InitializeRoom(int x, int y, int rows, int columns)
+    {
+        SetUpDoors(y,x,rows,columns);
+    }
+
+    private void SetUpDoors(int x, int y, int rows, int columns)
+    {
+        if (y == columns - 1 && x == rows - 1)
+        {
+            //last room
+            DisableRightDoor();
+            return;
+        }
+        if (x == 0)
+        {
+            DisableLeftDoor();
+        }
+        if (x == rows - 1)
+        {
+            DisableRightDoor();
+        }
+        if (y == 0)
+        {
+            DisableTopDoor();
+        }
+        if (y == columns - 1)
+        {
+            DisableBottomDoor();
+        }
+    }
+    
     public void TopDoor(GameObject player)
     {
-        myFloor.MoveUp(player);
+        _myFloor.MoveUp(player);
     }
     public void BottomDoor(GameObject player)
     {
-        myFloor.MoveDown(player);
+        _myFloor.MoveDown(player);
     }
     public void LeftDoor(GameObject player)
     {
-        myFloor.MoveLeft(player);
+        _myFloor.MoveLeft(player);
     }
     public void RightDoor(GameObject player)
     {
-        myFloor.MoveRight(player);
+        _myFloor.MoveRight(player);
     }
     
 }

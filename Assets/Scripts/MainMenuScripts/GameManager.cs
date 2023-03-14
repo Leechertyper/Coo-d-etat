@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     
@@ -20,9 +20,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject balanceMenu;
 
-    public GameObject Grid;
+    public GlobalGrid Grid;
 
     public static GameManager Instance; // A static reference to the GameManager instance
+    public static DatabaseManager dbInstance;
+
+    private bool _skipBalance = false;
 
     void Awake()
     {
@@ -30,6 +33,15 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject); // Keep the GameObject, this component is attached to, across different scenes
             Instance = this;
+            dbInstance = this.gameObject.GetComponent<DatabaseManager>();
+            foreach(Dictionary<string,float> dict in BalanceVariables.dictionaryList)
+            {
+                List<string> keys = new List<string>(dict.Keys);
+                foreach(string key in keys)
+                {
+                    dict[key] = dbInstance.GetValue(key);
+                }
+            }
         }
         else if (Instance != this) // If there is already an instance and it's not `this` instance
         {
@@ -49,6 +61,8 @@ public class GameManager : MonoBehaviour
 
     }
     
+
+
     // Update is called once per frame
     void Update()
     {
@@ -146,8 +160,19 @@ public class GameManager : MonoBehaviour
 
 
     public void OnPlayerDeath(){
-        Debug.Log("GameManagerScript: Warning - Calling OnPlayerDeath when it is not implemented");
-        StartBalanceMenu();
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void GoToNextFloor(){
+        if (PointBalanceTimer.Instance.counter > 0 || !_skipBalance)
+        {
+            StartBalanceMenu();
+        }
+        else{
+            _skipBalance = false;
+            //update load next floor here
+            SceneManager.LoadScene(1);
+        }
     }
 
      public GameObject GetPlayerObject()
@@ -172,18 +197,13 @@ public class GameManager : MonoBehaviour
     */
     public void StartBalanceMenu()
     {
-        if (PointBalanceTimer.Instance.counter > 0)
-        {
-            GameObject bm = Instantiate(balanceMenu, new Vector3(0, 0, 0), Quaternion.identity);
-            // This will need to be changed to the actual balance menu
-            bm.GetComponent<BalanceMenu>().startBalance=true;
-        }
-
+        SceneManager.LoadScene("Balance");
     }
 
     public void EndBalanceMenu(GameObject balanceMenu)
     {
-        Destroy(balanceMenu);
+        _skipBalance = true;
+        GoToNextFloor();
     }
 
     /*

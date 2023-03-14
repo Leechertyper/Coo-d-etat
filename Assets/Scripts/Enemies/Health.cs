@@ -6,14 +6,17 @@ public class Health : MonoBehaviour
 {
 
 
-    public int maxHealth = 10;
+    public int maxHealth = 100;
     public int health;
     public Color hurtColor;
     public GameObject[] deathEffects;
 
+    public GameObject theDeathItems;
     private void Start()
     {
         health = maxHealth;
+
+        
     }
 
     /// <summary>
@@ -105,5 +108,7 @@ public class Health : MonoBehaviour
         Destroy(deathExplosion,1.5f);
         AkSoundEngine.PostEvent("Play_Heavy_Blast", this.gameObject);
         Destroy(gameObject);
+        theDeathItems.GetComponent<deathItems>().SpawnItem(transform.position);
+
     }
 }

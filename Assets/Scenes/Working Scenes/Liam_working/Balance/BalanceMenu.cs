@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class BalanceMenu : MonoBehaviour
 {
-    public bool startBalance = false;
     public bool gameIsPaused = false;
     public GameObject balanceMenuUI;
     public GameObject buttonPrefab;
@@ -20,7 +19,7 @@ public class BalanceMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(startBalance && Time.timeScale == 1f)
+        if(!gameIsPaused)
         {
             Pause();
             
@@ -32,14 +31,12 @@ public class BalanceMenu : MonoBehaviour
     */
     public void ResumeGame()
     {
-        balanceMenuUI.SetActive(false);
-        Time.timeScale = 1f;
         gameIsPaused = false;
-        startBalance = false;
         Dictionary<string,bool> _temp = new Dictionary<string,bool>(BalanceVariables.seenDictionaries);
         foreach (KeyValuePair<string, bool> kvp in _temp)
         {
-            if(kvp.Key!="player" || kvp.Key!="other" || kvp.Key!="collectables")
+            Debug.Log(kvp.Key);
+            if(kvp.Key!="player" && kvp.Key!="other" && kvp.Key!="collectables")
             {
                 BalanceVariables.seenDictionaries[kvp.Key] = false;
             }
@@ -54,7 +51,6 @@ public class BalanceMenu : MonoBehaviour
     void Pause()
     {
         balanceMenuUI.SetActive(true);
-        Time.timeScale = 0f;
         gameIsPaused = true;
         PopulateButtons();
     }
@@ -69,11 +65,16 @@ public class BalanceMenu : MonoBehaviour
     */
     public void ConfirmSelection()
     {
+        Dictionary<string,float> dict = null;
         foreach (Transform child in sliderContent.transform) 
         {
             if (child != null && child.GetComponent<BalanceSlider>() != null && child.GetComponent<BalanceSlider>().dictionaryKey != "General")
             {
                 GameManager.Instance.BalanceValue(child.GetComponent<BalanceSlider>().dictionary,child.GetComponent<BalanceSlider>().dictionaryKey, child.GetComponent<BalanceSlider>().value);
+                if(child.GetComponent<BalanceSlider>().dictionary!= dict)
+                {
+                    dict = child.GetComponent<BalanceSlider>().dictionary;
+                }
             }
         }
         if(PointBalanceTimer.Instance.counter >0)
@@ -83,6 +84,11 @@ public class BalanceMenu : MonoBehaviour
         else
         {
             ///<TODO> call database saving </TODO>
+
+            foreach (KeyValuePair<string, float> kvp in dict)
+            {
+                GameManager.dbInstance.UpdateValue(kvp.Key, kvp.Value);
+            }
             ResumeGame();
         }
     }

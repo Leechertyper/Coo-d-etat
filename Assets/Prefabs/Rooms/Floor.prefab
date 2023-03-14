@@ -1,5 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1055407726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055407727}
+  - component: {fileID: 1055407728}
+  m_Layer: 0
+  m_Name: MiniMapCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055407727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055407726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.9, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6973557679765224719}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1055407728
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055407726}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 165
+  orthographic: 1
+  orthographic size: 104.5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 1048576
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 1808c1c8165f4fc4c9ef83403460cb6f, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &5392540130517398117
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +104,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1055407727}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57,13 +133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a750552e606d048a7306db9a1d2c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 3100153155850450629, guid: 0eaa83e816c7153468b3af95d3f23ff0, type: 3}
-  topRightCornerRoomPrefab: {fileID: 3848584594099886911, guid: 719f739dcf3ee0749a28fd47cd6ccf18, type: 3}
-  bottomLeftCornerRoomPrefab: {fileID: 565085066368813716, guid: d74223617a160784882ca6e9724bf8a0, type: 3}
-  leftColumnRoomPrefab: {fileID: 4814595759074515201, guid: 4acd722e6afb89144a85e07f9756eba7, type: 3}
-  rightColumnRoomPrefab: {fileID: 2684474037184533331, guid: 0ffaff31a2e063d4d83d35ea5c8101f9, type: 3}
-  bottomRowRoomPrefab: {fileID: 4286898721916287976, guid: 5893857ed640d6640beb4cf5e2c817b0, type: 3}
-  topRowRoomPrefab: {fileID: 8954846568772749312, guid: 7ea1fa69b998b92419605ea84acbb547, type: 3}
-  startRoomPrefab: {fileID: 3543569143708864123, guid: 3ea99d750e3639b4eb6279bf5bc34c07, type: 3}
-  endRoomPrefab: {fileID: 7424634987486067247, guid: 9d04bdb97d991174880d638600cd56be, type: 3}
-  camController: {fileID: 0}
+  roomPrefab: {fileID: 3100153155850450629, guid: 158030306bbed054d924d90fd4c3656c, type: 3}
+  endRoomPrefab: {fileID: 7424634987486067247, guid: d7f06cd7ac486834faf57bd4c6b53e25, type: 3}
+  miniMapCamera: {fileID: 1055407728}
+  spawnableEnemies:
+  - {fileID: 6504401682906475754, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
+  - {fileID: 2278889589388841408, guid: 945157bdd49c9334a843b5b055e5aa94, type: 3}
+  charger: {fileID: 466950281613140780, guid: d4bd18dac5b056e4ba41ff78b816b4bb, type: 3}
+  boss: {fileID: 0}

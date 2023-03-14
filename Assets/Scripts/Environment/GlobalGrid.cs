@@ -34,7 +34,7 @@ public class GlobalGrid : MonoBehaviour
     /// <summary>
     /// Global Tile Class - Holds data for each tile in the global grid
     /// </summary>
-    public class GlobalTile : MonoBehaviour
+    public class GlobalTile
     {
         [Header("The current position")]
         public Vector2 position;
@@ -95,7 +95,6 @@ public class GlobalGrid : MonoBehaviour
 
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -120,7 +119,7 @@ public class GlobalGrid : MonoBehaviour
             for (int j = 0; j < _size.y; j++)
             {
                 // creates a new tile at pos (i, j) in the grid
-                _grid[i, j] = new GlobalTile(iterationPosition);
+                _grid[i, j] = new GlobalTile (iterationPosition);
 
                 // iterates the y pos
                 iterationPosition.y -= tileScale;
@@ -360,17 +359,32 @@ public class GlobalGrid : MonoBehaviour
         }
     }
 
-    public Vector2 GetTile(Vector2 pos)
+    public Vector2 GetTile(Vector3 pos, out Vector2Int gridPos)
     {
-        return new Vector2(0, 0);
+        float bestDis = 10000;
+        Vector2 worldPos = new Vector2(0, 0);
+        gridPos = new Vector2Int(0, 0);
+        for(int x = 0; x < _size.x; x++)
+        {
+            for (int y = 0; y < _size.y; y++)
+            {
+               if(Vector2.Distance(_grid[x, y].position, pos) < bestDis)
+                {
+                    bestDis = Vector2.Distance(_grid[x, y].position, pos);
+                    worldPos = _grid[x, y].position;
+                    gridPos = new Vector2Int(x, y);
+                }
+            }
+        }
+        return worldPos;
     }
 
 
     /// <summary>
-    /// Places the given item in the room representing the index
+    /// Instantiates and places the given item in the room representing the index
     /// </summary>
     /// <param name="item">the item to be placed</param>
-    /// <param name="roomIndex">the index of the room, they </param>
+    /// <param name="roomIndex">the index of the room </param>
     public void PlaceIteminRoom(GameObject item, int roomIndex)
     {
         // grab the room being checked
@@ -378,20 +392,44 @@ public class GlobalGrid : MonoBehaviour
         // grab the center coordinates
         Vector2Int roomCoordinates = new Vector2Int(room[0], room[1]);
         // init empty list
-        List<int> freeTiles = new List<int>();
+        List<Vector2Int> freeTiles = new List<Vector2Int>();
         // get the top row, if there is a door above, dont include it
         for(int i = roomCoordinates.x - Mathf.FloorToInt(roomSize.x/2) - 1; i < roomCoordinates.x + Mathf.FloorToInt(roomSize.x / 2) - 1; i++)
         {
             if(!_grid[i, (roomCoordinates.y - roomSize.y/2) - 1].door)
             {
-                freeTiles.Add(i);
-                freeTiles.Add((roomCoordinates.y - roomSize.y / 2) - 2);
+                freeTiles.Add(new Vector2Int(i, (roomCoordinates.y - roomSize.y / 2) - 2));
             }
         }
-
-        Random.Range(0, freeTiles.Count);
+        int randomNum = Random.Range(0, freeTiles.Count);
         GameObject newItem = Instantiate(item);
-        newItem.transform.position = _grid[freeTiles[0], freeTiles[1]].position;
+        newItem.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
+    }
 
+    /// <summary>
+    /// Instantiates and places an enemy in the given indexed room
+    /// </summary>
+    /// <param name="enemy">the enemy to be placed</param>
+    /// <param name="roomIndex">the index of the room </param>
+    public void PlaceEnemyinRoom(GameObject enemy, int roomIndex)
+    {
+        // grab the room being checked
+        List<int> room = _roomCenters[roomIndex];
+        // grab the center coordinates
+        Vector2Int roomCoordinates = new Vector2Int(room[0], room[1]);
+        // init empty list
+        List<Vector2Int> freeTiles = new List<Vector2Int>();
+        // get the top row, if there is a door above, dont include it
+        for (int i = roomCoordinates.x - Mathf.FloorToInt(roomSize.x / 2) - 2; i < roomCoordinates.x + Mathf.FloorToInt(roomSize.x / 2) - 2; i++)
+        {
+            for(int j = roomCoordinates.y - Mathf.FloorToInt(roomSize.y/2) - 2; j < roomCoordinates.y + Mathf.FloorToInt(roomSize.y / 2) - 2; j++)
+            {
+                freeTiles.Add(new Vector2Int(i, j));
+            }
+
+        }
+        int randomNum = Random.Range(0, freeTiles.Count);
+        GameObject newEnemy = Instantiate(enemy);
+        newEnemy.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
     }
 }
