@@ -9,12 +9,9 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
-<<<<<<< Updated upstream
         ///<TODO> UPDATE BASE BALANCEVARIABLES HERE </TODO>
-=======
         AkSoundEngine.SetState("PlayerLife", "None");
         AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
->>>>>>> Stashed changes
     }
 
     /*
