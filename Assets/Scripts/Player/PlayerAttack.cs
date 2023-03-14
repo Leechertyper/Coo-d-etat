@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject projectilePrefab;
 
     //Damage of the laser
-    [SerializeField] private int _damage = 1;
+    [SerializeField] private int _damage = 10;
 
     //[SerializeField] private Text _ammoText;
 
