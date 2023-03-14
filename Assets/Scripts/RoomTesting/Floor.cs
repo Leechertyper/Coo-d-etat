@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -53,9 +54,15 @@ public class Floor : MonoBehaviour
         _camController = Camera.main.GetComponent<CameraController>();
         _floorXDimension = 3;
         _floorYDimension = 3;
-        SpawnRooms(_floorXDimension, _floorYDimension);
+        StartCoroutine(WaitForGrid());
     }
 
+
+    private IEnumerator WaitForGrid()
+    {
+        while (!GameManager.Instance.Grid.gridGenerated) yield return null;
+        SpawnRooms(_floorXDimension, _floorYDimension);
+    }
     /// <summary>
     /// Spawns a grid of rooms (r x c)
     /// </summary>
@@ -67,11 +74,6 @@ public class Floor : MonoBehaviour
         for (var _ = 0; _ < c; _++)
         {
             _rooms.Add(new List<Room>());
-        }
-
-        while (!GameManager.Instance.Grid.gridGenerated)
-        {
-            //We do a little waiting :)
         }
 
         for (var i = 0; i < r; i++)
