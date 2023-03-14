@@ -145,13 +145,13 @@ public class DroneAI : Enemy
         this.enabled = false;
     }
 
-    public void Awaken()
+    public override void Awaken()
     {
         _myState = state.Chase;
         StartCoroutine(_slowFire);
     }
 
-    public void Sleep()
+    public override void Sleep()
     {
         StopAllCoroutines();
         _myState = state.Pause;

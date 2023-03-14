@@ -193,4 +193,15 @@ public class DogAI : Enemy
         StopAllCoroutines();
         this.enabled = false;
     }
+
+    public override void Awaken()
+    {
+       
+    }
+
+    public override void Sleep()
+    {
+        StopAllCoroutines();
+        //_rb.velocity = Vector2.zero;
+    }
 }

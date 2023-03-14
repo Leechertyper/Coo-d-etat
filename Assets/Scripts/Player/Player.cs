@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         qRotation.eulerAngles = vRotation;
         Instantiate(hitParticles, this.transform.position, qRotation);
     }
-
+    
     public int GetHealth()
     {
         return _health;
