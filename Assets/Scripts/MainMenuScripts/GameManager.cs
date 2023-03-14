@@ -179,14 +179,14 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Balance");
         }
         else{
-            SceneManager.LoadScene("Alpha Main");
+            SceneManager.LoadScene(1);
         }
 
     }
 
     public void EndBalanceMenu(GameObject balanceMenu)
     {
-        SceneManager.LoadScene("Alpha Main");
+        SceneManager.LoadScene(1);
     }
 
     /*
