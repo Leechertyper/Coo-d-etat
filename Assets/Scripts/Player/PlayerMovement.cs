@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
         if (Vector2.Distance(previousPosition, rb.position) < 0.0001f)
         {
             ResetPlayerState();
-            Debug.Log("Rounding Player...");
+            //Debug.Log("Rounding Player...");
             RoundPlayerToNearestTile();
         }
     }
