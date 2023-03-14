@@ -6,7 +6,6 @@ public class Health : MonoBehaviour
 {
 
 
-    public int maxHealth = 100;
     public int health;
     public Color hurtColor;
     public GameObject[] deathEffects;
@@ -14,7 +13,7 @@ public class Health : MonoBehaviour
     public GameObject theDeathItems;
     private void Start()
     {
-        health = maxHealth;
+        health = Mathf.RoundToInt(BalanceVariables.droneEnemy["maxHealth"]);
 
         
     }
@@ -52,13 +51,13 @@ public class Health : MonoBehaviour
     {
         if(newHealth > 0)
         {
-            if(newHealth < maxHealth)
+            if(newHealth < BalanceVariables.droneEnemy["maxHealth"])
             {
                 health = newHealth;
             }
             else
             {
-                health = maxHealth;
+                health = Mathf.RoundToInt(BalanceVariables.droneEnemy["maxHealth"]);
             }
         }  
     }

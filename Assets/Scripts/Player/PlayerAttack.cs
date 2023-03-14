@@ -12,7 +12,6 @@ public class PlayerAttack : MonoBehaviour
     //For the players ammo
     private float _curAmmo = 100;
 
-    private float _maxAmmo = 100;
 
     private float _ammoPerShot = 2;
     // Input variable for shooting angle
@@ -27,7 +26,6 @@ public class PlayerAttack : MonoBehaviour
     //[SerializeField] private Text _ammoText;
 
     // Cooldown time for shooting projectiles
-    public float shootCooldown = 0.2f;
     private float shootTimer = 0f;
     public Vector2 direction;
     public float rotZ;
@@ -115,7 +113,7 @@ public class PlayerAttack : MonoBehaviour
                 //projectile.GetComponent<Projectile>().speed;
 
                 // Reset the shoot timer
-                shootTimer = shootCooldown;
+                shootTimer = BalanceVariables.player["attackSpeed"];
                 RemoveAmmo(_ammoPerShot);
                 Debug.Log("All ammo " + _curAmmo);
             }
@@ -145,16 +143,16 @@ public class PlayerAttack : MonoBehaviour
     {
         //Debug.Log("The added ammo is " + moreAmmo);
         _curAmmo += moreAmmo;
-        if(_curAmmo > _maxAmmo)
+        if(_curAmmo > BalanceVariables.player["_maxAmmo"])
         {
-            _curAmmo = _maxAmmo;
+            _curAmmo = BalanceVariables.player["_maxAmmo"];
         }
         UpdateAmmoUI();
     }
 
     public void MakeMaxAmmo()
     {
-        _curAmmo = _maxAmmo;
+        _curAmmo = BalanceVariables.player["_maxAmmo"];
         UpdateAmmoUI();
     }
 

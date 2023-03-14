@@ -7,21 +7,26 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
     private float _speed = 5f;
-    private int _maxHealth = 10;
+    private float _maxHealth = 100f;
     private float _health = 100f;
     private float _range = 1000f;
     private float _invulnTime = 1.1f;
     private bool _isInvuln = false;
+    private bool _healthChanging = false;
+    private bool _healthTrailChanging = false;
+
     [SerializeField] private Text _healthText;
     [SerializeField] private int _power;
     [SerializeField] private int _maxPower;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private Image healthTrail;
     [SerializeField] private AK.Wwise.RTPC _rtpc;
     //[SerializeField] private AK.Wwise.State _playerState;
 
     public Animation death;
     public GameObject hitParticles;
-
 
     private void Start()
     {
@@ -34,9 +39,31 @@ public class Player : MonoBehaviour
 
     }
 
-
     void Update()
     {
+        if (_healthChanging)
+        {
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / _maxHealth, 3f * Time.deltaTime);
+            if (Mathf.Round(healthBar.fillAmount * _maxHealth) == Mathf.Round(_health))
+            {
+                _healthChanging = false;
+                _healthTrailChanging = true;
+            }
+            else
+            {
+                _healthTrailChanging = false;
+            }
+        }
+
+        if (_healthTrailChanging)
+        {
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / _maxHealth, 5f * Time.deltaTime);
+            if (Mathf.Round(healthTrail.fillAmount * _maxHealth) == Mathf.Round(_health))
+            {
+                _healthTrailChanging = false;
+            }
+
+        }
         if (_isInvuln)
         {
             _invulnTime -= Time.deltaTime;
@@ -56,7 +83,7 @@ public class Player : MonoBehaviour
         {
 
             //StartCoroutine(subtractOverTime(damage, _health, 1f));
-            _health -= damage;
+            _health -= (int) damage;
             _rtpc.SetGlobalValue(_health);
             AkSoundEngine.PostEvent("Play_Pigeon_Hurt", this.gameObject);
             AkSoundEngine.PostEvent("Play_Pigeon_Coos", this.gameObject);
@@ -82,8 +109,7 @@ public class Player : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        _healthText.text = "HP " + _health/10 + "/" + _maxHealth;
-        Debug.Log("update health");
+        _healthChanging = true;
     }
 
     private void GotHit()
@@ -109,38 +135,38 @@ public class Player : MonoBehaviour
     public void AddHealth(int plusHealth)
     {
         _health += plusHealth;
-        if(_health > _maxHealth)
+        if(_health > BalanceVariables.player["_maxHealth"])
         {
-            _health = _maxHealth;
+            _health = BalanceVariables.player["_maxHealth"];
         }
         UpdateHealthUI();
     }
 
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
-        return _maxHealth;
+        return BalanceVariables.player["_maxHealth"];
     }
 
-    public void SetMaxHealth(int newMaxHealth)
+    public void SetMaxHealth(float newMaxHealth)
     {
-        _maxHealth = newMaxHealth;
+        BalanceVariables.player["_maxHealth"] = newMaxHealth;
         UpdateHealthUI();
     }
 
     public void MakeMaxHealth()
     {
-        _health = _maxHealth;
+        _health = BalanceVariables.player["_maxHealth"];
         UpdateHealthUI();
     }
 
     public float GetSpeed()
     {
-        return _speed;
+        return BalanceVariables.player["_speed"];
     }
 
     public void SetSpeed(float newSpeed)
     {
-        _speed = newSpeed;
+        BalanceVariables.player["_speed"] = newSpeed;
     }
     
     public int GetPower()
@@ -155,9 +181,9 @@ public class Player : MonoBehaviour
     public void IncreasePower(int powerAmount)
     {        
         _power += powerAmount;
-        if (_power > _maxPower)
+        if (_power > BalanceVariables.player["_maxPower"])
         {
-            _power = _maxPower;
+            _power = Mathf.RoundToInt(BalanceVariables.player["_maxPower"]);
         }
     }
     

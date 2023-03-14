@@ -93,10 +93,12 @@ public class GlobalGrid : MonoBehaviour
     // the current offset
     private Vector2Int _currentOffset = new Vector2Int(0,0);
 
+    public bool gridGenerated = false;
+
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // calculating the total size of the grid
         // start with the amount of rooms and the size of each one
@@ -264,7 +266,13 @@ public class GlobalGrid : MonoBehaviour
 
             index++;
         }
-        Debug.Log(GetRoomsAsString());
+
+
+        if (printGrid)
+        {
+            Debug.Log(GetRoomsAsString());
+        }
+        
     }
 
 

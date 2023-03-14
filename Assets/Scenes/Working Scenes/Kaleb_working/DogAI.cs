@@ -40,6 +40,7 @@ public class DogAI : Enemy
         animator.SetInteger("Direction", 2);
         _grid = GameManager.Instance.Grid;
         _grid.GetTile(transform.position, out _gridPos);
+        BalanceVariables.seenDictionaries["dogEnemy"] = true;
     }
 
     // Update is called once per frame

@@ -5,19 +5,12 @@ using UnityEngine;
 /*
  * Changable values for balance
  *  
- *  float moveSpeed - The speed of the Enemy
- *  float range - The range when the enemy will stop chaseing you
- *  float pauseTime - The time before the enemy will continue to chase you
+ *  float BalanceVariables.droneEnemy["moveSpeed"] - The speed of the Enemy
+ *  float BalanceVariables.droneEnemy["range"] - The BalanceVariables.droneEnemy["range"] when the enemy will stop chaseing you
+ *  float BalanceVariables.droneEnemy["pauseTime"] - The time before the enemy will continue to chase you
  */
 public class DroneAI : Enemy
 {
-    [Header("Movement")]
-    public float moveSpeed = 2f;
-    public float range = 3f;
-    public float pauseTime = 3;
-    [Header("Attack")]
-    public float slowShotCD = 1;
-    public float fastShotCD = 0.5f;
     public float angle;
     [Header("Components")]
     public ProjectileWeapon wp;
@@ -39,8 +32,10 @@ public class DroneAI : Enemy
         _myState = state.Chase;
         _rb = GetComponent<Rigidbody2D>();
         _target = GameObject.FindGameObjectWithTag("Player").transform;
-        _slowFire = TimedShoot(slowShotCD);
-        _fastFire = TimedShoot(fastShotCD);
+        _slowFire = TimedShoot(BalanceVariables.droneEnemy["slowShotCD"]);
+        _fastFire = TimedShoot(BalanceVariables.droneEnemy["fastShotCD"]);
+        
+        BalanceVariables.seenDictionaries["droneEnemy"] = true;
     }
 
     // Update is called once per frame
@@ -63,25 +58,25 @@ public class DroneAI : Enemy
                     Move(_moveDirection);
                 }
             }
-            if(Vector2.Distance(_target.position, transform.position) < range && _myState == state.Chase)
+            if(Vector2.Distance(_target.position, transform.position) < BalanceVariables.droneEnemy["range"] && _myState == state.Chase)
             {
                 _myState = state.Pause;
                 _rb.velocity = Vector2.zero;
                 StopCoroutine(_slowFire);
                 StartCoroutine(_fastFire);
-                Invoke("resumeChase", pauseTime);
+                Invoke("resumeChase", BalanceVariables.droneEnemy["pauseTime"]);
             }
         }
     }
 
     /// <summary>
-    /// Contunies to chase target if out of range
-    /// If in range invoke this function in 1 second (Recursive)
+    /// Contunies to chase target if out of BalanceVariables.droneEnemy["range"]
+    /// If in BalanceVariables.droneEnemy["range"] invoke this function in 1 second (Recursive)
     /// </summary>
     /// Note* Recursive function, will call itself untill it can chase again
     private void resumeChase()
     {
-        if (!(Vector2.Distance(_target.position, transform.position) < range))
+        if (!(Vector2.Distance(_target.position, transform.position) < BalanceVariables.droneEnemy["range"]))
         {
             _myState = state.Chase;
             StopCoroutine(_fastFire);
@@ -124,7 +119,7 @@ public class DroneAI : Enemy
     /// <param name="direction"> Vector2 direction for enemy to move</param>
     private void Move(Vector2 direction)
     {
-        _rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
+        _rb.velocity = new Vector2(direction.x, direction.y) * BalanceVariables.droneEnemy["moveSpeed"];
     }
 
     /// <summary>
@@ -173,15 +168,15 @@ public class DroneAI : Enemy
 
     public void ChangeMoveSpeed(float newMoveSpeed)
     {
-        moveSpeed = newMoveSpeed;
+        BalanceVariables.droneEnemy["moveSpeed"] = newMoveSpeed;
     }
 
     public void ChangeAttackSpeed(float newAttackSpeed)
     {
         
-        slowShotCD = newAttackSpeed;
+        BalanceVariables.droneEnemy["slowShotCD"] = newAttackSpeed;
 
-        fastShotCD = newAttackSpeed/2; // maybe there needs to be another fast shot var?
+        BalanceVariables.droneEnemy["fastShotCD"] = newAttackSpeed/2; // maybe there needs to be another fast shot var?
     }
 
 }

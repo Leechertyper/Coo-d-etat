@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
         ///<TODO> UPDATE BASE BALANCEVARIABLES HERE </TODO>
         AkSoundEngine.SetState("PlayerLife", "None");
         AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
+
     }
 
     /*

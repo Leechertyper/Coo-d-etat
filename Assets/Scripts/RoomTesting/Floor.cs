@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,7 +26,7 @@ public class Floor : MonoBehaviour
     private int _floorXDimension;
     private int _floorYDimension;
     
-    private List<List<Room>> _rooms;
+    public List<List<Room>> _rooms;
 
     [SerializeField] private GameObject roomPrefab;
     [SerializeField] private GameObject endRoomPrefab;
@@ -56,6 +57,12 @@ public class Floor : MonoBehaviour
         SpawnRooms(_floorXDimension, _floorYDimension);
     }
 
+
+    private IEnumerator WaitForGrid()
+    {
+        while (!GameManager.Instance.Grid.gridGenerated) yield return null;
+        FinishRoomSetup();
+    }
     /// <summary>
     /// Spawns a grid of rooms (r x c)
     /// </summary>
@@ -68,7 +75,7 @@ public class Floor : MonoBehaviour
         {
             _rooms.Add(new List<Room>());
         }
-        
+
         for (var i = 0; i < r; i++)
         {
             for (var j = 0; j < c; j++)
@@ -83,7 +90,13 @@ public class Floor : MonoBehaviour
             }
         }
         _rooms[0][0].SetRoomType(Room.RoomType.Start);
-        
+
+        StartCoroutine(WaitForGrid());
+    }
+
+
+    private void FinishRoomSetup()
+    {
         while (true)
         {
             var bossRoom = _rooms[Random.Range(0, 3)][Random.Range(0, 3)];
@@ -102,7 +115,7 @@ public class Floor : MonoBehaviour
             chargerRoom.SetRoomType(Room.RoomType.Charger);
             
             
-            GameManager.Instance.Grid.PlaceIteminRoom(charger, randomX+randomY);
+            GameManager.Instance.Grid.PlaceIteminRoom(charger, _floorXDimension* randomX + randomY);
             break;
         }
 
@@ -119,7 +132,8 @@ public class Floor : MonoBehaviour
                 {
                     var randomEnemy = spawnableEnemies[Random.Range(0, spawnableEnemies.Count)];
             
-                    GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,i+j);
+                    GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,_floorXDimension*i + j);
+                    _rooms[i][j].SpawnEnemy(randomEnemy.GetComponent<Enemy>()); 
                 }
             }
         }
@@ -130,8 +144,8 @@ public class Floor : MonoBehaviour
         _camController.MoveCameraToStart(_rooms[0][0].transform);
 
         var endRoom = Instantiate(endRoomPrefab,transform);
-        endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (c-1),
-            endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * r);
+        endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
+            endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
         //GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
         
         
@@ -181,7 +195,7 @@ public class Floor : MonoBehaviour
         var miniMapCamPos = new Vector3(middleRoom.x,middleRoom.y, -10);
         miniMapCamera.transform.position = miniMapCamPos;
     }
-
+    
     /// <summary>
     /// Moves the player and camera to the room above the current room
     /// </summary>

@@ -9,16 +9,16 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,float> droneBoss = new Dictionary<string,float>()
     {
         //found in DroneBoss.cs
-        {"maxHealth",1000f},
-        {"moveSpeed", 0.01f},
+        {"maxHealth",100f},
+        {"moveSpeed", 1f},
         {"timeBetweenMoves",5f},
         //found in explosion.cs
-        {"explostionDamage",50},
+        {"explosionDamage",2},
     };
     public static Dictionary<string,float> droneEnemy = new Dictionary<string,float>()
     {
         //found in Health.cs
-        {"maxHealth",10},
+        {"maxHealth",100},
         //found in DroneAI.cs
         {"moveSpeed",2f},
         {"range", 3f},
@@ -29,6 +29,19 @@ public class BalanceVariables : MonoBehaviour
         // or ProjectileWeapon.cs (fireForce?)
         {"lazerDamage",1},
     };
+
+    public static Dictionary<string,float> dogEnemy = new Dictionary<string,float>()
+    {
+        //found in Health.cs should have its own
+        {"maxHealth",100},
+        //nothing implemented
+        {"moveSpeed",2f},
+        {"range", 3f},
+        {"pauseTime",3},
+        {"slowShotCD",1},
+        {"fastShotCD",0.5f},
+        {"leapDistance",10f},
+    };
     public static Dictionary<string,float> player = new Dictionary<string,float>()
     {
         //found in player.cs
@@ -36,12 +49,12 @@ public class BalanceVariables : MonoBehaviour
         {"rotationSpeed", 15f},
         {"maxHealth",10},
         {"range", 1000f},
-        //power is damage
-        {"power", 0f},
-        //may remove???
-        {"maxPower", 0f},
+        {"maxPower", 10f},
+        //in PlayerAttack.cs
+        {"attackDamage",1f}, // this one is not implemented
+        {"maxAmmo", 10f},
+        {"attackSpeed", 0.2f},
         //Not currently implemented / dont know location
-        {"attackSpeed", 0f},
         {"battery", 0f},
     };
     public static Dictionary<string,float> collectables = new Dictionary<string,float>()
@@ -59,11 +72,13 @@ public class BalanceVariables : MonoBehaviour
     };
     public static Dictionary<string,float> other = new Dictionary<string,float>()
     {
-        //will be added to gamemanager
-        {"balancePointTimerSeconds",120},  
+        //found in PointBalanceTimer.cs
+        {"balancePointTimerSeconds",120},
+        //not implemented
         {"roomSpawnChance",0f},  
-        {"buffValue",1.1f},
-        {"nerfValue",0.9f}
+        //no longer needed? for now
+        // {"buffValue",1.1f},
+        // {"nerfValue",0.9f}
     };
 
     //mainly for knowing if they have been seen for balancing, dont need to be pushed to database
@@ -71,6 +86,7 @@ public class BalanceVariables : MonoBehaviour
     {
         {"player",true},  
         {"droneEnemy",false},  
+        {"dogEnemy",false},
         {"droneBoss",false},  
         {"collectables",true},  
         {"other",true},  
@@ -79,13 +95,13 @@ public class BalanceVariables : MonoBehaviour
     //mainly for balancing, dont need to be pushed to database
     public static List<string> dictionaryListStrings = new List<string>()
     {
-        "player", "droneEnemy", "droneBoss", "collectables", "other",
+        "player", "droneEnemy", "droneBoss", "dogEnemy",  "collectables", "other",
     };
 
     //mainly for balancing, dont need to be pushed to database
     public static List<Dictionary<string,float>> dictionaryList = new List<Dictionary<string,float>>()
     {
-        player, droneEnemy, droneBoss, collectables, other
+        player, droneEnemy, droneBoss, dogEnemy, collectables, other
     };
 
 }
