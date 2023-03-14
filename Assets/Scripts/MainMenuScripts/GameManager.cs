@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject balanceMenu;
 
-    public GameObject Grid;
+    public GlobalGrid Grid;
 
     public static GameManager Instance; // A static reference to the GameManager instance
     public static DatabaseManager dbInstance;

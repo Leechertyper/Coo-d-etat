@@ -27,6 +27,7 @@ public class DogAI : Enemy
 
     public override void Sleep()
     {
+        StopAllCoroutines();
         _awake = false;
     }
 
@@ -37,58 +38,60 @@ public class DogAI : Enemy
         _myState = state.Next;
         _target = GameObject.FindGameObjectWithTag("Player").transform;
         animator.SetInteger("Direction", 2);
-        _grid = GameManager.Instance.Grid.GetComponent<GlobalGrid>();
+        _grid = GameManager.Instance.Grid;
         _grid.GetTile(transform.position, out _gridPos);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_myState == state.Next)
-        {
-/*            if (Vector2.Distance(_target.transform.position, transform.position) > leapDistance)
+        if (_awake) {
+            if (_myState == state.Next)
             {
-                _myState = state.Leap;
-            }
-            else
-            {
+                /*            if (Vector2.Distance(_target.transform.position, transform.position) > leapDistance)
+                            {
+                                _myState = state.Leap;
+                            }
+                            else
+                            {
+                                _myState = state.Dash;
+                            }*/
+
                 _myState = state.Dash;
-            }*/
+            }
 
-           _myState = state.Dash;
-        }
-
-        if(_myState == state.Dash)
-        {
-            _myState = state.Wait;
-            _distX = _target.transform.position.x - transform.transform.position.x;
-            _distY = _target.transform.position.y - transform.transform.position.y;
-            if (Mathf.Abs(_distX) > Mathf.Abs(_distY))
+            if (_myState == state.Dash)
             {
-                if (_distX > 0)
+                _myState = state.Wait;
+                _distX = _target.transform.position.x - transform.transform.position.x;
+                _distY = _target.transform.position.y - transform.transform.position.y;
+                if (Mathf.Abs(_distX) > Mathf.Abs(_distY))
                 {
-                    StartCoroutine(Dash(1, 2));
+                    if (_distX > 0)
+                    {
+                        StartCoroutine(Dash(1, 2));
+                    }
+                    else
+                    {
+                        StartCoroutine(Dash(3, 2));
+                    }
                 }
                 else
                 {
-                    StartCoroutine(Dash(3, 2));
+                    if (_distY > 0)
+                    {
+                        StartCoroutine(Dash(0, 2));
+                    }
+                    else
+                    {
+                        StartCoroutine(Dash(2, 2));
+                    }
                 }
             }
-            else
+            if (_myState == state.Leap)
             {
-                if (_distY > 0)
-                {
-                    StartCoroutine(Dash(0, 2));
-                }
-                else
-                {
-                    StartCoroutine(Dash(2, 2));
-                }
+                StartCoroutine(LeapAtPlayer());
             }
-        }
-        if (_myState == state.Leap)
-        {
-            StartCoroutine(LeapAtPlayer());
         }
     }
 
