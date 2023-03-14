@@ -6,7 +6,6 @@ public class explosion : MonoBehaviour
 {
     [SerializeField] private GameObject parent;
 
-    [SerializeField] private int damage = 2;
 
     private int _updateIterator = 0;
 
@@ -50,7 +49,7 @@ public class explosion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().TakeDamage(damage);
+            collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.droneBoss["explosionDamage"]);
         }
     }
 
