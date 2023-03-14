@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -56,6 +57,12 @@ public class Floor : MonoBehaviour
         SpawnRooms(_floorXDimension, _floorYDimension);
     }
 
+
+    private IEnumerator WaitForGrid()
+    {
+        while (!GameManager.Instance.Grid.gridGenerated) yield return null;
+        FinishRoomSetup();
+    }
     /// <summary>
     /// Spawns a grid of rooms (r x c)
     /// </summary>
@@ -67,11 +74,6 @@ public class Floor : MonoBehaviour
         for (var _ = 0; _ < c; _++)
         {
             _rooms.Add(new List<Room>());
-        }
-
-        while (!GameManager.Instance.Grid.gridGenerated)
-        {
-            //We do a little waiting :)
         }
 
         for (var i = 0; i < r; i++)
@@ -88,7 +90,13 @@ public class Floor : MonoBehaviour
             }
         }
         _rooms[0][0].SetRoomType(Room.RoomType.Start);
-        
+
+        StartCoroutine(WaitForGrid());
+    }
+
+
+    private void FinishRoomSetup()
+    {
         while (true)
         {
             var bossRoom = _rooms[Random.Range(0, 3)][Random.Range(0, 3)];
@@ -136,8 +144,8 @@ public class Floor : MonoBehaviour
         _camController.MoveCameraToStart(_rooms[0][0].transform);
 
         var endRoom = Instantiate(endRoomPrefab,transform);
-        endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (c-1),
-            endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * r);
+        endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
+            endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
         //GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
         
         
@@ -187,7 +195,7 @@ public class Floor : MonoBehaviour
         var miniMapCamPos = new Vector3(middleRoom.x,middleRoom.y, -10);
         miniMapCamera.transform.position = miniMapCamPos;
     }
-
+    
     /// <summary>
     /// Moves the player and camera to the room above the current room
     /// </summary>
