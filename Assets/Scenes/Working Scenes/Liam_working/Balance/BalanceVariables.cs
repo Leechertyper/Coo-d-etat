@@ -18,10 +18,10 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,float> droneEnemy = new Dictionary<string,float>()
     {
         //found in Health.cs
-        {"maxHealth",100},
+        {"maxHealth",10},
         //found in DroneAI.cs
         {"moveSpeed",2f},
-        {"range", 3f},
+        {"range", 8f},
         {"pauseTime",3},
         {"slowShotCD",1},
         {"fastShotCD",0.5f},
@@ -40,7 +40,7 @@ public class BalanceVariables : MonoBehaviour
         {"pauseTime",3},
         {"slowShotCD",1},
         {"fastShotCD",0.5f},
-        {"leapDistance",10f},
+        {"leapDistance",15f},
     };
     public static Dictionary<string,float> player = new Dictionary<string,float>()
     {

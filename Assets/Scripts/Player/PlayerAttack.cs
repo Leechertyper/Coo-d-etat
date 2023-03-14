@@ -14,6 +14,7 @@ public class PlayerAttack : MonoBehaviour
     private float _maxAmmo = 100;
 
     private float _ammoPerShot = 2;
+    private float _lazerSpeed = 25;
     // Input variable for shooting angle
     private float angle;
 
@@ -80,35 +81,6 @@ public class PlayerAttack : MonoBehaviour
         {
             
             ShootProjectile(direction);
-            
-
-
-
-
-        }
-        // Check if the arrow keys are being pressed, and shoot projectiles in the corresponding direction
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            angle = 0f;
-            ShootProjectile(Vector2.up);
-
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            angle = 180f;
-            ShootProjectile(Vector2.down);
-
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            angle = 90f;
-            ShootProjectile(Vector2.left);
-
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            angle = -90f;
-            ShootProjectile(Vector2.right);
 
         }
 
@@ -132,7 +104,7 @@ public class PlayerAttack : MonoBehaviour
 
                 // Set the velocity of the projectile to the specified direction
                 Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-                projectileRb.velocity = direction * 10;
+                projectileRb.AddForce(projectile.transform.up * _lazerSpeed, ForceMode2D.Impulse);
                 //projectile.GetComponent<Projectile>().speed;
 
                 // Reset the shoot timer

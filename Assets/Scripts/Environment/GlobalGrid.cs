@@ -479,4 +479,12 @@ public class GlobalGrid : MonoBehaviour
 
         return newEnemy;
     }
+
+    public void PlaceBossinRoom(GameObject boss, int roomIndex)
+    {
+        // grab the room being checked
+        List<int> room = _roomCenters[roomIndex];
+        GameObject newEnemy = Instantiate(boss);
+        newEnemy.transform.position = _grid[room[0], room[1]].position;
+    }
 }

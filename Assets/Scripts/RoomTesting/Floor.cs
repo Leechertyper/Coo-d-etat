@@ -103,9 +103,13 @@ public class Floor : MonoBehaviour
     {
         while (true)
         {
-            var bossRoom = _rooms[Random.Range(0, 3)][Random.Range(0, 3)];
+            var randomX = Random.Range(0, 3);
+            var randomY = Random.Range(0, 3);
+            var bossRoom = _rooms[randomX][randomY];
             if (bossRoom.roomHasBeenInitialized || bossRoom == _rooms[0][0]) continue;
             bossRoom.SetRoomType(Room.RoomType.Boss);
+           
+            GameManager.Instance.Grid.PlaceBossinRoom(boss, _floorXDimension * randomX + randomY);
             break;
         }
         
