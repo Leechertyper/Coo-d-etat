@@ -148,9 +148,9 @@ public class DroneBoss : MonoBehaviour
         {
             for(int j = 0; j < grid.Grid.GetLength(1); j++)
             {
-                if(distance > Vector2.Distance(player.transform.position, _grid[i, j].GetPosAsVector()))
+                if(distance > Vector2.Distance(GameManager.Instance.GetPlayerObject().transform.position, _grid[i, j].GetPosAsVector()))
                 {
-                    distance = Vector2.Distance(player.transform.position, _grid[i, j].GetPosAsVector());
+                    distance = Vector2.Distance(GameManager.Instance.GetPlayerObject().transform.position, _grid[i, j].GetPosAsVector());
                     target = _grid[i, j];
                     posInGrid = new Vector2(i, j);
                 }
@@ -237,7 +237,6 @@ public class DroneBoss : MonoBehaviour
         if(_currentHealth <= 0)
         {
             StopAllCoroutines();
-            grid.GetComponent<Animator>().SetBool("BossDead", true);
             GameObject key = Instantiate(keycard);
             key.transform.position = transform.position;
             StartCoroutine(Death());
@@ -299,7 +298,7 @@ public class DroneBoss : MonoBehaviour
     IEnumerator Death()
     {
         yield return new WaitForSeconds(1);
-        Destroy(grid.gameObject);
+        Destroy(gameObject);
     }
     IEnumerator LerpFunction(Vector2 endValue, float duration)
     {
