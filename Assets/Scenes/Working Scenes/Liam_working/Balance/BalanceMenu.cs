@@ -69,11 +69,16 @@ public class BalanceMenu : MonoBehaviour
     */
     public void ConfirmSelection()
     {
+        Dictionary<string,float> dict = null;
         foreach (Transform child in sliderContent.transform) 
         {
             if (child != null && child.GetComponent<BalanceSlider>() != null && child.GetComponent<BalanceSlider>().dictionaryKey != "General")
             {
                 GameManager.Instance.BalanceValue(child.GetComponent<BalanceSlider>().dictionary,child.GetComponent<BalanceSlider>().dictionaryKey, child.GetComponent<BalanceSlider>().value);
+                if(child.GetComponent<BalanceSlider>().dictionary!= dict)
+                {
+                    dict = child.GetComponent<BalanceSlider>().dictionary;
+                }
             }
         }
         if(PointBalanceTimer.Instance.counter >0)
@@ -83,6 +88,11 @@ public class BalanceMenu : MonoBehaviour
         else
         {
             ///<TODO> call database saving </TODO>
+
+            foreach (KeyValuePair<string, float> kvp in dict)
+            {
+                GameManager.dbInstance.UpdateValue(kvp.Key, kvp.Value);
+            }
             ResumeGame();
         }
     }

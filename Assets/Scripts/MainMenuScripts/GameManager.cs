@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject Grid;
 
     public static GameManager Instance; // A static reference to the GameManager instance
+    public static DatabaseManager dbInstance;
 
     void Awake()
     {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject); // Keep the GameObject, this component is attached to, across different scenes
             Instance = this;
+            dbInstance = this.gameObject.GetComponent<DatabaseManager>();
         }
         else if (Instance != this) // If there is already an instance and it's not `this` instance
         {
