@@ -11,6 +11,7 @@ public class StandingItem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AkSoundEngine.PostEvent("Play_Heal", this.gameObject);
             itemEffect.Apply(collision.gameObject);
         }
     }

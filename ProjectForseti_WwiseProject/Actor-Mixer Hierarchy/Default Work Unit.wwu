@@ -1260,6 +1260,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Heal" ID="{CE5025E1-1E72-4A08-9CF3-57E50E9C0BB2}" ShortID="966908537">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>

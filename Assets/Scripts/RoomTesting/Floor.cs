@@ -27,7 +27,7 @@ public class Floor : MonoBehaviour
     private int _floorYDimension;
     public List<List<Room>> _rooms;
     public Room.RoomType currentRoomType;
-    public int currentRoom;
+    public Vector2Int currentRoom;
 
 
 
@@ -54,10 +54,12 @@ public class Floor : MonoBehaviour
 
     private void Start()
     {
+        AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
         _camController = Camera.main.GetComponent<CameraController>();
         _floorXDimension = 3;
         _floorYDimension = 3;
         SpawnRooms(_floorXDimension, _floorYDimension);
+        changeTheme();
     }
 
 
@@ -159,7 +161,8 @@ public class Floor : MonoBehaviour
 
         _camController.MoveCameraToStart(_rooms[0][0].transform);
         currentRoomType = _rooms[0][0].roomType;
-        currentRoom = 0;
+        currentRoom = new Vector2Int(0, 0);
+        changeTheme();
         var endRoom = Instantiate(endRoomPrefab,transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
             endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
@@ -224,8 +227,9 @@ public class Floor : MonoBehaviour
         Debug.Log("Changing position = " + player.transform.position.y);
         player.transform.position = newPlayerLocation;*/
         _camController.MoveUp();
-        currentRoom += -3;
-        currentRoomType = _rooms[currentRoom][0].roomType;
+        currentRoom += new Vector2Int(-1, 0);
+        currentRoomType = _rooms[currentRoom.x][0].roomType;
+        changeTheme();
         Debug.Log(currentRoom);
         Debug.Log(currentRoomType);
     }
@@ -241,8 +245,9 @@ public class Floor : MonoBehaviour
         Debug.Log("Changing position = " + player.transform.position.y);
         player.transform.position = newPlayerLocation;*/
         _camController.MoveDown();
-        currentRoom += 3;
-        currentRoomType = _rooms[currentRoom][0].roomType;
+        currentRoom += new Vector2Int(1, 0);
+        currentRoomType = _rooms[currentRoom.x][currentRoom.y].roomType;
+        changeTheme();
         Debug.Log(currentRoom);
         Debug.Log(currentRoomType);
     }
@@ -258,8 +263,9 @@ public class Floor : MonoBehaviour
         Debug.Log("Changing position = " + player.transform.position.x);
         player.transform.position = newPlayerLocation;*/
         _camController.MoveRight();
-        currentRoom += 1;
-        currentRoomType = _rooms[currentRoom][0].roomType;
+        currentRoom += new Vector2Int(0, 1);
+        currentRoomType = _rooms[currentRoom.x][currentRoom.y].roomType;
+        changeTheme();
         Debug.Log(currentRoom);
         Debug.Log(currentRoomType);
     }
@@ -275,10 +281,33 @@ public class Floor : MonoBehaviour
         Debug.Log("Changing position = " + player.transform.position.x);
         player.transform.position = newPlayerLocation;*/
         _camController.MoveLeft();
-        currentRoom += -1;
-        currentRoomType = _rooms[currentRoom][0].roomType;
+        currentRoom += new Vector2Int(0, -1);
+        currentRoomType = _rooms[currentRoom.x][currentRoom.y].roomType;
+        changeTheme();
         Debug.Log(currentRoom);
         Debug.Log(currentRoomType);
     }
-    
+
+    public void changeTheme()
+    {
+        switch (currentRoomType)
+        {
+            case Room.RoomType.Start:
+                AkSoundEngine.SetState("Music_State", "Objective_Room");
+                break;
+            case Room.RoomType.Boss:
+                AkSoundEngine.SetState("Music_State", "Boss_Room");
+                break;
+            case Room.RoomType.Charger:
+                AkSoundEngine.SetState("Music_State", "Mystery_Room");
+                break;
+            case Room.RoomType.Enemy:
+                AkSoundEngine.SetState("Music_State", "Normal_Room");
+                break;
+            default:
+                AkSoundEngine.SetState("Music_State", "None");
+
+                break;
+        }
+    }
 }
