@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -21,8 +20,8 @@ public class Room : MonoBehaviour
     [SerializeField] private GameObject bossRoomSprite;
 
     private bool _hasBeenCleared;
-    [SerializeField] private RoomType roomType;
-    [DoNotSerialize] public bool roomHasBeenInitialized;
+    public RoomType roomType { get; private set; }
+    public bool roomHasBeenInitialized;
 
     private List<Enemy> _enemies;
 
