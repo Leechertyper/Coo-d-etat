@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 353d369749b7b154a8d2033fafc762a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fd690fafcb671a4fbde33566d0448cc, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 353d369749b7b154a8d2033fafc762a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fd690fafcb671a4fbde33566d0448cc, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -199,7 +199,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2266270020640335027}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -211,7 +211,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &947550787850258265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,10 +222,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07988751, y: 0}
+  m_Offset: {x: -0.07988751, y: -0.0066365004}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -236,7 +236,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6271918, y: 3}
+  m_Size: {x: 2.6271918, y: 2.7478135}
   m_EdgeRadius: 0
 --- !u!114 &947550787850258267
 MonoBehaviour:
@@ -278,9 +278,9 @@ MonoBehaviour:
   _rtpc:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: a6d541285a4142045878bea40498eba3, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 0b16e63dbd0087245985873b9cba2106, type: 2}
   death: {fileID: 0}
-  hitParticles: {fileID: 0}
+  hitParticles: {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
 --- !u!114 &5324567830572157412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 353d369749b7b154a8d2033fafc762a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fd690fafcb671a4fbde33566d0448cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -441,7 +441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 353d369749b7b154a8d2033fafc762a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fd690fafcb671a4fbde33566d0448cc, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 353d369749b7b154a8d2033fafc762a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fd690fafcb671a4fbde33566d0448cc, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 353d369749b7b154a8d2033fafc762a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fd690fafcb671a4fbde33566d0448cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 8343657424115867566}
   m_Layer: 0
   m_Name: PlayerAnimation
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -888,7 +888,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fa5fd8ed26e3c944081bdda3f6f955f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
