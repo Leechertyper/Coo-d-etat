@@ -65,7 +65,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 1048576
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 1808c1c8165f4fc4c9ef83403460cb6f, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 0d6f14e3e4bb2f34aa22cd4fdd6d5ed5, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -133,11 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a750552e606d048a7306db9a1d2c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 3100153155850450629, guid: 158030306bbed054d924d90fd4c3656c, type: 3}
-  endRoomPrefab: {fileID: 7424634987486067247, guid: d7f06cd7ac486834faf57bd4c6b53e25, type: 3}
+  roomPrefab: {fileID: 3100153155850450629, guid: 0eaa83e816c7153468b3af95d3f23ff0, type: 3}
+  startRoomPrefab: {fileID: 3543569143708864123, guid: 3ea99d750e3639b4eb6279bf5bc34c07, type: 3}
+  endRoomPrefab: {fileID: 7424634987486067247, guid: 9d04bdb97d991174880d638600cd56be, type: 3}
   miniMapCamera: {fileID: 1055407728}
-  spawnableEnemies:
-  - {fileID: 6504401682906475754, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
-  - {fileID: 2278889589388841408, guid: 945157bdd49c9334a843b5b055e5aa94, type: 3}
-  charger: {fileID: 466950281613140780, guid: d4bd18dac5b056e4ba41ff78b816b4bb, type: 3}
-  boss: {fileID: 0}
+  numberOfKeyRooms: 1
+  numberOfBossRooms: 1

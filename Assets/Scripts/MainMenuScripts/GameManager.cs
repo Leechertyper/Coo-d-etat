@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject balanceMenu;
 
-    public GameObject Grid;
+    public GlobalGrid Grid;
 
     public static GameManager Instance; // A static reference to the GameManager instance
     public static DatabaseManager dbInstance;
@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
             dbInstance = this.gameObject.GetComponent<DatabaseManager>();
             foreach(Dictionary<string,float> dict in BalanceVariables.dictionaryList)
             {
-                foreach(string key in dict.Keys)
+                List<string> keys = new List<string>(dict.Keys);
+                foreach(string key in keys)
                 {
                     dict[key] = dbInstance.GetValue(key);
                 }
