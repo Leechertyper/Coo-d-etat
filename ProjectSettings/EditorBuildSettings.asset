@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Working Scenes/Liam_working/Balance/Balance.unity
     guid: cf8cbd9524d5de94db3b75bc566cdc6c
+  - enabled: 1
+    path: Assets/Scenes/Working Scenes/Liam_working/DeathScreen/GameOver.unity
+    guid: bce3da4a0ed57b145baa76adecc1ef07
   m_configObjects: {}

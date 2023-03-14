@@ -148,8 +148,17 @@ public class GameManager : MonoBehaviour
 
 
     public void OnPlayerDeath(){
-        Debug.Log("GameManagerScript: Warning - Calling OnPlayerDeath when it is not implemented");
-        StartBalanceMenu();
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void GoToNextFloor(){
+        if (PointBalanceTimer.Instance.counter > 0)
+        {
+            StartBalanceMenu();
+        }
+        else{
+            //load next floor here
+        }
     }
 
      public GameObject GetPlayerObject()
@@ -174,14 +183,7 @@ public class GameManager : MonoBehaviour
     */
     public void StartBalanceMenu()
     {
-        if (PointBalanceTimer.Instance.counter > 0)
-        {
-            SceneManager.LoadScene("Balance");
-        }
-        else{
-            SceneManager.LoadScene(1);
-        }
-
+        SceneManager.LoadScene("Balance");
     }
 
     public void EndBalanceMenu(GameObject balanceMenu)
