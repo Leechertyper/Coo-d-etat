@@ -95,6 +95,8 @@ public class GlobalGrid : MonoBehaviour
 
     public bool gridGenerated = false;
 
+    [SerializeField] GameObject testTile;
+
 
 
     // Start is called before the first frame update
@@ -122,6 +124,8 @@ public class GlobalGrid : MonoBehaviour
             {
                 // creates a new tile at pos (i, j) in the grid
                 _grid[i, j] = new GlobalTile (iterationPosition);
+                GameObject newTile = Instantiate(testTile);
+                newTile.transform.position = _grid[i, j].position;
 
                 // iterates the y pos
                 iterationPosition.y -= tileScale;
@@ -143,6 +147,9 @@ public class GlobalGrid : MonoBehaviour
                 _t.Add(j);
                 _t.Add(i);
 
+                GameObject newTile = Instantiate(testTile);
+                newTile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+                newTile.transform.position = _grid[j, i].position;
 
                 // add the temp list into the room centers list
                 _roomCenters.Add(_t);
@@ -272,6 +279,8 @@ public class GlobalGrid : MonoBehaviour
         {
             Debug.Log(GetRoomsAsString());
         }
+
+        gridGenerated = true;
         
     }
 

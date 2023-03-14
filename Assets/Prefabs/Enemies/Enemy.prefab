@@ -41,12 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6504401682517071478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64c950a8c4c32a1418ad8db819a654d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a80707a18aeaae4d94cfde069943405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 4948620444085675658, guid: 63e5652d22f462144b74f7cc70af051c, type: 3}
   anchorPoint: {fileID: 6504401682517071477}
-  fireForce: 12
 --- !u!1 &6504401682906475754
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +59,7 @@ GameObject:
   - component: {fileID: 6504401682906475758}
   - component: {fileID: 6504401682906475757}
   - component: {fileID: 6504401682906475759}
-  - component: {fileID: 6504401682906475747}
+  - component: {fileID: 5500016620284516715}
   - component: {fileID: 4271788366279071293}
   - component: {fileID: -89984141621405173}
   - component: {fileID: 8426053472791398305}
@@ -195,19 +194,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6504401682906475754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba55432194ac1148aa466ce1bbf6fab, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b0d7ee1dcfba19489f32ce6d318c4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  range: 3.5
-  pauseTime: 3
-  slowShotCD: 1
-  fastShotCD: 0.3
   angle: 0
   wp: {fileID: 6504401682517071467}
-  hp: {fileID: 6504401682906475747}
+  hp: {fileID: 5500016620284516715}
   animator: {fileID: 4271788366279071293}
---- !u!114 &6504401682906475747
+--- !u!114 &5500016620284516715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,17 +210,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6504401682906475754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 709df2d7e169e8a4d8eea62c483c2609, type: 3}
+  m_Script: {fileID: 11500000, guid: b1192c88dd8088a428afe962fde587d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  health: 0
-  hurtColor: {r: 1, g: 0.495283, b: 0.495283, a: 1}
-  deathEffects:
-  - {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
-  - {fileID: 6192724089161036641, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
-  - {fileID: 8038344524183138613, guid: 0277167a12290af47801444830a2be97, type: 3}
-  theDeathItems: {fileID: 2887637984562674970, guid: cff8afb325b205346b551f5590444fdc, type: 3}
+  health: 100
+  hurtColor: {r: 0, g: 0, b: 0, a: 0}
+  deathEffects: []
+  theDeathItems: {fileID: 0}
 --- !u!95 &4271788366279071293
 Animator:
   serializedVersion: 5

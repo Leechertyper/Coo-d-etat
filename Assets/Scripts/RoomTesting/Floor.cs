@@ -60,7 +60,12 @@ public class Floor : MonoBehaviour
 
     private IEnumerator WaitForGrid()
     {
-        while (!GameManager.Instance.Grid.gridGenerated) yield return null;
+        while (!GameManager.Instance.Grid.gridGenerated)
+        {
+            Debug.Log(GameManager.Instance.Grid.gridGenerated);
+            yield return null;
+        }
+        Debug.Log("Spawner Ready");
         FinishRoomSetup();
     }
     /// <summary>
@@ -91,6 +96,7 @@ public class Floor : MonoBehaviour
         }
         _rooms[0][0].SetRoomType(Room.RoomType.Start);
 
+        Debug.Log("Starting Grid Wait");
         StartCoroutine(WaitForGrid());
     }
 
