@@ -11,9 +11,12 @@ public class Health : MonoBehaviour
     public Color hurtColor;
     public GameObject[] deathEffects;
 
+    public GameObject theDeathItems;
     private void Start()
     {
         health = maxHealth;
+
+        
     }
 
     /// <summary>
@@ -103,5 +106,7 @@ public class Health : MonoBehaviour
         var deathExplosion = Instantiate(deathEffects[0], transform.position, transform.rotation);
         Destroy(deathExplosion,1.5f);
         Destroy(gameObject);
+        theDeathItems.GetComponent<deathItems>().SpawnItem(transform.position);
+
     }
 }

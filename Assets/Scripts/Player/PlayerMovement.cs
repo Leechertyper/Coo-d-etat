@@ -26,9 +26,20 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 direction;
 
+    //public GlobalGrid theGrid = GameManager.Instance.Grid.GetComponent<GlobalGrid>();
+
+    public Vector2Int startInt;
+
+    public Vector2Int curPlace;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+       startInt = new Vector2Int(8,4);
+
+        //theGrid.MoveToTile(this.gameObject,startInt,startInt);
     }
 
     void Update()
@@ -97,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isMoving)
         {
+            // Debug.Log("MOVING");
             float moveSpeed = speed;
             if (dashing)
             {
@@ -108,10 +120,13 @@ public class PlayerMovement : MonoBehaviour
             Vector2 currentPosition = rb.position;
             Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, moveSpeed * Time.fixedDeltaTime);
             rb.MovePosition(newPosition);
-
+            //theGrid.MoveToTile(this.gameObject,new Vector2Int(),newPosition);
             // Calculate the movement direction
             Vector2 movementDirection = newPosition - currentPosition;
 
+            //theGrid.MoveToTile(this.gameObject, )
+           // theGrid.MoveToTile(this.gameObject,curPlace,curPlace + new Vector2Int(0,1));
+            curPlace += new Vector2Int(0,1);
             // Set the animator parameters
             animator.SetFloat("Horizontal", movementDirection.x * 5);
             animator.SetFloat("Vertical", movementDirection.y * 5);
