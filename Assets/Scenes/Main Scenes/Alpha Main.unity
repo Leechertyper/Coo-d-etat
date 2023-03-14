@@ -315,6 +315,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3887740735061799588, guid: 043b2383659a9bb4a89832d17728aa54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3887740735743432519, guid: 043b2383659a9bb4a89832d17728aa54, type: 3}
       propertyPath: m_Name
       value: TempHUD
@@ -556,7 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6973557679765224719, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.5
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6973557679765224719, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: m_LocalPosition.z

@@ -7,25 +7,49 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private float _speed = 5f;
-    private int _maxHealth = 10;
-    private int _health = 10;
+    private int _maxHealth = 100;
+    private int _health = 100;
     private float _range = 1000f;
     private float _invulnTime = 1.1f;
     private bool _isInvuln = false;
+    private bool _healthChanging = false;
+    private bool _healthTrailChanging = false;
+
     [SerializeField] private Text _healthText;
     [SerializeField] private int _power;
     [SerializeField] private int _maxPower;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private Image healthTrail;
+
 
     public Animation death;
     public GameObject hitParticles;
     
-
-   
-
-
-
     void Update()
     {
+        if (_healthChanging)
+        {
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / _maxHealth, 3f * Time.deltaTime);
+            if (Mathf.Round(healthBar.fillAmount * _maxHealth) == Mathf.Round(_health))
+            {
+                _healthChanging = false;
+                _healthTrailChanging = true;
+            }
+            else
+            {
+                _healthTrailChanging = false;
+            }
+        }
+
+        if (_healthTrailChanging)
+        {
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / _maxHealth, 5f * Time.deltaTime);
+            if (Mathf.Round(healthTrail.fillAmount * _maxHealth) == Mathf.Round(_health))
+            {
+                _healthTrailChanging = false;
+            }
+
+        }
         if (_isInvuln)
         {
             _invulnTime -= Time.deltaTime;
