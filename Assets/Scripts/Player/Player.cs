@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     {
         AkSoundEngine.SetState("PlayerLife", "Alive");
         AkSoundEngine.SetState("Music_State", "Normal_Room");
-        AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
+        //AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
 
         _rtpc.SetGlobalValue(_health);
         AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
