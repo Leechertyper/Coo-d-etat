@@ -25,7 +25,7 @@ public class Floor : MonoBehaviour
     private int _floorXDimension;
     private int _floorYDimension;
     
-    private List<List<Room>> _rooms;
+    public List<List<Room>> _rooms;
 
     [SerializeField] private GameObject roomPrefab;
     [SerializeField] private GameObject endRoomPrefab;
@@ -102,7 +102,7 @@ public class Floor : MonoBehaviour
             chargerRoom.SetRoomType(Room.RoomType.Charger);
             
             
-            GameManager.Instance.Grid.PlaceIteminRoom(charger, randomX+randomY);
+            GameManager.Instance.Grid.PlaceIteminRoom(charger, _floorXDimension* randomX + randomY);
             break;
         }
 
@@ -119,7 +119,8 @@ public class Floor : MonoBehaviour
                 {
                     var randomEnemy = spawnableEnemies[Random.Range(0, spawnableEnemies.Count)];
             
-                    GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,i+j);
+                    GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,_floorXDimension*i + j);
+                    _rooms[i][j].SpawnEnemy(randomEnemy.GetComponent<Enemy>()); 
                 }
             }
         }

@@ -83,11 +83,10 @@ public class BalanceMenu : MonoBehaviour
         }
         else
         {
-            ///<TODO> call database saving </TODO>
-
+            string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dict)];
             foreach (KeyValuePair<string, float> kvp in dict)
             {
-                GameManager.dbInstance.UpdateValue(kvp.Key, kvp.Value);
+                GameManager.dbInstance.UpdateValue(dictName + char.ToUpper(kvp.Key[0])+kvp.Key, kvp.Value);
             }
             ResumeGame();
         }
