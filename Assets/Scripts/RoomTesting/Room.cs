@@ -107,8 +107,11 @@ public class Room : MonoBehaviour
         bottomWallPiece.SetActive(true);
         bottomDoorCollider.SetActive(false);
     }
-    
-    
+
+    public void SpawnEnemy(Enemy newEnemy)
+    {
+        _enemies.Add(newEnemy);
+    }
     
     /// <summary>
     /// Initializes everything to do with the room, but for now it just sets up the doors

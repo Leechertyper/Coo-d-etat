@@ -120,6 +120,7 @@ public class Floor : MonoBehaviour
                     var randomEnemy = spawnableEnemies[Random.Range(0, spawnableEnemies.Count)];
             
                     GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,_floorXDimension*i + j);
+                    _rooms[i][j].SpawnEnemy(randomEnemy.GetComponent<Enemy>()); 
                 }
             }
         }
