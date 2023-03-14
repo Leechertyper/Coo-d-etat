@@ -405,27 +405,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 043b2383659a9bb4a89832d17728aa54, type: 3}
---- !u!1 &1532106255 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 205730632174011306, guid: 52754418ab76ed9409cfe57b19aa6b1a, type: 3}
-  m_PrefabInstance: {fileID: 350138840}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1532106258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532106255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117a5ae4221a6a94e852731ca86e2535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Host: db.cs.usask.ca
-  User: coo_d_etat_user
-  Password: 2kkj23hvuiio32hlasjvkaf
-  Database: coo_d_etat
 --- !u!1 &1532740459
 GameObject:
   m_ObjectHideFlags: 0
