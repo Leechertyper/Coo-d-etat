@@ -9,7 +9,6 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
-        ///<TODO> UPDATE BASE BALANCEVARIABLES HERE </TODO>
     }
 
     /*

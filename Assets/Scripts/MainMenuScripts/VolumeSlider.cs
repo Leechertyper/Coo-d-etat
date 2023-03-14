@@ -12,6 +12,6 @@ public class VolumeSlider : MonoBehaviour
     */
     public void SetValuetext(float newVolumeLevel)
     {
-        volumeLevel.text = newVolumeLevel.ToString();
+        volumeLevel.text = newVolumeLevel.ToString() + "%";
     }
 }
