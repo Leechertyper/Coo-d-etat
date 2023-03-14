@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
             dbInstance = this.gameObject.GetComponent<DatabaseManager>();
             foreach(Dictionary<string,float> dict in BalanceVariables.dictionaryList)
             {
-                foreach(string key in dict.Keys)
+                List<string> keys = new List<string>(dict.Keys);
+                foreach(string key in keys)
                 {
                     dict[key] = dbInstance.GetValue(key);
                 }
