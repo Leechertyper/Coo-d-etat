@@ -98,7 +98,7 @@ public class GlobalGrid : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         // calculating the total size of the grid
         // start with the amount of rooms and the size of each one
@@ -387,6 +387,24 @@ public class GlobalGrid : MonoBehaviour
         return worldPos;
     }
 
+
+    public Vector2 GetTile(Vector3 pos)
+    {
+        float bestDis = 10000;
+        Vector2 worldPos = new Vector2(0, 0);
+        for (int x = 0; x < _size.x; x++)
+        {
+            for (int y = 0; y < _size.y; y++)
+            {
+                if (Vector2.Distance(_grid[x, y].position, pos) < bestDis)
+                {
+                    bestDis = Vector2.Distance(_grid[x, y].position, pos);
+                    worldPos = _grid[x, y].position;
+                }
+            }
+        }
+        return worldPos;
+    }
 
     /// <summary>
     /// Instantiates and places the given item in the room representing the index

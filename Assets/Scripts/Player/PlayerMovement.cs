@@ -35,12 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        transform.position = GameManager.Instance.Grid.GetTile(transform.position);
         rb = GetComponent<Rigidbody2D>();
-
         startInt = new Vector2Int(8,4);
-        transform.position = GameManager.Instance.Grid.TileLocation(transform.position,
-                                                            new Vector2Int((int)transform.position.x,
-                                                                           (int)transform.position.y));
     }
 
     void Update()
@@ -167,9 +164,7 @@ public class PlayerMovement : MonoBehaviour
     private void RoundPlayerToNearestTile()
     {
 
-        transform.position = GameManager.Instance.Grid.TileLocation(transform.position, 
-                                                                    new Vector2Int((int)transform.position.x, 
-                                                                                   (int)transform.position.y));
+        transform.position = GameManager.Instance.Grid.GetTile(transform.position);
     }
 
     private void ResetPlayerState()
