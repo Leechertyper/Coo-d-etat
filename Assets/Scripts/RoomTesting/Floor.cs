@@ -54,14 +54,14 @@ public class Floor : MonoBehaviour
         _camController = Camera.main.GetComponent<CameraController>();
         _floorXDimension = 3;
         _floorYDimension = 3;
-        StartCoroutine(WaitForGrid());
+        SpawnRooms(_floorXDimension, _floorYDimension);
     }
 
 
     private IEnumerator WaitForGrid()
     {
         while (!GameManager.Instance.Grid.gridGenerated) yield return null;
-        SpawnRooms(_floorXDimension, _floorYDimension);
+        FinishRoomSetup();
     }
     /// <summary>
     /// Spawns a grid of rooms (r x c)
@@ -90,7 +90,13 @@ public class Floor : MonoBehaviour
             }
         }
         _rooms[0][0].SetRoomType(Room.RoomType.Start);
-        
+
+        StartCoroutine(WaitForGrid());
+    }
+
+
+    private void FinishRoomSetup()
+    {
         while (true)
         {
             var bossRoom = _rooms[Random.Range(0, 3)][Random.Range(0, 3)];
@@ -138,8 +144,8 @@ public class Floor : MonoBehaviour
         _camController.MoveCameraToStart(_rooms[0][0].transform);
 
         var endRoom = Instantiate(endRoomPrefab,transform);
-        endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (c-1),
-            endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * r);
+        endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
+            endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
         //GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
         
         
@@ -189,7 +195,7 @@ public class Floor : MonoBehaviour
         var miniMapCamPos = new Vector3(middleRoom.x,middleRoom.y, -10);
         miniMapCamera.transform.position = miniMapCamPos;
     }
-
+    
     /// <summary>
     /// Moves the player and camera to the room above the current room
     /// </summary>
