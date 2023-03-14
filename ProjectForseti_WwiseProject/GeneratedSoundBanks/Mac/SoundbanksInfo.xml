@@ -58,7 +58,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{7B35D4AF-FEF7-C229-9515-4535BEF22CFE}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{285C7970-B2B7-BF98-9C19-AAE2CE08BB0B}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -92,7 +92,7 @@
 				</File>
 				<File Id="146814141" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Missle Whistle.wav</ShortName>
-					<CachePath>SFX/Missle Whistle_64505C26.wem</CachePath>
+					<CachePath>SFX/Missle Whistle_62443DEF.wem</CachePath>
 				</File>
 				<File Id="153170304" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Launcher_Explosion.wav</ShortName>
@@ -820,5 +820,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{FE7DD993-B1C8-DA4B-C7AE-A96384DC3732}</FileHash>
+	<FileHash>{6656CC78-2DA7-3588-FCE7-5BA6147D603E}</FileHash>
 </SoundBanksInfo>

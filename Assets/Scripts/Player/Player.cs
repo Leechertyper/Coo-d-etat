@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         {
 
             //StartCoroutine(subtractOverTime(damage, _health, 1f));
-            _health -= damage;
+            _health -= (int) damage;
             _rtpc.SetGlobalValue(_health);
             AkSoundEngine.PostEvent("Play_Pigeon_Hurt", this.gameObject);
             AkSoundEngine.PostEvent("Play_Pigeon_Coos", this.gameObject);
@@ -110,8 +110,7 @@ public class Player : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        _healthText.text = "HP " + _health/10 + "/" + _maxHealth;
-        Debug.Log("update health");
+        _healthChanging = true;
     }
 
     private void GotHit()
@@ -144,12 +143,12 @@ public class Player : MonoBehaviour
         UpdateHealthUI();
     }
 
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
         return _maxHealth;
     }
 
-    public void SetMaxHealth(int newMaxHealth)
+    public void SetMaxHealth(float newMaxHealth)
     {
         _maxHealth = newMaxHealth;
         UpdateHealthUI();
