@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
                 death.Play("Death");
             }
             Destroy(this, 2.0f);
-            SceneManager.LoadScene("Alpha Main");
+            GameManager.Instance.OnPlayerDeath();
         }      
     }
 

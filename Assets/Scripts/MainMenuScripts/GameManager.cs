@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     
@@ -176,16 +176,17 @@ public class GameManager : MonoBehaviour
     {
         if (PointBalanceTimer.Instance.counter > 0)
         {
-            GameObject bm = Instantiate(balanceMenu, new Vector3(0, 0, 0), Quaternion.identity);
-            // This will need to be changed to the actual balance menu
-            bm.GetComponent<BalanceMenu>().startBalance=true;
+            SceneManager.LoadScene("Balance");
+        }
+        else{
+            SceneManager.LoadScene("Alpha Main");
         }
 
     }
 
     public void EndBalanceMenu(GameObject balanceMenu)
     {
-        Destroy(balanceMenu);
+        SceneManager.LoadScene("Alpha Main");
     }
 
     /*

@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     */
     public void StartGame()
     {
-        SceneManager.LoadScene(startScene);
+        SceneManager.LoadScene("Alpha Main"); 
     }
 
     /*

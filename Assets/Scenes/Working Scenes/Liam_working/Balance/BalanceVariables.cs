@@ -70,8 +70,8 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,bool> seenDictionaries = new Dictionary<string,bool>()
     {
         {"player",true},  
-        {"droneEnemy",true},  
-        {"droneBoss",true},  
+        {"droneEnemy",false},  
+        {"droneBoss",false},  
         {"collectables",true},  
         {"other",true},  
     };

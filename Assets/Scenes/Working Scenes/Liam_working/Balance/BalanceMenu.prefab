@@ -1741,7 +1741,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1430767505880703335}
         m_TargetAssemblyTypeName: BalanceMenu, Assembly-CSharp
-        m_MethodName: NextLevel
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
