@@ -34,7 +34,7 @@ public class GlobalGrid : MonoBehaviour
     /// <summary>
     /// Global Tile Class - Holds data for each tile in the global grid
     /// </summary>
-    public class GlobalTile : MonoBehaviour
+    public class GlobalTile
     {
         [Header("The current position")]
         public Vector2 position;
@@ -95,7 +95,6 @@ public class GlobalGrid : MonoBehaviour
 
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -120,7 +119,7 @@ public class GlobalGrid : MonoBehaviour
             for (int j = 0; j < _size.y; j++)
             {
                 // creates a new tile at pos (i, j) in the grid
-                _grid[i, j] = new GlobalTile(iterationPosition);
+                _grid[i, j] = new GlobalTile (iterationPosition);
 
                 // iterates the y pos
                 iterationPosition.y -= tileScale;
@@ -360,9 +359,24 @@ public class GlobalGrid : MonoBehaviour
         }
     }
 
-    public Vector2 GetTile(Vector2 pos)
+    public Vector2 GetTile(Vector3 pos, out Vector2Int gridPos)
     {
-        return new Vector2(0, 0);
+        float bestDis = 10000;
+        Vector2 worldPos = new Vector2(0, 0);
+        gridPos = new Vector2Int(0, 0);
+        for(int x = 0; x < _size.x; x++)
+        {
+            for (int y = 0; y < _size.y; y++)
+            {
+               if(Vector2.Distance(_grid[x, y].position, pos) < bestDis)
+                {
+                    bestDis = Vector2.Distance(_grid[x, y].position, pos);
+                    worldPos = _grid[x, y].position;
+                    gridPos = new Vector2Int(x, y);
+                }
+            }
+        }
+        return worldPos;
     }
 
 
@@ -388,10 +402,8 @@ public class GlobalGrid : MonoBehaviour
                 freeTiles.Add((roomCoordinates.y - roomSize.y / 2) - 2);
             }
         }
-
         Random.Range(0, freeTiles.Count);
         GameObject newItem = Instantiate(item);
         newItem.transform.position = _grid[freeTiles[0], freeTiles[1]].position;
-
     }
 }
