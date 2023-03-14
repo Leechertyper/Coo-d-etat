@@ -16,7 +16,7 @@ public class DatabaseManager : MonoBehaviour
     private MySqlConnection conn = null;
     #region UNITY METHODS
 
-    private void Start()
+    private void Awake()
     {
         conn = Connect();
     }
@@ -93,6 +93,7 @@ public class DatabaseManager : MonoBehaviour
         if (result != null)
         {
             float r = Convert.ToSingle(result);
+            Debug.Log("Got " + r + " from GetValue");
             return r;
         }
         else
