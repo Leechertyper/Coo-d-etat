@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -32,7 +33,9 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2Int curPlace;
 
-
+    private float lastDashTime;
+    public float dashCooldown = 2f; // dash cooldown duration in seconds
+    public Slider dashSlider;
     void Start()
     {
         transform.position = GameManager.Instance.Grid.GetTile(transform.position);
@@ -88,10 +91,11 @@ public class PlayerMovement : MonoBehaviour
                 readyForDash = true;
             }
         }
-        else if (readyForDash)
+        else if (readyForDash && Time.time - lastDashTime > dashCooldown)
         {
             if (Input.GetKey(KeyCode.Space))
             {
+                lastDashTime = Time.time;
                 readyForDash = false;
                 Vector2 direction = targetPosition - startMovePosition;
                 direction.Normalize();
@@ -101,6 +105,9 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("Dash", true);
             }
         }
+
+        // Set slider value to the fraction of time left until the next dash
+        dashSlider.value = 1f - (Time.time - lastDashTime) / dashCooldown;
     }
 
     void FixedUpdate()
