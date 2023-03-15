@@ -58,7 +58,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{285C7970-B2B7-BF98-9C19-AAE2CE08BB0B}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{D973E7B4-FF94-B50B-4D63-EEE1D4757554}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -548,7 +548,7 @@
 						<MediaRef Id="1015133013"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4146597635" Name="Play_Machine_Buzz" DurationType="OneShot" DurationMin="0.48505723" DurationMax="0.7699804">
+				<Event Id="4146597635" Name="Play_Machine_Buzz" DurationType="OneShot" DurationMin="0.69796515" DurationMax="0.69796515">
 					<MediaRefs>
 						<MediaRef Id="1003005601"/>
 					</MediaRefs>
@@ -820,5 +820,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{BE337878-5E4B-CC9E-3317-FC4231B81A1C}</FileHash>
+	<FileHash>{8E0D7769-BA94-91A6-097C-0C018B969056}</FileHash>
 </SoundBanksInfo>
