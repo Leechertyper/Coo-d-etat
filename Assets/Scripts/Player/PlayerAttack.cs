@@ -11,7 +11,6 @@ public class PlayerAttack : MonoBehaviour
 {
     //For the players ammo
     private float _curAmmo = 100;
-    private float _maxAmmo = 100;
 
     private float _ammoPerShot = 2;
     private float _lazerSpeed = 25;
@@ -49,8 +48,8 @@ public class PlayerAttack : MonoBehaviour
 
         if (_energyChanging)
         {
-            energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, _curAmmo / _maxAmmo, 3f * Time.deltaTime);
-            if (Mathf.Round(energyBar.fillAmount * _maxAmmo) == Mathf.Round(_curAmmo))
+            energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, _curAmmo / BalanceVariables.player["maxAmmo"], 3f * Time.deltaTime);
+            if (Mathf.Round(energyBar.fillAmount * BalanceVariables.player["maxAmmo"]) == Mathf.Round(_curAmmo))
             {
                 _energyChanging = false;
                 _energyTrailChanging = true;
@@ -63,8 +62,8 @@ public class PlayerAttack : MonoBehaviour
 
         if (_energyTrailChanging)
         {
-            energyTrail.fillAmount = Mathf.Lerp(energyTrail.fillAmount, _curAmmo / _maxAmmo, 5f * Time.deltaTime);
-            if (Mathf.Round(energyTrail.fillAmount * _maxAmmo) == Mathf.Round(_curAmmo))
+            energyTrail.fillAmount = Mathf.Lerp(energyTrail.fillAmount, _curAmmo / BalanceVariables.player["maxAmmo"], 5f * Time.deltaTime);
+            if (Mathf.Round(energyTrail.fillAmount * BalanceVariables.player["maxAmmo"]) == Mathf.Round(_curAmmo))
             {
                 _energyTrailChanging = false;
             }

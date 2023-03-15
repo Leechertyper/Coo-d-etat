@@ -27,11 +27,14 @@ public class GameManager : MonoBehaviour
 
     private bool _skipBalance = false;
 
+    //this is for now until next level implimented
+    private bool _died = false;
+
     void Awake()
     {
         if (Instance == null) // If there is no instance already
         {
-            DontDestroyOnLoad(gameObject); // Keep the GameObject, this component is attached to, across different scenes
+            // DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
             dbInstance = this.gameObject.GetComponent<DatabaseManager>();
             for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
@@ -160,7 +163,18 @@ public class GameManager : MonoBehaviour
 
 
     public void OnPlayerDeath(){
-        SceneManager.LoadScene("GameOver");
+        //for now
+        _died = true;
+        if (PointBalanceTimer.Instance.counter > 0 || !_skipBalance)
+        {
+            StartBalanceMenu();
+        }
+        else
+        {
+            _skipBalance = false;
+            //update load next floor here
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     public void GoToNextFloor(){
@@ -203,7 +217,15 @@ public class GameManager : MonoBehaviour
     public void EndBalanceMenu(GameObject balanceMenu)
     {
         _skipBalance = true;
-        GoToNextFloor();
+        if(_died)
+        {
+            _died = false;
+            SceneManager.LoadScene("GameOver");
+        }
+        else
+        {
+            GoToNextFloor();
+        }
     }
 
     /*

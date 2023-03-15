@@ -8,9 +8,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    private float _speed = 5f;
-    private float _maxHealth = 100f;
-    private float _health = 100f;
+    private float _health = 10f;
     private float _range = 1000f;
     private float _invulnTime = 1.1f;
     private bool _isInvuln = false;
@@ -19,7 +17,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Text _healthText;
     [SerializeField] private int _power;
-    [SerializeField] private int _maxPower;
     [SerializeField] private Image healthBar;
     [SerializeField] private Image healthTrail;
     [SerializeField] private AK.Wwise.RTPC _rtpc;
@@ -33,7 +30,7 @@ public class Player : MonoBehaviour
         AkSoundEngine.SetState("PlayerLife", "Alive");
         AkSoundEngine.SetState("Music_State", "Normal_Room");
         //AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
-
+        _health = BalanceVariables.player["maxHealth"];
         _rtpc.SetGlobalValue(_health);
         AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
 
@@ -43,8 +40,8 @@ public class Player : MonoBehaviour
     {
         if (_healthChanging)
         {
-            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / _maxHealth, 3f * Time.deltaTime);
-            if (Mathf.Round(healthBar.fillAmount * _maxHealth) == Mathf.Round(_health))
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / BalanceVariables.player["maxHealth"], 3f * Time.deltaTime);
+            if (Mathf.Round(healthBar.fillAmount * BalanceVariables.player["maxHealth"]) == Mathf.Round(_health))
             {
                 _healthChanging = false;
                 _healthTrailChanging = true;
@@ -57,8 +54,8 @@ public class Player : MonoBehaviour
 
         if (_healthTrailChanging)
         {
-            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / _maxHealth, 5f * Time.deltaTime);
-            if (Mathf.Round(healthTrail.fillAmount * _maxHealth) == Mathf.Round(_health))
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / BalanceVariables.player["maxHealth"], 5f * Time.deltaTime);
+            if (Mathf.Round(healthTrail.fillAmount * BalanceVariables.player["maxHealth"]) == Mathf.Round(_health))
             {
                 _healthTrailChanging = false;
             }
@@ -102,8 +99,7 @@ public class Player : MonoBehaviour
             if(death){
                 death.Play("Death");
             }
-            Destroy(this, 2.0f);
-            SceneManager.LoadScene("Alpha Main");
+            GameManager.Instance.OnPlayerDeath();
         }      
     }
 
@@ -135,38 +131,38 @@ public class Player : MonoBehaviour
     public void AddHealth(int plusHealth)
     {
         _health += plusHealth;
-        if(_health > BalanceVariables.player["_maxHealth"])
+        if(_health > BalanceVariables.player["maxHealth"])
         {
-            _health = BalanceVariables.player["_maxHealth"];
+            _health = BalanceVariables.player["maxHealth"];
         }
         UpdateHealthUI();
     }
 
     public float GetMaxHealth()
     {
-        return BalanceVariables.player["_maxHealth"];
+        return BalanceVariables.player["maxHealth"];
     }
 
     public void SetMaxHealth(float newMaxHealth)
     {
-        BalanceVariables.player["_maxHealth"] = newMaxHealth;
+        BalanceVariables.player["maxHealth"] = newMaxHealth;
         UpdateHealthUI();
     }
 
     public void MakeMaxHealth()
     {
-        _health = BalanceVariables.player["_maxHealth"];
+        _health = BalanceVariables.player["maxHealth"];
         UpdateHealthUI();
     }
 
     public float GetSpeed()
     {
-        return BalanceVariables.player["_speed"];
+        return BalanceVariables.player["speed"];
     }
 
     public void SetSpeed(float newSpeed)
     {
-        BalanceVariables.player["_speed"] = newSpeed;
+        BalanceVariables.player["speed"] = newSpeed;
     }
     
     public int GetPower()
@@ -181,9 +177,9 @@ public class Player : MonoBehaviour
     public void IncreasePower(int powerAmount)
     {        
         _power += powerAmount;
-        if (_power > BalanceVariables.player["_maxPower"])
+        if (_power > BalanceVariables.player["maxPower"])
         {
-            _power = Mathf.RoundToInt(BalanceVariables.player["_maxPower"]);
+            _power = Mathf.RoundToInt(BalanceVariables.player["maxPower"]);
         }
     }
     
