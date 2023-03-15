@@ -58,6 +58,26 @@ public class DevConsole : MonoBehaviour
         button = Instantiate(buttonPrefab, content);
         button.GetComponentInChildren<Text>().text = "Spawn Boss";
         button.GetComponent<Button>().onClick.AddListener(SpawnBoss);
+        if(SceneManager.GetSceneByBuildIndex(2).isLoaded)
+        {
+            GameObject canvasPlayerHP = Instantiate(prefab, content);
+            Text parentLabelPlayerHP = canvasPlayerHP.transform.Find("ParentLabel").GetComponent<Text>();
+            Text subLabelPlayerHP = canvasPlayerHP.transform.Find("SubLabel").GetComponent<Text>();
+            InputField inputFieldPlayerHP = canvasPlayerHP.transform.Find("InputBox").GetComponent<InputField>();
+
+            parentLabelPlayerHP.text = "player";
+            subLabelPlayerHP.text = "health";
+            inputFieldPlayerHP.text = GameObject.Find("Player").GetComponent<Player>().GetHealth().ToString();
+
+            // Attach listener to input field value changed event
+            inputFieldPlayerHP.onValueChanged.AddListener((string value) =>
+            {
+                GameObject.Find("Player").GetComponent<Player>().SetHealth(int.Parse(value));
+            });
+        }
+        
+
+
 
         for (int i = 0; i < BalanceVariables.dictionaryList.Count; i++)
         {
