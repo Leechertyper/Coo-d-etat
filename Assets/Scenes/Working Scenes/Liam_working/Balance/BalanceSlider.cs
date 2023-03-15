@@ -21,7 +21,7 @@ public class BalanceSlider : MonoBehaviour
         value = newValue;
         if(dictionaryKey=="General")
         {
-            GameObject.Find("BalanceMenu(Clone)").GetComponent<BalanceMenu>().GeneralSliderChange(value-_oldValue);
+            GameObject.Find("BalanceMenu").GetComponent<BalanceMenu>().GeneralSliderChange(value-_oldValue);
         }
     }
 
