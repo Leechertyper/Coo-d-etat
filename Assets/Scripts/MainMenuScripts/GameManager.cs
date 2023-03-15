@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
         else{
             _skipBalance = false;
             //update load next floor here
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 
