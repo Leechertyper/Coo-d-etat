@@ -37,14 +37,18 @@ public class GameManager : MonoBehaviour
             // DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
             dbInstance = this.gameObject.GetComponent<DatabaseManager>();
-            for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
+            if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
             {
-                List<string> keys = new List<string>(BalanceVariables.dictionaryList[i].Keys);
-                foreach(string key in keys)
+                for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
                 {
-                    BalanceVariables.dictionaryList[i][key] = dbInstance.GetValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    List<string> keys = new List<string>(BalanceVariables.dictionaryList[i].Keys);
+                    foreach(string key in keys)
+                    {
+                        BalanceVariables.dictionaryList[i][key] = dbInstance.GetValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    }
                 }
             }
+            
         }
         else if (Instance != this) // If there is already an instance and it's not `this` instance
         {
