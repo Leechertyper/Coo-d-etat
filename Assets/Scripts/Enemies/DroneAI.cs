@@ -142,6 +142,7 @@ public class DroneAI : Enemy
     /// </summary>
     public override void Die()
     {
+        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
         _rb.velocity = Vector2.zero;
         StopAllCoroutines();
         //AkSoundEngine.PostEvent("Play_Robot_Ouch", this.gameObject);

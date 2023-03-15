@@ -239,6 +239,7 @@ public class DroneBoss : MonoBehaviour
             StopAllCoroutines();
             GameObject key = Instantiate(keycard);
             key.transform.position = transform.position;
+            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(1000);
             StartCoroutine(Death());
             
         }
