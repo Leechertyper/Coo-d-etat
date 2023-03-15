@@ -2,14 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-    
+    public Text scoreText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (GameObject.Find("ScoreManager").GetComponent<Score>().IsHighScore())
+        {
+            scoreText.text = "New High Score: " + GameObject.Find("ScoreManager").GetComponent<Score>().GetScore();
+        }
+        else
+        {
+            scoreText.text = "Score: " + GameObject.Find("ScoreManager").GetComponent<Score>().GetScore();
+        }
+        GameObject.Find("ScoreManager").GetComponent<Score>().ResetScore();
     }
 
     // Update is called once per frame

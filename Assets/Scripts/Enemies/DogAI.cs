@@ -210,6 +210,7 @@ public class DogAI : Enemy
 
     public override void Die()
     {
+        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
         StopAllCoroutines();
         this.enabled = false;
     }

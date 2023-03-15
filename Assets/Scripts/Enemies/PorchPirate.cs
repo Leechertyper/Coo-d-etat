@@ -48,7 +48,7 @@ public class PorchPirate : MonoBehaviour
 
     private void Die()
     {
-
+        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
     }
 
     private IEnumerator MoveTime()
