@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    private float _health = 10f;
+    private float _health = 100f;
     private float _range = 1000f;
     private float _invulnTime = 1.1f;
     private bool _isInvuln = false;
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private bool _healthTrailChanging = false;
 
     [SerializeField] private Text _healthText;
-    [SerializeField] private int _power;
+    [SerializeField] private float _power;
     [SerializeField] private Image healthBar;
     [SerializeField] private Image healthTrail;
     [SerializeField] private AK.Wwise.RTPC _rtpc;
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
         //AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
         _health = BalanceVariables.player["maxHealth"];
         _rtpc.SetGlobalValue(_health);
+        _power = BalanceVariables.player["maxPower"];
         AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
 
     }
@@ -165,7 +166,7 @@ public class Player : MonoBehaviour
         BalanceVariables.player["speed"] = newSpeed;
     }
     
-    public int GetPower()
+    public float GetPower()
     {
         return _power;
     }

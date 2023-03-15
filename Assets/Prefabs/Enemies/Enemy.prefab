@@ -298,4 +298,5 @@ MonoBehaviour:
   attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
   LargeModePositions:
   - {fileID: 0}
+  - {fileID: 0}
   multiPositionArray: []

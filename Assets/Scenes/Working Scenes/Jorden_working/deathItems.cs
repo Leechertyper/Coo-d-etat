@@ -35,14 +35,17 @@ public class deathItems : MonoBehaviour
     public void SpawnItem(Vector3 thePlace)
     {
         Debug.Log("CHECKING IF SPAWN ITEM");
+        Debug.Log("Battery"+_timeSinceLastBattery +"Health"+ _timeSinceLastHealth);
         if(_timeSinceLastBattery >= _batteryTime) // Spawn battery if timer is up
-        {
+        {   
+            thePlace = new Vector3(thePlace.x,thePlace.y,-1);
             Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
             _timeSinceLastBattery = 1;
             _timeSinceLastHealth ++;
         }
         else if(_timeSinceLastHealth >= _healthTime) // Spawn health if timer is up
         {
+            thePlace = new Vector3(thePlace.x,thePlace.y,-1);
             Instantiate(healthItem, thePlace,Quaternion.identity);
             _timeSinceLastHealth = 1;
             _timeSinceLastBattery ++;

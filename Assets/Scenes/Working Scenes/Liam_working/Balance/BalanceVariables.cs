@@ -9,16 +9,16 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,float> droneBoss = new Dictionary<string,float>()
     {
         //found in DroneBoss.cs
-        {"maxHealth",100f},
+        {"maxHealth",1000f},
         {"moveSpeed", 1f},
         {"timeBetweenMoves",5f},
         //found in explosion.cs
-        {"explosionDamage",2},
+        {"explosionDamage",20},
     };
     public static Dictionary<string,float> droneEnemy = new Dictionary<string,float>()
     {
         //found in Health.cs
-        {"maxHealth",10},
+        {"maxHealth",100},
         //found in DroneAI.cs
         {"moveSpeed",2f},
         {"range", 8f},
@@ -27,7 +27,7 @@ public class BalanceVariables : MonoBehaviour
         {"fastShotCD",0.5f},
         //could not find in but should be added in Lazer.cs(right now it just damages using 1) 
         // or ProjectileWeapon.cs (fireForce?)
-        {"lazerDamage",1},
+        {"lazerDamage",10},
     };
 
     public static Dictionary<string,float> dogEnemy = new Dictionary<string,float>()
@@ -41,17 +41,18 @@ public class BalanceVariables : MonoBehaviour
         {"slowShotCD",1},
         {"fastShotCD",0.5f},
         {"leapDistance",15f},
+        {"attackDamage",10},
     };
     public static Dictionary<string,float> player = new Dictionary<string,float>()
     {
         //found in player.cs
         {"speed",5f},
         {"rotationSpeed", 15f},
-        {"maxHealth",10},
+        {"maxHealth",100},
         {"range", 1000f},
         {"maxPower", 10f},
         //in PlayerAttack.cs
-        {"attackDamage",1f}, // this one is not implemented
+        {"attackDamage",10f}, // this one is not implemented
         {"maxAmmo", 100f},
         {"attackSpeed", 0.2f},
         //Not currently implemented / dont know location
@@ -63,9 +64,9 @@ public class BalanceVariables : MonoBehaviour
         {"pickupRange",1f},
         {"dropChance",1f},
         //found in Garlic.cs
-        {"garlicAmount", 1f},
+        {"garlicAmount", 25f},
         //found in Battery.cs
-        {"batteryAmount", 1f},
+        {"batteryAmount", 25f},
         //not currently implemented
         {"armourAmount", 1f},
         
