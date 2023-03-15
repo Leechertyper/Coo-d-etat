@@ -6,6 +6,7 @@ public class DogAI : Enemy
 {
 
 
+
     public Animator animator;
     public Health hp;
 

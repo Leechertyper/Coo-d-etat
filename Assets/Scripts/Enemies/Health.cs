@@ -103,10 +103,13 @@ public class Health : MonoBehaviour
         }
         GetComponent<SpriteRenderer>().color = Color.red;
         var deathExplosion = Instantiate(deathEffects[0], transform.position, transform.rotation);
+        Vector3 temp = transform.position;
+        
         Destroy(deathExplosion,1.5f);
         AkSoundEngine.PostEvent("Play_Heavy_Blast", this.gameObject);
+        
         Destroy(gameObject);
-        theDeathItems.GetComponent<deathItems>().SpawnItem(transform.position);
+        theDeathItems.GetComponent<deathItems>().SpawnItem(temp);
 
     }
 }
