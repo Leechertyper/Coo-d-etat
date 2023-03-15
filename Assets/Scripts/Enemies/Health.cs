@@ -105,11 +105,12 @@ public class Health : MonoBehaviour
         var deathExplosion = Instantiate(deathEffects[0], transform.position, transform.rotation);
         Vector3 temp = transform.position;
         
+       
         Destroy(deathExplosion,1.5f);
         AkSoundEngine.PostEvent("Play_Heavy_Blast", this.gameObject);
-        
-        Destroy(gameObject);
         theDeathItems.GetComponent<deathItems>().SpawnItem(temp);
+        Destroy(gameObject);
+        
 
     }
 }

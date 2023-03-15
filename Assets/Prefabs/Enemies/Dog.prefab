@@ -123,7 +123,7 @@ MonoBehaviour:
   - {fileID: 8606886347650838750, guid: 7c67529689d72c74397e9b585fc54ef3, type: 3}
   - {fileID: 5449004760661852625, guid: e5b1cf84ff9e27043a52bebd09141843, type: 3}
   - {fileID: 3800524489881863368, guid: 5b41419d6ec4e6a45892e90c75f3f4d8, type: 3}
-  theDeathItems: {fileID: 0}
+  theDeathItems: {fileID: 2887637984562674970, guid: cff8afb325b205346b551f5590444fdc, type: 3}
 --- !u!95 &2278889589388841420
 Animator:
   serializedVersion: 5
