@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private const float horizontalTeleportDistance = 25f;
-    private const float verticalTeleportDistance = 16f;
+    private const float horizontalTeleportDistance = 27f;
+    private const float verticalTeleportDistance = 18f;
     public string horizontalInput = "Horizontal";
     public string verticalInput = "Vertical";
 
@@ -32,10 +33,12 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2Int curPlace;
 
-
+    private float lastDashTime;
+    public float dashCooldown = 2f; // dash cooldown duration in seconds
+    public Slider dashSlider;
     void Start()
     {
-        transform.position = GameManager.Instance.Grid.GetTile(transform.position);
+        /*transform.position = GameManager.Instance.Grid.GetTile(transform.position);*/
         rb = GetComponent<Rigidbody2D>();
         startInt = new Vector2Int(8,4);
     }
@@ -88,10 +91,11 @@ public class PlayerMovement : MonoBehaviour
                 readyForDash = true;
             }
         }
-        else if (readyForDash)
+        else if (readyForDash && Time.time - lastDashTime > dashCooldown)
         {
             if (Input.GetKey(KeyCode.Space))
             {
+                lastDashTime = Time.time;
                 readyForDash = false;
                 Vector2 direction = targetPosition - startMovePosition;
                 direction.Normalize();
@@ -101,6 +105,9 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("Dash", true);
             }
         }
+
+        // Set slider value to the fraction of time left until the next dash
+        dashSlider.value = 1f - (Time.time - lastDashTime) / dashCooldown;
     }
 
     void FixedUpdate()
@@ -191,35 +198,28 @@ public class PlayerMovement : MonoBehaviour
         }
     }*/
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void BottomDoor()
     {
-        if (col.gameObject.name.Contains("BottomDoor"))
-        {
-            StartCoroutine(CheckMovementDelay());
-            var newPlayerLocation = new Vector2(col.gameObject.transform.position.x, col.gameObject.transform.position.y - verticalTeleportDistance);
-            targetPosition = newPlayerLocation;
-            transform.position = newPlayerLocation;            
-        }
-        if (col.gameObject.name.Contains("TopDoor"))
-        {
-            StartCoroutine(CheckMovementDelay());
-            var newPlayerLocation = new Vector2(col.gameObject.transform.position.x, col.gameObject.transform.position.y + verticalTeleportDistance);
-            targetPosition = newPlayerLocation;
-            transform.position = newPlayerLocation;
-        }
-        if (col.gameObject.name.Contains("LeftDoor"))
-        {
-            StartCoroutine(CheckMovementDelay());
-            var newPlayerLocation = new Vector2(col.gameObject.transform.position.x - horizontalTeleportDistance, col.gameObject.transform.position.y);
-            targetPosition = newPlayerLocation;
-            transform.position = newPlayerLocation;
-        }
-        if (col.gameObject.name.Contains("RightDoor"))
-        {
-            StartCoroutine(CheckMovementDelay());
-            var newPlayerLocation = new Vector2(col.gameObject.transform.position.x + horizontalTeleportDistance, col.gameObject.transform.position.y);
-            targetPosition = newPlayerLocation;
-            transform.position = newPlayerLocation;
-        }
+        StartCoroutine(CheckMovementDelay());
+        targetPosition = new Vector2(transform.position.x, transform.position.y - verticalTeleportDistance);
+        transform.position = targetPosition;
+    }
+    public void TopDoor()
+    {
+        StartCoroutine(CheckMovementDelay());
+        targetPosition = new Vector2(transform.position.x, transform.position.y + verticalTeleportDistance);
+        transform.position = targetPosition;
+    }
+    public void LeftDoor()
+    {
+        StartCoroutine(CheckMovementDelay());
+        targetPosition = new Vector2(transform.position.x - horizontalTeleportDistance, transform.position.y);
+        transform.position = targetPosition;
+    }
+    public void RightDoor()
+    {
+        StartCoroutine(CheckMovementDelay());
+        targetPosition = new Vector2(transform.position.x + horizontalTeleportDistance, transform.position.y);
+        transform.position = targetPosition;
     }
 }

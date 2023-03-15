@@ -28,15 +28,19 @@ public class RoomDoor : MonoBehaviour
         switch (doorPos)
         {
             case DoorPosition.Top:
+                col.gameObject.GetComponent<PlayerMovement>().TopDoor();
                 _myRoom.TopDoor(col.gameObject);
                 break;
             case DoorPosition.Bottom:
+                col.gameObject.GetComponent<PlayerMovement>().BottomDoor();
                 _myRoom.BottomDoor(col.gameObject);
                 break;
             case DoorPosition.Left:
+                col.gameObject.GetComponent<PlayerMovement>().LeftDoor();
                 _myRoom.LeftDoor(col.gameObject);
                 break;
             case DoorPosition.Right:
+                col.gameObject.GetComponent<PlayerMovement>().RightDoor();
                 _myRoom.RightDoor(col.gameObject);
                 break;
         }
