@@ -29,6 +29,7 @@ public class Score : MonoBehaviour
         {
             _highScore = _score;
         }
+        GameObject.Find("ShopManager").GetComponent<Shop>().AddMoney(amount);
     }
 
     // Reset the current _score and update UI

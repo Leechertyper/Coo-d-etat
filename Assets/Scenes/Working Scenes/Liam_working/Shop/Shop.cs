@@ -10,6 +10,7 @@ public class Shop : MonoBehaviour
     public GameObject contentTransform;
     public int playerBalance = 0;
     public Text playerBalanceText;
+    public GameObject shopUI;
 
     public static List<ShopItem> shopItemList = new List<ShopItem>();
     private List<ShopItem> starterShopItemList = new List<ShopItem>(new ShopItem[]{
@@ -18,11 +19,28 @@ public class Shop : MonoBehaviour
         new ShopItem("Increase Damage", 10, "Upgrade your weapon and deal more destruction than ever before.",1f, ""),
     });
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if(shopUI.activeSelf)
+            {
+                CloseShop();
+            }
+            else
+            {
+                OpenShop();
+            }
+        }
+    }
+
     // Start is called before the first frame update will create the shop items and display them
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+        shopUI.SetActive(false);
         int _savedShopItemCount = PlayerPrefs.GetInt("itemDataCount");
-        int playerBalance = PlayerPrefs.GetInt("playerBalance");
+        playerBalance = PlayerPrefs.GetInt("playerBalance");
         for (int i = 0; i < _savedShopItemCount; i++)
         {
             string itemData = PlayerPrefs.GetString("itemData" + i);
@@ -36,7 +54,7 @@ public class Shop : MonoBehaviour
 
     public void CloseShop()
     {
-        this.gameObject.SetActive(false);
+        shopUI.SetActive(false);
         Time.timeScale = 1f;
     }
 
@@ -47,7 +65,7 @@ public class Shop : MonoBehaviour
 
     public void OpenShop()
     {
-        this.gameObject.SetActive(true);
+        shopUI.SetActive(true);
         Time.timeScale = 0f;
         DisplayPlayerBalance();
         
