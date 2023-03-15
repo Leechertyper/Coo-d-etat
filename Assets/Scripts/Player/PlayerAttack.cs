@@ -25,6 +25,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private Image energyBar;
     [SerializeField] private Image energyTrail;
+    [SerializeField] private Canvas energyCanvas;
 
     private bool _energyChanging = false;
     private bool _energyTrailChanging = false;
@@ -120,6 +121,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void UpdateAmmoUI()
     {
+        energyCanvas.GetComponent<Animator>().SetFloat("energy", _curAmmo);
         _energyChanging = true;
     } 
     public void SetMaxAmmo(float newMaxAmmo)

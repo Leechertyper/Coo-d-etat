@@ -272,13 +272,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthText: {fileID: 0}
   _power: 10
-  _maxPower: 10
   healthBar: {fileID: 8575993587833810258}
   healthTrail: {fileID: 6426230801123098920}
   _rtpc:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 0b16e63dbd0087245985873b9cba2106, type: 2}
+  healthCanvas: {fileID: 3262786354785829768}
   death: {fileID: 0}
   hitParticles: {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
 --- !u!114 &5324567830572157412
@@ -297,6 +297,7 @@ MonoBehaviour:
   _damage: 1
   energyBar: {fileID: 6811424902835070980}
   energyTrail: {fileID: 4044683969654011520}
+  energyCanvas: {fileID: 2740003089360976874}
   direction: {x: 0, y: 0}
   rotZ: 0
 --- !u!1 &2492124759210950604
@@ -510,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3820755, g: 1, b: 0.39733288, a: 1}
+  m_Color: {r: 0.28627452, g: 1, b: 0.30588236, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -912,6 +913,7 @@ GameObject:
   - component: {fileID: 3262786354785829768}
   - component: {fileID: 1527911633576535455}
   - component: {fileID: 514555009559236193}
+  - component: {fileID: 1064063419}
   m_Layer: 0
   m_Name: HealthCanvas
   m_TagString: Untagged
@@ -1004,6 +1006,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &1064063419
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8154191723788473666}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0bf3948b9f53e3a4894c71c1549408a1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8987619274526458080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1038,7 @@ GameObject:
   - component: {fileID: 2740003089360976874}
   - component: {fileID: 5718576815968574262}
   - component: {fileID: 5590926793954549311}
+  - component: {fileID: 3994527767588485350}
   m_Layer: 0
   m_Name: Energy Canvas
   m_TagString: Untagged
@@ -1108,3 +1131,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &3994527767588485350
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8987619274526458080}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05f35282984230240817a6c60d84823b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

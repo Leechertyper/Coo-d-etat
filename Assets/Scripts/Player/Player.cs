@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private Image healthTrail;
     [SerializeField] private AK.Wwise.RTPC _rtpc;
+    [SerializeField] private Canvas healthCanvas;
     //[SerializeField] private AK.Wwise.State _playerState;
 
     public Animation death;
@@ -92,6 +93,8 @@ public class Player : MonoBehaviour
             GotHit();
             UpdateHealthUI();
             _isInvuln = true;
+            healthCanvas.GetComponent<Animator>().SetFloat("health", _health);
+            
         }
         if (_health == 0){
             AkSoundEngine.PostEvent("Stop_Heartbeat", this.gameObject);
