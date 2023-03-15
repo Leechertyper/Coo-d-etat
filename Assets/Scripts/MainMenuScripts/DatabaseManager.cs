@@ -1,7 +1,9 @@
 using System;
 using MySql.Data.MySqlClient;
 using UnityEngine;
+using System.Net;
 
+using System.Net.Sockets;
 public class DatabaseManager : MonoBehaviour
 {
     #region VARIABLES
@@ -15,12 +17,41 @@ public class DatabaseManager : MonoBehaviour
     #endregion
     private MySqlConnection conn = null;
     #region UNITY METHODS
-
+    private bool _hostFound;
     private void Awake()
     {
+        try 
+        {
+            int x = System.Net.Dns.GetHostAddresses(Host).Length;
+            _hostFound = true;
+        }
+        catch (SocketException exception)
+        {
+            _hostFound = false;
+        }
         if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
         {
-            conn = Connect();
+            if(_hostFound){
+                conn = Connect();
+            }
+            else
+            {
+                Debug.Log("Host not found");
+            }
+            
+        }
+    }
+
+    void Start()
+    {
+        try 
+        {
+            int x = System.Net.Dns.GetHostAddresses(Host).Length;
+            _hostFound = true;
+        }
+        catch (SocketException exception)
+        {
+            _hostFound = false;
         }
     }
 
@@ -40,11 +71,11 @@ public class DatabaseManager : MonoBehaviour
     {
         
         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+         
         builder.Server = Host;
         builder.UserID = User;
         builder.Password = Password;
         builder.Database = Database;
-
         try
         {
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
@@ -60,6 +91,7 @@ public class DatabaseManager : MonoBehaviour
             print(exception.Message);
             return null;
         }
+        
     }
     /***
     *Closes the connection to the database, Call this before closing the game.
@@ -71,6 +103,12 @@ public class DatabaseManager : MonoBehaviour
     {
         conn.Close();
     }
+
+    public bool GetHostFound()
+    {
+        return _hostFound;
+    }
+
     /***
     *Updates a value of a variable using a string and a float value
     *@param:string variable - The name of the variable from the database, float value - the value you wish to commit to the database

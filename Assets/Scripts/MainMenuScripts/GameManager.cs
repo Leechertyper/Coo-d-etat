@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
             // DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
             dbInstance = this.gameObject.GetComponent<DatabaseManager>();
-            if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
+            if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
             {
                 for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
                 {
