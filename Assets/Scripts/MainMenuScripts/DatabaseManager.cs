@@ -18,7 +18,10 @@ public class DatabaseManager : MonoBehaviour
 
     private void Awake()
     {
-        conn = Connect();
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
+        {
+            conn = Connect();
+        }
     }
 
     #endregion
@@ -35,6 +38,7 @@ public class DatabaseManager : MonoBehaviour
     ***/
     private MySqlConnection Connect()
     {
+        
         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
         builder.Server = Host;
         builder.UserID = User;

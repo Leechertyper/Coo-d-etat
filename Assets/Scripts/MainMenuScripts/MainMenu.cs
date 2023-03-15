@@ -2,16 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public int startScene;
+
+    public bool isDataBaseEnabled;
+    public GameObject DataBaseButton;
 
     public void Start()
     {
         ///<TODO> UPDATE BASE BALANCEVARIABLES HERE </TODO>
         AkSoundEngine.SetState("PlayerLife", "None");
         AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
+        if(PlayerPrefs.HasKey("BalanceDataBase") == false)
+        {
+            PlayerPrefs.SetInt("BalanceDataBase", 1);
+        }
+
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
+        {
+            isDataBaseEnabled = true;
+            DataBaseButton.GetComponentInChildren<Text>().text = "Disable Balance DataBase";
+        }
+        else
+        {
+            isDataBaseEnabled = false;
+            DataBaseButton.GetComponentInChildren<Text>().text = "Enable Balance DataBase";
+        }
 
     }
 
@@ -38,6 +57,22 @@ public class MainMenu : MonoBehaviour
     public void Clickybutton()
     {
         AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
+    }
+
+    public void ChangeDataBasePref()
+    {
+        if (isDataBaseEnabled)
+        {
+            isDataBaseEnabled = false;
+            DataBaseButton.GetComponentInChildren<Text>().text = "Enable Balance DataBase";
+            PlayerPrefs.SetInt("BalanceDataBase", 0);
+        }
+        else
+        {
+            isDataBaseEnabled = true;
+            DataBaseButton.GetComponentInChildren<Text>().text = "Disable Balance DataBase";
+            PlayerPrefs.SetInt("BalanceDataBase", 1);
+        }
     }
 
 }
