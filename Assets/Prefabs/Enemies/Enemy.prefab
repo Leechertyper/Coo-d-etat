@@ -221,7 +221,7 @@ MonoBehaviour:
   - {fileID: 8606886347650838750, guid: 7c67529689d72c74397e9b585fc54ef3, type: 3}
   - {fileID: 5449004760661852625, guid: e5b1cf84ff9e27043a52bebd09141843, type: 3}
   - {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
-  theDeathItems: {fileID: 797528522590726285, guid: 3c741d512f5354744a9b75aa113c068d, type: 3}
+  theDeathItems: {fileID: 2887637984562674970, guid: cff8afb325b205346b551f5590444fdc, type: 3}
 --- !u!95 &4271788366279071293
 Animator:
   serializedVersion: 5
@@ -296,5 +296,6 @@ MonoBehaviour:
   MultiPositionType: 1
   multiPositionTypeLabel: 0
   attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
-  LargeModePositions: []
+  LargeModePositions:
+  - {fileID: 0}
   multiPositionArray: []

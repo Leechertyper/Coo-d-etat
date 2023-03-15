@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c278ac1be87588f428b4e0cd1377af88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathItems: {fileID: 2887637984562674970, guid: cff8afb325b205346b551f5590444fdc, type: 3}
 --- !u!95 &3248653475944485955
 Animator:
   serializedVersion: 5

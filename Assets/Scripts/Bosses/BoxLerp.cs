@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BoxLerp : MonoBehaviour
 {
+
+    public GameObject deathItems;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,7 @@ public class BoxLerp : MonoBehaviour
             yield return null;
         }
         transform.position = goal;
+        deathItems.GetComponent<deathItems>().JustSpawnBattery(goal);
         Destroy(gameObject);
         yield break;
     }
