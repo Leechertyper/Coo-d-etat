@@ -282,7 +282,7 @@ MonoBehaviour:
   gridStep: 3
   gridStartPosition: {x: -7, y: -4.5}
   floorTile: {fileID: 6930787750714196757}
-  showGridTiles: 1
+  showGridTiles: 0
   attacks:
   - {fileID: 5626811239805146513, guid: 483473b3fa52b714bb9b323bf342661b, type: 3}
   - {fileID: 5155005238834582876, guid: 12e582f751c26464293a16f3fc9f5fc2, type: 3}
