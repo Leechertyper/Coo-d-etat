@@ -135,6 +135,10 @@ public class BalanceMenu : MonoBehaviour
         confirmButton.SetActive(false);
         SetRemainingPoints();
         PointBalanceTimer.Instance.counter-=1;
+        if(PointBalanceTimer.Instance.counter <0)
+        {
+            PointBalanceTimer.Instance.counter = 0;
+        }
         RemoveButtons();
         for(int i=0; i<BalanceVariables.dictionaryListStrings.Count; i++)
         {
