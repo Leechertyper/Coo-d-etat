@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class BalanceMenu : MonoBehaviour
 {
+    public bool startBalance = false;
     public bool gameIsPaused = false;
     public GameObject balanceMenuUI;
     public GameObject buttonPrefab;
@@ -19,10 +20,9 @@ public class BalanceMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gameIsPaused)
+        if(!gameIsPaused && startBalance)
         {
             Pause();
-            
         }
     }
 
@@ -31,6 +31,7 @@ public class BalanceMenu : MonoBehaviour
     */
     public void ResumeGame()
     {
+        Time.timeScale = 1f;
         gameIsPaused = false;
         Dictionary<string,bool> _temp = new Dictionary<string,bool>(BalanceVariables.seenDictionaries);
         foreach (KeyValuePair<string, bool> kvp in _temp)
@@ -41,7 +42,7 @@ public class BalanceMenu : MonoBehaviour
                 BalanceVariables.seenDictionaries[kvp.Key] = false;
             }
         }
-        GameManager.Instance.EndBalanceMenu(this.gameObject);
+        GameManager.Instance.EndBalanceMenu();
 
     }
 
@@ -50,6 +51,7 @@ public class BalanceMenu : MonoBehaviour
     */
     void Pause()
     {
+        Time.timeScale = 0f;
         balanceMenuUI.SetActive(true);
         gameIsPaused = true;
         PopulateButtons();
