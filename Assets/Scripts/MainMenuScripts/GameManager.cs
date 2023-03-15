@@ -211,12 +211,15 @@ public class GameManager : MonoBehaviour
     */
     public void StartBalanceMenu()
     {
-        SceneManager.LoadScene("Balance");
+        balanceMenu.SetActive(true);
+        balanceMenu.GetComponent<BalanceMenu>().startBalance = true;
     }
 
-    public void EndBalanceMenu(GameObject balanceMenu)
+    public void EndBalanceMenu()
     {
         _skipBalance = true;
+        balanceMenu.SetActive(false);
+        balanceMenu.GetComponent<BalanceMenu>().startBalance = false;
         if(_died)
         {
             _died = false;

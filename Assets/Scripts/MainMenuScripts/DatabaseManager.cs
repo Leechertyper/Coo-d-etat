@@ -87,13 +87,13 @@ public class DatabaseManager : MonoBehaviour
                 connection.Open();
                 string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `value` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
                 
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();
             }
         }
         catch (MySqlException exception)
         {   
-            
+            print("Error updating value");
             print(exception.Message);
         }
         
