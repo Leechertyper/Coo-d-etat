@@ -85,11 +85,15 @@ public class BalanceMenu : MonoBehaviour
         }
         else
         {
-            string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dict)];
-            foreach (KeyValuePair<string, float> kvp in dict)
+            if(PlayerPrefs.GetInt("Balance") == 1)
             {
-                GameManager.dbInstance.UpdateValue(dictName + char.ToUpper(kvp.Key[0])+kvp.Key, kvp.Value);
+                string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dict)];
+                foreach (KeyValuePair<string, float> kvp in dict)
+                {
+                    GameManager.dbInstance.UpdateValue(dictName + char.ToUpper(kvp.Key[0])+kvp.Key, kvp.Value);
             }
+            }
+            
             ResumeGame();
         }
     }
