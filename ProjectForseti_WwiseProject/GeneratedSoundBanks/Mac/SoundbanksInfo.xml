@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5D0215E0-ABB3-19A0-103E-35D13CCA99E2}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2B6579FF-1709-F423-626F-4A0BDDB87459}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -58,7 +58,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{D973E7B4-FF94-B50B-4D63-EEE1D4757554}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{B3CB2BE9-F8A3-739E-77BC-7C8B7FAA0A58}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -220,7 +220,7 @@
 				</File>
 				<File Id="742994317" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Unpause SFX.wav</ShortName>
-					<CachePath>SFX/Unpause SFX_10C4C929.wem</CachePath>
+					<CachePath>SFX/Unpause SFX_39000D95.wem</CachePath>
 				</File>
 				<File Id="762522150" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 6.wav</ShortName>
@@ -548,7 +548,7 @@
 						<MediaRef Id="1015133013"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4146597635" Name="Play_Machine_Buzz" DurationType="OneShot" DurationMin="0.69796515" DurationMax="0.69796515">
+				<Event Id="4146597635" Name="Play_Machine_Buzz" DurationType="OneShot" DurationMin="0.6111338" DurationMax="0.6111338">
 					<MediaRefs>
 						<MediaRef Id="1003005601"/>
 					</MediaRefs>
@@ -820,5 +820,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{12C310C7-261A-586F-CC52-B28C6E3081EF}</FileHash>
+	<FileHash>{53C9A7D2-A338-915E-C577-377A99566054}</FileHash>
 </SoundBanksInfo>

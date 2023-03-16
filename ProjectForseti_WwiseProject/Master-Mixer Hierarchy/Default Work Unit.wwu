@@ -143,84 +143,80 @@
 											</RTPC>
 										</Local>
 									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{B32E08C4-5F76-496B-9091-4938EA2D181A}" ShortID="489140199">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Highpass"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="Game_Is_Paused" ID="{766AC115-39F4-4041-B102-64732CF07034}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{10008048-E055-4DA7-AC68-7CF629D39D1E}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>50</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{8079DD8B-2932-4361-A307-FB8E585DF392}" ShortID="193433308">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Lowpass"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="Game_Is_Paused" ID="{766AC115-39F4-4041-B102-64732CF07034}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{E24BA82A-B374-492A-BCA2-8C1A81958983}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>50</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
 								</ObjectList>
 							</ObjectLists>
 						</Bus>
 					</ChildrenList>
-					<ObjectLists>
-						<ObjectList Name="RTPC">
-							<Reference>
-								<Local>
-									<RTPC Name="" ID="{BF682D61-CFA0-4EFA-BFE1-17AB822B7D7C}" ShortID="759943394">
-										<PropertyList>
-											<Property Name="PropertyName" Type="string" Value="Highpass"/>
-										</PropertyList>
-										<ReferenceList>
-											<Reference Name="ControlInput">
-												<ObjectRef Name="Game_Is_Paused" ID="{766AC115-39F4-4041-B102-64732CF07034}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
-											</Reference>
-											<Reference Name="Curve">
-												<Custom>
-													<Curve Name="" ID="{2F94F4A3-D7BB-4655-86C9-56B02C5E7BE9}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="65537"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>0</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>50</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</Custom>
-											</Reference>
-										</ReferenceList>
-									</RTPC>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
-									<RTPC Name="" ID="{BFB660D0-31EF-4492-9E59-383C75E92B1B}" ShortID="374872585">
-										<PropertyList>
-											<Property Name="PropertyName" Type="string" Value="Lowpass"/>
-										</PropertyList>
-										<ReferenceList>
-											<Reference Name="ControlInput">
-												<ObjectRef Name="Game_Is_Paused" ID="{766AC115-39F4-4041-B102-64732CF07034}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
-											</Reference>
-											<Reference Name="Curve">
-												<Custom>
-													<Curve Name="" ID="{73857315-9778-4399-8872-1E4E46408364}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="65537"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>0</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>50</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</Custom>
-											</Reference>
-										</ReferenceList>
-									</RTPC>
-								</Local>
-							</Reference>
-						</ObjectList>
-					</ObjectLists>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>
