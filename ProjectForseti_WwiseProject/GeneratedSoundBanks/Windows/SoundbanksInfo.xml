@@ -58,7 +58,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{B3CB2BE9-F8A3-739E-77BC-7C8B7FAA0A58}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{5C8832ED-711C-7E47-FD0E-A8BBB303AF80}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -603,7 +603,7 @@
 						<MediaRef Id="1039062149"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="480578592" Name="Play_Pigeon_hoo_hoo" DurationType="OneShot" DurationMin="0.77267575" DurationMax="0.77267575">
+				<Event Id="480578592" Name="Play_Pigeon_hoo_hoo" DurationType="OneShot" DurationMin="0.63124347" DurationMax="0.63124347">
 					<MediaRefs>
 						<MediaRef Id="514170223"/>
 					</MediaRefs>
@@ -820,5 +820,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EFEC7CD3-30A0-323C-364D-B59A80F88A31}</FileHash>
+	<FileHash>{BF2EAC66-EF5D-216C-235D-5D6FBA9AA87F}</FileHash>
 </SoundBanksInfo>

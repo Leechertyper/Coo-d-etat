@@ -11,6 +11,7 @@ public class Battery : ItemEffect
     {
         //IDK what power is, maybe player damage??
         //target.GetComponent<Player>().IncreasePower(((int)BalanceVariables.collectables["batteryAmount"])); 
+        AkSoundEngine.PostEvent("Play_Potential_Pickup_SFX", target);
         target.GetComponent<PlayerAttack>().AddAmmo(BalanceVariables.collectables["batteryAmount"]);
 
     }
