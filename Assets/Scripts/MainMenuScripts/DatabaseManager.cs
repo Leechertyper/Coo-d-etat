@@ -17,23 +17,41 @@ public class DatabaseManager : MonoBehaviour
     #endregion
     private MySqlConnection conn = null;
     #region UNITY METHODS
-    private bool _hostFound = false;
+    private bool _hostFound;
     private void Awake()
     {
         try 
         {
             int x = System.Net.Dns.GetHostAddresses(Host).Length;
-
+            _hostFound = true;
         }
         catch (SocketException exception)
         {
-            PlayerPrefs.SetInt("BalanceDataBase",0);
             _hostFound = false;
         }
         if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
         {
-            conn = Connect();
+            if(_hostFound){
+                conn = Connect();
+            }
+            else
+            {
+                Debug.Log("Host not found");
+            }
+            
+        }
+    }
+
+    void Start()
+    {
+        try 
+        {
+            int x = System.Net.Dns.GetHostAddresses(Host).Length;
             _hostFound = true;
+        }
+        catch (SocketException exception)
+        {
+            _hostFound = false;
         }
     }
 
