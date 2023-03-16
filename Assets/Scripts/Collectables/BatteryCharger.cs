@@ -8,7 +8,7 @@ public class BatteryCharger : ItemEffect
     //public int amount;
     public override void Apply(GameObject target) 
     {
-        
+        AkSoundEngine.PostEvent("Play_Heal", target);
         target.GetComponent<PlayerAttack>().MakeMaxAmmo();
         Debug.Log("Player used battery charger");
 

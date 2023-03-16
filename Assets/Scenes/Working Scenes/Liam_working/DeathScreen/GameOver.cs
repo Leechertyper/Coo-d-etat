@@ -42,6 +42,12 @@ public class GameOver : MonoBehaviour
     */
     public void BackToMenu()
     {
+        AkSoundEngine.StopAll();
         SceneManager.LoadScene("MainMenu");
+    }
+    
+    public void Clickybutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
     }
 }

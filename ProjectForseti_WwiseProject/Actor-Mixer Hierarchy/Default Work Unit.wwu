@@ -669,9 +669,14 @@
 				</Sound>
 				<Sound Name="Pigeon hoo hoo" ID="{FCBB53CA-2201-416E-A6B4-1C7FE1B0EFC8}" ShortID="1024600845">
 					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>40</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
-								<Value>350</Value>
+								<Value>250</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Volume" Type="Real64">
@@ -690,6 +695,9 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="Pigeon hoo hoo" ID="{4D1EEF40-DDC8-4742-B0C8-184B8D5BEA72}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Pigeon hoo hoo.wav</AudioFile>
 							<MediaIDList>
