@@ -43,7 +43,7 @@ public class DroneBoss : MonoBehaviour
 
     private Vector2 _targetPos;
 
-    private int _moves = 5;
+    private int _moves = 3;
 
     private int _movesLeft;
 
@@ -286,7 +286,6 @@ public class DroneBoss : MonoBehaviour
     {
         yield return new WaitUntil(() => !grid.isAttacking);
         StopCoroutine(TimeUntilNextDirectAttack());
-        StartCoroutine(TimeUntilNextDirectAttack());
     }
 
     IEnumerator Ring2Wait(Vector2 gridPos, Vector2 offsetX, Vector2 offsetY)

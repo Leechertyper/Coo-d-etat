@@ -3831,6 +3831,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1055407728, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: boss
       value: 
