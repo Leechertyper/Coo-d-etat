@@ -25,6 +25,8 @@ public class DroneAI : Enemy
     private bool _awake;
     enum state {Chase, Pause};
 
+    private bool _isSleeping;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -129,7 +131,7 @@ public class DroneAI : Enemy
     /// <returns>IEnum Wait</returns>
     private IEnumerator TimedShoot(float delay)
     {
-        while (true)
+        while (!_isSleeping)
         {
             yield return new WaitForSeconds(delay);
             AkSoundEngine.PostEvent("Play_Lazer_SFX", this.gameObject);
@@ -154,15 +156,18 @@ public class DroneAI : Enemy
         AkSoundEngine.PostEvent("Play_Robot_Alert_SFX", this.gameObject);
         _awake = true;
         _myState = state.Chase;
+        _isSleeping = false;
         StartCoroutine(_slowFire);
+        
     }
 
     public override void Sleep()
     {
         _awake = false;
-        StopAllCoroutines();
         _myState = state.Pause;
         _rb.velocity = Vector2.zero;
+        _isSleeping = true;
+        StopAllCoroutines();
     }
 
     public void ChangeMoveSpeed(float newMoveSpeed)

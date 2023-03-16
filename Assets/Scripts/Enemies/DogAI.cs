@@ -14,17 +14,18 @@ public class DogAI : Enemy
     private GlobalGrid _grid;
     private Vector2Int _gridPos;
     private Transform _target;
-    private state _myState;
+    [SerializeField] private state _myState;
     private float _distX;
     private float _distY;
     private bool _awake;
     private bool _attackReady = true;
-    enum state { Dash, Leap, Next, Wait, Attack};
-    
+    enum state { Dash, Leap, Next, Wait, Attack}
+
 
     public override void Awaken()
     {
         _awake = true;
+        _myState = state.Dash;
     }
 
     public override void Sleep()
@@ -48,51 +49,51 @@ public class DogAI : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (_awake) {
-            if (_myState == state.Next)
+        if (!_awake) return;
+        
+        if (_myState == state.Next)
+        {
+            if (Vector2.Distance(_target.transform.position, transform.position) > leapDistance)
             {
-                if (Vector2.Distance(_target.transform.position, transform.position) > leapDistance)
-                {
-                    _myState = state.Leap;
-                }
-                else
-                {
-                    _myState = state.Dash;
-                }
+                _myState = state.Leap;
             }
+            else
+            {
+                _myState = state.Dash;
+            }
+        }
 
-            if (_myState == state.Dash)
+        if (_myState == state.Dash)
+        {
+            _myState = state.Wait;
+            _distX = _target.transform.position.x - transform.transform.position.x;
+            _distY = _target.transform.position.y - transform.transform.position.y;
+            if (Mathf.Abs(_distX) > Mathf.Abs(_distY))
             {
-                _myState = state.Wait;
-                _distX = _target.transform.position.x - transform.transform.position.x;
-                _distY = _target.transform.position.y - transform.transform.position.y;
-                if (Mathf.Abs(_distX) > Mathf.Abs(_distY))
+                if (_distX > 0)
                 {
-                    if (_distX > 0)
-                    {
-                        StartCoroutine(Dash(1, 2));
-                    }
-                    else
-                    {
-                        StartCoroutine(Dash(3, 2));
-                    }
+                    StartCoroutine(Dash(1, 2));
                 }
                 else
                 {
-                    if (_distY > 0)
-                    {
-                        StartCoroutine(Dash(0, 2));
-                    }
-                    else
-                    {
-                        StartCoroutine(Dash(2, 2));
-                    }
+                    StartCoroutine(Dash(3, 2));
                 }
             }
-            if (_myState == state.Leap)
+            else
             {
-                StartCoroutine(LeapAtPlayer());
+                if (_distY > 0)
+                {
+                    StartCoroutine(Dash(0, 2));
+                }
+                else
+                {
+                    StartCoroutine(Dash(2, 2));
+                }
             }
+        }
+        if (_myState == state.Leap)
+        {
+            StartCoroutine(LeapAtPlayer());
         }
     }
 

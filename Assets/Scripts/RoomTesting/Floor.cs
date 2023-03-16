@@ -82,6 +82,8 @@ public class Floor : MonoBehaviour
             _rooms.Add(new List<Room>());
         }
 
+        
+        _rooms.Add(new List<Room>());
         for (var i = 0; i < r; i++)
         {
             for (var j = 0; j < c; j++)
@@ -99,6 +101,7 @@ public class Floor : MonoBehaviour
 
         Debug.Log("Starting Grid Wait");
         StartCoroutine(WaitForGrid());
+        
     }
 
 
@@ -131,7 +134,7 @@ public class Floor : MonoBehaviour
         }
 
 
-        for (var i = 0; i < _rooms.Count; i++)
+        for (var i = 0; i < _floorXDimension; i++)
         {
             for (var j = 0; j < _rooms[i].Count; j++)
             {
@@ -144,12 +147,7 @@ public class Floor : MonoBehaviour
                     var randomEnemy = spawnableEnemies[Random.Range(0, spawnableEnemies.Count)];
             
                     var returnEnemy = GameManager.Instance.Grid.PlaceEnemyinRoom(randomEnemy,_floorXDimension*i + j);
-                    //Debug.Log(returnEnemy.GetComponent<Enemy>());
-                    while (!returnEnemy.GetComponent<Enemy>())
-                    {
-                        // wait
-                    }
-                        _rooms[i][j].SpawnEnemy(returnEnemy.GetComponent<Enemy>()); 
+                    _rooms[i][j].SpawnEnemy(returnEnemy.GetComponent<Enemy>()); 
                 }
             }
         }
@@ -164,7 +162,13 @@ public class Floor : MonoBehaviour
         var endRoom = Instantiate(endRoomPrefab,transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
             endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
-        //GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
+        var endRoomScript = endRoom.GetComponent<Room>();
+        endRoomScript.SetRoomType(Room.RoomType.EndRoom);
+
+        _rooms[_floorXDimension].Add(null);
+        _rooms[_floorXDimension].Add(null);
+        _rooms[_floorXDimension].Add(endRoomScript);
+        GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
         
         
         //MINIMAP STUFF
