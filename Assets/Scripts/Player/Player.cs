@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private bool _isInvuln = false;
     private bool _healthChanging = false;
     private bool _healthTrailChanging = false;
+    [SerializeField]private bool _hasKey = false;
 
     [SerializeField] private Text _healthText;
     [SerializeField] private float _power;
@@ -188,6 +189,17 @@ public class Player : MonoBehaviour
             _power = Mathf.RoundToInt(BalanceVariables.player["maxPower"]);
         }
     }
+
+    public void GetKey()
+    {
+        _hasKey = true;
+    }
+
+    public void UseKey()
+    {
+        _hasKey = false;
+    }
+
     
     public IEnumerator subtractOverTime(float subtractor, float total, float duration) {
         float startTime = Time.time;

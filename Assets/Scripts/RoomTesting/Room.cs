@@ -32,6 +32,7 @@ public class Room : MonoBehaviour
         Key,
         Boss,
         Charger,
+        EndRoom
     }
 
     private void OnTriggerEnter2D(Collider2D col)
