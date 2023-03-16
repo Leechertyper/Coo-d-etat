@@ -9,6 +9,7 @@ public class Lanyard : ItemEffect
     //after garlic is picked up
     public override void Apply(GameObject target)
     {
+        AkSoundEngine.PostEvent("Play_Potential_Pickup_SFX_2", target);
         target.GetComponent<Player>().GetKey();
 
     }

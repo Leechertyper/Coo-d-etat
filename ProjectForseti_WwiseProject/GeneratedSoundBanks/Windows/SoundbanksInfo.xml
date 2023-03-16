@@ -59,7 +59,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{7A58CC93-162D-D74B-62BE-5CFCDB277DDD}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{761BAF3C-0B76-2900-3775-95DC998BB199}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -630,7 +630,7 @@
 						<MediaRef Id="801503577"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3838884112" Name="Play_Potential_Pickup_SFX_2" DurationType="OneShot" DurationMin="0.49458012" DurationMax="0.6231319">
+				<Event Id="3838884112" Name="Play_Potential_Pickup_SFX_2" DurationType="OneShot" DurationMin="0.5551474" DurationMax="0.5551474">
 					<MediaRefs>
 						<MediaRef Id="818060147"/>
 					</MediaRefs>
@@ -822,5 +822,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{2C54E19E-162F-A3A6-8AE0-42BCA026BC3C}</FileHash>
+	<FileHash>{0D46FEBD-7C8B-A301-2B24-0BF5C88F6D7F}</FileHash>
 </SoundBanksInfo>
