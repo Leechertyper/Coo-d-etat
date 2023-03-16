@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         AkSoundEngine.PostEvent("Play_Unpause_SFX", this.gameObject);
+        AkSoundEngine.SetRTPCValue("Dead_Mute", 100);
         AkSoundEngine.SetRTPCValue("Game_Is_Paused", 0);
         Time.timeScale = 1.0f;
         gameIsPaused = false;
@@ -43,6 +44,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         AkSoundEngine.PostEvent("Play_Pause_SFX", this.gameObject);
+        AkSoundEngine.SetRTPCValue("Dead_Mute", 0);
         AkSoundEngine.SetRTPCValue("Game_Is_Paused", 100);
         Time.timeScale = 0f;
         gameIsPaused = true;

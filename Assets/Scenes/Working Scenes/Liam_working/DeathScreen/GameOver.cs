@@ -42,6 +42,13 @@ public class GameOver : MonoBehaviour
     */
     public void BackToMenu()
     {
+        AkSoundEngine.StopAll();
+        AkSoundEngine.SetRTPCValue("Dead_Mute", 100);
         SceneManager.LoadScene("MainMenu");
+    }
+    
+    public void Clickybutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
     }
 }

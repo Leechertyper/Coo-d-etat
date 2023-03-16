@@ -89,6 +89,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID DEAD_MUTE = 1870461633U;
         static const AkUniqueID GAME_IS_PAUSED = 2536527299U;
         static const AkUniqueID PLAYERHEALTH = 151362964U;
         static const AkUniqueID SFX_PLAYING = 2234500385U;

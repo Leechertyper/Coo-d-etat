@@ -501,13 +501,17 @@
 								<ModifierInfo>
 									<Modifier Name="" ID="{B6BD6DF9-2B41-472D-95AC-C164892B0FCB}">
 										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
 											<Property Name="Max" Type="Real64" Value="200"/>
 											<Property Name="Min" Type="Real64" Value="-200"/>
 										</PropertyList>
 									</Modifier>
 								</ModifierInfo>
 							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
@@ -520,6 +524,9 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="Potential Pickup SFX 2" ID="{53CC5618-3B98-4D08-933D-68B8088C3036}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Potential Pickup SFX 2.wav</AudioFile>
 							<MediaIDList>
@@ -600,7 +607,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-8</Value>
+								<Value>-7</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -669,9 +676,14 @@
 				</Sound>
 				<Sound Name="Pigeon hoo hoo" ID="{FCBB53CA-2201-416E-A6B4-1C7FE1B0EFC8}" ShortID="1024600845">
 					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>40</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
-								<Value>350</Value>
+								<Value>250</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Volume" Type="Real64">
@@ -690,6 +702,9 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="Pigeon hoo hoo" ID="{4D1EEF40-DDC8-4742-B0C8-184B8D5BEA72}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Pigeon hoo hoo.wav</AudioFile>
 							<MediaIDList>
@@ -1085,6 +1100,45 @@
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{998681DD-4244-431F-904E-B5CBD26AB8DF}" ShortID="737560384">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="Dead_Mute" ID="{7984E135-6A32-409E-8B8F-9188D0E0D9F2}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{E6BB3CA5-662D-4DCB-ADB3-2D2EC2D31BAA}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
 					<ActiveSourceList>
 						<ActiveSource Name="Machine Buzz" ID="{2250E36B-5625-45B1-AF73-0692007993DE}" Platform="Linked"/>
 					</ActiveSourceList>
@@ -1176,6 +1230,45 @@
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{C9BED040-6A05-49F7-A117-2B1F2F75684A}" ShortID="769143286">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="Dead_Mute" ID="{7984E135-6A32-409E-8B8F-9188D0E0D9F2}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{D54FBAA4-E2C2-4D6E-AEDE-D4E7B047EC40}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
 					<ActiveSourceList>
 						<ActiveSource Name="Lazer SFX 2" ID="{CB9870C8-0DEE-4296-A3AB-8652AE54B18B}" Platform="Linked"/>
 					</ActiveSourceList>
@@ -1294,6 +1387,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Heal" ID="{CE5025E1-1E72-4A08-9CF3-57E50E9C0BB2}" ShortID="966908537">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>

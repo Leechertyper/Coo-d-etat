@@ -1674,6 +1674,192 @@
 								</ObjectList>
 							</ObjectLists>
 						</MusicSegment>
+						<MusicSegment Name="door slide close" ID="{1F70E3EE-3BD4-462F-A54D-21325ACBD789}" ShortID="574570510">
+							<PropertyList>
+								<Property Name="PlaybackSpeed" Type="Real64">
+									<ValueList>
+										<Value>0.8</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="door slide close" ID="{AC27BCDC-C3F4-496E-B1E1-B1ED41A51BA4}" ShortID="937526562">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="door slide close" ID="{E05F697D-E0E4-493C-A320-05FD2F284DAC}">
+											<Language>SFX</Language>
+											<AudioFile>door slide close.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="688570229"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{A90CE5F4-E14E-4621-8AE8-CED990A56E4F}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{FCE338CF-91A5-4B45-9AD3-CB8054658E91}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="door slide close" ID="{D7C8F5AF-13C2-4FB6-94ED-8419179046F1}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="844.580498866213"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="door slide close" ID="{E05F697D-E0E4-493C-A320-05FD2F284DAC}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{3FA583F2-67FD-41FB-B370-67E8A032AEC2}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{E2CFB333-ED5F-487B-9DC9-719535A46EAA}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="door slide open" ID="{9D8EDEF7-08EF-4267-A23A-5D51884298AB}" ShortID="560694574">
+							<PropertyList>
+								<Property Name="PlaybackSpeed" Type="Real64">
+									<ValueList>
+										<Value>1.1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="door slide open" ID="{CD83F358-2053-4B75-8173-39B571DB5509}" ShortID="353423877">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="door slide open" ID="{3EFFFCA9-6C2C-4373-9123-92A69086AEB9}">
+											<Language>SFX</Language>
+											<AudioFile>door slide open.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="307598767"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{4E147DDC-28B1-4B8D-B001-BD3D02A91491}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{A55E87EC-FA84-437C-96AA-BBD364B2DD4A}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="door slide open" ID="{D99E5DA5-7312-40A0-A840-610A2C7D0AE4}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="944.852607709751"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="door slide open" ID="{3EFFFCA9-6C2C-4373-9123-92A69086AEB9}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{2AC1795E-C2E0-4225-9145-7E47358C20D3}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{BED02BCA-76C4-4E28-ACE7-F59DC015EBCC}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
 					</ChildrenList>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{1EFB5EF4-8F33-4CBB-88B6-1730FCB5D9E8}">
@@ -1785,7 +1971,7 @@
 										</Reference>
 									</ReferenceList>
 									<TransitionInfo>
-										<TransitionObjectRef Name="Door Open" ID="{B6ABE7EE-A213-4787-9895-E589FC093C76}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
+										<TransitionObjectRef Name="door slide open" ID="{9D8EDEF7-08EF-4267-A23A-5D51884298AB}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
 										<DestinationFadeIn>
 											<MusicFade Name="Destination Fade-in" ID="{953BC083-499C-4430-9888-3F1D5093795A}">
 												<PropertyList>
@@ -1808,7 +1994,7 @@
 										</Reference>
 									</ReferenceList>
 									<TransitionInfo>
-										<TransitionObjectRef Name="Reverse Riser" ID="{C7CF7472-75FF-4957-ABA8-338211755384}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
+										<TransitionObjectRef Name="door slide close" ID="{1F70E3EE-3BD4-462F-A54D-21325ACBD789}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
 										<DestinationFadeIn>
 											<MusicFade Name="Destination Fade-in" ID="{E442D261-3236-49F3-9342-471EA8495C68}"/>
 										</DestinationFadeIn>
