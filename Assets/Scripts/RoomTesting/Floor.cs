@@ -306,6 +306,9 @@ public class Floor : MonoBehaviour
             case Room.RoomType.Enemy:
                 AkSoundEngine.SetState("Music_State", "Normal_Room");
                 break;
+            case Room.RoomType.EndRoom:
+                AkSoundEngine.SetState("Music_State", "End_Room");
+                break;
             default:
                 AkSoundEngine.SetState("Music_State", "None");
 

@@ -104,6 +104,8 @@ public class Player : MonoBehaviour
             if(death){
                 death.Play("Death");
             }
+
+            _rtpc.SetGlobalValue(100);
             GameManager.Instance.OnPlayerDeath();
         }      
     }

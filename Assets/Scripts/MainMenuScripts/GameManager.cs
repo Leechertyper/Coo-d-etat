@@ -168,6 +168,8 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerDeath(){
         //for now
+        AkSoundEngine.SetRTPCValue("Dead_Mute", 0);
+        AkSoundEngine.SetState("PlayerLife", "Defeated");
         _died = true;
         if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance)
         {
