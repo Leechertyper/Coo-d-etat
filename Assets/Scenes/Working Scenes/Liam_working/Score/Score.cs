@@ -7,12 +7,18 @@ public class Score : MonoBehaviour
 {
     public int _score = 0;
     public int _highScore = 0;
+    private static Score instance;
 
 
     // Load the high _score from PlayerPrefs on start
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        }
         LoadScore();
     }
 

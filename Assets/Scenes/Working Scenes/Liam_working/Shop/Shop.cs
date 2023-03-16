@@ -11,7 +11,7 @@ public class Shop : MonoBehaviour
     public int playerBalance = 0;
     public Text playerBalanceText;
     public GameObject shopUI;
-
+    private static Shop instance;
     public static List<ShopItem> shopItemList = new List<ShopItem>();
     private List<ShopItem> starterShopItemList = new List<ShopItem>(new ShopItem[]{
         new ShopItem("Increase Battery", 10, "Upgrade your battery and keep your lazer powered for longer!",1f, ""),
@@ -37,7 +37,12 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update will create the shop items and display them
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        }
         shopUI.SetActive(false);
         int _savedShopItemCount = PlayerPrefs.GetInt("itemDataCount");
         playerBalance = PlayerPrefs.GetInt("playerBalance");
