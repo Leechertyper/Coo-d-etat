@@ -184,5 +184,10 @@ public class BalanceMenu : MonoBehaviour
             newSlider.GetComponent<BalanceSlider>().balanceLevel.text = "1.0";
         }
     }
+    
+    public void Clickybutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
+    }
 
 }

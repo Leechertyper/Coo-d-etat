@@ -114,6 +114,7 @@ public class PlayerAttack : MonoBehaviour
             }
             else
             {
+                AkSoundEngine.PostEvent("Play_Machine_Buzz", this.gameObject);
                 Debug.Log("NO MORE AMMO");
             }
         }

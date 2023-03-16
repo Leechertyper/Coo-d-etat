@@ -462,6 +462,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Unpause SFX" ID="{0CE3B308-CCBB-4530-A40E-C60BBB0740BB}" ShortID="603445290">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -472,6 +479,10 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="Unpause SFX" ID="{DBB7571D-DABB-4FF6-A924-DB3973696C0D}">
+							<PropertyList>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.0408125282497142"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Unpause SFX.wav</AudioFile>
 							<MediaIDList>
@@ -587,6 +598,11 @@
 								</ModifierInfo>
 							</ModifierList>
 						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -652,6 +668,18 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Pigeon hoo hoo" ID="{FCBB53CA-2201-416E-A6B4-1C7FE1B0EFC8}" ShortID="1024600845">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>350</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -960,6 +988,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Pause SFX" ID="{32161C13-90F9-43B8-95D0-E39723472C9F}" ShortID="700985800">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -1007,12 +1042,12 @@
 					<PropertyList>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
-								<Value>32</Value>
+								<Value>17</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
-								<Value>35</Value>
+								<Value>20</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Pitch" Type="int32">
@@ -1020,7 +1055,6 @@
 								<ModifierInfo>
 									<Modifier Name="" ID="{A93402BA-BDFD-4B3D-BC07-EA6BE710F497}">
 										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
 											<Property Name="Max" Type="Real64" Value="400"/>
 											<Property Name="Min" Type="Real64" Value="-400"/>
 										</PropertyList>
@@ -1030,7 +1064,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-18</Value>
+								<Value>-10</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1456,6 +1490,11 @@
 				</Sound>
 				<Sound Name="Launcher Explosion" ID="{7A9D42B5-8252-4A54-9849-154DEB00D6B3}" ShortID="763072452">
 					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>25</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
 								<Value>10</Value>
@@ -1476,7 +1515,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>4</Value>
+								<Value>-4</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>

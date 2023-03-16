@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{499B775D-6F72-77EB-BCAB-2C2EB09C219F}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{DD2AF12A-752D-7862-BAE1-26BE310F7363}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -58,7 +58,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{285C7970-B2B7-BF98-9C19-AAE2CE08BB0B}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{5C8832ED-711C-7E47-FD0E-A8BBB303AF80}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -220,7 +220,7 @@
 				</File>
 				<File Id="742994317" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Unpause SFX.wav</ShortName>
-					<CachePath>SFX/Unpause SFX_10C4C929.wem</CachePath>
+					<CachePath>SFX/Unpause SFX_39000D95.wem</CachePath>
 				</File>
 				<File Id="762522150" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 6.wav</ShortName>
@@ -548,7 +548,7 @@
 						<MediaRef Id="1015133013"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4146597635" Name="Play_Machine_Buzz" DurationType="OneShot" DurationMin="0.48505723" DurationMax="0.7699804">
+				<Event Id="4146597635" Name="Play_Machine_Buzz" DurationType="OneShot" DurationMin="0.6111338" DurationMax="0.6111338">
 					<MediaRefs>
 						<MediaRef Id="1003005601"/>
 					</MediaRefs>
@@ -603,7 +603,7 @@
 						<MediaRef Id="1039062149"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="480578592" Name="Play_Pigeon_hoo_hoo" DurationType="OneShot" DurationMin="0.77267575" DurationMax="0.77267575">
+				<Event Id="480578592" Name="Play_Pigeon_hoo_hoo" DurationType="OneShot" DurationMin="0.63124347" DurationMax="0.63124347">
 					<MediaRefs>
 						<MediaRef Id="514170223"/>
 					</MediaRefs>
@@ -820,5 +820,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{BE337878-5E4B-CC9E-3317-FC4231B81A1C}</FileHash>
+	<FileHash>{BF2EAC66-EF5D-216C-235D-5D6FBA9AA87F}</FileHash>
 </SoundBanksInfo>

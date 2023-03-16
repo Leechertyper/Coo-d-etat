@@ -29,6 +29,8 @@ public class PauseMenu : MonoBehaviour
     */
     public void Resume()
     {
+        AkSoundEngine.PostEvent("Play_Unpause_SFX", this.gameObject);
+        AkSoundEngine.SetRTPCValue("Game_Is_Paused", 0);
         Time.timeScale = 1.0f;
         gameIsPaused = false;
         pauseMenuUI.SetActive(false);
@@ -40,6 +42,8 @@ public class PauseMenu : MonoBehaviour
     */
     void Pause()
     {
+        AkSoundEngine.PostEvent("Play_Pause_SFX", this.gameObject);
+        AkSoundEngine.SetRTPCValue("Game_Is_Paused", 100);
         Time.timeScale = 0f;
         gameIsPaused = true;
         pauseMenuUI.SetActive(true);
@@ -62,6 +66,10 @@ public class PauseMenu : MonoBehaviour
     public void BackToMenu()
     {
         Resume();
+        AkSoundEngine.StopAll();
+        //AkSoundEngine.PostEvent("Stop_Controller_Switch", this.gameObject);
+        AkSoundEngine.SetRTPCValue("Game_Is_Paused", 0);
+
         SceneManager.LoadScene("MainMenu");
     }
 }

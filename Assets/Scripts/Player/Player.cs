@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         AkSoundEngine.SetState("PlayerLife", "Alive");
-        AkSoundEngine.SetState("Music_State", "Normal_Room");
+        //AkSoundEngine.SetState("Music_State", "Normal_Room");
         //AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
         _health = BalanceVariables.player["maxHealth"];
         _rtpc.SetGlobalValue(_health);
