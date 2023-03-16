@@ -14,6 +14,7 @@ public class DevConsole : MonoBehaviour
     public GameObject dogPrefab;
     // public GameObject piratePrefab; // Not implemented
     public GameObject bossPrefab;
+    private static DevConsole instance;
 
     void Update()
     {
@@ -105,7 +106,12 @@ public class DevConsole : MonoBehaviour
 
     private void Start()
     {
-       DontDestroyOnLoad(this);
+       if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        }
     }
 
     public void SpawnDrone()

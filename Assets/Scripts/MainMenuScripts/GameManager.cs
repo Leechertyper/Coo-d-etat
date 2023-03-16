@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
             // DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
             dbInstance = this.gameObject.GetComponent<DatabaseManager>();
-            if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
+            if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
             {
                 for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
                 {
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
     public void OnPlayerDeath(){
         //for now
         _died = true;
-        if (PointBalanceTimer.Instance.counter > 0 || !_skipBalance)
+        if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance)
         {
             StartBalanceMenu();
         }
@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GoToNextFloor(){
-        if (PointBalanceTimer.Instance.counter > 0 || !_skipBalance)
+        if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance)
         {
             StartBalanceMenu();
         }

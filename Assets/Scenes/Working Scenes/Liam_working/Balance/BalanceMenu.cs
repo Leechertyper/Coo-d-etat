@@ -85,13 +85,13 @@ public class BalanceMenu : MonoBehaviour
         }
         else
         {
-            if(PlayerPrefs.GetInt("Balance") == 1)
+            if(PlayerPrefs.GetInt("Balance") == 1 && GameManager.dbInstance.GetHostFound())
             {
                 string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dict)];
                 foreach (KeyValuePair<string, float> kvp in dict)
                 {
                     GameManager.dbInstance.UpdateValue(dictName + char.ToUpper(kvp.Key[0])+kvp.Key, kvp.Value);
-            }
+                }
             }
             
             ResumeGame();
