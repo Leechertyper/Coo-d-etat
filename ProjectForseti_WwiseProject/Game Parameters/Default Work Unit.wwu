@@ -17,7 +17,7 @@
 				</GameParameter>
 				<GameParameter Name="Game_Is_Paused" ID="{766AC115-39F4-4041-B102-64732CF07034}">
 					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="100"/>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="Dead_Mute" ID="{7984E135-6A32-409E-8B8F-9188D0E0D9F2}">
