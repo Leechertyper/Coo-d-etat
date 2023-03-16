@@ -9,7 +9,7 @@ public class Lanyard : ItemEffect
     //after garlic is picked up
     public override void Apply(GameObject target)
     {
-
+        target.GetComponent<Player>().GetKey();
 
     }
 }
