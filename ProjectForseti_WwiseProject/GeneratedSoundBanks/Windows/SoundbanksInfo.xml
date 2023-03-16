@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{DD2AF12A-752D-7862-BAE1-26BE310F7363}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{71470A34-8F35-5FE1-DF3E-1E33CB4E3912}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -34,6 +34,7 @@
 			</Busses>
 			<GameParameters>
 				<GameParameter Id="151362964" Name="PlayerHealth"/>
+				<GameParameter Id="1870461633" Name="Dead_Mute"/>
 				<GameParameter Id="2234500385" Name="SFX_playing"/>
 				<GameParameter Id="2536527299" Name="Game_Is_Paused"/>
 			</GameParameters>
@@ -58,7 +59,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{6310D329-A2F7-ADF8-CE18-92FE7E2210D9}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{1C46E293-CE5D-2E25-C724-65DF067DEAE3}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -81,10 +82,6 @@
 				<File Id="119470656" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 9.wav</ShortName>
 					<CachePath>SFX/Pigeon Coo 9_10C4C929.wem</CachePath>
-				</File>
-				<File Id="129237829" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Cymatics - Dreams Foley - Door Open 1.wav</ShortName>
-					<CachePath>SFX/Cymatics - Dreams Foley - Door Open 1_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="131933092" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Robot Alert SFX.wav</ShortName>
@@ -125,6 +122,10 @@
 				<File Id="249967903" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 11.wav</ShortName>
 					<CachePath>SFX/Pigeon Coo 11_10C4C929.wem</CachePath>
+				</File>
+				<File Id="307598767" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>door slide open.wav</ShortName>
+					<CachePath>SFX/door slide open_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="308759193" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 5.wav</ShortName>
@@ -182,10 +183,6 @@
 					<ShortName>Pigeon hoo hoo.wav</ShortName>
 					<CachePath>SFX/Pigeon hoo hoo_10C4C929.wem</CachePath>
 				</File>
-				<File Id="526647897" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Reverse Riser.wav</ShortName>
-					<CachePath>SFX/Reverse Riser_D79FB2B7.wem</CachePath>
-				</File>
 				<File Id="542053950" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Machine wub 2.wav</ShortName>
 					<CachePath>SFX/Machine wub 2_10C4C929.wem</CachePath>
@@ -205,6 +202,10 @@
 				<File Id="686687541" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>game over jingle NES.wav</ShortName>
 					<CachePath>SFX/game over jingle NES_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="688570229" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>door slide close.wav</ShortName>
+					<CachePath>SFX/door slide close_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="715870971" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>heartbeat.wav</ShortName>
@@ -310,9 +311,9 @@
 			<Events>
 				<Event Id="2911254633" Name="Play_Controller_Switch" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="129237829"/>
+						<MediaRef Id="307598767"/>
 						<MediaRef Id="446377031"/>
-						<MediaRef Id="526647897"/>
+						<MediaRef Id="688570229"/>
 					</MediaRefs>
 					<SwitchContainers>
 						<SwitchContainer>
@@ -698,9 +699,9 @@
 				</Event>
 				<Event Id="2615316899" Name="Stop_Controller_Switch" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<MediaRefs>
-						<MediaRef Id="129237829"/>
+						<MediaRef Id="307598767"/>
 						<MediaRef Id="446377031"/>
-						<MediaRef Id="526647897"/>
+						<MediaRef Id="688570229"/>
 					</MediaRefs>
 					<SwitchContainers>
 						<SwitchContainer>
@@ -797,6 +798,7 @@
 			</Events>
 			<GameParameters>
 				<GameParameter Id="151362964" Name="PlayerHealth"/>
+				<GameParameter Id="1870461633" Name="Dead_Mute"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="444815956" Name="PlayerLife">
@@ -820,5 +822,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{2F2A2AE6-C622-5D62-6697-CC7EC4325AE3}</FileHash>
+	<FileHash>{3C6A9517-F179-0C72-BC9D-AEC1F2A13C22}</FileHash>
 </SoundBanksInfo>

@@ -43,6 +43,7 @@ public class GameOver : MonoBehaviour
     public void BackToMenu()
     {
         AkSoundEngine.StopAll();
+        AkSoundEngine.SetRTPCValue("Dead_Mute", 100);
         SceneManager.LoadScene("MainMenu");
     }
     
