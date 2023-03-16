@@ -15,6 +15,8 @@ public class RoomDoor : MonoBehaviour
     private Room _myRoom;
     [SerializeField] private DoorPosition doorPos;
     [SerializeField] private bool locked;
+    [SerializeField] private GameObject lockedDoorTilemap;
+    [SerializeField] private Collider2D doorCollider;
 
     private void Start()
     {
@@ -24,7 +26,7 @@ public class RoomDoor : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.gameObject.CompareTag("Player") || locked) return;
-        
+
         switch (doorPos)
         {
             case DoorPosition.Top:
@@ -44,5 +46,22 @@ public class RoomDoor : MonoBehaviour
                 _myRoom.RightDoor(col.gameObject);
                 break;
         }
+    }
+
+
+    public void LockDoor()
+    {
+        if (!gameObject.activeSelf) return;
+        locked = true;
+        lockedDoorTilemap.SetActive(true);
+        doorCollider.isTrigger = false;
+    }
+
+    public void UnlockDoor()
+    {
+        if (!gameObject.activeSelf) return;
+        locked = false;
+        lockedDoorTilemap.SetActive(false);
+        doorCollider.isTrigger = true;
     }
 }
