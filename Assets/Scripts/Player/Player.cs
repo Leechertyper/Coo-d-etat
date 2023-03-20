@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private bool _isInvuln = false;
     private bool _healthChanging = false;
     private bool _healthTrailChanging = false;
-    [SerializeField]private bool _hasKey = false;
+    public bool _hasKey = false;
 
     [SerializeField] private Text _healthText;
     [SerializeField] private float _power;

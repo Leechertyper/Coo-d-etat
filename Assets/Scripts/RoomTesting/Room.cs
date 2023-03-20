@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,13 @@ public class Room : MonoBehaviour
     [SerializeField] private GameObject chargerRoomSprite;
     [SerializeField] private GameObject keyRoomSprite;
     [SerializeField] private GameObject bossRoomSprite;
+
+
+    [SerializeField] private RoomDoor topDoor;
+    [SerializeField] private RoomDoor bottomDoor;
+    [SerializeField] private RoomDoor leftDoor;
+    [SerializeField] private RoomDoor rightDoor;
+    
 
     private bool _hasBeenCleared;
     public RoomType roomType { get; private set; }
@@ -39,6 +47,9 @@ public class Room : MonoBehaviour
     {
         if (!col.CompareTag("Player")) return;
         EnemiesAwake();
+        if (roomType != RoomType.Boss) return;
+        LockAllDoors();
+        StartCoroutine(WaitForPlayerToGrabKeycard());
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -81,6 +92,17 @@ public class Room : MonoBehaviour
         }
 
         roomHasBeenInitialized = true;
+    }
+
+    private IEnumerator WaitForPlayerToGrabKeycard()
+    {
+        while (!GameManager.Instance.GetPlayerObject().GetComponent<Player>()._hasKey)
+        {
+            yield return null;
+        }
+        
+        UnlockAllDoors();
+        _myFloor.UnlockLastRoom();
     }
     
     private void Start()
@@ -168,5 +190,78 @@ public class Room : MonoBehaviour
     {
         _myFloor.MoveRight(player);
     }
+
+    private void SetTopDoorLocked(bool locked)
+    {
+        Debug.Log("Locking Top Door");
+        if (locked)
+        {
+            topDoor.LockDoor();
+        }
+        else
+        {
+            topDoor.UnlockDoor();
+        }
+        
+    }
+
+    public void SetBottomDoorLocked(bool locked)
+    {
+        Debug.Log("Locking Bottom Door");
+        if (locked)
+        {
+            bottomDoor.LockDoor();
+        }
+        else
+        {
+            bottomDoor.UnlockDoor();
+        }
+    }
+
+    private void SetLeftDoorLocked(bool locked)
+    {
+        Debug.Log("Locking Left Door");
+        if (locked)
+        {
+            leftDoor.LockDoor();
+        }
+        else
+        {
+            leftDoor.UnlockDoor();
+        }
+    }
+
+    private void SetRightDoorLocked(bool locked)
+    {
+        Debug.Log("Locking Right Door");
+        if (locked)
+        {
+            rightDoor.LockDoor();
+        }
+        else
+        {
+            rightDoor.UnlockDoor();
+        }
+    }
+
+
+    private void LockAllDoors()
+    {
+        
+        SetBottomDoorLocked(true);
+        SetLeftDoorLocked(true);
+        SetRightDoorLocked(true);
+        SetTopDoorLocked(true);
+    }
+
+    private void UnlockAllDoors()
+    {
+        
+        SetBottomDoorLocked(false);
+        SetLeftDoorLocked(false);
+        SetRightDoorLocked(false);
+        SetTopDoorLocked(false);
+    }
     
+
 }

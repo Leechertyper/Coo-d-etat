@@ -46,7 +46,9 @@ public class Floor : MonoBehaviour
 
     [SerializeField] private List<GameObject> spawnableEnemies;
     [SerializeField] private GameObject charger;
-    [SerializeField] private GameObject boss; 
+    [SerializeField] private GameObject boss;
+
+    private Room _bossRoomScript;
     
     
     
@@ -114,7 +116,8 @@ public class Floor : MonoBehaviour
             var bossRoom = _rooms[randomX][randomY];
             if (bossRoom.roomHasBeenInitialized || bossRoom == _rooms[0][0]) continue;
             bossRoom.SetRoomType(Room.RoomType.Boss);
-           
+
+            _bossRoomScript = bossRoom;
             GameManager.Instance.Grid.PlaceBossinRoom(boss, _floorXDimension * randomX + randomY);
             break;
         }
@@ -168,6 +171,7 @@ public class Floor : MonoBehaviour
         _rooms[_floorXDimension].Add(null);
         _rooms[_floorXDimension].Add(null);
         _rooms[_floorXDimension].Add(endRoomScript);
+        _rooms[_floorXDimension-1][_floorYDimension-1].SetBottomDoorLocked(true);
         GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
         
         
@@ -314,5 +318,10 @@ public class Floor : MonoBehaviour
 
                 break;
         }
+    }
+
+    public void UnlockLastRoom()
+    {
+        _rooms[_floorXDimension-1][_floorYDimension-1].SetBottomDoorLocked(false);
     }
 }
