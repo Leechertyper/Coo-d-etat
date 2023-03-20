@@ -12,6 +12,8 @@ public class deathItems : MonoBehaviour
     private int _timeSinceLastBattery = 1;
 
     private int _timeSinceLastHealth = 1; 
+
+    private bool _bossGarlicLastSpawn = false; //Used only for the boss's garlic drops
   
     // the amount reference for failed rolls 
     private int _batteryTime = 2; 
@@ -79,13 +81,45 @@ public class deathItems : MonoBehaviour
     } 
 
     //For use with the boss's packages
+    //This has been changed to also spawn health, don't want to change the name 
     public void JustSpawnBattery(Vector3 thePlace)
     {
         thePlace = new Vector3(thePlace.x,thePlace.y,-1);
-        Debug.Log(thePlace.ToString());
+        //Debug.Log(thePlace.ToString());
 
-        GameObject temp = Instantiate(batteryItem,thePlace,Quaternion.Euler(0,0,-90));
+        //GameObject temp = Instantiate(batteryItem,thePlace,Quaternion.Euler(0,0,-90));
 
+        int thisSpawnChance = 0;
+
+        if(_itemSpawnChance*3> 75)
+        {
+            thisSpawnChance = 75;
+        }
+        else
+        {
+            thisSpawnChance = _itemSpawnChance*3;
+        }   
+
+        if(Random.Range(0,100) <= thisSpawnChance)
+        {
+            if(Random.Range(0,4)==3 && !_bossGarlicLastSpawn)
+            {
+                Instantiate(healthItem, thePlace,Quaternion.identity);
+                _bossGarlicLastSpawn = true;
+            }
+            else
+            {
+                Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
+                _bossGarlicLastSpawn = false;
+                Debug.Log("SPAWNED BATTERY");
+            }
+
+        }
+        // else
+        // {
+
+        // }
+     
 
        
        
