@@ -54,5 +54,12 @@ MonoBehaviour:
   - {x: 0, y: 4}
   - {x: 0, y: 5}
   - {x: 0, y: 6}
+  - {x: 14, y: 0}
+  - {x: 14, y: 1}
+  - {x: 14, y: 2}
+  - {x: 14, y: 3}
+  - {x: 14, y: 4}
+  - {x: 14, y: 5}
+  - {x: 14, y: 6}
   nextAttack: {fileID: 5155005238834582876, guid: 29a6706c695bd8143bd8f697eb3e419f, type: 3}
   nextAttackDelay: 1

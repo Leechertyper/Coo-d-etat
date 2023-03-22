@@ -31,12 +31,12 @@ public class PlayerLazer : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy")
         {   // Remove type casting later
-            collision.gameObject.GetComponent<Health>().TakeDamage((int)_playerPower);
+            collision.gameObject.GetComponent<Health>().TakeDamage((int)(_playerPower*GameObject.Find("ShopManager").GetComponent<Shop>().GetDamageMultiplier()));
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "Boss")
         {
-            collision.gameObject.GetComponent<DroneBoss>().TakeDamage(_playerPower);
+            collision.gameObject.GetComponent<DroneBoss>().TakeDamage(_playerPower*GameObject.Find("ShopManager").GetComponent<Shop>().GetDamageMultiplier());
             Destroy(gameObject);
         }
     }
