@@ -135,6 +135,16 @@ public class Player : MonoBehaviour
         UpdateHealthUI();
     }
 
+    public void IncreaseHealthByShopMultiplier()
+    {
+        _health *= GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier();
+        if(_health > BalanceVariables.player["maxHealth"])
+        {
+            _health = BalanceVariables.player["maxHealth"];
+        }
+        UpdateHealthUI();
+    }
+
     public void AddHealth(int plusHealth)
     {
         _health += plusHealth;
