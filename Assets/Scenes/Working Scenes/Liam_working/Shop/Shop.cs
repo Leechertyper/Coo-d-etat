@@ -46,7 +46,7 @@ public class Shop : MonoBehaviour
         shopUI.SetActive(false);
         int _savedShopItemCount = PlayerPrefs.GetInt("itemDataCount");
         playerBalance = PlayerPrefs.GetInt("playerBalance");
-        for (int i = 0; i < _savedShopItemCount; i++)
+        for (int i = 0; i < Mathf.Min(_savedShopItemCount,3); i++)
         {
             string itemData = PlayerPrefs.GetString("itemData" + i);
             shopItemList.Add(JsonUtility.FromJson<ShopItem>(itemData));
@@ -56,6 +56,41 @@ public class Shop : MonoBehaviour
         DisplayItemButtons();
     }
 
+    public float GetDamageMultiplier()
+    {
+        foreach (ShopItem item in shopItemList)
+        {
+            if (item.name == "Increase Damage")
+            {
+                return item.value;
+            }
+        }
+        return 1;
+    }
+
+    public float GetHealthMultiplier()
+    {
+        foreach (ShopItem item in shopItemList)
+        {
+            if (item.name == "Increase Health")
+            {
+                return item.value;
+            }
+        }
+        return 1;
+    }
+
+    public float GetBatteryMultiplier()
+    {
+        foreach (ShopItem item in shopItemList)
+        {
+            if (item.name == "Increase Battery")
+            {
+                return item.value;
+            }
+        }
+        return 1;
+    }
 
     public void CloseShop()
     {

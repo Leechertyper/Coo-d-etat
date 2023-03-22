@@ -8,8 +8,25 @@ public class Score : MonoBehaviour
     public int _score = 0;
     public int _highScore = 0;
     private static Score instance;
+    public Text scoreText;
+    public bool _startTimer = false;
+    public float _invulnTimer = 0;
+    public Text scoreIncrease;
 
+    void Update()
+    {
+        if(_startTimer)
+        {
+            _invulnTimer += Time.deltaTime;
+            if(_invulnTimer >= 3f)
+            {
+                _startTimer = false;
+                _invulnTimer = 0;
+                scoreIncrease.text = "";
+            }
+        }
 
+    }
     // Load the high _score from PlayerPrefs on start
     void Start()
     {
@@ -22,10 +39,15 @@ public class Score : MonoBehaviour
         LoadScore();
     }
 
-    // Display high _score when 'H' key is pressed
-    void Update()
+    public void UpdateScoreText(int amount)
     {
+        scoreText.text = "Score: " + _score;
+        scoreIncrease.text = " +" + amount;
+        _startTimer = true;
     }
+
+
+
 
     // Add _score to current _score, update UI, and update high _score if current _score is higher
     public void AddScore(int amount)
@@ -35,7 +57,9 @@ public class Score : MonoBehaviour
         {
             _highScore = _score;
         }
+        UpdateScoreText(amount);
         GameObject.Find("ShopManager").GetComponent<Shop>().AddMoney(amount);
+        
     }
 
     // Reset the current _score and update UI
