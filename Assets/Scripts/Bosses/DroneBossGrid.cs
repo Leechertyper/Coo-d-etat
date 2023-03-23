@@ -198,9 +198,12 @@ public class DroneBossGrid : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Entity Entered");
-        if (collision.gameObject.CompareTag("Player"))
+        if(transform.GetChild(0).GetComponent<DroneBoss>() != null)
         {
-            transform.GetChild(0).GetComponent<DroneBoss>().Awaken();
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                transform.GetChild(0).GetComponent<DroneBoss>().Awaken();
+            }
         }
     }
 
