@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PostBoxFrontEnd
+  m_Name: MailSideMid
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -935688084, guid: 59a5b91988e62b845a3c598f654169d1, type: 3}
+      value: {fileID: 1733537543, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - time: 0.083333336
+      value: {fileID: 1825071366, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - time: 0.16666667
+      value: {fileID: 490054341, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - time: 0.25
+      value: {fileID: 582453426, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - time: 0.33333334
+      value: {fileID: -497679011, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - time: 0.41666666
+      value: {fileID: -557169163, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,13 +50,18 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -935688084, guid: 59a5b91988e62b845a3c598f654169d1, type: 3}
+    - {fileID: 1733537543, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - {fileID: 1825071366, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - {fileID: 490054341, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - {fileID: 582453426, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - {fileID: -497679011, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
+    - {fileID: -557169163, guid: 2fe32192a7a47b440a633b5c5a20e807, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.083333336
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

@@ -45,6 +45,8 @@ public class Floor : MonoBehaviour
 
 
     [SerializeField] private List<GameObject> spawnableEnemies;
+
+    [SerializeField] private List<GameObject> spawnableInteractables;
     [SerializeField] private GameObject charger;
     [SerializeField] private GameObject boss;
 
@@ -86,6 +88,7 @@ public class Floor : MonoBehaviour
 
         
         _rooms.Add(new List<Room>());
+        Debug.Log("Here they are");
         for (var i = 0; i < r; i++)
         {
             for (var j = 0; j < c; j++)
@@ -108,7 +111,8 @@ public class Floor : MonoBehaviour
 
 
     private void FinishRoomSetup()
-    {
+    {   
+        Debug.Log("Finsihing Room Setup");
         while (true)
         {
             var randomX = Random.Range(0, 3);
@@ -141,6 +145,33 @@ public class Floor : MonoBehaviour
         {
             for (var j = 0; j < _rooms[i].Count; j++)
             {
+                int tempRandom = Random.Range(0, 100);
+                int tempInterations = 0;
+                //There is a 60% chance that a room will have 2 interactables, 25% chance that it will have 3, and 15% chance that it will have 1
+                if(tempRandom < 60)
+                {
+                    tempInterations = 2;
+                }
+                else if(tempInterations < 85)
+                {
+                    tempInterations = 3;
+                }
+                else
+                {
+                    tempInterations = 1;
+                }
+
+        
+                    
+                    List<GameObject> tempList = new List<GameObject>();
+                    for (int k = 0; k < tempInterations; k++)
+                    {  
+                        tempList.Add(spawnableInteractables[Random.Range(0, spawnableInteractables.Count)]);
+                    }
+                    GameManager.Instance.Grid.PlaceInteractableObjectinRoom(tempList, _floorXDimension * i + j, tempInterations);
+                
+
+
                 if (_rooms[i][j].roomHasBeenInitialized) continue;
                 _rooms[i][j].SetRoomType(Room.RoomType.Enemy);
                 var amountOfEnemiesInRoom = Random.Range(2, 3);
