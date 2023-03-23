@@ -286,4 +286,10 @@ public class GameManager : MonoBehaviour
         theReturn.Add(BalanceVariables.droneEnemy["lazerDamage"]);
         return theReturn;
     }
+    //For use with smaller values of scalar - a type of sigmoid function
+    public float Tikhonov(float scalar, float min, float max){
+        float difference = max - min;
+        float k = -expf(scalar*4);
+        return difference/
+    }
 }
