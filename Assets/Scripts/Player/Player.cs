@@ -32,9 +32,9 @@ public class Player : MonoBehaviour
         AkSoundEngine.SetState("PlayerLife", "Alive");
         //AkSoundEngine.SetState("Music_State", "Normal_Room");
         //AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
-        _health = BalanceVariables.player["maxHealth"];
+        _health = (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());
         _rtpc.SetGlobalValue(_health);
-        _power = BalanceVariables.player["maxPower"];
+        _power = (BalanceVariables.player["maxPower"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetBatteryMultiplier());
         AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
 
     }
@@ -43,8 +43,8 @@ public class Player : MonoBehaviour
     {
         if (_healthChanging)
         {
-            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / BalanceVariables.player["maxHealth"], 3f * Time.deltaTime);
-            if (Mathf.Round(healthBar.fillAmount * BalanceVariables.player["maxHealth"]) == Mathf.Round(_health))
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()), 3f * Time.deltaTime);
+            if (Mathf.Round(healthBar.fillAmount * (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier())) == Mathf.Round(_health))
             {
                 _healthChanging = false;
                 _healthTrailChanging = true;
@@ -57,8 +57,8 @@ public class Player : MonoBehaviour
 
         if (_healthTrailChanging)
         {
-            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / BalanceVariables.player["maxHealth"], 5f * Time.deltaTime);
-            if (Mathf.Round(healthTrail.fillAmount * BalanceVariables.player["maxHealth"]) == Mathf.Round(_health))
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()), 5f * Time.deltaTime);
+            if (Mathf.Round(healthTrail.fillAmount * (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier())) == Mathf.Round(_health))
             {
                 _healthTrailChanging = false;
             }
@@ -135,40 +135,31 @@ public class Player : MonoBehaviour
         UpdateHealthUI();
     }
 
-    public void IncreaseHealthByShopMultiplier()
-    {
-        _health *= GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier();
-        if(_health > BalanceVariables.player["maxHealth"])
-        {
-            _health = BalanceVariables.player["maxHealth"];
-        }
-        UpdateHealthUI();
-    }
 
     public void AddHealth(int plusHealth)
     {
         _health += plusHealth;
-        if(_health > BalanceVariables.player["maxHealth"])
+        if(_health > (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()))
         {
-            _health = BalanceVariables.player["maxHealth"];
+            _health = (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());
         }
         UpdateHealthUI();
     }
 
     public float GetMaxHealth()
     {
-        return BalanceVariables.player["maxHealth"];
+        return (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());
     }
 
     public void SetMaxHealth(float newMaxHealth)
     {
-        BalanceVariables.player["maxHealth"] = newMaxHealth;
+        BalanceVariables.player["maxHealth"] = newMaxHealth*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier();
         UpdateHealthUI();
     }
 
     public void MakeMaxHealth()
     {
-        _health = BalanceVariables.player["maxHealth"];
+        _health = (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());
         UpdateHealthUI();
     }
 
@@ -194,9 +185,9 @@ public class Player : MonoBehaviour
     public void IncreasePower(int powerAmount)
     {        
         _power += powerAmount;
-        if (_power > BalanceVariables.player["maxPower"])
+        if (_power > (BalanceVariables.player["maxPower"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetBatteryMultiplier()))
         {
-            _power = Mathf.RoundToInt(BalanceVariables.player["maxPower"]);
+            _power = Mathf.RoundToInt((BalanceVariables.player["maxPower"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetBatteryMultiplier()));
         }
     }
 

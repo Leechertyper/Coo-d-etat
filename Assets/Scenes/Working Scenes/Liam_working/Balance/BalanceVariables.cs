@@ -77,9 +77,8 @@ public class BalanceVariables : MonoBehaviour
         {"balancePointTimerSeconds",120},
         //not implemented
         {"roomSpawnChance",0f},  
-        //no longer needed? for now
-        // {"buffValue",1.1f},
-        // {"nerfValue",0.9f}
+        {"buffValue",1.1f},
+        {"nerfValue",0.9f}
     };
 
     //mainly for knowing if they have been seen for balancing, dont need to be pushed to database
