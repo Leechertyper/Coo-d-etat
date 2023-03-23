@@ -103,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
                 dashing = true;
                 AkSoundEngine.PostEvent("Play_Pigeon_wing_flutter", this.gameObject);
                 animator.SetBool("Dash", true);
+                StartCoroutine(InvincibilityFrame());
             }
         }
 
@@ -221,5 +222,17 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(CheckMovementDelay());
         targetPosition = new Vector2(transform.position.x + horizontalTeleportDistance, transform.position.y);
         transform.position = targetPosition;
+    }
+
+    /// <summary>
+    /// Makes the Pigeon invulnerable during the duration of the dash animation
+    /// </summary>
+    /// <returns>N/A</returns>
+    private IEnumerator InvincibilityFrame()
+    {
+        var playerScript = GetComponent<Player>();
+        playerScript.iFrame = true;
+        yield return new WaitForSeconds(0.267f);
+        playerScript.iFrame = false;
     }
 }

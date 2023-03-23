@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     public Animation death;
     public GameObject hitParticles;
 
+    public bool iFrame; // true if invulnerable, false if not
+
     private void Start()
     {
         AkSoundEngine.SetState("PlayerLife", "Alive");
@@ -79,6 +81,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (iFrame) return;
         if (_health > 0 && !_isInvuln)
         {
 
