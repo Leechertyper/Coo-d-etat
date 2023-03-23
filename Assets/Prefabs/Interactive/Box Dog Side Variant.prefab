@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5765896205529120271, guid: ac251be532fe79e4e97aae6860332878, type: 3}
       propertyPath: m_Name
-      value: Box Dog Side
+      value: Box Dog Side Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5765896205529120368, guid: ac251be532fe79e4e97aae6860332878, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5765896205529120370, guid: ac251be532fe79e4e97aae6860332878, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5765896205529120370, guid: ac251be532fe79e4e97aae6860332878, type: 3}
       propertyPath: m_LocalRotation.w
