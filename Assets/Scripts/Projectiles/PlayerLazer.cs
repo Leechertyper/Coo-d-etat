@@ -13,7 +13,7 @@ public class PlayerLazer : MonoBehaviour
     private void Awake()
     {
         _gameManager = GameManager.Instance;
-        _playerPower = BalanceVariables.player["maxPower"];
+        _playerPower = BalanceVariables.player["attackDamage"];
     }
     
     // When off screen Destroy Lazer

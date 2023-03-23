@@ -85,13 +85,16 @@ public class BalanceMenu : MonoBehaviour
         }
         else
         {
-            if(PlayerPrefs.GetInt("Balance") == 1 && GameManager.dbInstance.GetHostFound())
+            if(PlayerPrefs.GetInt("BalanceDataBase") == 0 && GameManager.dbInstance.GetHostFound())
             {
                 string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dict)];
-                foreach (KeyValuePair<string, float> kvp in dict)
+                foreach (Transform child in sliderContent.transform)
                 {
-                    GameManager.dbInstance.UpdateValue(dictName + char.ToUpper(kvp.Key[0])+kvp.Key, kvp.Value);
+                    if (child != null && child.GetComponent<BalanceSlider>() != null && child.GetComponent<BalanceSlider>().dictionaryKey != "General"){
+                        GameManager.dbInstance.UpdateValue(dictName + char.ToUpper(child.GetComponent<BalanceSlider>().dictionaryKey[0])+child.GetComponent<BalanceSlider>().dictionaryKey.Substring(1), child.GetComponent<BalanceSlider>().value * child.GetComponent<BalanceSlider>().dictionary[child.GetComponent<BalanceSlider>().dictionaryKey]);
+                    }
                 }
+                
             }
             
             ResumeGame();
