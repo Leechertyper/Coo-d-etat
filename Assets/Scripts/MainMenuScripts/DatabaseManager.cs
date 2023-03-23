@@ -48,10 +48,12 @@ public class DatabaseManager : MonoBehaviour
         {
             int x = System.Net.Dns.GetHostAddresses(Host).Length;
             _hostFound = true;
+             Debug.Log("Host found");
         }
         catch (SocketException exception)
         {
             _hostFound = false;
+             Debug.Log("Host not found");
         }
     }
 
@@ -128,15 +130,15 @@ public class DatabaseManager : MonoBehaviour
             {
                 connection.Open();
                 string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `value` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
-                
+                Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();
             }
         }
         catch (MySqlException exception)
         {   
-            print("Error updating value");
-            print(exception.Message);
+            Debug.Log("Error updating value");
+            Debug.Log(exception.Message);
         }
         
     }
