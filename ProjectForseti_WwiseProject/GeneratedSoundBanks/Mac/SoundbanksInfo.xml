@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5671D33D-337A-13B7-8B7C-5873677F3418}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{687E3E27-5F33-04D6-4A45-3BBCDFDFFDE3}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -34,9 +34,12 @@
 			</Busses>
 			<GameParameters>
 				<GameParameter Id="151362964" Name="PlayerHealth"/>
+				<GameParameter Id="1006694123" Name="Music_Volume"/>
 				<GameParameter Id="1870461633" Name="Dead_Mute"/>
 				<GameParameter Id="2234500385" Name="SFX_playing"/>
 				<GameParameter Id="2536527299" Name="Game_Is_Paused"/>
+				<GameParameter Id="3350225276" Name="FX_Volume"/>
+				<GameParameter Id="4179668880" Name="Master_Volume"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="444815956" Name="PlayerLife">
@@ -59,7 +62,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{761BAF3C-0B76-2900-3775-95DC998BB199}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{AD1F348B-8E06-6439-893A-75899081D442}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -822,5 +825,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D371BF3B-DD8C-C4A1-CD5F-38E076BEBB1F}</FileHash>
+	<FileHash>{BB07FDED-D2A6-6D8E-3FDE-82B5DE87804F}</FileHash>
 </SoundBanksInfo>
