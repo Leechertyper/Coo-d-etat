@@ -287,9 +287,7 @@ public class GameManager : MonoBehaviour
         return theReturn;
     }
     //For use with smaller values of scalar - a type of sigmoid function
-    public float Tikhonov(float scalar, float min, float max){
-        float difference = max - min;
-        float k = -expf(scalar*4);
-        return difference/
+    public float Tikhonov(float val, float steepness, float max){
+        return Mathf.Pow(val,steepness)/(Mathf.Pow(val,steepness) + Mathf.Pow((max/2),steepness));
     }
 }
