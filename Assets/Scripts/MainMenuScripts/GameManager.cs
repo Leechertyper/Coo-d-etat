@@ -36,18 +36,6 @@ public class GameManager : MonoBehaviour
         {
             // DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
-            dbInstance = this.gameObject.GetComponent<DatabaseManager>();
-            if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
-            {
-                for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
-                {
-                    List<string> keys = new List<string>(BalanceVariables.dictionaryList[i].Keys);
-                    foreach(string key in keys)
-                    {
-                        BalanceVariables.dictionaryList[i][key] = dbInstance.GetValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
-                    }
-                }
-            }
             
         }
         else if (Instance != this) // If there is already an instance and it's not `this` instance
@@ -65,6 +53,20 @@ public class GameManager : MonoBehaviour
         theBoss = null;
 
         healthItemValue = 1f;
+
+        //Database needs the GetHostFound for it to work, this needs to happen after the Awake phase of initialization.
+        dbInstance = this.gameObject.GetComponent<DatabaseManager>();
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
+        {
+            for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
+            {
+                List<string> keys = new List<string>(BalanceVariables.dictionaryList[i].Keys);
+                foreach(string key in keys)
+                {
+                    BalanceVariables.dictionaryList[i][key] = dbInstance.GetValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                }
+            }
+        }
 
     }
     
@@ -191,7 +193,7 @@ public class GameManager : MonoBehaviour
         else{
             _skipBalance = false;
             //update load next floor here
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
     }
 
