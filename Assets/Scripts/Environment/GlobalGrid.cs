@@ -451,6 +451,42 @@ public class GlobalGrid : MonoBehaviour
         newItem.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
     }
 
+
+
+    //I (Jorden) based this function on the one above it, someone please check it over and make sure its okay
+    public void PlaceInteractableObjectinRoom(List<GameObject> interactableObject, int roomIndex, int itemNum)
+    {
+        // grab the room being checked
+        List<int> room = _roomCenters[roomIndex];
+        // grab the center coordinatess
+        Vector2Int roomCoordinates = new Vector2Int(room[0], room[1]);
+        // init empty list
+        List<Vector2Int> freeTiles = new List<Vector2Int>();
+        Debug.Log(roomCoordinates.ToString());
+        
+       for(int i = roomCoordinates.x - (Mathf.FloorToInt(roomSize.x/2) - 1); i < roomCoordinates.x + (Mathf.FloorToInt(roomSize.x / 2) - 1); i++)
+        {
+            for(int j = roomCoordinates.y - (Mathf.FloorToInt(roomSize.y/2) - 1); j < roomCoordinates.y + (Mathf.FloorToInt(roomSize.y / 2) - 1); j++)
+            {
+                if(!_grid[i, j].door)
+                {
+                    freeTiles.Add(new Vector2Int(i, j));
+                }
+            }
+   
+        }
+        
+        Debug.Log("Currenbly items of"+itemNum+"are being placed");
+
+        for(int i = 0; i < itemNum; i++){
+            int randomNum = Random.Range(0, freeTiles.Count);
+            GameObject newInteractableObject = Instantiate(interactableObject[i]);
+
+            newInteractableObject.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
+            newInteractableObject.transform.position = new Vector3(newInteractableObject.transform.position.x, newInteractableObject.transform.position.y, -1);
+        }
+    }
+
     /// <summary>
     /// Instantiates and places an enemy in the given indexed room
     /// </summary>

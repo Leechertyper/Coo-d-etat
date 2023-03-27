@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PointBalanceTimer : MonoBehaviour
 {
@@ -31,7 +32,10 @@ public class PointBalanceTimer : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(BalanceVariables.other["balancePointTimerSeconds"]); // wait for 5 minutes
-            counter++;
+            if(SceneManager.GetActiveScene().buildIndex ==2 )
+            {
+                counter++;
+            }
         }
     }
 }
