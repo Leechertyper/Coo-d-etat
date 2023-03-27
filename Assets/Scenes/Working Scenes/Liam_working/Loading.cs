@@ -2,16 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Loading : MonoBehaviour
 {
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private float delayBeforeLoading = 1f;
+    public Text leftKeyText;
+    public Text rightKeyText;
+    public Text upKeyText;
+    public Text downKeyText;
+    public Text fireKeyText;
+    public Text dashKeyText;
 
     private void Start()
     {
         // Show the loading screen
         loadingScreen.SetActive(true);
+
+        LoadControls();
 
         // Start loading the next scene in the background
         StartCoroutine(LoadNextSceneAsync());
@@ -37,5 +46,38 @@ public class Loading : MonoBehaviour
 
         // Hide the loading screen
         loadingScreen.SetActive(false);
+    }
+
+    public void LoadControls()
+    {
+        if (PlayerPrefs.HasKey("upKey"))
+        {
+            upKeyText.text = "Up: " + PlayerPrefs.GetString("upKey");
+        }
+
+        if (PlayerPrefs.HasKey("downKey"))
+        {
+            downKeyText.text = "Down: " + PlayerPrefs.GetString("downKey");
+        }
+
+        if (PlayerPrefs.HasKey("leftKey"))
+        {
+            leftKeyText.text = "Left: " + PlayerPrefs.GetString("leftKey");
+        }
+
+        if (PlayerPrefs.HasKey("rightKey"))
+        {
+            rightKeyText.text = "Right: " + PlayerPrefs.GetString("rightKey");
+        }
+
+        if (PlayerPrefs.HasKey("fireKey"))
+        {
+            fireKeyText.text = "Shoot: " + PlayerPrefs.GetString("fireKey");
+        }
+
+        if (PlayerPrefs.HasKey("dashKey"))
+        {
+            dashKeyText.text = "Dash: " + PlayerPrefs.GetString("dashKey");
+        }
     }
 }
