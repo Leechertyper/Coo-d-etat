@@ -64,7 +64,10 @@ public class Floor : MonoBehaviour
         SpawnRooms(_floorXDimension, _floorYDimension);
     }
 
-
+    /// <summary>
+    /// Waits until the main grid has been generated before finishing the rooms
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator WaitForGrid()
     {
         while (!GameManager.Instance.Grid.gridGenerated)
@@ -83,12 +86,12 @@ public class Floor : MonoBehaviour
         _rooms = new List<List<Room>>();
         for (var _ = 0; _ < c; _++)
         {
-            _rooms.Add(new List<Room>());
+            _rooms.Add(new List<Room>()); // initializes the rooms sub-arrays
         }
 
         
-        _rooms.Add(new List<Room>());
-        Debug.Log("Here they are");
+
+        _rooms.Add(new List<Room>());// adds an extra list on the bottom for the end room
         for (var i = 0; i < r; i++)
         {
             for (var j = 0; j < c; j++)
@@ -98,13 +101,11 @@ public class Floor : MonoBehaviour
                 newRoomScript.InitializeRoom(i,j,_floorXDimension,_floorYDimension);
                 newRoom.transform.position =
                     new Vector3(newRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * j,
-                        newRoom.transform.position.y - FloorConstants.VerticalRoomOffset * i);
+                        newRoom.transform.position.y - FloorConstants.VerticalRoomOffset * i);//places the rooms in the correct position on the grid
                 _rooms[i].Add(newRoomScript);
             }
         }
-        _rooms[0][0].SetRoomType(Room.RoomType.Start);
-
-        Debug.Log("Starting Grid Wait");
+        _rooms[0][0].SetRoomType(Room.RoomType.Start); // sets the start room to start type so no enemies spawn in it
         StartCoroutine(WaitForGrid());
         
     }
@@ -117,22 +118,22 @@ public class Floor : MonoBehaviour
         {
             var randomX = Random.Range(0, 3);
             var randomY = Random.Range(0, 3);
-            var bossRoom = _rooms[randomX][randomY];
-            if (bossRoom.roomHasBeenInitialized || bossRoom == _rooms[0][0]) continue;
-            bossRoom.SetRoomType(Room.RoomType.Boss);
+            var bossRoom = _rooms[randomX][randomY];//randomly pick a room to be the boss room
+            if (bossRoom.roomHasBeenInitialized) continue; // if room is already initialized then re-pick
+            bossRoom.SetRoomType(Room.RoomType.Boss);//sets chosen room to boss room
 
             _bossRoomScript = bossRoom;
-            GameManager.Instance.Grid.PlaceBossinRoom(boss, _floorXDimension * randomX + randomY);
+            GameManager.Instance.Grid.PlaceBossinRoom(boss, _floorXDimension * randomX + randomY);//places the boss in the center of the boss room
             break;
         }
         
         
-        while (true)
+        while (true)//same as above but for the charger room
         {
             var randomX = Random.Range(0, 3);
             var randomY = Random.Range(0, 3);
             var chargerRoom = _rooms[randomX][randomY];
-            if (chargerRoom.roomHasBeenInitialized || chargerRoom == _rooms[0][0]) continue;
+            if (chargerRoom.roomHasBeenInitialized) continue;
             chargerRoom.SetRoomType(Room.RoomType.Charger);
             
             
@@ -141,7 +142,7 @@ public class Floor : MonoBehaviour
         }
 
 
-        for (var i = 0; i < _floorXDimension; i++)
+        for (var i = 0; i < _floorXDimension; i++)//fills the rest of the rooms with enemies
         {
             for (var j = 0; j < _rooms[i].Count; j++)
             {
@@ -189,7 +190,7 @@ public class Floor : MonoBehaviour
 
 
 
-        _camController.MoveCameraToStart(_rooms[0][0].transform);
+        _camController.MoveCameraToStart(_rooms[0][0].transform);//moves camera to the first room
         currentRoomType = _rooms[0][0].roomType;
         currentRoom = new Vector2Int(0, 0);
         changeTheme();
@@ -200,56 +201,12 @@ public class Floor : MonoBehaviour
         endRoomScript.SetRoomType(Room.RoomType.EndRoom);
 
         _rooms[_floorXDimension].Add(null);
-        _rooms[_floorXDimension].Add(null);
+        _rooms[_floorXDimension].Add(null);//adds a couple nulls because lists dont allow for inserting at random indexes
         _rooms[_floorXDimension].Add(endRoomScript);
-        _rooms[_floorXDimension-1][_floorYDimension-1].SetBottomDoorLocked(true);
+        _rooms[_floorXDimension-1][_floorYDimension-1].SetBottomDoorLocked(true);//locks the end room
         GameManager.Instance.SetEndRoomPos(new Vector2(endRoom.transform.position.x,endRoom.transform.position.y));
-        
-        
-        //MINIMAP STUFF
-        
-        //CALCULATING GAPS
-        // var roomOne = _rooms[0][0].transform;           //  1   -   2   -   3
-        // var roomTwo = _rooms[0][1].transform;           //  4   -   5   -   6
-        // var roomFour = _rooms[1][0].transform;          //  7   -   8   -   9
-        // float newXCoord = 0;
-        // float newYCoord = 0;
-        //
-        // //TODO FIX THIS
-        // _horizontalGap = roomTwo.transform.position.x - roomOne.transform.position.x;
-        // _verticalGap = roomFour.transform.position.y - roomOne.transform.position.y;
-        //
-        //
-        //
-        // if (_floorXDimension % 2 == 0)
-        // {
-        //     //even
-        //     
-        // }
-        // else
-        // {
-        //     //odd
-        //     var placeholderNum = Mathf.Floor(_floorXDimension/2f);
-        //     Debug.Log("X: " + placeholderNum);
-        //     newXCoord = FloorConstants.RoomSizeX / 2 * placeholderNum +
-        //                     _horizontalGap * placeholderNum;
-        // }
-        //
-        // if (_floorYDimension % 2 == 0)
-        // {
-        //     
-        // }
-        // else
-        // {
-        //     var placeholderNum = Mathf.Floor(_floorXDimension/2f);
-        //     Debug.Log("Y: " + placeholderNum);
-        //     newYCoord = FloorConstants.RoomSizeY / 2 * placeholderNum +
-        //                     _verticalGap * placeholderNum;
-        // }
-
-        //JUST HARDCODED FOR NOW, WONT BE LATER
         var middleRoom = _rooms[1][1].transform.position;
-        var miniMapCamPos = new Vector3(middleRoom.x,middleRoom.y, -10);
+        var miniMapCamPos = new Vector3(middleRoom.x,middleRoom.y, -10);//sets the minimap camera to be centered on the middle room ONLY WORKS ON 3x3
         miniMapCamera.transform.position = miniMapCamPos;
     }
     
