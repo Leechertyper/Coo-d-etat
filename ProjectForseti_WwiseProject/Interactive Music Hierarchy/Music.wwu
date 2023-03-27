@@ -1895,6 +1895,34 @@
 										</DestinationFadeIn>
 									</TransitionInfo>
 								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{E5D19671-212A-46BE-A0CE-AF19AD235A66}">
+									<PropertyList>
+										<Property Name="DestinationContextType" Type="int16" Value="2"/>
+										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="DestinationContextObject">
+											<ObjectRef Name="boss theme" ID="{E31FA11C-BCEA-4599-AD4D-512879EB39E2}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionInfo>
+										<TransitionObjectRef Name="door slide close" ID="{1F70E3EE-3BD4-462F-A54D-21325ACBD789}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
+										<DestinationFadeIn>
+											<MusicFade Name="Destination Fade-in" ID="{E442D261-3236-49F3-9342-471EA8495C68}"/>
+										</DestinationFadeIn>
+										<TransitionFadeIn>
+											<MusicFade Name="Transition Fade-in" ID="{F80F5320-7757-40D1-9F18-A144C1F8036E}"/>
+										</TransitionFadeIn>
+										<TransitionFadeOut>
+											<MusicFade Name="Transition Fade-out" ID="{1BDA92C7-DB5E-4983-AE98-4564186211A7}">
+												<PropertyList>
+													<Property Name="FadeType" Type="int16" Value="1"/>
+												</PropertyList>
+											</MusicFade>
+										</TransitionFadeOut>
+									</TransitionInfo>
+								</MusicTransition>
 								<MusicTransition Name="Transition" ID="{116A28A0-D038-4C31-B778-97A4E09645B3}">
 									<PropertyList>
 										<Property Name="DestinationContextType" Type="int16" Value="2"/>
@@ -1980,34 +2008,6 @@
 												</PropertyList>
 											</MusicFade>
 										</DestinationFadeIn>
-									</TransitionInfo>
-								</MusicTransition>
-								<MusicTransition Name="Transition" ID="{E5D19671-212A-46BE-A0CE-AF19AD235A66}">
-									<PropertyList>
-										<Property Name="DestinationContextType" Type="int16" Value="2"/>
-										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
-										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="DestinationContextObject">
-											<ObjectRef Name="boss theme" ID="{E31FA11C-BCEA-4599-AD4D-512879EB39E2}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
-										</Reference>
-									</ReferenceList>
-									<TransitionInfo>
-										<TransitionObjectRef Name="door slide close" ID="{1F70E3EE-3BD4-462F-A54D-21325ACBD789}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}"/>
-										<DestinationFadeIn>
-											<MusicFade Name="Destination Fade-in" ID="{E442D261-3236-49F3-9342-471EA8495C68}"/>
-										</DestinationFadeIn>
-										<TransitionFadeIn>
-											<MusicFade Name="Transition Fade-in" ID="{F80F5320-7757-40D1-9F18-A144C1F8036E}"/>
-										</TransitionFadeIn>
-										<TransitionFadeOut>
-											<MusicFade Name="Transition Fade-out" ID="{1BDA92C7-DB5E-4983-AE98-4564186211A7}">
-												<PropertyList>
-													<Property Name="FadeType" Type="int16" Value="1"/>
-												</PropertyList>
-											</MusicFade>
-										</TransitionFadeOut>
 									</TransitionInfo>
 								</MusicTransition>
 							</ChildrenList>
