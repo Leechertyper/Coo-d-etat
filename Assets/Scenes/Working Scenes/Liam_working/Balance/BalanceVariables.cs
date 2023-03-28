@@ -27,7 +27,8 @@ public class BalanceVariables : MonoBehaviour
         {"fastShotCD",0.5f},
         //could not find in but should be added in Lazer.cs(right now it just damages using 1) 
         // or ProjectileWeapon.cs (fireForce?)
-        {"lazerDamage",10},
+        {"lazerDamage",10f},
+        {"lazerSpeed", 20f},
     };
 
     public static Dictionary<string,float> dogEnemy = new Dictionary<string,float>()
@@ -36,10 +37,6 @@ public class BalanceVariables : MonoBehaviour
         {"maxHealth",100},
         //nothing implemented
         {"moveSpeed",2f},
-        {"range", 3f},
-        {"pauseTime",3},
-        {"slowShotCD",1},
-        {"fastShotCD",0.5f},
         {"leapDistance",15f},
         {"attackDamage",10},
     };
@@ -47,38 +44,29 @@ public class BalanceVariables : MonoBehaviour
     {
         //found in player.cs
         {"speed",5f},
-        {"rotationSpeed", 15f},
         {"maxHealth",100},
-        {"range", 1000f},
-        {"maxPower", 10f},
         //in PlayerAttack.cs
         {"attackDamage",10f}, // this one is not implemented
-        {"maxAmmo", 100f},
         {"attackSpeed", 0.2f},
-        //Not currently implemented / dont know location
-        {"battery", 0f},
+        {"maxAmmo", 100f},
+        {"lazerSpeed", 25f},
+        {"dashCooldown", 2f},
+        {"dashDistance", 3f},
     };
     public static Dictionary<string,float> collectables = new Dictionary<string,float>()
     {
-        //dont know if found, can be added
-        {"pickupRange",1f},
         {"dropChance",1f},
         //found in Garlic.cs
         {"garlicAmount", 25f},
         //found in Battery.cs
         {"batteryAmount", 25f},
-        //not currently implemented
-        {"armourAmount", 1f},
         
     };
     public static Dictionary<string,float> other = new Dictionary<string,float>()
     {
         //found in PointBalanceTimer.cs
         {"balancePointTimerSeconds",120},
-        //not implemented
-        {"roomSpawnChance",0f},  
-        {"buffValue",1.1f},
-        {"nerfValue",0.9f}
+        {"stepSize", 0.01f},
     };
 
     //mainly for knowing if they have been seen for balancing, dont need to be pushed to database

@@ -143,12 +143,12 @@ public class DatabaseManager : MonoBehaviour
         
     }
     /***
-    *Retrieves a value from the database using a string
+    *Retrieves steps from the database using a string
     *@param: string variable - the Name of the variable from the database
-    *@return: float - value associated with the variable
+    *@return: float - steps - the steps taken from zero for climbing up a sigmoid function
     *@Post:None
     ***/
-    public float GetValue(string variable)
+    public float GetSteps(string variable)
     {
         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
         builder.Server = Host;
@@ -162,7 +162,7 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-                string sql = "SELECT value FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
+                string sql = "SELECT steps FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
                 Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 result = cmd.ExecuteScalar();
@@ -178,6 +178,95 @@ public class DatabaseManager : MonoBehaviour
         {
             float r = Convert.ToSingle(result);
             Debug.Log("Got " + r + " from GetValue");
+            return r;
+        }
+        else
+        {
+            Debug.Log("Got nothing back from database. Replacing with -9999");
+            return -9999f;
+        }
+    }
+    /***
+    *Retrieves a maximum value from the database using a string
+    *@param: string variable - the Name of the variable from the database
+    *@return: float - maximum value associated with the variable
+    *@Post:None
+    ***/
+    public float GetMaxValue(string variable)
+    {
+         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+        builder.Server = Host;
+        builder.UserID = User;
+        builder.Password = Password;
+        builder.Database = Database;
+
+        object result = null;
+        try
+        {
+            using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
+            {
+                connection.Open();
+                string sql = "SELECT maximumValue FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
+                Debug.Log(sql);
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
+                result = cmd.ExecuteScalar();
+            }
+        }
+        catch (MySqlException exception)
+        {   
+            
+            print(exception.Message);
+        }
+        
+        if (result != null)
+        {
+            float r = Convert.ToSingle(result);
+            Debug.Log("Got " + r + " from GetMaxValue");
+            return r;
+        }
+        else
+        {
+            Debug.Log("Got nothing back from database. Replacing with -9999");
+            return -9999f;
+        }
+    }
+
+    /***
+    *Retrieves a minimum value from the database using a string
+    *@param: string variable - the Name of the variable from the database
+    *@return: float - minimum value associated with the variable
+    *@Post:None
+    ***/
+    public float GetMinValue(string variable)
+    {
+         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+        builder.Server = Host;
+        builder.UserID = User;
+        builder.Password = Password;
+        builder.Database = Database;
+
+        object result = null;
+        try
+        {
+            using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
+            {
+                connection.Open();
+                string sql = "SELECT minValue FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
+                Debug.Log(sql);
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
+                result = cmd.ExecuteScalar();
+            }
+        }
+        catch (MySqlException exception)
+        {   
+            
+            print(exception.Message);
+        }
+        
+        if (result != null)
+        {
+            float r = Convert.ToSingle(result);
+            Debug.Log("Got " + r + " from GetMinValue");
             return r;
         }
         else

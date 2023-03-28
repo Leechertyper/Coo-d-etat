@@ -63,7 +63,10 @@ public class GameManager : MonoBehaviour
                 List<string> keys = new List<string>(BalanceVariables.dictionaryList[i].Keys);
                 foreach(string key in keys)
                 {
-                    BalanceVariables.dictionaryList[i][key] = dbInstance.GetValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    float maxVal = dbInstance.GetMaxValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    float minVal = dbInstance.GetMinValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    float difference = maxVal - minVal;
+                    BalanceVariables.dictionaryList[i][key] =minVal + Tikhonov(dbInstance.GetSteps(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1)),10f,32f )*difference;
                 }
             }
         }
@@ -286,8 +289,10 @@ public class GameManager : MonoBehaviour
         theReturn.Add(BalanceVariables.droneEnemy["lazerDamage"]);
         return theReturn;
     }
-    //For use with smaller values of scalar - a type of sigmoid function
-    public float Tikhonov(float val, float steepness, float max){
-        return Mathf.Pow(val,steepness)/(Mathf.Pow(val,steepness) + Mathf.Pow((max/2),steepness));
+    //For use with smaller values of val:ie(steps) - a type of sigmoid function
+    //returns a value from 0-1 with respect to how steep you want it to be and where half the steps to reach the max.
+    public float Tikhonov(float val, float steepness, float half){
+        float scalar = Mathf.Pow(val,steepness)/(Mathf.Pow(val,steepness) + Mathf.Pow(half,steepness));
+        return scalar;
     }
 }

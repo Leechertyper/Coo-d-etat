@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    private float _health = 100f;
+    [SerializeField]private float _health = 100f;
     private float _range = 1000f;
     private float _invulnTime = 1.1f;
     private bool _isInvuln = false;
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public bool _hasKey = false;
 
     [SerializeField] private Text _healthText;
-    [SerializeField] private float _power;
+    //[SerializeField] private float _power;
     [SerializeField] private Image healthBar;
     [SerializeField] private Image healthTrail;
     [SerializeField] private AK.Wwise.RTPC _rtpc;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         //AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
         _health = (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());
         _rtpc.SetGlobalValue(_health);
-        _power = (BalanceVariables.player["maxPower"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetBatteryMultiplier());
+        //_power = (BalanceVariables.player["maxPower"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetBatteryMultiplier());
         AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
 
     }
@@ -172,7 +172,7 @@ public class Player : MonoBehaviour
     {
         BalanceVariables.player["speed"] = newSpeed;
     }
-    
+    /**
     public float GetPower()
     {
         return _power;
@@ -190,7 +190,7 @@ public class Player : MonoBehaviour
             _power = Mathf.RoundToInt((BalanceVariables.player["maxPower"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetBatteryMultiplier()));
         }
     }
-
+**/
     public void GetKey()
     {
         _hasKey = true;
