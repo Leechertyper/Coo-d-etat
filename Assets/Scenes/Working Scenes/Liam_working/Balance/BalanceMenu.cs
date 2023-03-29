@@ -70,22 +70,6 @@ public class BalanceMenu : MonoBehaviour
         PopulateButtons();
     }
 
-    private void SetRemainingPoints()
-    {
-        remainingPointsText.text = "Remaining Points: " + PointBalanceTimer.Instance.counter.ToString();
-    }
-
-    /*
-    *   This will remove all the options buttons
-    */
-    void RemoveButtons()
-    {
-        foreach (Transform child in buttonContent.transform) {
-            Destroy(child.gameObject);
-        }
-
-    }
-
     //this function will take in a string and return a string with the first character capitalized and a space before each capital letter
     private string CapitalizeString(string _string)
     {
@@ -124,7 +108,6 @@ public class BalanceMenu : MonoBehaviour
         }
         else
         {
-            
             int _numSeenDictionaries = 0;
             for(int i=0; i<BalanceVariables.dictionaryListStrings.Count; i++)
                 if(BalanceVariables.seenDictionaries[BalanceVariables.dictionaryListStrings[i]])
@@ -133,8 +116,6 @@ public class BalanceMenu : MonoBehaviour
                     _numSeenDictionaries+=1;
 
                 }
-    
-            
             for(int i=0; i<Mathf.Min(3,_numSeenDictionaries); i++)
             {
                 string _randomDict = GetRandomKeyFromDoubleDict(_tempDict);
@@ -153,10 +134,22 @@ public class BalanceMenu : MonoBehaviour
     
             }
         }
-        
-        
+    }
+    
+    /*
+    *   This will remove all the options buttons
+    */
+    void RemoveButtons()
+    {
+        foreach (Transform child in buttonContent.transform) {
+            Destroy(child.gameObject);
+        }
+
     }
 
+    /*
+    *   This function will take in a dictionary name and display the balance options for that dictionary
+    */
     private void DisplaySpecificDictButtons(string dict){
         confirmButton.SetActive(true);
         backButton.SetActive(true);
@@ -184,6 +177,9 @@ public class BalanceMenu : MonoBehaviour
         }
     }
 
+    /*
+    *   This function will take in a dictionary and return load balance options for that dictionary, adding it to the list for recall later
+    */
     private void LoadSpecificDictButtons(Dictionary<string,float> temp){
         List<Tuple<string, string>> tupleList = new List<Tuple<string, string>>();
         listOfBalanceDictKeys.Add((BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(temp)], new List<SelectedItems>()));
@@ -211,11 +207,29 @@ public class BalanceMenu : MonoBehaviour
  
         }
     }
+
+    
+
+    /*
+    *   This function will set the remaining points text to the current number of points
+    */
+    private void SetRemainingPoints()
+    {
+        remainingPointsText.text = "Remaining Points: " + PointBalanceTimer.Instance.counter.ToString();
+    }
+
+    /*
+    *   This function clear the selected values and repopulate with the dictionary's
+    */
     public void GoBackButton()
     {
         selectedValues.Clear();
         PopulateButtons();
     }
+
+    /*
+    *   This function will send all the selected values to change the balance variables then either repopulate the buttons or resume the game
+    */
     public void ConfirmSelection()
     {
         if(selectedValues.Count==0)
@@ -227,6 +241,8 @@ public class BalanceMenu : MonoBehaviour
             ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,item.selectedValue);
         }
         selectedValues.Clear();
+        listOfBalanceDictKeys.Clear();
+        listOfBalanceDict.Clear();
         if(PointBalanceTimer.Instance.counter >0)
         {
             SetRemainingPoints();
@@ -243,6 +259,9 @@ public class BalanceMenu : MonoBehaviour
         }
     }
 
+    /*
+    *   This function will take in a button, a dictionary, a key, and a value and add it to the selected values list or remove it if it is already there
+    */
     private void SetSelectedButton(GameObject button,Dictionary<string,float> Dictionary, string key, string modifyValue)
     {
         bool _inSelected = false;
@@ -267,10 +286,16 @@ public class BalanceMenu : MonoBehaviour
         }
     }
 
+    /*
+    *   This function will take in a dictionary, a key, and a value and change the balance variables by calling the GameManager's function
+    */
     private void ChangeBalanceVariables(Dictionary<string,float> temp, string key, string modifyValue){
         GameManager.Instance.BalanceValue(temp,key, BalanceVariables.other[modifyValue]);
     }
 
+    /*
+    *   This function will return a random key from a dictionary
+    */
     private string GetRandomKeyFromDoubleDict(Dictionary<string,Dictionary<string,float>> dictionary)
     {
         List<string> keyList = new List<string>(dictionary.Keys);
@@ -278,6 +303,9 @@ public class BalanceMenu : MonoBehaviour
         return keyList[randomIndex];
     }
 
+    /*
+    *   This function will return a random dictionary
+    */
     private string GetRandomKeyFromDict(Dictionary<string,float> dictionary)
     {
         List<string> keyList = new List<string>(dictionary.Keys);
@@ -290,6 +318,10 @@ public class BalanceMenu : MonoBehaviour
         AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
     }
 }
+
+/*
+*   This class is used to store the selected values
+*/
 [Serializable]
 public class SelectedItems
 {
