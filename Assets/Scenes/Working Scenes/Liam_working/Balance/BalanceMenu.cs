@@ -61,6 +61,12 @@ public class BalanceMenu : MonoBehaviour
         balanceMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        SetRemainingPoints();
+        PointBalanceTimer.Instance.counter-=1;
+        if(PointBalanceTimer.Instance.counter <0)
+        {
+            PointBalanceTimer.Instance.counter = 0;
+        }
         PopulateButtons();
     }
 
@@ -104,12 +110,7 @@ public class BalanceMenu : MonoBehaviour
     {
         backButton.SetActive(false);
         confirmButton.SetActive(false);
-        SetRemainingPoints();
-        PointBalanceTimer.Instance.counter-=1;
-        if(PointBalanceTimer.Instance.counter <0)
-        {
-            PointBalanceTimer.Instance.counter = 0;
-        }
+        
         RemoveButtons();
         Dictionary<string,Dictionary<string,float>> _tempDict = new Dictionary<string,Dictionary<string,float>>();
         if(listOfBalanceDict.Count>0)
@@ -212,6 +213,7 @@ public class BalanceMenu : MonoBehaviour
     }
     public void GoBackButton()
     {
+        selectedValues.Clear();
         PopulateButtons();
     }
     public void ConfirmSelection()
@@ -227,6 +229,12 @@ public class BalanceMenu : MonoBehaviour
         selectedValues.Clear();
         if(PointBalanceTimer.Instance.counter >0)
         {
+            SetRemainingPoints();
+            PointBalanceTimer.Instance.counter-=1;
+            if(PointBalanceTimer.Instance.counter <0)
+            {
+                PointBalanceTimer.Instance.counter = 0;
+            }
             PopulateButtons();
         }
         else
