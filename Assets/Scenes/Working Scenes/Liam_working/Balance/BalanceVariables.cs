@@ -17,7 +17,7 @@ public class BalanceVariables : MonoBehaviour
     };
     public static Dictionary<string,float> droneEnemy = new Dictionary<string,float>()
     {
-        //found in Health.cs
+        //found in Health.cs, should have its own
         {"maxHealth",100},
         //found in DroneAI.cs
         {"moveSpeed",2f},
@@ -25,9 +25,9 @@ public class BalanceVariables : MonoBehaviour
         {"pauseTime",3f},
         {"slowShotCD",1f},
         {"fastShotCD",0.5f},
-        //could not find in but should be added in Lazer.cs(right now it just damages using 1) 
-        // or ProjectileWeapon.cs (fireForce?)
+        // in enemylazer.cs
         {"lazerDamage",10f},
+        // not implimented?
         {"lazerSpeed", 20f},
     };
 
@@ -35,18 +35,20 @@ public class BalanceVariables : MonoBehaviour
     {
         //found in Health.cs should have its own
         {"maxHealth",10},
-        //nothing implemented
+        //not implemented dont know where
         {"moveSpeed",1f},
+        //found in DogAI.cs
         {"leapDistance",20f},
-        {"attackDamage",10},
+        {"attackDamage",10f},
     };
     public static Dictionary<string,float> player = new Dictionary<string,float>()
     {
         //found in player.cs
         {"speed",10f},
         {"maxHealth",100},
+        // in PlayerLazer.cs
+        {"attackDamage",10f},
         //in PlayerAttack.cs
-        {"attackDamage",160f}, // this one is not implemented
         {"attackSpeed", 0.2f},
         {"maxAmmo", 100f},
         {"lazerSpeed", 25f},
@@ -56,6 +58,7 @@ public class BalanceVariables : MonoBehaviour
 
     public static Dictionary<string,float> catEnemy = new Dictionary<string,float>()
     {
+        // not implemented
         {"attackDamage",10f},
         {"leapDistance",20f},
         {"moveSpeed",1f},
@@ -65,6 +68,7 @@ public class BalanceVariables : MonoBehaviour
 
     public static Dictionary<string,float> collectables = new Dictionary<string,float>()
     {
+        //not sure where to find this
         {"dropChance",1f},
         //found in Garlic.cs
         {"garlicAmount", 25f},
@@ -85,6 +89,7 @@ public class BalanceVariables : MonoBehaviour
         {"player",true},  
         {"droneEnemy",false},  
         {"dogEnemy",false},
+        {"catEnemy",false}, // not implemented
         {"droneBoss",false},  
         {"collectables",true},  
         {"other",true},  
@@ -93,13 +98,13 @@ public class BalanceVariables : MonoBehaviour
     //mainly for balancing, dont need to be pushed to database
     public static List<string> dictionaryListStrings = new List<string>()
     {
-        "player", "droneEnemy", "droneBoss", "dogEnemy",  "collectables", "other",
+        "player", "droneEnemy", "droneBoss", "dogEnemy", "catEnemy",  "collectables", "other",
     };
 
     //mainly for balancing, dont need to be pushed to database
     public static List<Dictionary<string,float>> dictionaryList = new List<Dictionary<string,float>>()
     {
-        player, droneEnemy, droneBoss, dogEnemy, collectables, other
+        player, droneEnemy, droneBoss, dogEnemy, catEnemy, collectables, other
     };
 
 }
