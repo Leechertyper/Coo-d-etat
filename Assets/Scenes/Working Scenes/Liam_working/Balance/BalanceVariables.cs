@@ -21,9 +21,9 @@ public class BalanceVariables : MonoBehaviour
         {"maxHealth",100},
         //found in DroneAI.cs
         {"moveSpeed",2f},
-        {"range", 8f},
-        {"pauseTime",3},
-        {"slowShotCD",1},
+        {"range", 3f},
+        {"pauseTime",3f},
+        {"slowShotCD",1f},
         {"fastShotCD",0.5f},
         //could not find in but should be added in Lazer.cs(right now it just damages using 1) 
         // or ProjectileWeapon.cs (fireForce?)
@@ -34,25 +34,35 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,float> dogEnemy = new Dictionary<string,float>()
     {
         //found in Health.cs should have its own
-        {"maxHealth",100},
+        {"maxHealth",10},
         //nothing implemented
-        {"moveSpeed",2f},
-        {"leapDistance",15f},
+        {"moveSpeed",1f},
+        {"leapDistance",20f},
         {"attackDamage",10},
     };
     public static Dictionary<string,float> player = new Dictionary<string,float>()
     {
         //found in player.cs
-        {"speed",5f},
+        {"speed",10f},
         {"maxHealth",100},
         //in PlayerAttack.cs
-        {"attackDamage",10f}, // this one is not implemented
+        {"attackDamage",160f}, // this one is not implemented
         {"attackSpeed", 0.2f},
         {"maxAmmo", 100f},
         {"lazerSpeed", 25f},
         {"dashCooldown", 2f},
         {"dashDistance", 3f},
     };
+
+    public static Dictionary<string,float> catEnemy = new Dictionary<string,float>()
+    {
+        {"attackDamage",10f},
+        {"leapDistance",20f},
+        {"moveSpeed",1f},
+        {"maxHealth",10},
+        
+    };
+
     public static Dictionary<string,float> collectables = new Dictionary<string,float>()
     {
         {"dropChance",1f},

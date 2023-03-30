@@ -238,7 +238,15 @@ public class BalanceMenu : MonoBehaviour
         }
         foreach (SelectedItems item in selectedValues)
         {
-            ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,item.selectedValue);
+            if(item.selectedValue=="buffValue")
+            {
+                ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,(BalanceVariables.other["stepSize"]+1));
+            }
+            else
+            {
+                ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,(1-BalanceVariables.other["stepSize"]));
+            }
+            
         }
         selectedValues.Clear();
         listOfBalanceDictKeys.Clear();
@@ -254,7 +262,7 @@ public class BalanceMenu : MonoBehaviour
             PopulateButtons();
         }
         else
-        {
+        {   
             ResumeGame();
         }
     }
@@ -289,8 +297,8 @@ public class BalanceMenu : MonoBehaviour
     /*
     *   This function will take in a dictionary, a key, and a value and change the balance variables by calling the GameManager's function
     */
-    private void ChangeBalanceVariables(Dictionary<string,float> temp, string key, string modifyValue){
-        GameManager.Instance.BalanceValue(temp,key, BalanceVariables.other[modifyValue]);
+    private void ChangeBalanceVariables(Dictionary<string,float> temp, string key, float modifyValue){
+        GameManager.Instance.BalanceValue(temp,key, modifyValue);
     }
 
     /*
