@@ -240,11 +240,11 @@ public class BalanceMenu : MonoBehaviour
         {
             if(item.selectedValue=="buffValue")
             {
-                ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,(BalanceVariables.other["stepSize"]+1));
+                ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,(BalanceVariables.other["stepSize"]));
             }
             else
             {
-                ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,(1-BalanceVariables.other["stepSize"]));
+                ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,(-BalanceVariables.other["stepSize"]));
             }
             
         }
