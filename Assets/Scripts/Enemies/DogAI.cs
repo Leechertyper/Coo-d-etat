@@ -19,6 +19,7 @@ public class DogAI : Enemy
     private float _distY;
     private bool _awake;
     private bool _attackReady = true;
+    private bool _dead = false;
     enum state { Dash, Leap, Next, Wait, Attack}
 
 
@@ -26,6 +27,7 @@ public class DogAI : Enemy
     {
         _awake = true;
         _myState = state.Dash;
+        leapDistance = Mathf.RoundToInt(BalanceVariables.dogEnemy["leapDistance"]);
     }
 
     public override void Sleep()
@@ -43,7 +45,6 @@ public class DogAI : Enemy
         animator.SetInteger("Direction", 2);
         _grid = GameManager.Instance.Grid;
         _grid.GetTile(transform.position, out _gridPos);
-        BalanceVariables.seenDictionaries["dogEnemy"] = true;
     }
 
     // Update is called once per frame
@@ -103,7 +104,7 @@ public class DogAI : Enemy
         {
             if (_attackReady)
             {
-                collision.gameObject.GetComponent<Player>().TakeDamage(2);
+                collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.dogEnemy["attackDamage"]);
                 StartCoroutine(AttackCooldown(2));
             }           
         }
@@ -211,7 +212,12 @@ public class DogAI : Enemy
 
     public override void Die()
     {
-        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
+        BalanceVariables.seenDictionaries["dogEnemy"] = true;
+        if(_dead == false)
+        {
+            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
+            _dead = true;
+        }
         StopAllCoroutines();
         this.enabled = false;
     }
