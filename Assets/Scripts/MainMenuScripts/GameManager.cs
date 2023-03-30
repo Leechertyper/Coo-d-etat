@@ -248,8 +248,19 @@ public class GameManager : MonoBehaviour
     */
     public void BalanceValue(Dictionary<string,float> dictionary,string dictionaryKey, float balanceValue)
     {
-        dictionary[dictionaryKey] *= balanceValue;
 
+        
+        string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dictionary)];
+        float currSteps = dbInstance.GetSteps(dictName+char.ToUpper(dictionaryKey[0]) + dictionaryKey.Substring(1));
+        
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
+        {
+            if (dictName != "General"){
+                dbInstance.UpdateSteps(dictName + char.ToUpper(dictionaryKey[0])+dictionaryKey.Substring(1), currSteps + balanceValue);
+            }
+            
+        }
+        
     } 
     public void ChangeHealthItemValue(float newHealth)
     {

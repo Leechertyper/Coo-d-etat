@@ -117,7 +117,7 @@ public class DatabaseManager : MonoBehaviour
     *@return:None
     *@Post:Database is updated with a new value
     ***/
-    public void UpdateValue(string variable, float value)
+    public void UpdateSteps(string variable, float value)
     {
          MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
         builder.Server = Host;
@@ -129,7 +129,7 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-                string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `value` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
+                string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `steps` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
                 Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();
