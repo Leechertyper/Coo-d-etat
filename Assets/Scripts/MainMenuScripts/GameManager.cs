@@ -66,7 +66,9 @@ public class GameManager : MonoBehaviour
                     float maxVal = dbInstance.GetMaxValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
                     float minVal = dbInstance.GetMinValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
                     float difference = maxVal - minVal;
-                    BalanceVariables.dictionaryList[i][key] =minVal + Tikhonov(dbInstance.GetSteps(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1)),10f,32f )*difference;
+                    float scaledValue = Tikhonov(dbInstance.GetSteps(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1)),10f,32f )*difference;
+                    Debug.Log("Putting in :" + scaledValue + " with min value: " + minVal + " for " + BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    BalanceVariables.dictionaryList[i][key] =minVal + scaledValue;
                 }
             }
         }
@@ -248,15 +250,19 @@ public class GameManager : MonoBehaviour
     */
     public void BalanceValue(Dictionary<string,float> dictionary,string dictionaryKey, float balanceValue)
     {
-        BalanceVariables.dictionaryList[BalanceVariables.dictionaryList.IndexOf(dictionary)][dictionaryKey] *= balanceValue;
+
+        
         string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dictionary)];
-        if(PlayerPrefs.GetInt("BalanceDataBase") == 0 && dbInstance.GetHostFound())
-            {
-                if (dictName != "General"){
-                    dbInstance.UpdateValue(dictName + char.ToUpper(dictionaryKey[0])+dictionaryKey.Substring(1), BalanceVariables.dictionaryList[BalanceVariables.dictionaryList.IndexOf(dictionary)][dictionaryKey]);
-                }
-                
+        float currSteps = dbInstance.GetSteps(dictName+char.ToUpper(dictionaryKey[0]) + dictionaryKey.Substring(1));
+        
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
+        {
+            if (dictName != "General"){
+                dbInstance.UpdateSteps(dictName + char.ToUpper(dictionaryKey[0])+dictionaryKey.Substring(1), currSteps + balanceValue);
             }
+            
+        }
+        
     } 
     public void ChangeHealthItemValue(float newHealth)
     {
