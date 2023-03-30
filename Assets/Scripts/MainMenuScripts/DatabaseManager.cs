@@ -130,7 +130,7 @@ public class DatabaseManager : MonoBehaviour
             {
                 connection.Open();
                 string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `steps` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
-                Debug.Log(sql);
+                //Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();
             }
@@ -163,7 +163,7 @@ public class DatabaseManager : MonoBehaviour
             {
                 connection.Open();
                 string sql = "SELECT steps FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
-                Debug.Log(sql);
+                //Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 result = cmd.ExecuteScalar();
             }
@@ -177,7 +177,7 @@ public class DatabaseManager : MonoBehaviour
         if (result != null)
         {
             float r = Convert.ToSingle(result);
-            Debug.Log("Got " + r + " from GetValue");
+            //Debug.Log("Got " + r + " from GetSteps");
             return r;
         }
         else
@@ -207,7 +207,7 @@ public class DatabaseManager : MonoBehaviour
             {
                 connection.Open();
                 string sql = "SELECT maximumValue FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
-                Debug.Log(sql);
+                //Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 result = cmd.ExecuteScalar();
             }
@@ -221,7 +221,7 @@ public class DatabaseManager : MonoBehaviour
         if (result != null)
         {
             float r = Convert.ToSingle(result);
-            Debug.Log("Got " + r + " from GetMaxValue");
+            //Debug.Log("Got " + r + " from GetMaxValue");
             return r;
         }
         else
@@ -252,7 +252,7 @@ public class DatabaseManager : MonoBehaviour
             {
                 connection.Open();
                 string sql = "SELECT minValue FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
-                Debug.Log(sql);
+                //Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 result = cmd.ExecuteScalar();
             }
@@ -266,13 +266,13 @@ public class DatabaseManager : MonoBehaviour
         if (result != null)
         {
             float r = Convert.ToSingle(result);
-            Debug.Log("Got " + r + " from GetMinValue");
+            //Debug.Log("Got " + r + " from GetMinValue");
             return r;
         }
         else
         {
-            Debug.Log("Got nothing back from database. Replacing with -9999");
-            return -9999f;
+            Debug.Log("Got nothing back from database. Replacing with 1");
+            return 1f;
         }
     }
 

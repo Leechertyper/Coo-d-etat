@@ -66,7 +66,9 @@ public class GameManager : MonoBehaviour
                     float maxVal = dbInstance.GetMaxValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
                     float minVal = dbInstance.GetMinValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
                     float difference = maxVal - minVal;
-                    BalanceVariables.dictionaryList[i][key] =minVal + Tikhonov(dbInstance.GetSteps(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1)),10f,32f )*difference;
+                    float scaledValue = Tikhonov(dbInstance.GetSteps(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1)),10f,32f )*difference;
+                    Debug.Log("Putting in :" + scaledValue + " with min value: " + minVal + " for " + BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    BalanceVariables.dictionaryList[i][key] =minVal + scaledValue;
                 }
             }
         }
