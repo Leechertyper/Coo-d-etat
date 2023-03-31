@@ -42,12 +42,17 @@ Event	ID	Name			Wwise Object Path	Notes
 
 State Group	ID	Name			Wwise Object Path	Notes
 	444815956	PlayerLife			\Default Work Unit\PlayerLife	
+	745520955	Stage_State			\Default Work Unit\Stage_State	
 	3826569560	Music_State			\Default Work Unit\Music_State	
 
 State	ID	Name	State Group			Notes
 	655265632	Alive	PlayerLife			
 	748895195	None	PlayerLife			
 	2791675679	Defeated	PlayerLife			
+	578926554	Lab	Stage_State			
+	748895195	None	Stage_State			
+	1610254009	Park	Stage_State			
+	3888786832	City	Stage_State			
 	502402914	Mystery_Room	Music_State			
 	748895195	None	Music_State			
 	1198379314	End_Room	Music_State			
@@ -57,33 +62,7 @@ State	ID	Name	State Group			Notes
 	3900115470	Normal_Room	Music_State			
 
 Custom State	ID	Name	State Group	Owner		Notes
-	13437614	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Main Theme\lab theme 1		
-	93179532	Objective_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Shop\lab rest theme 2		
-	107686206	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Rest\lab rest theme 1		
-	114860018	Objective_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Rest\lab rest theme 1		
-	151686061	Boss_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Rest\lab rest theme 1		
-	247555310	Normal_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Shop\lab rest theme 2		
-	251886136	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Main Theme\lab theme 1		
-	290867954	Objective_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Stat Changer Screen\potential stat screen theme 1		
-	298473820	Boss_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Stat Changer Screen\potential stat screen theme 1		
-	399546270	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Stat Changer Screen\potential stat screen theme 1		
-	433613408	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Objective Theme\lab theme 2		
-	479947881	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Objective Theme\lab theme 2		
-	550598205	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Stat Changer Screen\potential stat screen theme 1		
-	599960516	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Boss\boss theme		
-	618991699	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Boss\boss theme		
-	620800003	Objective_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Boss\boss theme		
-	636658271	Normal_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Objective Theme\lab theme 2		
-	719646458	Rest_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Shop\lab rest theme 2		
-	727937948	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Boss\boss theme		
-	754853744	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Rest\lab rest theme 1		
-	777976718	Boss_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Shop\lab rest theme 2		
-	935783918	Boss_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Objective Theme\lab theme 2		
-	992019537	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Objective Theme\lab theme 2		
-	1011639352	Normal_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Boss\boss theme		
-	1060622201	End_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Shop\lab rest theme 2		
 	1067095110	Defeated	PlayerLife	\Actor-Mixer Hierarchy\Default Work Unit\Heartbeat		
-	1072518496	Mystery_Room	Music_State	\Interactive Music Hierarchy\Music\Controller Switch\Lab Main Theme\lab theme 1		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	151362964	PlayerHealth			\Default Work Unit\PlayerHealth	
@@ -100,7 +79,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	153170304	Launcher Explosion	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Launcher_Explosion_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Launcher Explosion		135408
 	155015978	Pigeon Coo 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Pigeon Coo 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 2		63464
 	161308221	Robot Activated	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Robot Activated_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Activated		356280
-	223278938	potential stat screen theme 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\potential stat screen theme 1_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\Stat Changer Screen\potential stat screen theme 1\potential stat screen theme 1		16934544
 	225419399	Machine wub 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Machine wub 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Machine wub 1		185792
 	234390179	Mystery Get	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Mystery Get_3BAC181A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mystery Get		231864
 	238932007	Robot Ouch	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Robot Ouch_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Hurt\Robot Ouch		101556
@@ -113,12 +91,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	333634344	title theme	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\title theme_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\Title Theme\title theme\title theme		7831080
 	338096846	Pigeon Coo 15	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Pigeon Coo 15_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 15		36960
 	346885790	wing flap	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\wing flap_9090667F.wem		\Actor-Mixer Hierarchy\Default Work Unit\wing flap		62796
-	360692969	lab rest theme 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\lab rest theme 2_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\Lab Shop\lab rest theme 2\lab rest theme 2		10502096
 	387236824	Pigeon wing flutter	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Pigeon wing flutter_77FD64A7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon wing flutter		85000
-	427093008	boss theme	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\boss theme_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\Boss\boss theme\boss theme		12637756
 	446377031	swoosh	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\swoosh_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\swoosh\swoosh		452156
-	483069929	lab theme 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\lab theme 1_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\Lab Main Theme\lab theme 1\lab theme 1		10502096
-	509622454	lab rest theme 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\lab rest theme 1_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\Lab Rest\lab rest theme 1\lab rest theme 1		10502096
 	514170223	Pigeon hoo hoo	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Pigeon hoo hoo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon hoo hoo		136396
 	542053950	Machine wub 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Machine wub 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Machine wub 2		124420
 	563781845	Heavy reload	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Heavy reload_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Heavy reload		120308
@@ -127,7 +101,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	686687541	game over jingle NES	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\game over jingle NES_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\Game Over\game over jingle NES\game over jingle NES		7767256
 	688570229	door slide close	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\door slide close_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\door slide close\door slide close		149080
 	715870971	Heartbeat	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\heartbeat_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Heartbeat		325804
-	719609388	Heavy Blast	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Heavy Blast_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Heavy Blast		116524
+	719609388	Heavy Blast	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Heavy Blast_A8B54F02.wem		\Actor-Mixer Hierarchy\Default Work Unit\Heavy Blast		116524
 	740621105	Pigeon Coo 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Pigeon Coo 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 1		72792
 	742994317	Unpause SFX	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Unpause SFX_39000D95.wem		\Actor-Mixer Hierarchy\Default Work Unit\Unpause SFX		34480
 	762522150	Pigeon Coo 6	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Pigeon Coo 6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 6		61936
@@ -140,7 +114,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	802213557	Robot Error	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Robot Error_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot Hurt\Robot Error		47920
 	818060147	Potential Pickup SFX 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Potential Pickup SFX 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Potential Pickup SFX 2		98024
 	847018787	wind noise 1	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\wind noise 1_CB8CCBB2.wem		\Actor-Mixer Hierarchy\Default Work Unit\wind noise 1		157076
-	873893434	lab theme 2	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\lab theme 2_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Controller Switch\Lab Objective Theme\lab theme 2\lab theme 2		10502096
 	909240164	Tornado	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\tornado_14EEFC23.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tornado		216288
 	978674330	Pigeon Coo 7	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Pigeon Coo 7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 7		46848
 	983061750	Pigeon Coo 12	C:\Users\kirk\Desktop\406 PROJECT\ProjectForseti\ProjectForseti_WwiseProject\.cache\Windows\SFX\Pigeon Coo 12_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pigeon Coos\Pigeon Coo 12		50844
