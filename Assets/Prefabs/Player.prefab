@@ -298,6 +298,11 @@ MonoBehaviour:
   curPlace: {x: 0, y: 0}
   dashCooldown: 2
   dashSlider: {fileID: 8943802269226449281}
+  leftKey: 97
+  rightKey: 100
+  upKey: 119
+  downKey: 115
+  dashKey: 32
 --- !u!114 &947550787850258268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cbccf443d43814b884514bc46e1a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hasKey: 0
   _healthText: {fileID: 0}
   _power: 10
   healthBar: {fileID: 8575993587833810258}
@@ -321,6 +327,7 @@ MonoBehaviour:
   healthCanvas: {fileID: 3262786354785829768}
   death: {fileID: 0}
   hitParticles: {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
+  iFrame: 0
 --- !u!114 &5324567830572157412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,7 +1169,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

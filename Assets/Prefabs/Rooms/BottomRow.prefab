@@ -926,7 +926,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1276,6 +1276,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 2
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &3563395103547804753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,9 +1390,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbdf3de683778047ac41f4681fd4dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-    boss: {fileID: 0}
-    enemies: []
+  topWallPiece: {fileID: 0}
+  topDoorCollider: {fileID: 0}
+  bottomWallPiece: {fileID: 0}
+  bottomDoorCollider: {fileID: 0}
+  rightWallPiece: {fileID: 0}
+  rightDoorCollider: {fileID: 0}
+  leftWallPiece: {fileID: 0}
+  leftDoorCollider: {fileID: 0}
+  chargerRoomSprite: {fileID: 0}
+  keyRoomSprite: {fileID: 0}
+  bossRoomSprite: {fileID: 0}
+  topDoor: {fileID: 0}
+  bottomDoor: {fileID: 0}
+  leftDoor: {fileID: 0}
+  rightDoor: {fileID: 0}
+  roomHasBeenInitialized: 0
 --- !u!61 &-2479950650540734912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2814,7 +2829,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2916,6 +2931,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 0
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &6392536887394964116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +3006,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 3
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &6912529132212022190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,6 +3197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 3
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &7983539846310430771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,6 +3330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 2
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &8186537917080193095
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,6 +3405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 0
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &8306682731580674839
 GameObject:
   m_ObjectHideFlags: 0

@@ -235,6 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 0
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &903831471531210990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1536,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1675,7 +1677,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2047,6 +2049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 0
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &3712494448402711392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,7 +2103,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3121,7 +3125,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3403,6 +3407,10 @@ MonoBehaviour:
   chargerRoomSprite: {fileID: 0}
   keyRoomSprite: {fileID: 0}
   bossRoomSprite: {fileID: 0}
+  topDoor: {fileID: 0}
+  bottomDoor: {fileID: 0}
+  leftDoor: {fileID: 0}
+  rightDoor: {fileID: 0}
   roomHasBeenInitialized: 0
 --- !u!1 &7574388468020146988
 GameObject:
