@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject balanceMenu;
 
     public GlobalGrid Grid;
+    private bool _hasBalanced = false;
 
     public static GameManager Instance; // A static reference to the GameManager instance
     public static DatabaseManager dbInstance;
@@ -33,9 +34,10 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null) // If there is no instance already
-        {
-            // DontDestroyOnLoad(gameObject); // bugs the game with this line
+        {   
             Instance = this;
+            DontDestroyOnLoad(gameObject); // bugs the game with this line
+            
             
         }
         else if (Instance != this) // If there is already an instance and it's not `this` instance
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour
 
         theBoss = null;
 
-        healthItemValue = 1f;
+        //healthItemValue = 1f;
 
         //Database needs the GetHostFound for it to work, this needs to happen after the Awake phase of initialization.
         dbInstance = this.gameObject.GetComponent<DatabaseManager>();
@@ -191,14 +193,23 @@ public class GameManager : MonoBehaviour
     }
 
     public void GoToNextFloor(){
-        if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance)
+
+        Debug.Log("GameManagerScript: GoToNextFloor() called");
+        if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance && !_hasBalanced)
         {
+            Debug.Log("GameManagerScript: GoToNextFloor() called, starting balance menu");
             StartBalanceMenu();
         }
         else{
             _skipBalance = false;
             //update load next floor here
+            //Grid.GetComponent<GlobalGrid>().
             SceneManager.LoadScene(1);
+            _thePlayer.GetComponent<PlayerMovement>().MoveTostart(Grid.GetComponent<GlobalGrid>().GetStartCenter());
+            _hasBalanced = false;
+            //GameObject.Find("Floor").GetComponent<Floor>().TESTING();
+            //_thePlayer = GameObject.Find("Player").GetComponent<Player>();
+            //_thePlayer = FindObjectOfType<Player>();
         }
     }
 
@@ -223,13 +234,15 @@ public class GameManager : MonoBehaviour
     *   This function is called when the balance menu needs to pop up (call it in BalanceTimer())
     */
     public void StartBalanceMenu()
-    {
+    {   
+        Debug.Log("GameManagerScript: StartBalanceMenu() called");
         balanceMenu.SetActive(true);
         balanceMenu.GetComponent<BalanceMenu>().startBalance = true;
     }
 
     public void EndBalanceMenu()
     {
+        Debug.Log("GameManagerScript: EndBalanceMenu() called");
         _skipBalance = true;
         balanceMenu.SetActive(false);
         balanceMenu.GetComponent<BalanceMenu>().startBalance = false;
@@ -241,6 +254,8 @@ public class GameManager : MonoBehaviour
         else
         {
             GoToNextFloor();
+            //SceneManager.LoadScene(1);
+            _hasBalanced = true;
         }
     }
 

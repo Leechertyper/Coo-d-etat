@@ -100,10 +100,15 @@ public class GlobalGrid : MonoBehaviour
 
     [SerializeField] GameObject testTile;
 
+    public List<int> GetStartCenter()
+    {
+        return _roomCenters[0];
+    } 
 
 
     // Start is called before the first frame update
-    void Start()
+
+    void theGrid()
     {
         // calculating the total size of the grid
         // start with the amount of rooms and the size of each one
@@ -295,6 +300,23 @@ public class GlobalGrid : MonoBehaviour
     }
 
 
+    public static GlobalGrid Instance;
+    void Start()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        this.theGrid();
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -460,9 +482,9 @@ public class GlobalGrid : MonoBehaviour
         List<int> room = _roomCenters[roomIndex];
         // grab the center coordinatess
         Vector2Int roomCoordinates = new Vector2Int(room[0], room[1]);
-        // init empty list
+     
         List<Vector2Int> freeTiles = new List<Vector2Int>();
-        Debug.Log(roomCoordinates.ToString());
+        //Debug.Log(roomCoordinates.ToString());
         
        for(int i = roomCoordinates.x - (Mathf.FloorToInt(roomSize.x/2) - 1); i < roomCoordinates.x + (Mathf.FloorToInt(roomSize.x / 2) - 1); i++)
         {
@@ -476,7 +498,7 @@ public class GlobalGrid : MonoBehaviour
    
         }
         
-        Debug.Log("Currenbly items of"+itemNum+"are being placed");
+        //Debug.Log("Currenbly items of"+itemNum+"are being placed");
 
         for(int i = 0; i < itemNum; i++){
             int randomNum = Random.Range(0, freeTiles.Count);

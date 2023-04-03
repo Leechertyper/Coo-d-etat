@@ -21,6 +21,20 @@ public class BalanceMenu : MonoBehaviour
     List<(string, List<SelectedItems>)> listOfBalanceDictKeys = new List<(string, List<SelectedItems>)>();
     public static List<SelectedItems> selectedValues = new List<SelectedItems>();
 
+    public static BalanceMenu Instance;
+    void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
