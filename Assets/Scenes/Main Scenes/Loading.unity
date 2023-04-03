@@ -313,6 +313,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 1761731670}
   delayBeforeLoading: 4
+  leftKeyText: {fileID: 461272509}
+  rightKeyText: {fileID: 527345269}
+  upKeyText: {fileID: 1991675041}
+  downKeyText: {fileID: 1679333471}
+  fireKeyText: {fileID: 980933747}
+  dashKeyText: {fileID: 1928413060}
 --- !u!114 &174481055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1285,7 +1291,7 @@ GameObject:
   - component: {fileID: 1679333472}
   - component: {fileID: 1679333471}
   m_Layer: 5
-  m_Name: Backward
+  m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1344,7 +1350,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Backward:  S'
+  m_Text: 'Down:  S'
 --- !u!222 &1679333472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1427,7 +1433,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.0001373291}
+  m_AnchoredPosition: {x: 0, y: -0.00012207031}
   m_SizeDelta: {x: 136.02, y: 68.953}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1928413058
@@ -1501,7 +1507,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Dash:  space'
+  m_Text: 'Dash:  Space'
 --- !u!222 &1928413061
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1522,7 +1528,7 @@ GameObject:
   - component: {fileID: 1991675042}
   - component: {fileID: 1991675041}
   m_Layer: 5
-  m_Name: Forward
+  m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1581,7 +1587,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Forward: W'
+  m_Text: 'Up: W'
 --- !u!222 &1991675042
 CanvasRenderer:
   m_ObjectHideFlags: 0

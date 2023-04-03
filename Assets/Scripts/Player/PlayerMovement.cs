@@ -36,11 +36,19 @@ public class PlayerMovement : MonoBehaviour
     private float lastDashTime;
     public float dashCooldown = 2f; // dash cooldown duration in seconds
     public Slider dashSlider;
+
+    public KeyCode leftKey = KeyCode.A;
+    public KeyCode rightKey = KeyCode.D;
+    public KeyCode upKey = KeyCode.W;
+    public KeyCode downKey = KeyCode.S;
+    public KeyCode dashKey = KeyCode.Space;
+
     void Start()
     {
         /*transform.position = GameManager.Instance.Grid.GetTile(transform.position);*/
         rb = GetComponent<Rigidbody2D>();
         startInt = new Vector2Int(8,4);
+        LoadControls();
     }
 
     void Update()
@@ -62,28 +70,28 @@ public class PlayerMovement : MonoBehaviour
         if (!isMoving) // Make sure Player isn't moving
 
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(upKey))
             {
                 startMovePosition = rb.position;
                 targetPosition = startMovePosition + Vector2.up * tileSize;
                 isMoving = true;
                 readyForDash = true;
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(downKey))
             {
                 startMovePosition = rb.position;
                 targetPosition = startMovePosition + Vector2.down * tileSize;
                 isMoving = true;
                 readyForDash = true;
             }
-            else if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(leftKey))
             {
                 startMovePosition = rb.position;
                 targetPosition = startMovePosition + Vector2.left * tileSize;
                 isMoving = true;
                 readyForDash = true;
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(rightKey))
             {
                 startMovePosition = rb.position;
                 targetPosition = startMovePosition + Vector2.right * tileSize;
@@ -93,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (readyForDash && Time.time - lastDashTime > dashCooldown)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(dashKey))
             {
                 lastDashTime = Time.time;
                 readyForDash = false;
@@ -103,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
                 dashing = true;
                 AkSoundEngine.PostEvent("Play_Pigeon_wing_flutter", this.gameObject);
                 animator.SetBool("Dash", true);
+                StartCoroutine(InvincibilityFrame());
             }
         }
 
@@ -153,6 +162,16 @@ public class PlayerMovement : MonoBehaviour
 
             previousPosition = rb.position;
         }
+    }
+
+    public void MoveTostart(List<int> theValues)
+    {
+        //transform.position = GameManager.Instance.Grid.GetTile(startInt);
+        rb.MovePosition(new Vector2(0,-4.5f));
+        transform.position = new Vector2(0,-4.5f);
+        //transform.position = new Vector2(theValues[0],theValues[1]);
+        isMoving = false;
+
     }
 
     IEnumerator CheckMovementDelay()
@@ -221,5 +240,45 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(CheckMovementDelay());
         targetPosition = new Vector2(transform.position.x + horizontalTeleportDistance, transform.position.y);
         transform.position = targetPosition;
+    }
+
+    public void LoadControls()
+    {
+        if (PlayerPrefs.HasKey("upKey"))
+        {
+            upKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("upKey"));
+        }
+
+        if (PlayerPrefs.HasKey("downKey"))
+        {
+            downKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("downKey"));
+        }
+
+        if (PlayerPrefs.HasKey("leftKey"))
+        {
+            leftKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("leftKey"));
+        }
+
+        if (PlayerPrefs.HasKey("rightKey"))
+        {
+            rightKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("rightKey"));
+        }
+
+        if (PlayerPrefs.HasKey("dashKey"))
+        {
+            dashKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("dashKey"));
+        }
+    }
+
+    /// <summary>
+    /// Makes the Pigeon invulnerable during the duration of the dash animation
+    /// </summary>
+    /// <returns>N/A</returns>
+    private IEnumerator InvincibilityFrame()
+    {
+        var playerScript = GetComponent<Player>();
+        playerScript.iFrame = true;
+        yield return new WaitForSeconds(0.267f);
+        playerScript.iFrame = false;
     }
 }

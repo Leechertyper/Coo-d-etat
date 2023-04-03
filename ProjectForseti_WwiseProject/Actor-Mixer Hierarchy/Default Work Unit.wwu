@@ -982,7 +982,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-12</Value>
+								<Value>-15</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -996,6 +996,10 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="Heavy Blast" ID="{40130DB0-6BDA-4D08-A179-AA41986A9DDF}">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.073759759523591"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Heavy Blast.wav</AudioFile>
 							<MediaIDList>
