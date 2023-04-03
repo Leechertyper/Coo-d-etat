@@ -99,11 +99,11 @@ public class DroneAI : Enemy
         {
             Vector3 direction = (_target.position - transform.position).normalized;
             angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-            if(direction.y >= 0.4)
+            if(direction.y >= 0.2)
             {
                 animator.SetBool("IsSide", true);
             }
-            else if (direction.y <= -0.4)
+            else if (direction.y <= -0.2)
             {
                 animator.SetBool("IsSide", true);
             }

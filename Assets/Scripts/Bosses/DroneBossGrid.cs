@@ -41,8 +41,13 @@ public class DroneBossGrid : MonoBehaviour
     // the index of the current attack in the attacks list
     private int _currentAttackIndex;
 
+    private Transform _target;
+
     public bool isAttacking = false;
 
+    public Animator animator;
+
+    public float angle;
 
     /// <summary>
     /// A 2D array of Tiles
@@ -133,7 +138,9 @@ public class DroneBossGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(GameManager.Instance)
+        _target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if (GameManager.Instance)
         {
             gridStartPosition.x = transform.position.x - ((Mathf.FloorToInt(roomDimensions.x / 2)) * 3);
             gridStartPosition.y = transform.position.y - (Mathf.FloorToInt(roomDimensions.y / 2) * 3);
@@ -170,6 +177,27 @@ public class DroneBossGrid : MonoBehaviour
             }
             // resets the x position of the iterator to the first column and moves down a row
             iterationPosition = new Vector2(iterationPosition.x += gridStep, gridStartPosition.y);
+        }
+    }
+
+    private void Update()
+    {
+        if (_target)
+        {
+            Vector3 direction = (_target.position - transform.position).normalized;
+            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+            if (direction.y >= 0.2)
+            {
+                animator.SetBool("IsSide", true);
+            }
+            else if (direction.y <= -0.2)
+            {
+                animator.SetBool("IsSide", true);
+            }
+            else
+            {
+                animator.SetBool("IsSide", false);
+            }
         }
     }
 

@@ -371,19 +371,64 @@ public class GlobalGrid : MonoBehaviour
     }
 
 
-    public Vector2 TileLocation(Vector3 currentPosition, Vector2Int destination)
+    public bool TileOpen(Vector2Int destination)
     {
         // check the destination tile
-        if (!_grid[destination.x, destination.y].blocked)
+        if (_grid[destination.x, destination.y].blocked | _grid[destination.x, destination.y].door)
         {
-            return _grid[destination.x, destination.y].position;
+            return false;
         }
-        // if its blocked
+        // if it is not blocked
         else
         {
-            // just return where they started
+            return true;
+        }
+    }
+
+
+    public Vector2Int GetTileFromPos(Vector3 pos)
+    {
+        float bestDis = 10000;
+        Vector2Int gridPos = new Vector2Int(0, 0);
+        //Vector2 worldPos = new Vector2(0, 0);
+        for (int x = 0; x < _size.x; x++)
+        {
+            for (int y = 0; y < _size.y; y++)
+            {
+                if (Vector2.Distance(_grid[x, y].position, pos) < bestDis)
+                {
+                    bestDis = Vector2.Distance(_grid[x, y].position, pos);
+                    //worldPos = _grid[x, y].position;
+                    gridPos = new Vector2Int(x, y);
+                }
+            }
+        }
+        return gridPos;
+    }
+
+
+    public Vector2 TileLocation(Vector3 currentPosition, Vector2Int destination)
+    {
+        if (destination.x > 0 & destination.y > 0)
+        {
+            // check the destination tile
+            if (!_grid[destination.x, destination.y].blocked )
+            {
+                return _grid[destination.x, destination.y].position;
+            }
+            // if its blocked
+            else
+            {
+                // just return where they started
+                return currentPosition;
+            }
+        }
+        else
+        {
+            Debug.Log("DOG move ERROR");
             return currentPosition;
         }
+
     }
 
     public Vector2 GetTile(Vector3 pos, out Vector2Int gridPos)

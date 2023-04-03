@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2278889589388841423}
   - component: {fileID: 2278889589388841422}
   m_Layer: 0
-  m_Name: Dog
+  m_Name: Dog 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.1314287, y: 2.4457142}
+  m_Size: {x: 96.166954, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -104,7 +104,6 @@ MonoBehaviour:
   animator: {fileID: 2278889589388841420}
   hp: {fileID: 5191893465051956686}
   leapDistance: 20
-  _myState: 0
 --- !u!114 &5191893465051956686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,8 +182,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.1142855, y: 2.4799998}
-    newSize: {x: 4.1314287, y: 2.4457142}
+    oldSize: {x: 8.4, y: 7.6799474}
+    newSize: {x: 96.166954, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
