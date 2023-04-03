@@ -20,6 +20,7 @@ public class HighScoreMenu : MonoBehaviour
     {
         inputField.characterLimit = 3;
         LoadLocalScoresText();
+        LoadGlobalScoresText();
         if (Score.GetInstance() == null || !Score.GetInstance().IsLocalHighScore())
         {
             GameObject.Find("NameInputBox").SetActive(false);
@@ -28,9 +29,10 @@ public class HighScoreMenu : MonoBehaviour
 
     public void SubmitClick()
     {
-        Score score = Score.GetInstance();
-        score.AddHighScore(inputField.text);
+        Score.GetInstance().AddHighScore(inputField.text);
+        gameObject.GetComponent<DatabaseManager>().SubmitHighScore(inputField.text, Score.GetInstance().GetScore());
         LoadLocalScoresText();
+        LoadGlobalScoresText();
         GameObject.Find("NameInputBox").SetActive(false);
     }
 
@@ -58,6 +60,16 @@ public class HighScoreMenu : MonoBehaviour
 
             localNameFields[i].text = name;
             localScoreFields[i].text = scoreValue.ToString();
+        }
+    }
+
+    private void LoadGlobalScoresText()
+    {
+        var globalHighScores = gameObject.GetComponent<DatabaseManager>().GetHighScore();
+        for (int i = 0; i < globalHighScores.Length; i++)
+        {
+            globalNameFields[i].text = globalHighScores[i].Item1;
+            globalScoreFields[i].text = globalHighScores[i].Item2.ToString();
         }
     }
 

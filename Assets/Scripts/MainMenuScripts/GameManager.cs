@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) // If there is no instance already
         {
-            // DontDestroyOnLoad(gameObject); // bugs the game with this line
+            //DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
             
         }
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         allRooms = null;
         allDroneEnemies = null;
 
@@ -63,7 +64,12 @@ public class GameManager : MonoBehaviour
                 List<string> keys = new List<string>(BalanceVariables.dictionaryList[i].Keys);
                 foreach(string key in keys)
                 {
-                    BalanceVariables.dictionaryList[i][key] = dbInstance.GetValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    float maxVal = dbInstance.GetMaxValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    float minVal = dbInstance.GetMinValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    float difference = maxVal - minVal;
+                    float scaledValue = Tikhonov(dbInstance.GetSteps(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1)),10f,32f )*difference;
+                    Debug.Log("Putting in :" + scaledValue + " with min value: " + minVal + " for " + BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    BalanceVariables.dictionaryList[i][key] =minVal + scaledValue;
                 }
             }
         }
@@ -252,8 +258,19 @@ public class GameManager : MonoBehaviour
     */
     public void BalanceValue(Dictionary<string,float> dictionary,string dictionaryKey, float balanceValue)
     {
-        dictionary[dictionaryKey] *= balanceValue;
 
+        
+        string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dictionary)];
+        float currSteps = dbInstance.GetSteps(dictName+char.ToUpper(dictionaryKey[0]) + dictionaryKey.Substring(1));
+        
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
+        {
+            if (dictName != "General"){
+                dbInstance.UpdateSteps(dictName + char.ToUpper(dictionaryKey[0])+dictionaryKey.Substring(1), currSteps + balanceValue);
+            }
+            
+        }
+        
     } 
     public void ChangeHealthItemValue(float newHealth)
     {
@@ -292,5 +309,11 @@ public class GameManager : MonoBehaviour
         theReturn.Add(1);  //Remove this when the balanceVariables values get changed
         theReturn.Add(BalanceVariables.droneEnemy["lazerDamage"]);
         return theReturn;
+    }
+    //For use with smaller values of val:ie(steps) - a type of sigmoid function
+    //returns a value from 0-1 with respect to how steep you want it to be and where half the steps to reach the max.
+    public float Tikhonov(float val, float steepness, float half){
+        float scalar = Mathf.Pow(val,steepness)/(Mathf.Pow(val,steepness) + Mathf.Pow(half,steepness));
+        return scalar;
     }
 }
