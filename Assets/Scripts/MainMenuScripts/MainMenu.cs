@@ -76,4 +76,8 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public void HighScores()
+    {
+        SceneManager.LoadScene("HighScores");
+    }
 }

@@ -85,6 +85,19 @@ namespace AK
             } // namespace STATE
         } // namespace PLAYERLIFE
 
+        namespace STAGE_STATE
+        {
+            static const AkUniqueID GROUP = 745520955U;
+
+            namespace STATE
+            {
+                static const AkUniqueID CITY = 3888786832U;
+                static const AkUniqueID LAB = 578926554U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID PARK = 1610254009U;
+            } // namespace STATE
+        } // namespace STAGE_STATE
+
     } // namespace STATES
 
     namespace GAME_PARAMETERS

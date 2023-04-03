@@ -1,11 +1,16 @@
 State Group	ID	Name			Wwise Object Path	Notes
 	444815956	PlayerLife			\Default Work Unit\PlayerLife	
+	745520955	Stage_State			\Default Work Unit\Stage_State	
 	3826569560	Music_State			\Default Work Unit\Music_State	
 
 State	ID	Name	State Group			Notes
 	655265632	Alive	PlayerLife			
 	748895195	None	PlayerLife			
 	2791675679	Defeated	PlayerLife			
+	578926554	Lab	Stage_State			
+	748895195	None	Stage_State			
+	1610254009	Park	Stage_State			
+	3888786832	City	Stage_State			
 	502402914	Mystery_Room	Music_State			
 	748895195	None	Music_State			
 	1198379314	End_Room	Music_State			

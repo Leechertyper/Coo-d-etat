@@ -190,7 +190,7 @@
 								</ObjectList>
 							</ObjectLists>
 						</MusicSegment>
-						<MusicPlaylistContainer Name="Boss" ID="{C67D3E98-A606-4558-B370-CA38B34C12B9}" ShortID="312017582">
+						<MusicPlaylistContainer Name="Lab Boss" ID="{C67D3E98-A606-4558-B370-CA38B34C12B9}" ShortID="312017582">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
@@ -1860,6 +1860,266 @@
 								</ObjectList>
 							</ObjectLists>
 						</MusicSegment>
+						<MusicPlaylistContainer Name="City Main Theme" ID="{846A4430-72A6-445D-A5F6-2FC97C6CA8A0}" ShortID="469165670">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{450F693C-DB55-4400-A619-0BBA698C956A}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{7914A62D-6A4E-4779-B76F-690117705935}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{74F3A978-9014-40AB-8C7C-739EFD54503E}" ShortID="979542213"/>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="City Objective Theme" ID="{93DA30CA-2796-41C7-A924-93EA854FA4C8}" ShortID="414193824">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{E6FE0F4C-EDEE-48FD-8125-814D4BD77547}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{297A5D4D-2956-4F55-B728-85694281A835}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{D50475AE-232C-43E6-946A-BC17432CA3B9}" ShortID="305514354"/>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="City Rest" ID="{1717465B-E08A-4DFD-A8E2-F60F0267BA34}" ShortID="825533045">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{9338A177-0FB8-4C7F-ADA0-8BB0868CEF3B}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{4FB77304-D42C-4FBF-A5B7-8854B8D7D969}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{AB62459E-75D4-4D23-8B94-32623B37A605}" ShortID="678858291"/>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="City Shop" ID="{FC6EDCFE-7204-4736-9725-ED52990AA339}" ShortID="649218978">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{67C22901-0403-41FB-B9FB-F785F8730CAE}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{271DB698-CEA2-436D-85C3-AC86BA5EA41C}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{E4D4C5D5-753D-4460-9E29-71A6E30E93DA}" ShortID="288498034"/>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="Park Main Theme" ID="{15D113CA-D00F-4752-A41B-562CB44D47DE}" ShortID="276007918">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{C6B27A32-B9AD-44D4-A57A-056FAD5EA7A8}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{4B55D985-AA21-415B-A363-427991B0572A}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{5A69FB1C-11EB-45F7-8B5A-52C7195C65B4}" ShortID="906845708"/>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="Park Objective Theme" ID="{839A00A1-8500-4E99-AEF6-49483CCB1C5F}" ShortID="552633607">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{A70B61C4-6E1E-4FB2-A12A-95FC5CD112AB}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{6F0F7F2B-9EA1-4AD0-A9C5-C74461738B98}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{8399000B-DA3E-40A2-8489-567CF3B9539A}" ShortID="684741806"/>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="Park Rest" ID="{00DC02A6-6713-4101-BB76-2CC6081C8B62}" ShortID="27723435">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{1D6DF063-CD65-49E6-B935-D2754E952C0F}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{A5EA19DA-6A0F-45EE-8174-F097ECE98FA8}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{747E98AF-E243-4960-8714-95E35B8B3D4C}" ShortID="453438354"/>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="Park Shop" ID="{DFD95DD8-2484-4D4A-A176-9C9B01042278}" ShortID="124302851">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{8B918E2A-4CBF-4922-B44B-C3E58AC5167E}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{EAE40E8B-1A75-410D-9162-0DDA8F0D9DD1}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{E5B33C67-E2F7-4BF5-AC3D-770E7CDB930E}" ShortID="666637752"/>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="City Boss" ID="{50834AAD-7E03-49FC-AC40-4F3873E9A59E}" ShortID="709298913">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{22F44E35-A9D0-4344-BC1C-A0D388006540}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{BA362F17-271F-45BB-92CA-7FA4CE04AFBA}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{D0D8FBAE-96DD-455F-8456-1F47EDD15EE9}" ShortID="581210504"/>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="Park Boss" ID="{5AC52F5F-24C6-486E-A737-1301E7C5E48F}" ShortID="720570441">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BF40100B-E8AA-4D55-9725-D3E2E771C9EF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9B6FB771-D240-42BE-9E8C-8BA7AD7D5A75}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{95181963-49C4-4A21-B52F-038AC826662E}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{804EB736-7F43-4661-A812-8ABACC33BB9E}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{20E07C9F-EC98-452B-ADD7-FAA4A4B1751D}" ShortID="226749475"/>
+							</Playlist>
+						</MusicPlaylistContainer>
 					</ChildrenList>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{1EFB5EF4-8F33-4CBB-88B6-1730FCB5D9E8}">
@@ -2016,39 +2276,14 @@
 					</TransitionList>
 					<ArgumentList>
 						<ArgumentRef Name="PlayerLife" ID="{EE541A4C-66D6-43D5-BAF3-F4035B08890E}"/>
+						<ArgumentRef Name="Stage_State" ID="{A023C95A-9E8F-4544-9C96-5983FDFF708B}"/>
 						<ArgumentRef Name="Music_State" ID="{302B8AB5-FD46-490D-94EE-47BAE515E0A8}"/>
 					</ArgumentList>
 					<EntryList>
 						<Entry>
 							<Path>
-								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
-								<PathElementRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
-							</Path>
-							<AudioNodeInfo>
-								<AudioNodeRef Name="Lab Shop" ID="{31D6CCBB-BB1B-438A-A47E-42BE6E3002B2}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}" Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
-								<PathElementRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
-							</Path>
-							<AudioNodeInfo>
-								<AudioNodeRef Name="Lab Objective Theme" ID="{FB81A4A1-066E-4677-90F1-BC828AE1C823}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}" Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
-								<PathElementRef Name="Rest_Room" ID="{5F26696E-37DC-4070-9FDF-0914FDE09867}"/>
-							</Path>
-							<AudioNodeInfo>
-								<AudioNodeRef Name="Lab Rest" ID="{1C350005-D323-4538-9033-62F898B5E1D5}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}" Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
 								<PathElementRef Name="Defeated" ID="{5484FB74-FC79-4084-B939-1D22B2ADD5C3}"/>
+								<PathElementRef Name="Stage_State" ID="{A023C95A-9E8F-4544-9C96-5983FDFF708B}"/>
 								<PathElementRef Name="Music_State" ID="{302B8AB5-FD46-490D-94EE-47BAE515E0A8}"/>
 							</Path>
 							<AudioNodeInfo>
@@ -2058,6 +2293,7 @@
 						<Entry>
 							<Path>
 								<PathElementRef Name="None" ID="{E2164554-9031-47FB-ABA1-A6F20978094A}"/>
+								<PathElementRef Name="Stage_State" ID="{A023C95A-9E8F-4544-9C96-5983FDFF708B}"/>
 								<PathElementRef Name="Music_State" ID="{302B8AB5-FD46-490D-94EE-47BAE515E0A8}"/>
 							</Path>
 							<AudioNodeInfo>
@@ -2067,28 +2303,181 @@
 						<Entry>
 							<Path>
 								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
-								<PathElementRef Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
-							</Path>
-							<AudioNodeInfo>
-								<AudioNodeRef Name="Stat Changer Screen" ID="{7C791616-B97D-4CF1-95B5-E5EC46EAAEA6}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}" Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Lab" ID="{222B4DFC-6F58-4812-B8A7-568A60312228}"/>
 								<PathElementRef Name="Boss_Room" ID="{6F040040-FD4F-452D-8CC5-7D03B0B857DB}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="Boss" ID="{C67D3E98-A606-4558-B370-CA38B34C12B9}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}" Platform="Linked"/>
+								<NoObject Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 						<Entry>
 							<Path>
 								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Lab" ID="{222B4DFC-6F58-4812-B8A7-568A60312228}"/>
+								<PathElementRef Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Lab" ID="{222B4DFC-6F58-4812-B8A7-568A60312228}"/>
+								<PathElementRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Lab" ID="{222B4DFC-6F58-4812-B8A7-568A60312228}"/>
 								<PathElementRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="Lab Main Theme" ID="{76C72101-FDDF-4214-B680-CC3E508EBD5A}" WorkUnitID="{0526A7B9-7165-49EC-A233-D1EED1D1E5E5}" Platform="Linked"/>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Lab" ID="{222B4DFC-6F58-4812-B8A7-568A60312228}"/>
+								<PathElementRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Lab" ID="{222B4DFC-6F58-4812-B8A7-568A60312228}"/>
+								<PathElementRef Name="Rest_Room" ID="{5F26696E-37DC-4070-9FDF-0914FDE09867}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Park" ID="{6CBB54E5-9F0A-490F-81B1-5C399FEB3C27}"/>
+								<PathElementRef Name="Boss_Room" ID="{6F040040-FD4F-452D-8CC5-7D03B0B857DB}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Park" ID="{6CBB54E5-9F0A-490F-81B1-5C399FEB3C27}"/>
+								<PathElementRef Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Park" ID="{6CBB54E5-9F0A-490F-81B1-5C399FEB3C27}"/>
+								<PathElementRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Park" ID="{6CBB54E5-9F0A-490F-81B1-5C399FEB3C27}"/>
+								<PathElementRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Park" ID="{6CBB54E5-9F0A-490F-81B1-5C399FEB3C27}"/>
+								<PathElementRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="Park" ID="{6CBB54E5-9F0A-490F-81B1-5C399FEB3C27}"/>
+								<PathElementRef Name="Rest_Room" ID="{5F26696E-37DC-4070-9FDF-0914FDE09867}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="City" ID="{987707A3-C59B-4DBA-9F35-5FF9EA8659FB}"/>
+								<PathElementRef Name="Boss_Room" ID="{6F040040-FD4F-452D-8CC5-7D03B0B857DB}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="City" ID="{987707A3-C59B-4DBA-9F35-5FF9EA8659FB}"/>
+								<PathElementRef Name="End_Room" ID="{0FD78DC2-3712-4EBD-B8F0-700EBD3B1A35}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="City" ID="{987707A3-C59B-4DBA-9F35-5FF9EA8659FB}"/>
+								<PathElementRef Name="Mystery_Room" ID="{982049F0-A224-4B41-9A35-EF5D8E5A3A35}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="City" ID="{987707A3-C59B-4DBA-9F35-5FF9EA8659FB}"/>
+								<PathElementRef Name="Normal_Room" ID="{5C3247ED-AC27-4D6B-9C72-BEBCB7C5F9AA}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="City" ID="{987707A3-C59B-4DBA-9F35-5FF9EA8659FB}"/>
+								<PathElementRef Name="Objective_Room" ID="{2B3D6F84-1C69-49C8-92BB-942C6648EF00}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Alive" ID="{48BDA934-F9E1-41F9-8804-8DCD005E5031}"/>
+								<PathElementRef Name="City" ID="{987707A3-C59B-4DBA-9F35-5FF9EA8659FB}"/>
+								<PathElementRef Name="Rest_Room" ID="{5F26696E-37DC-4070-9FDF-0914FDE09867}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 					</EntryList>

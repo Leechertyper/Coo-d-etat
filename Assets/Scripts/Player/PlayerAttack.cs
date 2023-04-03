@@ -71,13 +71,7 @@ public class PlayerAttack : MonoBehaviour
 
         }
 
-        //DEBUG Heal func
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            this.gameObject.GetComponent<Player>().SetHealth(10);
-        }
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             
             ShootProjectile(direction);

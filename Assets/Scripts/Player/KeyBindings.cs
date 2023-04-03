@@ -58,22 +58,22 @@ public class KeyBindings : MonoBehaviour
         switch (keyName)
         {
             case "Up":
-                upKeyText.text = "Press new key for " + keyName;
+                upKeyText.text = "Enter UP key";
                 break;
             case "Down":
-                downKeyText.text = "Press new key for " + keyName;
+                downKeyText.text = "Enter DOWN key";
                 break;
             case "Left":
-                leftKeyText.text = "Press new key for " + keyName;
+                leftKeyText.text = "Enter LEFT key";
                 break;
             case "Right":
-                rightKeyText.text = "Press new key for " + keyName;
+                rightKeyText.text = "Enter RIGHT key";
                 break;
             case "Shoot":
-                fireKeyText.text = "Press new key for " + keyName;
+                fireKeyText.text = "Enter FIRE key";
                 break;
             case "Dash":
-                dashKeyText.text = "Press new key for " + keyName;
+                dashKeyText.text = "Enter DASH key";
                 break;
         }
 

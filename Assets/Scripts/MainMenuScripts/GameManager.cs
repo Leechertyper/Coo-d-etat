@@ -34,9 +34,9 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null) // If there is no instance already
-        {   
+        {
+            //DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
-            DontDestroyOnLoad(gameObject); // bugs the game with this line
             
             
         }
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         allRooms = null;
         allDroneEnemies = null;
 
@@ -188,7 +189,7 @@ public class GameManager : MonoBehaviour
         {
             _skipBalance = false;
             //update load next floor here
-            SceneManager.LoadScene("GameOver");
+            EndBalanceMenu();
         }
     }
 
@@ -249,7 +250,14 @@ public class GameManager : MonoBehaviour
         if(_died)
         {
             _died = false;
-            SceneManager.LoadScene("GameOver");
+            if (GameObject.Find("ScoreManager").GetComponent<Score>() != null && Score.GetInstance().IsLocalHighScore())
+            {
+                SceneManager.LoadScene("HighScores");
+            }
+            else
+            {
+                SceneManager.LoadScene("GameOver");
+            }
         }
         else
         {
