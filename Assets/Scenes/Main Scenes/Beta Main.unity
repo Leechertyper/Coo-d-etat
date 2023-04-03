@@ -221,7 +221,7 @@ PrefabInstance:
     - target: {fileID: 947550787850258268, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
       propertyPath: hitParticles
       value: 
-      objectReference: {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
+      objectReference: {fileID: 8431235786821598956, guid: f9c0d7d39c5ce3146931c1cecf7d4bfc, type: 3}
     - target: {fileID: 947550787850258268, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
       propertyPath: _rtpc.WwiseObjectReference
       value: 
@@ -658,6 +658,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b3683078b15d854eb3b4c467d0a1ef8, type: 3}
+--- !u!1 &136819435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136819437}
+  - component: {fileID: 136819436}
+  m_Layer: 0
+  m_Name: HighScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &136819436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136819435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012c40e10243368418ddff1bf6975949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &136819437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136819435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 991.46674, y: 619.95337, z: 0.4440456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &157522694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6489426980937783332, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
@@ -2926,11 +2970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6489426980937783333, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000030517578
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6489426980937783333, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00022888184
+      value: 0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 6489426980937783333, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3045,12 +3089,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff172b14c2f29214e983c6f7e64275fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: 0
   _highScore: 0
   scoreText: {fileID: 305229820}
   _startTimer: 0
   _invulnTimer: 0
   scoreIncrease: {fileID: 189606409}
+  highScoreManager: {fileID: 136819436}
 --- !u!4 &940566070
 Transform:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 public class Score : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Score : MonoBehaviour
     public bool _startTimer = false;
     public float _invulnTimer = 0;
     public Text scoreIncrease;
+
+    [SerializeField] public static List<(string, int)> highScores;
 
     void Update()
     {
@@ -36,7 +39,6 @@ public class Score : MonoBehaviour
         } else {
             Destroy(gameObject);
         }
-        LoadScore();
     }
 
     public void UpdateScoreText(int amount)
@@ -46,7 +48,10 @@ public class Score : MonoBehaviour
         _startTimer = true;
     }
 
-
+    public static Score GetInstance()
+    {
+        return instance;
+    }
 
 
     // Add _score to current _score, update UI, and update high _score if current _score is higher
@@ -73,26 +78,61 @@ public class Score : MonoBehaviour
         return _score;
     }
 
-    public bool IsHighScore()
+    public bool IsLocalHighScore()
     {
-        return _score > _highScore;
+        LoadHighScores();
+        Debug.Log("score = " + _score);
+        Debug.Log("There are " + highScores.Count + " high scores");
+        for (int i = 0; i < highScores.Count; i++)
+        {
+            Debug.Log("High Score " + i + " = " + highScores[i].Item2);
+            if (_score > highScores[i].Item2)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Save the high _score to PlayerPrefs on application quit
     void OnApplicationQuit()
     {
-        SaveScore();
+        SaveHighScores();
     }
 
-    // Load the high _score from PlayerPrefs
-    private void LoadScore()
+    public void AddHighScore(string name)
     {
-        _highScore = PlayerPrefs.GetInt("_highScore");
+        LoadHighScores();
+        highScores.Add((name, _score));
+        highScores.Sort((a, b) => b.Item2.CompareTo(a.Item2));
+        if (highScores.Count > 10)
+        {
+            highScores.RemoveAt(highScores.Count - 1);
+        }
+        SaveHighScores();
     }
 
-    // Save the high _score to PlayerPrefs
-    private void SaveScore()
+    public void SaveHighScores()
     {
-        PlayerPrefs.SetInt("_highScore", _highScore);
+        string highScoresJson = JsonConvert.SerializeObject(highScores);
+        PlayerPrefs.SetString("HighScores", highScoresJson);
+    }
+
+    public void LoadHighScores()
+    {
+        string highScoresJson = PlayerPrefs.GetString("HighScores");
+
+        if (!string.IsNullOrEmpty(highScoresJson))
+        {
+            highScores = JsonConvert.DeserializeObject<List<(string, int)>>(highScoresJson);
+        }
+        else
+        {
+            highScores = new List<(string name, int score)>();
+            for (int i = 0; i < 10; i++)
+            {
+                highScores.Add(("---", 0));
+            }
+        }
     }
 }

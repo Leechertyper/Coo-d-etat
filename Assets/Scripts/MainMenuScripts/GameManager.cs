@@ -231,7 +231,14 @@ public class GameManager : MonoBehaviour
         if(_died)
         {
             _died = false;
-            SceneManager.LoadScene("GameOver");
+            if (GameObject.Find("ScoreManager").GetComponent<Score>() != null && Score.GetInstance().IsLocalHighScore())
+            {
+                SceneManager.LoadScene("HighScores");
+            }
+            else
+            {
+                SceneManager.LoadScene("GameOver");
+            }
         }
         else
         {
