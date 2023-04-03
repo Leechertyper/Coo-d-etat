@@ -63,8 +63,18 @@ public class Score : MonoBehaviour
             _highScore = _score;
         }
         UpdateScoreText(amount);
-        GameObject.Find("ShopManager").GetComponent<Shop>().AddMoney(amount);
         
+    }
+
+    // remove _score from current _score, update UI, and update high _score if current _score is higher
+    public void RemoveScore(int amount)
+    {
+        _score -= amount;
+        if (_score > _highScore)
+        {
+            _highScore = _score;
+        }
+        UpdateScoreText(amount*(-1));
     }
 
     // Reset the current _score and update UI

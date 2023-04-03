@@ -237,8 +237,15 @@ public class GameManager : MonoBehaviour
     public void StartBalanceMenu()
     {   
         Debug.Log("GameManagerScript: StartBalanceMenu() called");
-        balanceMenu.SetActive(true);
-        balanceMenu.GetComponent<BalanceMenu>().startBalance = true;
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
+        {
+            balanceMenu.SetActive(true);
+            balanceMenu.GetComponent<BalanceMenu>().startBalance = true;
+        }
+        else
+        {
+            EndBalanceMenu();
+        }
     }
 
     public void EndBalanceMenu()
@@ -276,10 +283,9 @@ public class GameManager : MonoBehaviour
 
         
         string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dictionary)];
-        float currSteps = dbInstance.GetSteps(dictName+char.ToUpper(dictionaryKey[0]) + dictionaryKey.Substring(1));
-        
         if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
         {
+            float currSteps = dbInstance.GetSteps(dictName+char.ToUpper(dictionaryKey[0]) + dictionaryKey.Substring(1));
             if (dictName != "General"){
                 dbInstance.UpdateSteps(dictName + char.ToUpper(dictionaryKey[0])+dictionaryKey.Substring(1), currSteps + balanceValue);
             }
