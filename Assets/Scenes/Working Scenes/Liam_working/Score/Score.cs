@@ -81,11 +81,8 @@ public class Score : MonoBehaviour
     public bool IsLocalHighScore()
     {
         LoadHighScores();
-        Debug.Log("score = " + _score);
-        Debug.Log("There are " + highScores.Count + " high scores");
         for (int i = 0; i < highScores.Count; i++)
         {
-            Debug.Log("High Score " + i + " = " + highScores[i].Item2);
             if (_score > highScores[i].Item2)
             {
                 return true;

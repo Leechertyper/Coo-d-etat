@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 public class HighScoreMenu : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class HighScoreMenu : MonoBehaviour
     {
         inputField.characterLimit = 3;
         LoadScoreText();
+        if (Score.GetInstance() == null || !Score.GetInstance().IsLocalHighScore())
+        {
+            GameObject.Find("NameInputBox").SetActive(false);
+        }        
     }    
 
     public void SubmitClick()
@@ -29,8 +34,20 @@ public class HighScoreMenu : MonoBehaviour
 
     private void LoadScoreText()
     {
-        Score score = Score.GetInstance();
-        List<(string name, int score)> highScores = Score.highScores;
+        string highScoresJson = PlayerPrefs.GetString("HighScores");
+
+        if (!string.IsNullOrEmpty(highScoresJson))
+        {
+            highScores = JsonConvert.DeserializeObject<List<(string, int)>>(highScoresJson);
+        }
+        else
+        {
+            highScores = new List<(string name, int score)>();
+            for (int i = 0; i < 10; i++)
+            {
+                highScores.Add(("---", 0));
+            }
+        }
 
         for (int i = 0; i < highScores.Count; i++)
         {
@@ -59,6 +76,13 @@ public class HighScoreMenu : MonoBehaviour
     {
         AkSoundEngine.StopAll();
         AkSoundEngine.SetRTPCValue("Dead_Mute", 100);
+        if (Score.GetInstance() != null)
+        {
+            Score.GetInstance().ResetScore();
+            Score.GetInstance().UpdateScoreText(0);
+            Score.GetInstance().scoreText.text = "";
+            Score.GetInstance().scoreIncrease.text = "";
+        }        
         SceneManager.LoadScene("MainMenu");
     }
 }

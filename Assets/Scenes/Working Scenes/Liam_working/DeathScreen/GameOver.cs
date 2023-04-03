@@ -10,8 +10,7 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {       
-        scoreText.text = "Score: " + GameObject.Find("ScoreManager").GetComponent<Score>().GetScore();        
-        GameObject.Find("ScoreManager").GetComponent<Score>().ResetScore();
+        scoreText.text = "Score: " + GameObject.Find("ScoreManager").GetComponent<Score>().GetScore();                
     }
 
     // Update is called once per frame
@@ -35,8 +34,13 @@ public class GameOver : MonoBehaviour
     */
     public void BackToMenu()
     {
+        Score.GetInstance().ResetScore();
+        Score.GetInstance().UpdateScoreText(0);
+        Score.GetInstance().scoreText.text = "";
+        Score.GetInstance().scoreIncrease.text = "";
         AkSoundEngine.StopAll();
         AkSoundEngine.SetRTPCValue("Dead_Mute", 100);
+        GameObject.Find("ScoreManager").GetComponent<Score>().ResetScore();
         SceneManager.LoadScene("MainMenu");
     }
     
