@@ -8,8 +8,10 @@ public class DatabaseVisual : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        connectedCanvas.SetActive(true);
-            if(GameManager.dbInstance.GetHostFound() && PlayerPrefs.GetInt("BalanceDataBase") == 1)
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
+        {
+            connectedCanvas.SetActive(true);
+            if(GameManager.dbInstance.GetHostFound())
             {
                 connectedCanvas.GetComponentInChildren<Text>().GetComponent<Text>().text = "Connected To Database for Balance System";
             }
@@ -17,6 +19,12 @@ public class DatabaseVisual : MonoBehaviour
             {
                 connectedCanvas.GetComponentInChildren<Text>().GetComponent<Text>().text = "Could Not Connect To Database for Balance System";
             }
+        }
+        else
+        {
+            connectedCanvas.SetActive(false);
+        }
+        
     }
 
     // Update is called once per frame
