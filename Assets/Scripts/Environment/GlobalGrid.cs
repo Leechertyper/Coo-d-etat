@@ -136,6 +136,7 @@ public class GlobalGrid : MonoBehaviour
                 {
                     GameObject newTile = Instantiate(testTile);
                     newTile.transform.position = _grid[i, j].position;
+                    newTile.SetActive(true);
                 }
 
 
