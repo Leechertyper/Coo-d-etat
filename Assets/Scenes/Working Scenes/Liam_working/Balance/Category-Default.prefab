@@ -254,6 +254,8 @@ MonoBehaviour:
   - {fileID: 2044018265, guid: d32e5770d77a75542a46aa1b373e7f08, type: 3}
   - {fileID: 526465999, guid: d32e5770d77a75542a46aa1b373e7f08, type: 3}
   - {fileID: -583002615, guid: d32e5770d77a75542a46aa1b373e7f08, type: 3}
+  otherSprites:
+  - {fileID: 21300000, guid: 355e5a7ce70d5594f872e0556b5745db, type: 3}
 --- !u!1 &7183326522375638583
 GameObject:
   m_ObjectHideFlags: 0

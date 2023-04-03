@@ -13,6 +13,7 @@ public class animationScript : MonoBehaviour
     public Sprite[] droneSprites;
     public Sprite[] pigeonSprites;
     public Sprite[] collectablesSprites;
+    public Sprite[] otherSprites;
     private List<Sprite[]> spriteList = new List<Sprite[]>();
     private int currentFrame = 0; // The current frame of the animation
     private float timer = 0.0f;
@@ -24,6 +25,7 @@ public class animationScript : MonoBehaviour
         spriteList.Add(droneSprites);
         spriteList.Add(pigeonSprites);
         spriteList.Add(collectablesSprites);
+        spriteList.Add(otherSprites);
     }
 
     public void ChangeNameofCardSprite(string _name)
@@ -57,6 +59,11 @@ public class animationScript : MonoBehaviour
         {
             spriteCategory = 5;
             GetComponent<Image>().sprite = collectablesSprites[0];
+        }
+        else
+        {
+            spriteCategory = 6;
+            GetComponent<Image>().sprite = otherSprites[0];
         }
 
     }
