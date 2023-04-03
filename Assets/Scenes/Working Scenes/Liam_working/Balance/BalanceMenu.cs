@@ -142,6 +142,7 @@ public class BalanceMenu : MonoBehaviour
                     listOfBalanceDict.Add(_randomDict);
                     LoadSpecificDictButtons(BalanceVariables.dictionaryList[BalanceVariables.dictionaryListStrings.IndexOf(_randomDict)]);
                     GameObject newButton = Instantiate(categoryPrefab, buttonContent.transform);
+                    newButton.transform.Find("Art").GetComponent<animationScript>().ChangeNameofCardSprite(_randomDict);
                     newButton.transform.Find("Desc").GetComponent<Text>().text = CapitalizeString(_randomDict);
                     newButton.GetComponent<Button>().onClick.AddListener(() => DisplaySpecificDictButtons(_randomDict)); 
                 }
