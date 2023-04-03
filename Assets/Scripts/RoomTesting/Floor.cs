@@ -60,6 +60,16 @@ public class Floor : MonoBehaviour
         _camController = Camera.main.GetComponent<CameraController>();
         _floorXDimension = 3;
         _floorYDimension = 3;
+        Debug.Log("I AM HERE, FLOOR START");
+        SpawnRooms(_floorXDimension, _floorYDimension);
+    }
+
+    public void TESTING()
+    {
+        _camController = Camera.main.GetComponent<CameraController>();
+        _floorXDimension = 3;
+        _floorYDimension = 3;
+        Debug.Log("I AM HERE, FLOOR TESTING");
         SpawnRooms(_floorXDimension, _floorYDimension);
     }
 
@@ -69,10 +79,12 @@ public class Floor : MonoBehaviour
     /// <returns></returns>
     private IEnumerator WaitForGrid()
     {
+        Debug.Log("I AM HERE, WAITING FOR GRID");
         while (!GameManager.Instance.Grid.gridGenerated)
         {
             yield return null;
         }
+        Debug.Log("I AM HERE, GRID IS OK");
         FinishRoomSetup();
     }
     /// <summary>
@@ -87,7 +99,7 @@ public class Floor : MonoBehaviour
         {
             _rooms.Add(new List<Room>()); // initializes the rooms sub-arrays
         }
-
+        Debug.Log("I AM HERE, FLOOR SPAWN ROOMS"+ _rooms.Count);
         
 
         _rooms.Add(new List<Room>());// adds an extra list on the bottom for the end room

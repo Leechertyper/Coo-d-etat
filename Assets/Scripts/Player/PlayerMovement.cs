@@ -164,6 +164,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void MoveTostart(List<int> theValues)
+    {
+        //transform.position = GameManager.Instance.Grid.GetTile(startInt);
+        rb.MovePosition(new Vector2(0,-4.5f));
+        transform.position = new Vector2(0,-4.5f);
+        //transform.position = new Vector2(theValues[0],theValues[1]);
+        isMoving = false;
+
+    }
+
     IEnumerator CheckMovementDelay()
     {
         yield return new WaitForSeconds(0.01f); // Wait for 0.001 seconds after teleportation
