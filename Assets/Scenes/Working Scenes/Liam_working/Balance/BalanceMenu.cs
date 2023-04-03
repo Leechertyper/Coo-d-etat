@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,41 +8,21 @@ public class BalanceMenu : MonoBehaviour
     public bool startBalance = false;
     public bool gameIsPaused = false;
     public GameObject balanceMenuUI;
-    public GameObject categoryPrefab;
-    public GameObject decreasePrefab;
-    public GameObject increasePrefab;
+    public GameObject buttonPrefab;
     public GameObject buttonContent;
-    public Text remainingPointsText;
+    public GameObject sliderPrefab;
+    public GameObject sliderContent;
+    public GameObject sliderScrollView;
+    public GameObject buttonScrollView;
     public GameObject confirmButton;
-    public GameObject backButton;
-
-    List<string> listOfBalanceDict = new List<string>();
-    List<(string, List<SelectedItems>)> listOfBalanceDictKeys = new List<(string, List<SelectedItems>)>();
-    public static List<SelectedItems> selectedValues = new List<SelectedItems>();
-
-    public static BalanceMenu Instance;
-    void Start()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
+    public Text remainingPoints;
 
     // Update is called once per frame
     void Update()
     {
-        if(startBalance && Time.timeScale == 1f)
+        if(!gameIsPaused && startBalance)
         {
-            if(!gameIsPaused)
-            {
-                Pause();
-            }
+            Pause();
         }
     }
 
@@ -52,19 +31,19 @@ public class BalanceMenu : MonoBehaviour
     */
     public void ResumeGame()
     {
-        balanceMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
-        startBalance = false;
         Dictionary<string,bool> _temp = new Dictionary<string,bool>(BalanceVariables.seenDictionaries);
         foreach (KeyValuePair<string, bool> kvp in _temp)
         {
-            if(kvp.Key!="player" && kvp.Key!="other")
+            Debug.Log(kvp.Key);
+            if(kvp.Key!="player" && kvp.Key!="other" && kvp.Key!="collectables")
             {
                 BalanceVariables.seenDictionaries[kvp.Key] = false;
             }
         }
         GameManager.Instance.EndBalanceMenu();
+
     }
 
     /*
@@ -72,84 +51,53 @@ public class BalanceMenu : MonoBehaviour
     */
     void Pause()
     {
-        balanceMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        balanceMenuUI.SetActive(true);
         gameIsPaused = true;
-        SetRemainingPoints();
-        PointBalanceTimer.Instance.counter-=1;
-        if(PointBalanceTimer.Instance.counter <0)
-        {
-            PointBalanceTimer.Instance.counter = 0;
-        }
         PopulateButtons();
     }
 
-    //this function will take in a string and return a string with the first character capitalized and a space before each capital letter
-    private string CapitalizeString(string _string)
+    private void SetRemainingPoints()
     {
-        string _temp = _string;
-        _temp = _temp[0].ToString().ToUpper() + _temp.Substring(1);
-        for(int i=0; i<_temp.Length; i++)
-        {
-            if(char.IsUpper(_temp[i]))
-            {
-                _temp = _temp.Insert(i, " ");
-                i+=1;
-            }
-        }
-        return _temp;
+        remainingPoints.text = "Remaining Points: " + PointBalanceTimer.Instance.counter.ToString();
     }
 
-
     /*
-    *   This function will populate the buttonContent with buttons that contain sections that the user has seen since the last balance
+    *   When called, this will balance the variables using what the user gives then go to the next level
     */
-    private void PopulateButtons()
+    public void ConfirmSelection()
     {
-        backButton.SetActive(false);
-        confirmButton.SetActive(false);
-        
-        RemoveButtons();
-        Dictionary<string,Dictionary<string,float>> _tempDict = new Dictionary<string,Dictionary<string,float>>();
-        if(listOfBalanceDict.Count>0)
+        Dictionary<string,float> dict = null;
+        foreach (Transform child in sliderContent.transform) 
         {
-            foreach (string item in listOfBalanceDict)
+            if (child != null && child.GetComponent<BalanceSlider>() != null && child.GetComponent<BalanceSlider>().dictionaryKey != "General")
             {
-                GameObject newButton = Instantiate(categoryPrefab, buttonContent.transform);
-                newButton.transform.Find("Desc").GetComponent<Text>().text = item;
-                newButton.GetComponent<Button>().onClick.AddListener(() => DisplaySpecificDictButtons(item)); 
+                GameManager.Instance.BalanceValue(child.GetComponent<BalanceSlider>().dictionary,child.GetComponent<BalanceSlider>().dictionaryKey, child.GetComponent<BalanceSlider>().value);
+                if(child.GetComponent<BalanceSlider>().dictionary!= dict)
+                {
+                    dict = child.GetComponent<BalanceSlider>().dictionary;
+                }
             }
+        }
+        if(PointBalanceTimer.Instance.counter >0)
+        {
+            PopulateButtons();
         }
         else
         {
-            int _numSeenDictionaries = 0;
-            for(int i=0; i<BalanceVariables.dictionaryListStrings.Count; i++)
-                if(BalanceVariables.seenDictionaries[BalanceVariables.dictionaryListStrings[i]])
-                {
-                    _tempDict.Add(BalanceVariables.dictionaryListStrings[i], BalanceVariables.dictionaryList[i]);
-                    _numSeenDictionaries+=1;
-
-                }
-            for(int i=0; i<Mathf.Min(3,_numSeenDictionaries); i++)
+            if(PlayerPrefs.GetInt("Balance") == 1 && GameManager.dbInstance.GetHostFound())
             {
-                string _randomDict = GetRandomKeyFromDoubleDict(_tempDict);
-                if(listOfBalanceDict.Contains(_randomDict))
+                string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dict)];
+                foreach (KeyValuePair<string, float> kvp in dict)
                 {
-                    i-=1;
+                    GameManager.dbInstance.UpdateValue(dictName + char.ToUpper(kvp.Key[0])+kvp.Key, kvp.Value);
                 }
-                else
-                {
-                    listOfBalanceDict.Add(_randomDict);
-                    LoadSpecificDictButtons(BalanceVariables.dictionaryList[BalanceVariables.dictionaryListStrings.IndexOf(_randomDict)]);
-                    GameObject newButton = Instantiate(categoryPrefab, buttonContent.transform);
-                    newButton.transform.Find("Desc").GetComponent<Text>().text = CapitalizeString(_randomDict);
-                    newButton.GetComponent<Button>().onClick.AddListener(() => DisplaySpecificDictButtons(_randomDict)); 
-                }
-    
             }
+            
+            ResumeGame();
         }
     }
-    
+
     /*
     *   This will remove all the options buttons
     */
@@ -160,203 +108,86 @@ public class BalanceMenu : MonoBehaviour
         }
 
     }
-
-    /*
-    *   This function will take in a dictionary name and display the balance options for that dictionary
-    */
-    private void DisplaySpecificDictButtons(string dict){
-        confirmButton.SetActive(true);
-        backButton.SetActive(true);
-        RemoveButtons();
-        for(int i=0; i<listOfBalanceDictKeys.Count; i++)
-        {
-            if(listOfBalanceDictKeys[i].Item1==dict)
-            {
-                foreach (SelectedItems item in listOfBalanceDictKeys[i].Item2)
-                {
-                    if(item.selectedValue=="buffValue")
-                    {
-                        GameObject newButton = Instantiate(increasePrefab, buttonContent.transform);
-                        newButton.transform.Find("Desc").GetComponent<Text>().text = CapitalizeString(item.selectedDictKey);
-                        newButton.GetComponent<Button>().onClick.AddListener(() => SetSelectedButton(newButton,item.selectedDict,item.selectedDictKey,item.selectedValue)); 
-                    }
-                    else
-                    {
-                        GameObject newButton = Instantiate(decreasePrefab, buttonContent.transform);
-                        newButton.transform.Find("Desc").GetComponent<Text>().text = CapitalizeString(item.selectedDictKey);
-                        newButton.GetComponent<Button>().onClick.AddListener(() => SetSelectedButton(newButton,item.selectedDict,item.selectedDictKey,item.selectedValue)); 
-                    }
-                }
-            }
-        }
-    }
-
-    /*
-    *   This function will take in a dictionary and return load balance options for that dictionary, adding it to the list for recall later
-    */
-    private void LoadSpecificDictButtons(Dictionary<string,float> temp){
-        List<Tuple<string, string>> tupleList = new List<Tuple<string, string>>();
-        listOfBalanceDictKeys.Add((BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(temp)], new List<SelectedItems>()));
-        for(int i=0; i<3; i++)
-        {
-            string _randomKey = GetRandomKeyFromDict(temp);
-            string _modifyValue="buffValue";
-            if(UnityEngine.Random.Range(0,2)==1)
-            {
-                _modifyValue="buffValue";
-            }
-            else
-            {
-                _modifyValue="nerfValue";
-            }
-            if(tupleList.Contains(new Tuple<string, string>(_randomKey, _modifyValue)))
-            {
-                i-=1;
-            }
-            else
-            {
-                tupleList.Add(new Tuple<string, string>(_randomKey, _modifyValue));
-                listOfBalanceDictKeys[listOfBalanceDictKeys.Count-1].Item2.Add(new SelectedItems(null,temp,_randomKey,_modifyValue));
-            }
- 
-        }
-    }
-
     
-
     /*
-    *   This function will set the remaining points text to the current number of points
+    *   This function removes all the slider options
     */
-    private void SetRemainingPoints()
+    void RemoveSliders()
     {
-        remainingPointsText.text = "Remaining Points: " + PointBalanceTimer.Instance.counter.ToString();
-    }
-
-    /*
-    *   This function clear the selected values and repopulate with the dictionary's
-    */
-    public void GoBackButton()
-    {
-        selectedValues.Clear();
-        PopulateButtons();
-    }
-
-    /*
-    *   This function will send all the selected values to change the balance variables then either repopulate the buttons or resume the game
-    */
-    public void ConfirmSelection()
-    {
-        if(selectedValues.Count==0)
+        foreach (Transform child in sliderContent.transform) 
         {
-            return;
-        }
-        foreach (SelectedItems item in selectedValues)
-        {
-            if(item.selectedValue=="buffValue")
-            {
-                ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,(BalanceVariables.other["stepSize"]));
-            }
-            else
-            {
-                ChangeBalanceVariables(item.selectedDict,item.selectedDictKey,(-BalanceVariables.other["stepSize"]));
-            }
-            
-        }
-        selectedValues.Clear();
-        listOfBalanceDictKeys.Clear();
-        listOfBalanceDict.Clear();
-        if(PointBalanceTimer.Instance.counter >0)
-        {
-            SetRemainingPoints();
-            PointBalanceTimer.Instance.counter-=1;
-            if(PointBalanceTimer.Instance.counter <0)
-            {
-                PointBalanceTimer.Instance.counter = 0;
-            }
-            PopulateButtons();
-        }
-        else
-        {   
-            ResumeGame();
+            Destroy(child.gameObject);
         }
     }
 
     /*
-    *   This function will take in a button, a dictionary, a key, and a value and add it to the selected values list or remove it if it is already there
+    *   if the user changes the general setting, it will change all the sliders
     */
-    private void SetSelectedButton(GameObject button,Dictionary<string,float> Dictionary, string key, string modifyValue)
+    public void GeneralSliderChange(float valueChange)
     {
-        bool _inSelected = false;
-        foreach (SelectedItems item in selectedValues)
+        foreach (Transform child in sliderContent.transform) 
         {
-            if(item.selectedButton == button)
+            child.GetComponent<Slider>().SetValueWithoutNotify(child.GetComponent<BalanceSlider>().GeneralFix(valueChange)) ;
+        }
+    }
+
+    /*
+    *   This function will populate the buttonContent with buttons that contain sections that the user has seen since the last balance
+    */
+    private void PopulateButtons()
+    {
+        buttonScrollView.SetActive(true);
+        sliderScrollView.SetActive(false);
+        confirmButton.SetActive(false);
+        SetRemainingPoints();
+        PointBalanceTimer.Instance.counter-=1;
+        if(PointBalanceTimer.Instance.counter <0)
+        {
+            PointBalanceTimer.Instance.counter = 0;
+        }
+        RemoveButtons();
+        for(int i=0; i<BalanceVariables.dictionaryListStrings.Count; i++)
+        {
+            if(BalanceVariables.seenDictionaries[BalanceVariables.dictionaryListStrings[i]])
             {
-                _inSelected = true;
-                break;
+                int temp = i;
+                GameObject newButton = Instantiate(buttonPrefab, buttonContent.transform);
+                newButton.GetComponent<Button>().GetComponentInChildren<Text>().text = BalanceVariables.dictionaryListStrings[i];
+                newButton.GetComponent<Button>().onClick.AddListener(() => PopulateSliders(BalanceVariables.dictionaryList[temp]));
             }
-        }
-        if(_inSelected)
-        {
-            selectedValues.Remove(selectedValues.Find(x => x.selectedButton == button));
-            button.GetComponent<RectTransform>().anchoredPosition = new Vector2(button.GetComponent<RectTransform>().anchoredPosition.x, button.GetComponent<RectTransform>().anchoredPosition.y - 10f);
-        }
-        else
-        {
-            button.GetComponent<RectTransform>().anchoredPosition = new Vector2(button.GetComponent<RectTransform>().anchoredPosition.x, button.GetComponent<RectTransform>().anchoredPosition.y + 10f);
-            selectedValues.Add(new SelectedItems(button,Dictionary,key,modifyValue));
             
         }
     }
 
     /*
-    *   This function will take in a dictionary, a key, and a value and change the balance variables by calling the GameManager's function
+    *   This function will populate the sliderContent with buttons that contain sections that the user has seen since the last balance
     */
-    private void ChangeBalanceVariables(Dictionary<string,float> temp, string key, float modifyValue){
-        GameManager.Instance.BalanceValue(temp,key, modifyValue);
-    }
-
-    /*
-    *   This function will return a random key from a dictionary
-    */
-    private string GetRandomKeyFromDoubleDict(Dictionary<string,Dictionary<string,float>> dictionary)
+    private void PopulateSliders(Dictionary<string,float> dictionary)
     {
-        List<string> keyList = new List<string>(dictionary.Keys);
-        int randomIndex = UnityEngine.Random.Range(0, keyList.Count);
-        return keyList[randomIndex];
-    }
+        RemoveSliders();
+        buttonScrollView.SetActive(false);
+        sliderScrollView.SetActive(true);
+        confirmButton.SetActive(true);
 
-    /*
-    *   This function will return a random dictionary
-    */
-    private string GetRandomKeyFromDict(Dictionary<string,float> dictionary)
-    {
-        List<string> keyList = new List<string>(dictionary.Keys);
-        int randomIndex = UnityEngine.Random.Range(0, keyList.Count);
-        return keyList[randomIndex];
-    }
+        GameObject newGenralSlider = Instantiate(sliderPrefab, sliderContent.transform);
+        newGenralSlider.GetComponent<BalanceSlider>().label.text = "General Change";
+        newGenralSlider.GetComponent<BalanceSlider>().dictionaryKey = "General";
+        newGenralSlider.GetComponent<BalanceSlider>().dictionary = dictionary;
+        newGenralSlider.GetComponent<BalanceSlider>().balanceLevel.text = "1.0";
 
+        foreach (KeyValuePair<string, float> kvp in dictionary)
+        {
+            GameObject newSlider = Instantiate(sliderPrefab, sliderContent.transform);
+            newSlider.GetComponent<BalanceSlider>().label.text = kvp.Key;
+            newSlider.GetComponent<BalanceSlider>().dictionaryKey = kvp.Key;
+            newSlider.GetComponent<BalanceSlider>().dictionary = dictionary;
+            newSlider.GetComponent<BalanceSlider>().balanceLevel.text = "1.0";
+        }
+    }
+    
     public void Clickybutton()
     {
         AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
     }
-}
 
-/*
-*   This class is used to store the selected values
-*/
-[Serializable]
-public class SelectedItems
-{
-    public Dictionary<string,float>  selectedDict;    
-    public string selectedDictKey;
-    public string selectedValue; 
-    public GameObject selectedButton;
-
-    public SelectedItems(GameObject selectedButton,Dictionary<string,float> selectedDict, string selectedDictKey, string selectedValue)
-    {
-        this.selectedDict = selectedDict;
-        this.selectedDictKey = selectedDictKey;
-        this.selectedValue = selectedValue;
-        this.selectedButton = selectedButton;
-    }
 }

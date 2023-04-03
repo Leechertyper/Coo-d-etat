@@ -17,70 +17,69 @@ public class BalanceVariables : MonoBehaviour
     };
     public static Dictionary<string,float> droneEnemy = new Dictionary<string,float>()
     {
-        //found in Health.cs, should have its own
+        //found in Health.cs
         {"maxHealth",100},
         //found in DroneAI.cs
         {"moveSpeed",2f},
-        {"range", 3f},
-        {"pauseTime",3f},
-        {"slowShotCD",1f},
+        {"range", 8f},
+        {"pauseTime",3},
+        {"slowShotCD",1},
         {"fastShotCD",0.5f},
-        // in enemylazer.cs
-        {"lazerDamage",10f},
-        // not implimented?
-        {"lazerSpeed", 20f},
+        //could not find in but should be added in Lazer.cs(right now it just damages using 1) 
+        // or ProjectileWeapon.cs (fireForce?)
+        {"lazerDamage",10},
     };
 
     public static Dictionary<string,float> dogEnemy = new Dictionary<string,float>()
     {
         //found in Health.cs should have its own
-        {"maxHealth",10},
-        //not implemented dont know where
-        {"moveSpeed",1f},
-        //found in DogAI.cs
-        {"leapDistance",20f},
-        {"attackDamage",10f},
+        {"maxHealth",100},
+        //nothing implemented
+        {"moveSpeed",2f},
+        {"range", 3f},
+        {"pauseTime",3},
+        {"slowShotCD",1},
+        {"fastShotCD",0.5f},
+        {"leapDistance",15f},
+        {"attackDamage",10},
     };
     public static Dictionary<string,float> player = new Dictionary<string,float>()
     {
         //found in player.cs
-        {"speed",10f},
+        {"speed",5f},
+        {"rotationSpeed", 15f},
         {"maxHealth",100},
-        // in PlayerLazer.cs
-        {"attackDamage",10f},
+        {"range", 1000f},
+        {"maxPower", 10f},
         //in PlayerAttack.cs
-        {"attackSpeed", 0.2f},
+        {"attackDamage",10f}, // this one is not implemented
         {"maxAmmo", 100f},
-        {"lazerSpeed", 25f},
-        {"dashCooldown", 2f},
-        {"dashDistance", 3f},
+        {"attackSpeed", 0.2f},
+        //Not currently implemented / dont know location
+        {"battery", 0f},
     };
-
-    public static Dictionary<string,float> catEnemy = new Dictionary<string,float>()
-    {
-        // not implemented
-        {"attackDamage",10f},
-        {"leapDistance",20f},
-        {"moveSpeed",1f},
-        {"maxHealth",10},
-        
-    };
-
     public static Dictionary<string,float> collectables = new Dictionary<string,float>()
     {
-        //not sure where to find this
+        //dont know if found, can be added
+        {"pickupRange",1f},
         {"dropChance",1f},
         //found in Garlic.cs
         {"garlicAmount", 25f},
         //found in Battery.cs
         {"batteryAmount", 25f},
+        //not currently implemented
+        {"armourAmount", 1f},
         
     };
     public static Dictionary<string,float> other = new Dictionary<string,float>()
     {
         //found in PointBalanceTimer.cs
         {"balancePointTimerSeconds",120},
-        {"stepSize", 0.01f},
+        //not implemented
+        {"roomSpawnChance",0f},  
+        //no longer needed? for now
+        // {"buffValue",1.1f},
+        // {"nerfValue",0.9f}
     };
 
     //mainly for knowing if they have been seen for balancing, dont need to be pushed to database
@@ -89,7 +88,6 @@ public class BalanceVariables : MonoBehaviour
         {"player",true},  
         {"droneEnemy",false},  
         {"dogEnemy",false},
-        {"catEnemy",false}, // not implemented
         {"droneBoss",false},  
         {"collectables",true},  
         {"other",true},  
@@ -98,13 +96,13 @@ public class BalanceVariables : MonoBehaviour
     //mainly for balancing, dont need to be pushed to database
     public static List<string> dictionaryListStrings = new List<string>()
     {
-        "player", "droneEnemy", "droneBoss", "dogEnemy", "catEnemy",  "collectables", "other",
+        "player", "droneEnemy", "droneBoss", "dogEnemy",  "collectables", "other",
     };
 
     //mainly for balancing, dont need to be pushed to database
     public static List<Dictionary<string,float>> dictionaryList = new List<Dictionary<string,float>>()
     {
-        player, droneEnemy, droneBoss, dogEnemy, catEnemy, collectables, other
+        player, droneEnemy, droneBoss, dogEnemy, collectables, other
     };
 
 }

@@ -110,7 +110,7 @@ public class PlayerAttack : MonoBehaviour
                 // Reset the shoot timer
                 shootTimer = BalanceVariables.player["attackSpeed"];
                 RemoveAmmo(_ammoPerShot);
-               // Debug.Log("All ammo " + _curAmmo);
+                Debug.Log("All ammo " + _curAmmo);
             }
             else
             {

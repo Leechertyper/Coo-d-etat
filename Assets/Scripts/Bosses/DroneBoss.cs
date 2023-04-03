@@ -55,8 +55,6 @@ public class DroneBoss : MonoBehaviour
 
     private float _attackDamage;
 
-    private bool _dead = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +124,15 @@ public class DroneBoss : MonoBehaviour
             StartCoroutine(LerpFunction(_targetPos, 0.1f));
             StartCoroutine(Moving());
         }
+    }
+
+    /// <summary>
+    /// Moves the enemy to a tile where they will begin attacking
+    /// </summary>
+    /// <param name="tilePos">The index of the tile to move to</param>
+    private void MoveToTile(Vector2 tilePos)
+    {
+
     }
 
     /// <summary>
@@ -221,7 +228,7 @@ public class DroneBoss : MonoBehaviour
     {
         _currentHealth -= damage;
         _healthChanging = true;
-        if(_currentHealth < _nextLargeAttack && _currentHealth > 0)
+        if(_currentHealth < _nextLargeAttack)
         {
             _nextLargeAttack -= _healthIntervals;
             MassAttack();
@@ -230,15 +237,9 @@ public class DroneBoss : MonoBehaviour
         if(_currentHealth <= 0)
         {
             StopAllCoroutines();
-            grid.GetComponent<Animator>().SetBool("BossDead", true);
             GameObject key = Instantiate(keycard);
             key.transform.position = transform.position;
-            if(_dead==false)
-            {
-                GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(1000);
-                _dead = true;
-            }
-            
+            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(1000);
             StartCoroutine(Death());
             
         }
@@ -297,7 +298,7 @@ public class DroneBoss : MonoBehaviour
     IEnumerator Death()
     {
         yield return new WaitForSeconds(1);
-        Destroy(grid.gameObject);
+        Destroy(gameObject);
     }
     IEnumerator LerpFunction(Vector2 endValue, float duration)
     {

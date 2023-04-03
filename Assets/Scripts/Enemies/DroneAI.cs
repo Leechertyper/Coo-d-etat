@@ -23,7 +23,6 @@ public class DroneAI : Enemy
     private Transform _target;
     private state _myState;
     private bool _awake;
-    private bool _dead = false;
     enum state {Chase, Pause};
 
     private bool _isSleeping;
@@ -37,6 +36,8 @@ public class DroneAI : Enemy
         _target = GameObject.FindGameObjectWithTag("Player").transform;
         _slowFire = TimedShoot(BalanceVariables.droneEnemy["slowShotCD"]);
         _fastFire = TimedShoot(BalanceVariables.droneEnemy["fastShotCD"]);
+        
+        BalanceVariables.seenDictionaries["droneEnemy"] = true;
     }
 
     // Update is called once per frame
@@ -143,12 +144,7 @@ public class DroneAI : Enemy
     /// </summary>
     public override void Die()
     {
-        if(_dead == false)
-        {
-            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
-            BalanceVariables.seenDictionaries["droneEnemy"] = true;
-            _dead = true;
-        }
+        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
         _rb.velocity = Vector2.zero;
         StopAllCoroutines();
         //AkSoundEngine.PostEvent("Play_Robot_Ouch", this.gameObject);
