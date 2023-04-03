@@ -7,17 +7,19 @@ using Newtonsoft.Json;
 
 public class HighScoreMenu : MonoBehaviour
 {
-    public Text[] nameFields;
-    public Text[] scoreFields;
+    public Text[] localNameFields;
+    public Text[] localScoreFields;
+    public Text[] globalNameFields;
+    public Text[] globalScoreFields;
 
-    public List<(string name, int score)> highScores;
+    public List<(string name, int score)> localHighScores;
     public InputField inputField;
 
     // Start is called before the first frame update
     void Start()
     {
         inputField.characterLimit = 3;
-        LoadScoreText();
+        LoadLocalScoresText();
         if (Score.GetInstance() == null || !Score.GetInstance().IsLocalHighScore())
         {
             GameObject.Find("NameInputBox").SetActive(false);
@@ -28,34 +30,34 @@ public class HighScoreMenu : MonoBehaviour
     {
         Score score = Score.GetInstance();
         score.AddHighScore(inputField.text);
-        LoadScoreText();
+        LoadLocalScoresText();
         GameObject.Find("NameInputBox").SetActive(false);
     }
 
-    private void LoadScoreText()
+    private void LoadLocalScoresText()
     {
-        string highScoresJson = PlayerPrefs.GetString("HighScores");
+        string localHighScoresJson = PlayerPrefs.GetString("HighScores");
 
-        if (!string.IsNullOrEmpty(highScoresJson))
+        if (!string.IsNullOrEmpty(localHighScoresJson))
         {
-            highScores = JsonConvert.DeserializeObject<List<(string, int)>>(highScoresJson);
+            localHighScores = JsonConvert.DeserializeObject<List<(string, int)>>(localHighScoresJson);
         }
         else
         {
-            highScores = new List<(string name, int score)>();
+            localHighScores = new List<(string name, int score)>();
             for (int i = 0; i < 10; i++)
             {
-                highScores.Add(("---", 0));
+                localHighScores.Add(("---", 0));
             }
         }
 
-        for (int i = 0; i < highScores.Count; i++)
+        for (int i = 0; i < localHighScores.Count; i++)
         {
-            string name = highScores[i].Item1;
-            int scoreValue = highScores[i].Item2;
+            string name = localHighScores[i].Item1;
+            int scoreValue = localHighScores[i].Item2;
 
-            nameFields[i].text = name;
-            scoreFields[i].text = scoreValue.ToString();
+            localNameFields[i].text = name;
+            localScoreFields[i].text = scoreValue.ToString();
         }
     }
 
