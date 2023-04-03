@@ -36,8 +36,8 @@ public class deathItems : MonoBehaviour
     // I would like to make a check to see which one is lower then give that item, but only if time allows 
     public void SpawnItem(Vector3 thePlace)
     {
-        Debug.Log("CHECKING IF SPAWN ITEM");
-        Debug.Log("Battery"+_timeSinceLastBattery +"Health"+ _timeSinceLastHealth);
+       // Debug.Log("CHECKING IF SPAWN ITEM");
+       // Debug.Log("Battery"+_timeSinceLastBattery +"Health"+ _timeSinceLastHealth);
         if(_timeSinceLastBattery >= _batteryTime) // Spawn battery if timer is up
         {   
             thePlace = new Vector3(thePlace.x,thePlace.y,-1);

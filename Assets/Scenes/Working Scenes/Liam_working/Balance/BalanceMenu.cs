@@ -18,6 +18,20 @@ public class BalanceMenu : MonoBehaviour
     private string selectedDictKey;
     private string selectedValue; 
 
+    public static BalanceMenu Instance;
+    void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
