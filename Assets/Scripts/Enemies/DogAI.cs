@@ -73,22 +73,22 @@ public class DogAI : Enemy
             {
                 if (_distX > 0)
                 {
-                    StartCoroutine(Dash(1, 2));
+                    StartCoroutine(Dash(1, 1));
                 }
                 else
                 {
-                    StartCoroutine(Dash(3, 2));
+                    StartCoroutine(Dash(3, 1));
                 }
             }
             else
             {
                 if (_distY > 0)
                 {
-                    StartCoroutine(Dash(0, 2));
+                    StartCoroutine(Dash(0, 1));
                 }
                 else
                 {
-                    StartCoroutine(Dash(2, 2));
+                    StartCoroutine(Dash(2, 1));
                 }
             }
         }
@@ -131,19 +131,19 @@ public class DogAI : Enemy
         switch (direction)
         {
             case 0:
-                _gridPos += new Vector2Int(0, -1);
+                _gridPos += new Vector2Int(0, -distance);
                 move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             case 1:
-                _gridPos += new Vector2Int(1, 0);
+                _gridPos += new Vector2Int(distance, 0);
                 move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             case 2:
-                _gridPos += new Vector2Int(0, 1);
+                _gridPos += new Vector2Int(0, distance);
                 move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             case 3:
-                _gridPos += new Vector2Int(-1, 0);
+                _gridPos += new Vector2Int(-distance, 0);
                 move = _grid.TileLocation(transform.position, _gridPos);
                 break;
             default:
