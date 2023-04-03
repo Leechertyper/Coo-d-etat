@@ -24,6 +24,20 @@ public class deathItems : MonoBehaviour
 
     private int _totalItems = 2;
 
+    private static deathItems _instance;
+    void Start()
+    {
+        if(_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if(_instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.L))
@@ -81,7 +95,7 @@ public class deathItems : MonoBehaviour
     } 
 
     //For use with the boss's packages
-    //This has been changed to also spawn health, don't want to change the name 
+    //This has been changed to also spawn health, don't want to change the name because it's used in other scripts
     public void JustSpawnBattery(Vector3 thePlace)
     {
         thePlace = new Vector3(thePlace.x,thePlace.y,-1);
@@ -115,12 +129,6 @@ public class deathItems : MonoBehaviour
             }
 
         }
-        // else
-        // {
-
-        // }
-     
-
        
        
         
