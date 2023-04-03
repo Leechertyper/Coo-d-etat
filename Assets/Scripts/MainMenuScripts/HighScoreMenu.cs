@@ -15,9 +15,23 @@ public class HighScoreMenu : MonoBehaviour
     public List<(string name, int score)> localHighScores;
     public InputField inputField;
 
+    private GameObject player;
+    private DatabaseManager dbInstance;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        dbInstance = gameObject.GetComponent<DatabaseManager>();
+
+        //Player not being destroyed after game currently, getting in the way TEMPORARY
+        player = GameObject.Find("Player");
+        if (player != null)
+        {
+            player.SetActive(false);
+        }        
+
+
         inputField.characterLimit = 3;
         LoadLocalScoresText();
         LoadGlobalScoresText();
@@ -30,7 +44,10 @@ public class HighScoreMenu : MonoBehaviour
     public void SubmitClick()
     {
         Score.GetInstance().AddHighScore(inputField.text);
-        gameObject.GetComponent<DatabaseManager>().SubmitHighScore(inputField.text, Score.GetInstance().GetScore());
+        if (dbInstance.GetHostFound())
+        {
+            dbInstance.SubmitHighScore(inputField.text, Score.GetInstance().GetScore());
+        }        
         LoadLocalScoresText();
         LoadGlobalScoresText();
         GameObject.Find("NameInputBox").SetActive(false);
@@ -65,12 +82,24 @@ public class HighScoreMenu : MonoBehaviour
 
     private void LoadGlobalScoresText()
     {
-        var globalHighScores = gameObject.GetComponent<DatabaseManager>().GetHighScore();
-        for (int i = 0; i < globalHighScores.Length; i++)
+        // Check if the database manager is connected to the database
+        if (dbInstance.GetHostFound())
         {
-            globalNameFields[i].text = globalHighScores[i].Item1;
-            globalScoreFields[i].text = globalHighScores[i].Item2.ToString();
+            // Get the high scores from the database manager
+            var globalHighScores = dbInstance.GetHighScore();
+
+            if (globalHighScores != null && globalHighScores.Length > 0)
+            for (int i = 0; i < globalHighScores.Length; i++)
+            {
+                globalNameFields[i].text = globalHighScores[i].Item1;
+                globalScoreFields[i].text = globalHighScores[i].Item2.ToString();
+            }
         }
+        else
+        {
+            Debug.LogWarning("Not connected to the database.");
+        }
+        
     }
 
     /*
@@ -97,6 +126,10 @@ public class HighScoreMenu : MonoBehaviour
             Score.GetInstance().scoreText.text = "";
             Score.GetInstance().scoreIncrease.text = "";
         }        
+        if (player != null)
+        {
+            Destroy(player);
+        }
         SceneManager.LoadScene("MainMenu");
     }
 }

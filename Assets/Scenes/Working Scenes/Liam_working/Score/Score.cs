@@ -107,6 +107,7 @@ public class Score : MonoBehaviour
         SaveHighScores();
     }
 
+    // Adds High Score to list of high scores
     public void AddHighScore(string name)
     {
         LoadHighScores();
@@ -119,12 +120,14 @@ public class Score : MonoBehaviour
         SaveHighScores();
     }
 
+    //Saves High Scores to PlayerPrefs as Serialized JSON
     public void SaveHighScores()
     {
         string highScoresJson = JsonConvert.SerializeObject(highScores);
         PlayerPrefs.SetString("HighScores", highScoresJson);
     }
 
+    //Loads High Scores from PlayerPrefs as Serialized JSON
     public void LoadHighScores()
     {
         string highScoresJson = PlayerPrefs.GetString("HighScores");
