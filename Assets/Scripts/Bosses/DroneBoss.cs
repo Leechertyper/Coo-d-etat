@@ -55,6 +55,8 @@ public class DroneBoss : MonoBehaviour
 
     private float _attackDamage;
 
+    private bool _dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -231,7 +233,12 @@ public class DroneBoss : MonoBehaviour
             grid.GetComponent<Animator>().SetBool("BossDead", true);
             GameObject key = Instantiate(keycard);
             key.transform.position = transform.position;
-            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(1000);
+            if(_dead==false)
+            {
+                GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(1000);
+                _dead = true;
+            }
+            
             StartCoroutine(Death());
             
         }
