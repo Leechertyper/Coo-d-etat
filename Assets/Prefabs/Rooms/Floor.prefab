@@ -42,7 +42,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -133,11 +133,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a750552e606d048a7306db9a1d2c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentRoomType: 0
+  currentRoom: {x: 0, y: 0}
   roomPrefab: {fileID: 3100153155850450629, guid: 158030306bbed054d924d90fd4c3656c, type: 3}
   endRoomPrefab: {fileID: 7424634987486067247, guid: d7f06cd7ac486834faf57bd4c6b53e25, type: 3}
   miniMapCamera: {fileID: 1055407728}
   spawnableEnemies:
   - {fileID: 6504401682906475754, guid: 2f77ad181b637a7429cf6d029d43f59c, type: 3}
-  - {fileID: 2278889589388841408, guid: 945157bdd49c9334a843b5b055e5aa94, type: 3}
+  - {fileID: 2278889589388841408, guid: 451058ecd3453a7448dade22c966f765, type: 3}
+  spawnableInteractables: []
   charger: {fileID: 466950281613140780, guid: d4bd18dac5b056e4ba41ff78b816b4bb, type: 3}
-  boss: {fileID: 0}
+  boss: {fileID: 9013856346985390219, guid: be9b5e9e5ebce89449cf15ab9bfc930f, type: 3}

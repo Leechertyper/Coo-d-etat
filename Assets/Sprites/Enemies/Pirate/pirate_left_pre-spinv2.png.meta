@@ -1,0 +1,619 @@
+fileFormatVersion: 2
+guid: 1bc0e0fe7a971eb4081a58182daae9b4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_0
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 3480
+        width: 261
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d4916d1f06d2d46ab6cdff12535fb6
+      internalID: -907196527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_1
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 3488
+        width: 303
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23907cc30ff73b4c908bcc5a762a5a8
+      internalID: 2097988534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_2
+      rect:
+        serializedVersion: 2
+        x: 2474
+        y: 3486
+        width: 276
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b04af4d27ca055343b780eb19ac7c4fe
+      internalID: 2054834934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_3
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 2911
+        width: 264
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd430ba9d77c638479fc22c1b9e36142
+      internalID: -1653554670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_4
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 2920
+        width: 243
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f9b6cfc6ecf434a931d1f584bf598b
+      internalID: 357444246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_5
+      rect:
+        serializedVersion: 2
+        x: 2463
+        y: 2928
+        width: 234
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c45641cd64567c24a86763bca93e12de
+      internalID: 681278690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_6
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 2362
+        width: 225
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1799b55fbbea79b41bd9b0104adad8a2
+      internalID: 1198144855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_7
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 2601
+        width: 10
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c02488f56e97cc488b55c3a5f6e5b30
+      internalID: 1352178787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_8
+      rect:
+        serializedVersion: 2
+        x: 1521
+        y: 2364
+        width: 199
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e796b4e321cf19e4d9fd632018b7c4e9
+      internalID: 1432717348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_9
+      rect:
+        serializedVersion: 2
+        x: 2524
+        y: 2365
+        width: 246
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ceb1e10eb6e7b241a9498d6e6011d07
+      internalID: -1082097163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_10
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 1789
+        width: 246
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7c404ff95cdc64db13a87a54a104a1
+      internalID: -1955251271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_11
+      rect:
+        serializedVersion: 2
+        x: 1490
+        y: 1789
+        width: 195
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6195ebc8e40b14c9a2fe4cb2259d44
+      internalID: -1575572277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_12
+      rect:
+        serializedVersion: 2
+        x: 2514
+        y: 1785
+        width: 178
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9fff9f2c0cfb7f4c9c42b64c85b06a6
+      internalID: 735677189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_13
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 1202
+        width: 186
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b428c7877d5c7b478c49359f9776b01
+      internalID: 1535579742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_14
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 1198
+        width: 285
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d3c6f1f83660e469d9822fac83f2d7
+      internalID: 1584490397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_15
+      rect:
+        serializedVersion: 2
+        x: 2431
+        y: 1184
+        width: 331
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6615213995a2dd4d8cc70cb3d1ce0be
+      internalID: 1850118048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_16
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 603
+        width: 445
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f10baefec9b4db4e8ad22da0d169a46
+      internalID: 525885013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_17
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 588
+        width: 559
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e44dbd38eeb0d43905487e38da2851
+      internalID: 858416856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_18
+      rect:
+        serializedVersion: 2
+        x: 2245
+        y: 586
+        width: 637
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb84e4c59a7fcf54eb1a1e6da32acd21
+      internalID: 513507162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_19
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 7
+        width: 617
+        height: 537
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d47cbe8efd70a5a4ca87f9b3fcc648ad
+      internalID: -1585154651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_20
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 17
+        width: 535
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6744dfc29777c340b05516e44430b12
+      internalID: 646199536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pirate_left_pre-spinv2_21
+      rect:
+        serializedVersion: 2
+        x: 2313
+        y: 31
+        width: 494
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7aadf59ffa1a5d438503f16a5ff54f2
+      internalID: 265411640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pirate_left_pre-spinv2_16: 525885013
+      pirate_left_pre-spinv2_11: -1575572277
+      pirate_left_pre-spinv2_6: 1198144855
+      pirate_left_pre-spinv2_14: 1584490397
+      pirate_left_pre-spinv2_7: 1352178787
+      pirate_left_pre-spinv2_5: 681278690
+      pirate_left_pre-spinv2_21: 265411640
+      pirate_left_pre-spinv2_17: 858416856
+      pirate_left_pre-spinv2_1: 2097988534
+      pirate_left_pre-spinv2_8: 1432717348
+      pirate_left_pre-spinv2_3: -1653554670
+      pirate_left_pre-spinv2_13: 1535579742
+      pirate_left_pre-spinv2_19: -1585154651
+      pirate_left_pre-spinv2_12: 735677189
+      pirate_left_pre-spinv2_10: -1955251271
+      pirate_left_pre-spinv2_0: -907196527
+      pirate_left_pre-spinv2_4: 357444246
+      pirate_left_pre-spinv2_20: 646199536
+      pirate_left_pre-spinv2_18: 513507162
+      pirate_left_pre-spinv2_15: 1850118048
+      pirate_left_pre-spinv2_2: 2054834934
+      pirate_left_pre-spinv2_9: -1082097163
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
