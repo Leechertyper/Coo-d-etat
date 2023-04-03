@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using UnityEngine;
 using System.Net;
 
+
 using System.Net.Sockets;
 public class DatabaseManager : MonoBehaviour
 {
@@ -274,6 +275,94 @@ public class DatabaseManager : MonoBehaviour
             Debug.Log("Got nothing back from database. Replacing with 1");
             return 1f;
         }
+    }
+    /***
+    *Inserts/updates a highscore in the table
+    *@param: string name - the Name of the player (3 characters), int score - the score given
+    *@return: None
+    *@Post:The Highscores table in the database is updated to reflect the score
+    ***/
+    public void SubmitHighScore(string name, int score)
+    {
+        MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+        builder.Server = Host;
+        builder.UserID = User;
+        builder.Password = Password;
+        builder.Database = Database;
+         try
+        {
+            using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM `coo_d_etat`.`Highscores` WHERE ('name' = " + name+");";
+                MySqlCommand queryCMD = new MySqlCommand(query, connection);
+                object queryResult = queryCMD.ExecuteScalar();
+                int r = Convert.ToInt32(queryResult);
+                string sql = "";
+                if(r > 0)
+                {
+                    sql = "UPDATE `coo_d_etat`.`Highscores` SET `score` = '"+score+"' WHERE (`name` = '"+name+"');";
+                }
+                else
+                {
+                    sql = "INSERT INTO `coo_d_etat`.`Highscores` (`name`, `score`) VALUES ('"+name+"', '"+score+"');"; 
+                }
+                //Debug.Log(sql);
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        catch (MySqlException exception)
+        {   
+            Debug.Log("Error updating value");
+            Debug.Log(exception.Message);
+        }
+        
+    }
+
+    /***
+    *Retrieves the top 10 scores from the database
+    *@param: None
+    *@return: (strint, int)[10] a size 10 array with 10 tuples with name in string form then an int 32 as the score
+    *@Post:None
+    ***/
+
+    public (string, int)[] GetHighScore()
+    {
+         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+        builder.Server = Host;
+        builder.UserID = User;
+        builder.Password = Password;
+        builder.Database = Database;
+
+        MySqlDataReader read = null;
+       (string, int)[] result = new (string, int)[10];
+        try
+        {
+            using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
+            {
+                connection.Open();
+                string sql = "SELECT * FROM coo_d_etat.Highscores order by score desc limit 10;";
+                //Debug.Log(sql);
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
+                read = cmd.ExecuteReader();
+                int i = 0;
+                while(read.Read())
+                {
+                    string name = read.GetString(0);
+                    int score = read.GetInt32(1);
+                    result[i] = (name, score);
+                    i++;
+                }
+            }
+        }
+        catch (MySqlException exception)
+        {   
+            
+            print(exception.Message);
+        }
+        
+        return result;
     }
 
     #endregion
