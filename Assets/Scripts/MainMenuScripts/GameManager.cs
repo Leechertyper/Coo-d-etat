@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject balanceMenu;
 
     public GlobalGrid Grid;
+    private bool _hasBalanced = false;
 
     public static GameManager Instance; // A static reference to the GameManager instance
     public static DatabaseManager dbInstance;
@@ -34,8 +35,9 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) // If there is no instance already
         {
-            // DontDestroyOnLoad(gameObject); // bugs the game with this line
+            //DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
+            
             
         }
         else if (Instance != this) // If there is already an instance and it's not `this` instance
@@ -47,12 +49,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         allRooms = null;
         allDroneEnemies = null;
 
         theBoss = null;
 
-        healthItemValue = 1f;
+        //healthItemValue = 1f;
 
         //Database needs the GetHostFound for it to work, this needs to happen after the Awake phase of initialization.
         dbInstance = this.gameObject.GetComponent<DatabaseManager>();
@@ -191,14 +194,23 @@ public class GameManager : MonoBehaviour
     }
 
     public void GoToNextFloor(){
-        if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance)
+
+        Debug.Log("GameManagerScript: GoToNextFloor() called");
+        if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance && !_hasBalanced)
         {
+            Debug.Log("GameManagerScript: GoToNextFloor() called, starting balance menu");
             StartBalanceMenu();
         }
         else{
             _skipBalance = false;
             //update load next floor here
+            //Grid.GetComponent<GlobalGrid>().
             SceneManager.LoadScene(1);
+            _thePlayer.GetComponent<PlayerMovement>().MoveTostart(Grid.GetComponent<GlobalGrid>().GetStartCenter());
+            _hasBalanced = false;
+            //GameObject.Find("Floor").GetComponent<Floor>().TESTING();
+            //_thePlayer = GameObject.Find("Player").GetComponent<Player>();
+            //_thePlayer = FindObjectOfType<Player>();
         }
     }
 
@@ -223,13 +235,22 @@ public class GameManager : MonoBehaviour
     *   This function is called when the balance menu needs to pop up (call it in BalanceTimer())
     */
     public void StartBalanceMenu()
-    {
-        balanceMenu.SetActive(true);
-        balanceMenu.GetComponent<BalanceMenu>().startBalance = true;
+    {   
+        Debug.Log("GameManagerScript: StartBalanceMenu() called");
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
+        {
+            balanceMenu.SetActive(true);
+            balanceMenu.GetComponent<BalanceMenu>().startBalance = true;
+        }
+        else
+        {
+            EndBalanceMenu();
+        }
     }
 
     public void EndBalanceMenu()
     {
+        Debug.Log("GameManagerScript: EndBalanceMenu() called");
         _skipBalance = true;
         balanceMenu.SetActive(false);
         balanceMenu.GetComponent<BalanceMenu>().startBalance = false;
@@ -248,6 +269,8 @@ public class GameManager : MonoBehaviour
         else
         {
             GoToNextFloor();
+            //SceneManager.LoadScene(1);
+            _hasBalanced = true;
         }
     }
 
@@ -257,8 +280,18 @@ public class GameManager : MonoBehaviour
     */
     public void BalanceValue(Dictionary<string,float> dictionary,string dictionaryKey, float balanceValue)
     {
-        dictionary[dictionaryKey] *= balanceValue;
 
+        
+        string dictName = BalanceVariables.dictionaryListStrings[BalanceVariables.dictionaryList.IndexOf(dictionary)];
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
+        {
+            float currSteps = dbInstance.GetSteps(dictName+char.ToUpper(dictionaryKey[0]) + dictionaryKey.Substring(1));
+            if (dictName != "General"){
+                dbInstance.UpdateSteps(dictName + char.ToUpper(dictionaryKey[0])+dictionaryKey.Substring(1), currSteps + balanceValue);
+            }
+            
+        }
+        
     } 
     public void ChangeHealthItemValue(float newHealth)
     {
@@ -298,7 +331,6 @@ public class GameManager : MonoBehaviour
         theReturn.Add(BalanceVariables.droneEnemy["lazerDamage"]);
         return theReturn;
     }
-
     //For use with smaller values of val:ie(steps) - a type of sigmoid function
     //returns a value from 0-1 with respect to how steep you want it to be and where half the steps to reach the max.
     public float Tikhonov(float val, float steepness, float half){

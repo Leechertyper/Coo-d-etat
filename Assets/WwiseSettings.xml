@@ -10,7 +10,7 @@
   <ShowMissingRigidBodyWarning>true</ShowMissingRigidBodyWarning>
   <ShowSpatialAudioWarningMsg>true</ShowSpatialAudioWarningMsg>
   <WwiseInstallationPathMac />
-  <WwiseInstallationPathWindows>D:\Wwise</WwiseInstallationPathWindows>
+  <WwiseInstallationPathWindows>S:\Wwise</WwiseInstallationPathWindows>
   <WwiseProjectPath>../../ProjectForseti/ProjectForseti_WwiseProject/ProjectForseti_WwiseProject.wproj</WwiseProjectPath>
   <UseWaapi>true</UseWaapi>
   <WaapiPort>8080</WaapiPort>

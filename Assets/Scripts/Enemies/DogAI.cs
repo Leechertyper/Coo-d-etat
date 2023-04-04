@@ -249,5 +249,4 @@ public class DogAI : Enemy
         StopAllCoroutines();
         this.enabled = false;
     }
-    
 }

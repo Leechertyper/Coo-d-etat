@@ -13,6 +13,16 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_CARDBOARD_BOX_FALL_1 = 2723394006U;
+        static const AkUniqueID PLAY_CARDBOARD_BOX_FALL_2 = 2723394005U;
+        static const AkUniqueID PLAY_CARDBOARD_BOX_FALL_3 = 2723394004U;
+        static const AkUniqueID PLAY_CARDBOARD_BOX_HIT = 2122031380U;
+        static const AkUniqueID PLAY_CAT_DEATH = 2280425489U;
+        static const AkUniqueID PLAY_CAT_HURT = 2612945666U;
+        static const AkUniqueID PLAY_CAT_MEOW_1 = 357614033U;
+        static const AkUniqueID PLAY_CAT_MEOW_2 = 357614034U;
+        static const AkUniqueID PLAY_CAT_MEOW_3 = 357614035U;
+        static const AkUniqueID PLAY_CAT_SWIPE = 3921222901U;
         static const AkUniqueID PLAY_CONTROLLER_SWITCH = 2911254633U;
         static const AkUniqueID PLAY_HEAL = 2639148008U;
         static const AkUniqueID PLAY_HEARTBEAT = 3765695918U;
@@ -36,6 +46,7 @@ namespace AK
         static const AkUniqueID PLAY_PIGEON_HOO_HOO = 480578592U;
         static const AkUniqueID PLAY_PIGEON_HURT = 3699947824U;
         static const AkUniqueID PLAY_PIGEON_WING_FLUTTER = 3748288237U;
+        static const AkUniqueID PLAY_PIRATE_DEAD = 3056917726U;
         static const AkUniqueID PLAY_PIRATE_NOISE = 201053746U;
         static const AkUniqueID PLAY_POTENTIAL_PICKUP_SFX = 331850419U;
         static const AkUniqueID PLAY_POTENTIAL_PICKUP_SFX_2 = 3838884112U;
@@ -65,11 +76,11 @@ namespace AK
             {
                 static const AkUniqueID BOSS_ROOM = 3359767828U;
                 static const AkUniqueID END_ROOM = 1198379314U;
-                static const AkUniqueID MYSTERY_ROOM = 502402914U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID NORMAL_ROOM = 3900115470U;
-                static const AkUniqueID OBJECTIVE_ROOM = 1233056360U;
                 static const AkUniqueID REST_ROOM = 3269879827U;
+                static const AkUniqueID SHOP_ROOM = 3831110053U;
+                static const AkUniqueID START_ROOM = 3627238839U;
             } // namespace STATE
         } // namespace MUSIC_STATE
 
@@ -95,6 +106,7 @@ namespace AK
                 static const AkUniqueID LAB = 578926554U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID PARK = 1610254009U;
+                static const AkUniqueID PIER = 2061969897U;
             } // namespace STATE
         } // namespace STAGE_STATE
 
@@ -103,7 +115,10 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID DEAD_MUTE = 1870461633U;
+        static const AkUniqueID FX_VOLUME = 3350225276U;
         static const AkUniqueID GAME_IS_PAUSED = 2536527299U;
+        static const AkUniqueID MASTER_VOLUME = 4179668880U;
+        static const AkUniqueID MUSIC_VOLUME = 1006694123U;
         static const AkUniqueID PLAYERHEALTH = 151362964U;
         static const AkUniqueID SFX_PLAYING = 2234500385U;
     } // namespace GAME_PARAMETERS

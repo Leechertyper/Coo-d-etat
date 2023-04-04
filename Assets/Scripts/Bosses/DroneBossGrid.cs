@@ -41,13 +41,8 @@ public class DroneBossGrid : MonoBehaviour
     // the index of the current attack in the attacks list
     private int _currentAttackIndex;
 
-    private Transform _target;
-
     public bool isAttacking = false;
 
-    public Animator animator;
-
-    public float angle;
 
     /// <summary>
     /// A 2D array of Tiles
@@ -138,9 +133,7 @@ public class DroneBossGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _target = GameObject.FindGameObjectWithTag("Player").transform;
-
-        if (GameManager.Instance)
+        if(GameManager.Instance)
         {
             gridStartPosition.x = transform.position.x - ((Mathf.FloorToInt(roomDimensions.x / 2)) * 3);
             gridStartPosition.y = transform.position.y - (Mathf.FloorToInt(roomDimensions.y / 2) * 3);
@@ -180,27 +173,6 @@ public class DroneBossGrid : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (_target)
-        {
-            Vector3 direction = (_target.position - transform.position).normalized;
-            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-            if (direction.y >= 0.2)
-            {
-                animator.SetBool("IsSide", true);
-            }
-            else if (direction.y <= -0.2)
-            {
-                animator.SetBool("IsSide", true);
-            }
-            else
-            {
-                animator.SetBool("IsSide", false);
-            }
-        }
-    }
-
     public void StartBombAttack()
     {
         StartCoroutine(DelayExplosionSound(4f));
@@ -226,9 +198,12 @@ public class DroneBossGrid : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Entity Entered");
-        if (collision.gameObject.CompareTag("Player"))
+        if(transform.GetChild(0).GetComponent<DroneBoss>() != null)
         {
-            transform.GetChild(0).GetComponent<DroneBoss>().Awaken();
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                transform.GetChild(0).GetComponent<DroneBoss>().Awaken();
+            }
         }
     }
 

@@ -294,18 +294,18 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-                string query = "SELECT COUNT(*) FROM `coo_d_etat`.`Highscores` WHERE ('name' = " + name+");";
+                string query = "SELECT COUNT(*) FROM `coo_d_etat`.`Highscores` WHERE (`name` = '" + name + "');";
                 MySqlCommand queryCMD = new MySqlCommand(query, connection);
                 object queryResult = queryCMD.ExecuteScalar();
                 int r = Convert.ToInt32(queryResult);
                 string sql = "";
-                if(r > 0)
+                if (r > 0)
                 {
-                    sql = "UPDATE `coo_d_etat`.`Highscores` SET `score` = '"+score+"' WHERE (`name` = '"+name+"');";
+                    sql = "UPDATE `coo_d_etat`.`Highscores` SET `score` = '" + score + "' WHERE (`name` = '" + name + "');";
                 }
                 else
                 {
-                    sql = "INSERT INTO `coo_d_etat`.`Highscores` (`name`, `score`) VALUES ('"+name+"', '"+score+"');"; 
+                    sql = "INSERT INTO `coo_d_etat`.`Highscores` (`name`, `score`) VALUES ('" + name + "', '" + score + "');";
                 }
                 //Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
