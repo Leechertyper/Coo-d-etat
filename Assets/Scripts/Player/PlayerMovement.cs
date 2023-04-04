@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        /*transform.position = GameManager.Instance.Grid.GetTile(transform.position);*/
+        //transform.position = GameManager.Instance.Grid.GetTile(transform.position);
         rb = GetComponent<Rigidbody2D>();
         startInt = new Vector2Int(8,4);
         LoadControls();
