@@ -5,17 +5,26 @@ using UnityEngine;
 public class BoxLerp : MonoBehaviour
 {
 
-    public GameObject deathItems;
+    private GameObject deathItems;
+    // 0 = boss, 1 = enemy
+    public int boxType;
+    public int direction;
+    private float _boxSpeed = 0.15f;
     // Start is called before the first frame update
     void Start()
     {
         //StartCoroutine(Test2(new Vector3(10,-8,0)));
+
+        deathItems = GameObject.Find("DeathItems");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(boxType == 1)
+        {
+            MoveInDirection(direction);
+        }
     }
 
     private IEnumerator Test(Vector3 goal)
@@ -86,5 +95,63 @@ public class BoxLerp : MonoBehaviour
     public void Throw(Vector3 target)
     {
         StartCoroutine(Test2(target));
+    }
+
+    public void MoveInDirection(int direction)
+    {
+        switch (direction)
+        {
+            case 0:
+                transform.position += ((Vector3.up) * _boxSpeed);
+                GetComponent<Animator>().SetBool("goUp", true);
+                break;
+            case 1:
+                transform.position += ((Vector3.down) * _boxSpeed);
+                GetComponent<Animator>().SetBool("goDown", true);
+                break;
+            case 2:
+                transform.position += ((Vector3.right) * _boxSpeed);
+                GetComponent<Animator>().SetBool("goRight", true);
+                break;
+            case 3:
+                transform.position += ((Vector3.left) * _boxSpeed);
+                GetComponent<Animator>().SetBool("goLeft", true);
+                break;
+            case 4:
+                transform.position += ((Vector3.up + Vector3.left) * _boxSpeed);
+                GetComponent<Animator>().SetBool("goLeft", true);
+                break;
+            case 5:
+                transform.position += ((Vector3.up + Vector3.right) * _boxSpeed);
+                GetComponent<Animator>().SetBool("goRight", true);
+                break;
+            case 6:
+                transform.position += ((Vector3.down + Vector3.right) * _boxSpeed);
+                GetComponent<Animator>().SetBool("goRight", true);
+                break;
+            case 7:
+                transform.position += ((Vector3.down + Vector3.left) * _boxSpeed);
+                GetComponent<Animator>().SetBool("goLeft", true);
+                break;
+            default:
+                break;
+        }
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && boxType == 1)
+        {
+            collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.pirateEnemy["attackDamage"]);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Walls" && boxType == 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }

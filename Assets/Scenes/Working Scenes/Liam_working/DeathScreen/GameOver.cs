@@ -10,7 +10,8 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {       
-        scoreText.text = "Score: " + GameObject.Find("ScoreManager").GetComponent<Score>().GetScore();                
+        scoreText.text = "Score: " + GameObject.Find("ScoreManager").GetComponent<Score>().GetScore();
+        GameManager.Instance.inGame = false;
     }
 
     // Update is called once per frame

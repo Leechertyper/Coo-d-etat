@@ -10,17 +10,22 @@ public class PauseMenu : MonoBehaviour
     
     public GameObject DataBaseButton;
 
+    public GameObject options;
+
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            
             gameIsPaused = !gameIsPaused;
             if(gameIsPaused)
             {
+                GameManager.Instance.inGame = false;
                 Pause();
             } else
             {
+                GameManager.Instance.inGame = true;
                 Resume();
             }
         }
@@ -37,7 +42,8 @@ public class PauseMenu : MonoBehaviour
         AkSoundEngine.SetRTPCValue("Game_Is_Paused", 0);
         Time.timeScale = 1.0f;
         gameIsPaused = false;
-        pauseMenuUI.SetActive(false);        
+        pauseMenuUI.SetActive(false);
+        options.SetActive(false);
     }
 
     /*
@@ -52,6 +58,18 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
         pauseMenuUI.SetActive(true);
         
+    }
+
+    public void ShowOptions()
+    {
+        options.SetActive(true);
+        pauseMenuUI.SetActive(false);
+    }
+
+    public void HideOptions()
+    {
+        options.SetActive(false);
+        pauseMenuUI.SetActive(true);
     }
 
     /*
@@ -75,5 +93,14 @@ public class PauseMenu : MonoBehaviour
         AkSoundEngine.SetRTPCValue("Game_Is_Paused", 0);
 
         SceneManager.LoadScene("MainMenu");
+    }
+    public void Clickybutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
+    }
+    
+    public void Hoverbutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_2", this.gameObject);
     }
 }
