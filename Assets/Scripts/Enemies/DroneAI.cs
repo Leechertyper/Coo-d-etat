@@ -189,6 +189,9 @@ public class DroneAI : Enemy
         BalanceVariables.droneEnemy["fastShotCD"] = newAttackSpeed/2; // maybe there needs to be another fast shot var?
     }
 
-    
+    public override float GetHealthVariable()
+    {
+        BalanceVariables.droneEnemy["maxHealth"];
+    }
 
 }

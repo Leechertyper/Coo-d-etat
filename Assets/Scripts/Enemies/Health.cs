@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     public GameObject theDeathItems;
     private void Start()
     {
-        maxHealth = Mathf.RoundToInt(BalanceVariables.droneEnemy["maxHealth"]);
+        maxHealth = Mathf.RoundToInt(GetComponent<Enemy>().GetHealthVariable());
         health = maxHealth;
     }
 
@@ -50,13 +50,13 @@ public class Health : MonoBehaviour
     {
         if(newHealth > 0)
         {
-            if(newHealth < BalanceVariables.droneEnemy["maxHealth"])
+            if(newHealth < maxHealth)
             {
                 health = newHealth;
             }
             else
             {
-                health = Mathf.RoundToInt(BalanceVariables.droneEnemy["maxHealth"]);
+                health = Mathf.RoundToInt(maxHealth);
             }
         }  
     }

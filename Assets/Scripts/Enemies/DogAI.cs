@@ -255,4 +255,9 @@ public class DogAI : Enemy
     {
         AkSoundEngine.PostEvent("Play_Robot_Ouch", this.gameObject);
     }
+
+    public override float GetHealthVariable()
+    {
+        BalanceVariables.dogEnemy["maxHealth"];
+    }
 }
