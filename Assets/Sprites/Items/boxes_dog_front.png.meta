@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 59a5b91988e62b845a3c598f654169d1
+guid: 1181b7cc3ce93bd448c1ae2c8fa1d004
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,50 +113,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mail_Box_front_0
+      name: boxes_dog_front_0
       rect:
         serializedVersion: 2
-        x: 603
-        y: 1220
-        width: 538
-        height: 506
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 4}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b82fa9d6679c57a4f87e653b0ed1d8cb
-      internalID: 339889474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mail_Box_front_1
-      rect:
-        serializedVersion: 2
-        x: 2541
-        y: 1209
-        width: 521
-        height: 525
+        x: 633
+        y: 160
+        width: 709
+        height: 714
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ca51aeafc4e1504187e06787f9ee90b
-      internalID: -1534853081
+      spriteID: eb7cfdbd82c59f3469260e7d932aebd9
+      internalID: 72212761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_front_2
+      name: boxes_dog_front_1
       rect:
         serializedVersion: 2
-        x: 4498
-        y: 1209
-        width: 480
-        height: 514
+        x: 2543
+        y: 147
+        width: 682
+        height: 733
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c125671c2be3b44192a6c600934ca88
-      internalID: -2099967396
+      spriteID: f538c1449992d6141a8a3bb60cb01f46
+      internalID: 2114982855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_front_3
+      name: boxes_dog_front_2
       rect:
         serializedVersion: 2
-        x: 6344
-        y: 1209
-        width: 566
-        height: 489
+        x: 4355
+        y: 147
+        width: 741
+        height: 753
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cc94cc15ea441c49974d44b113ec041
-      internalID: 2128438433
+      spriteID: 8d579a06cbf60304d8a4a375638923a6
+      internalID: -2145091309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_front_4
+      name: boxes_dog_front_3
       rect:
         serializedVersion: 2
-        x: 613
-        y: 114
-        width: 525
-        height: 372
+        x: 6271
+        y: 160
+        width: 747
+        height: 668
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a3855bd5d21e2c48aa8df083360c6f5
-      internalID: 554991811
+      spriteID: 105dc5f8cb962ed44a602c11f75c4442
+      internalID: 535896954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_front_5
+      name: boxes_dog_front_4
       rect:
         serializedVersion: 2
-        x: 2424
-        y: 126
-        width: 634
-        height: 210
+        x: 8213
+        y: 147
+        width: 728
+        height: 628
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54f2d3fae62c09645841e9d5d6e5ed76
-      internalID: -1691258109
+      spriteID: 87c3e9f21b9c53d4b8c15e3081e9008a
+      internalID: 1568364574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_front_6
+      name: boxes_dog_front_5
       rect:
         serializedVersion: 2
-        x: 4344
-        y: 137
-        width: 630
-        height: 131
+        x: 10136
+        y: 75
+        width: 761
+        height: 648
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,8 +236,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9898bc5c40e47a443aeb390da611447c
-      internalID: -935688084
+      spriteID: 7d0c047e0fb92334aa25167645ca5bd2
+      internalID: -777253979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boxes_dog_front_6
+      rect:
+        serializedVersion: 2
+        x: 12065
+        y: 0
+        width: 768
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08f363a15b5b26448151a8a9c788eda
+      internalID: 219907935
       vertices: []
       indices: 
       edges: []
@@ -286,14 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mail_Box_front_2: -2099967396
-      Mail_Box_front_4: 554991811
-      Mail_Box_front_6: -935688084
-      Mail_Box_front_0: 339889474
-      Mail_Box_front_5: -1691258109
-      Mail_Box_front_1: -1534853081
-      Mail_Box_front_3: 2128438433
-      Mail_Box_front_7: -1328916675
+      boxes_dog_front_1: 2114982855
+      boxes_dog_front_5: -777253979
+      boxes_dog_front_4: 1568364574
+      boxes_dog_front_2: -2145091309
+      boxes_dog_front_0: 72212761
+      boxes_dog_front_6: 219907935
+      boxes_dog_front_3: 535896954
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

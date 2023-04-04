@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d96932f0ef191734897252ec0e5ebbae
+guid: 59a5b91988e62b845a3c598f654169d1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,50 +113,38 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boxes_tree_side_0
+      name: Mail_Box_front_0
       rect:
         serializedVersion: 2
-        x: 752
-        y: 161
-        width: 400
-        height: 896
+        x: 603
+        y: 1220
+        width: 538
+        height: 506
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99400deb924665c43b502f540c17a46a
-      internalID: -1014629437
+      spriteID: b82fa9d6679c57a4f87e653b0ed1d8cb
+      internalID: 339889474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_tree_side_1
+      name: Mail_Box_front_1
       rect:
         serializedVersion: 2
-        x: 2662
-        y: 167
-        width: 411
-        height: 897
+        x: 2541
+        y: 1209
+        width: 521
+        height: 525
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9be65bb5c93f3634f9d6053ae3e47a24
-      internalID: 150476492
+      spriteID: 2ca51aeafc4e1504187e06787f9ee90b
+      internalID: -1534853081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_tree_side_2
+      name: Mail_Box_front_2
       rect:
         serializedVersion: 2
-        x: 4558
-        y: 141
-        width: 433
-        height: 929
+        x: 4498
+        y: 1209
+        width: 480
+        height: 514
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2f293be529d41d47b0b0c70e7bcb3e4
-      internalID: 2081159092
+      spriteID: 1c125671c2be3b44192a6c600934ca88
+      internalID: -2099967396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_tree_side_3
+      name: Mail_Box_front_3
       rect:
         serializedVersion: 2
-        x: 6422
-        y: 129
-        width: 629
-        height: 921
+        x: 6344
+        y: 1209
+        width: 566
+        height: 489
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1364a222e96a6334ca4e9d8c20c137db
-      internalID: 1810273965
+      spriteID: 8cc94cc15ea441c49974d44b113ec041
+      internalID: 2128438433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_tree_side_4
+      name: Mail_Box_front_4
       rect:
         serializedVersion: 2
-        x: 8266
-        y: 128
-        width: 708
-        height: 890
+        x: 613
+        y: 114
+        width: 525
+        height: 372
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8848cada10c6574469c20132c6f832ff
-      internalID: 42690059
+      spriteID: 1a3855bd5d21e2c48aa8df083360c6f5
+      internalID: 554991811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_tree_side_5
+      name: Mail_Box_front_5
       rect:
         serializedVersion: 2
-        x: 10096
-        y: 135
-        width: 847
-        height: 588
+        x: 2424
+        y: 126
+        width: 634
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdc75aa77e9b05b40a6c50094ca6b0b2
-      internalID: -937371236
+      spriteID: 54f2d3fae62c09645841e9d5d6e5ed76
+      internalID: -1691258109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_tree_side_6
+      name: Mail_Box_front_6
       rect:
         serializedVersion: 2
-        x: 12000
-        y: 17
-        width: 866
-        height: 621
+        x: 4344
+        y: 137
+        width: 630
+        height: 131
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,8 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1cfe4be313e51e4e92716b39dcb7285
-      internalID: 236300240
+      spriteID: 9898bc5c40e47a443aeb390da611447c
+      internalID: -935688084
       vertices: []
       indices: 
       edges: []
@@ -286,13 +274,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      boxes_tree_side_1: 150476492
-      boxes_tree_side_2: 2081159092
-      boxes_tree_side_4: 42690059
-      boxes_tree_side_6: 236300240
-      boxes_tree_side_3: 1810273965
-      boxes_tree_side_5: -937371236
-      boxes_tree_side_0: -1014629437
+      Mail_Box_front_2: -2099967396
+      Mail_Box_front_4: 554991811
+      Mail_Box_front_6: -935688084
+      Mail_Box_front_0: 339889474
+      Mail_Box_front_5: -1691258109
+      Mail_Box_front_1: -1534853081
+      Mail_Box_front_3: 2128438433
+      Mail_Box_front_7: -1328916675
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
