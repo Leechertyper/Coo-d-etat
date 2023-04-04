@@ -108,6 +108,7 @@ public class PlayerAttack : MonoBehaviour
             }
             else
             {
+                shootTimer = BalanceVariables.player["attackSpeed"];
                 AkSoundEngine.PostEvent("Play_Machine_Buzz", this.gameObject);
                 Debug.Log("NO MORE AMMO");
             }

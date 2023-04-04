@@ -486,16 +486,13 @@ public class GlobalGrid : MonoBehaviour
         List<Vector2Int> freeTiles = new List<Vector2Int>();
         //Debug.Log(roomCoordinates.ToString());
         
-       for(int i = roomCoordinates.x - (Mathf.FloorToInt(roomSize.x/2) - 1); i < roomCoordinates.x + (Mathf.FloorToInt(roomSize.x / 2) - 1); i++)
+        for (int i = roomCoordinates.x - (Mathf.FloorToInt(roomSize.x / 2) - 2); i < roomCoordinates.x + (Mathf.FloorToInt(roomSize.x / 2) - 2); i++)
         {
-            for(int j = roomCoordinates.y - (Mathf.FloorToInt(roomSize.y/2) - 1); j < roomCoordinates.y + (Mathf.FloorToInt(roomSize.y / 2) - 1); j++)
+            for(int j = roomCoordinates.y - (Mathf.FloorToInt(roomSize.y/2) - 2); j < roomCoordinates.y + (Mathf.FloorToInt(roomSize.y / 2) - 2); j++)
             {
-                if(!_grid[i, j].door)
-                {
-                    freeTiles.Add(new Vector2Int(i, j));
-                }
+                freeTiles.Add(new Vector2Int(i, j));
             }
-   
+
         }
         
         //Debug.Log("Currenbly items of"+itemNum+"are being placed");
@@ -544,5 +541,39 @@ public class GlobalGrid : MonoBehaviour
         List<int> room = _roomCenters[roomIndex];
         GameObject newEnemy = Instantiate(boss);
         newEnemy.transform.position = _grid[room[0], room[1]].position;
+    }
+
+    public bool TileOpen(Vector2Int destination)
+    {
+        // check the destination tile
+        if (_grid[destination.x, destination.y].blocked | _grid[destination.x, destination.y].door)
+        {
+            return false;
+        }
+        // if it is not blocked
+        else
+        {
+            return true;
+        }
+    }
+
+    public Vector2Int GetTileFromPos(Vector3 pos)
+    {
+        float bestDis = 10000;
+        Vector2Int gridPos = new Vector2Int(0, 0);
+        //Vector2 worldPos = new Vector2(0, 0);
+        for (int x = 0; x < _size.x; x++)
+        {
+            for (int y = 0; y < _size.y; y++)
+            {
+                if (Vector2.Distance(_grid[x, y].position, pos) < bestDis)
+                {
+                    bestDis = Vector2.Distance(_grid[x, y].position, pos);
+                    //worldPos = _grid[x, y].position;
+                    gridPos = new Vector2Int(x, y);
+                }
+            }
+        }
+        return gridPos;
     }
 }

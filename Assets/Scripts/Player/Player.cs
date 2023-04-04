@@ -155,6 +155,15 @@ public class Player : MonoBehaviour
     public void AddHealth(int plusHealth)
     {
         _health += plusHealth;
+        if (_health > 100)
+        {
+            _rtpc.SetGlobalValue(100);
+        }
+        else
+        {
+            _rtpc.SetGlobalValue(_health);
+        }
+        
         if(_health > (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()))
         {
             _health = (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());

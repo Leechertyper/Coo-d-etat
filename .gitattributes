@@ -91,6 +91,7 @@
 *.s3m lfs-file
 *.wav lfs-file
 *.xm lfs-file
+*.bnk lfs-file
 
 # Video formats
 *.mov lfs-file
