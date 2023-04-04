@@ -449,6 +449,127 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Cat_Meow_1" ID="{AC743CF2-34B1-4984-BC91-20EEFE48EB9C}">
+					<ChildrenList>
+						<Action Name="" ID="{A9903AD8-1A4D-44CA-BF4C-2E3F2A405FCD}" ShortID="437672689">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cat Meow 1" ID="{8437E05A-7923-474A-9229-9C049CB6C7B2}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cat_Meow_2" ID="{DB41309F-EEF7-459C-ADF2-BF4BFCAC0065}">
+					<ChildrenList>
+						<Action Name="" ID="{8BC84355-4657-4E5F-96D9-496FB2EC53CF}" ShortID="300674956">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cat Meow 2" ID="{5963777C-5D0B-4364-AEED-2ECC9B5DB4D0}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cat_Meow_3" ID="{E4FBDECF-11BA-41DB-826E-7428B1CFB99D}">
+					<ChildrenList>
+						<Action Name="" ID="{BDEE2C0E-B814-459F-9D0E-6C3FEAC30B81}" ShortID="24621418">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cat Death" ID="{F3F399DD-C47D-4B65-9166-64C1F94EB893}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cardboard_Box_Fall_1" ID="{7D80CEA1-E19B-4153-84DE-81749BBAC29B}">
+					<ChildrenList>
+						<Action Name="" ID="{9A0A6744-A6D5-4142-A036-EB6299D6A97C}" ShortID="230582168">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cardboard Box Fall 1" ID="{E09B9B1C-423E-4D8C-947E-616ADD2A4C91}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cardboard_Box_Fall_2" ID="{92C07529-DDC1-40AE-AB73-4A97103F8D6C}">
+					<ChildrenList>
+						<Action Name="" ID="{79D27C63-B4DE-4368-A611-566A73124750}" ShortID="1023498089">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cardboard Box Fall 2" ID="{5B36D590-0BAC-42E4-9519-8BFE15C17040}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cardboard_Box_Fall_3" ID="{FE818602-0F63-46BE-8748-322359E34789}">
+					<ChildrenList>
+						<Action Name="" ID="{F5797635-21BD-4E76-93C7-E6A80769B172}" ShortID="685633353">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cardboard Box Fall 3" ID="{866548FF-B0E9-4322-BD3C-5CF6E267B2BC}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cardboard_Box_Hit" ID="{808D1FE7-F96C-410A-B8F6-7AC602B6462F}">
+					<ChildrenList>
+						<Action Name="" ID="{B844D73E-FDFB-46ED-90EE-A2B33F3AB9C1}" ShortID="108075860">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cardboard Box Hit" ID="{E6FD6D33-CC61-4B93-A88B-1A71028559E4}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cat_Hurt" ID="{ACA9CD7D-151B-4223-8ED1-1CDB0CF385FB}">
+					<ChildrenList>
+						<Action Name="" ID="{59D5F6B4-DCAF-4DD9-A42F-CFACEF8D8722}" ShortID="974245024">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cat Hurt" ID="{3F849D9D-AB60-4BEE-BFA8-60AC98F50094}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cat_Death" ID="{0D3813FD-18CD-4356-B5BF-9924A7D33ABB}">
+					<ChildrenList>
+						<Action Name="" ID="{CE186089-E2C0-4D49-AFCB-BAED31ACB0F9}" ShortID="633856818">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cat Death" ID="{F3F399DD-C47D-4B65-9166-64C1F94EB893}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cat_Swipe" ID="{FC8EA5DD-8CE0-4FED-854E-9550F27CF5E0}">
+					<ChildrenList>
+						<Action Name="" ID="{8DC5E8C6-EF73-452F-8177-7BD5130D85B3}" ShortID="38704994">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cat Swipe" ID="{73461085-2949-4F5A-887B-C8990F4334B8}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Pirate_Dead" ID="{88A8DBE7-4A13-4D84-A655-137BC7CC60F9}">
+					<ChildrenList>
+						<Action Name="" ID="{4624772A-7169-414B-A42E-FD4E55B7889C}" ShortID="986659381">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pirate Dead" ID="{E89EA728-E89E-4BE0-9228-509577BF47C4}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
