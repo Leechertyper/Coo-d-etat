@@ -208,6 +208,7 @@ public class Floor : MonoBehaviour
         currentFloorType = _rooms[0][0].floorType;
         currentRoom = new Vector2Int(0, 0);
         changeTheme();
+        changeFloor()
         var endRoom = Instantiate(endRooms[roomNum],transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
             endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
@@ -273,7 +274,6 @@ public class Floor : MonoBehaviour
         _camController.MoveRight();
         currentRoom += new Vector2Int(0, 1);
         currentRoomType = _rooms[currentRoom.x][currentRoom.y].roomType;
-        changeFloor();
         changeTheme();
         Debug.Log(currentRoom);
         Debug.Log(currentRoomType);
