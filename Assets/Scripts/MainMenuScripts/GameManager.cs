@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     //this is for now until next level implimented
     private bool _died = false;
 
+    public bool inGame = false;
+
     void Awake()
     {
         if (Instance == null) // If there is no instance already
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour
         roomNum = 1;
         allRooms = null;
         allDroneEnemies = null;
+        inGame = true;
 
         theBoss = null;
 
@@ -190,6 +193,7 @@ public class GameManager : MonoBehaviour
         AkSoundEngine.SetRTPCValue("Dead_Mute", 0);
         AkSoundEngine.SetState("PlayerLife", "Defeated");
         _died = true;
+        inGame = false;
         if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance)
         {
             StartBalanceMenu();
@@ -204,6 +208,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextFloor(){
 
+        inGame = false;
         Debug.Log("GameManagerScript: GoToNextFloor() called");
         if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance && !_hasBalanced)
         {

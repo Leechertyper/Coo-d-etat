@@ -58,6 +58,7 @@ public class Floor : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.inGame = true;
         _camController = Camera.main.GetComponent<CameraController>();
         _floorXDimension = 3;
         _floorYDimension = 3;

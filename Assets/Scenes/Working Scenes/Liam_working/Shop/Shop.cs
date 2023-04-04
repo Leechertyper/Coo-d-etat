@@ -21,17 +21,7 @@ public class Shop : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            if(shopUI.activeSelf)
-            {
-                CloseShop();
-            }
-            else
-            {
-                OpenShop();
-            }
-        }
+
     }
 
     /* 
@@ -109,6 +99,7 @@ public class Shop : MonoBehaviour
     {
         shopUI.SetActive(false);
         Time.timeScale = 1f;
+        GameManager.Instance.inGame = true;
     }
 
     /*
@@ -124,6 +115,7 @@ public class Shop : MonoBehaviour
     */
     public void OpenShop()
     {
+        GameManager.Instance.inGame = false;
         shopUI.SetActive(true);
         Time.timeScale = 0f;
         DisplayPlayerBalance();

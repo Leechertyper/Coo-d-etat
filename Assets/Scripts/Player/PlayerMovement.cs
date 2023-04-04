@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", _movement.x);
         animator.SetFloat("Vertical", _movement.y);
         animator.SetFloat("Speed", _movement.sqrMagnitude);*/
-        if (!(SceneManager.GetActiveScene().name == "Loading"))
+        if (GameManager.Instance.inGame && !(SceneManager.GetActiveScene().name == "Loading"))
         {
             if (!isMoving) // Make sure Player isn't moving
             {
@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!(SceneManager.GetActiveScene().name == "Loading"))
+        if (GameManager.Instance.inGame && !(SceneManager.GetActiveScene().name == "Loading"))
         {
             if (isMoving)
             {
