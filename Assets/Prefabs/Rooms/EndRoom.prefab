@@ -235,6 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 0
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &903831471531210990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,7 +1518,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1734,6 +1736,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPos: 0
   locked: 0
+  lockedDoorTilemap: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &4153089967202422179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2692,7 +2696,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2962,9 +2966,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbdf3de683778047ac41f4681fd4dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-    boss: {fileID: 9013856346919404373}
-    enemies: []
+  topWallPiece: {fileID: 0}
+  topDoorCollider: {fileID: 0}
+  bottomWallPiece: {fileID: 0}
+  bottomDoorCollider: {fileID: 0}
+  rightWallPiece: {fileID: 0}
+  rightDoorCollider: {fileID: 0}
+  leftWallPiece: {fileID: 0}
+  leftDoorCollider: {fileID: 0}
+  chargerRoomSprite: {fileID: 0}
+  keyRoomSprite: {fileID: 0}
+  bossRoomSprite: {fileID: 0}
+  topDoor: {fileID: 0}
+  bottomDoor: {fileID: 0}
+  leftDoor: {fileID: 0}
+  rightDoor: {fileID: 0}
+  roomHasBeenInitialized: 0
 --- !u!61 &-6025307198314945107
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3280,17 +3297,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be9b5e9e5ebce89449cf15ab9bfc930f, type: 3}
---- !u!114 &9013856346919404373 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9013856346733877419, guid: be9b5e9e5ebce89449cf15ab9bfc930f, type: 3}
-  m_PrefabInstance: {fileID: 233905150}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b78f65c1a32850f479750a87b52b2565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &9013856347204615031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9013856346985390217, guid: be9b5e9e5ebce89449cf15ab9bfc930f, type: 3}
