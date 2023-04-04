@@ -43,9 +43,12 @@ public class Score : MonoBehaviour
 
     public void UpdateScoreText(int amount)
     {
-        scoreText.text = "Score: " + _score;
-        scoreIncrease.text = " +" + amount;
-        _startTimer = true;
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + _score;
+            scoreIncrease.text = " +" + amount;
+            _startTimer = true;
+        }        
     }
 
     public static Score GetInstance()

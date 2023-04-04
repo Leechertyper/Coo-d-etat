@@ -276,6 +276,7 @@ public class GameManager : MonoBehaviour
         if(_died)
         {
             _died = false;
+            Destroy(GameObject.Find("Player"));
             if (GameObject.Find("ScoreManager").GetComponent<Score>() != null && Score.GetInstance().IsLocalHighScore())
             {
                 SceneManager.LoadScene("HighScores");

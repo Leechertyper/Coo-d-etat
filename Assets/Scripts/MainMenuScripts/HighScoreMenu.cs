@@ -50,10 +50,11 @@ public class HighScoreMenu : MonoBehaviour
 
     public void SubmitClick()
     {
-        Score.GetInstance().AddHighScore(inputField.text);
+        var name = inputField.text.ToUpper();
+        Score.GetInstance().AddHighScore(name);
         if (dbInstance.GetHostFound())
         {
-            dbInstance.SubmitHighScore(inputField.text, Score.GetInstance().GetScore());
+            dbInstance.SubmitHighScore(name, Score.GetInstance().GetScore());
         }        
         LoadLocalScoresText();
         LoadGlobalScoresText();

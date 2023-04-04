@@ -33,6 +33,11 @@ public class MainMenu : MonoBehaviour
             DataBaseButton.GetComponentInChildren<Text>().text = "Enable Balance DataBase";
         }
 
+        // Destroy Player if exists
+        if (GameObject.Find("Player") != null)
+        {
+            Destroy(GameObject.Find("Player"));
+        }
     }
 
     /*
