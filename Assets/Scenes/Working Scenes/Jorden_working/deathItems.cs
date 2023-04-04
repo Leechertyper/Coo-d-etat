@@ -25,6 +25,8 @@ public class deathItems : MonoBehaviour
     private int _totalItems = 2;
 
     private static deathItems _instance;
+
+    private GameObject _player;
     void Start()
     {
         if(_instance == null)
@@ -36,6 +38,8 @@ public class deathItems : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        _player = GameObject.Find("Player");
     }
 
     void Update()
@@ -50,18 +54,23 @@ public class deathItems : MonoBehaviour
     // I would like to make a check to see which one is lower then give that item, but only if time allows 
     public void SpawnItem(Vector3 thePlace)
     {
+        
+        //Debug.Log(_player.GetComponent<Player>().GetHealth() == _player.GetComponent<Player>().GetMaxHealth());
+        bool isFullHealth = _player.GetComponent<Player>().GetHealth() == _player.GetComponent<Player>().GetMaxHealth();
+
+        thePlace = new Vector3(thePlace.x,thePlace.y,-1);
        // Debug.Log("CHECKING IF SPAWN ITEM");
        // Debug.Log("Battery"+_timeSinceLastBattery +"Health"+ _timeSinceLastHealth);
         if(_timeSinceLastBattery >= _batteryTime) // Spawn battery if timer is up
         {   
-            thePlace = new Vector3(thePlace.x,thePlace.y,-1);
+            
             Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
             _timeSinceLastBattery = 1;
             _timeSinceLastHealth ++;
         }
-        else if(_timeSinceLastHealth >= _healthTime) // Spawn health if timer is up
-        {
-            thePlace = new Vector3(thePlace.x,thePlace.y,-1);
+        else if(_timeSinceLastHealth >= _healthTime && !isFullHealth) // Spawn health if timer is up, and player has less than max health
+        {   
+            
             Instantiate(healthItem, thePlace,Quaternion.identity);
             _timeSinceLastHealth = 1;
             _timeSinceLastBattery ++;
@@ -78,8 +87,18 @@ public class deathItems : MonoBehaviour
             }
             else if(temp <= _itemSpawnChance)
             {
-                Instantiate(healthItem, thePlace,Quaternion.identity);
-                _timeSinceLastHealth = 1;
+                if(isFullHealth)
+                {   
+                    Debug.Log("SPAWNING BATTERY when full health");
+                    Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
+                    _timeSinceLastBattery = 1;
+                }
+                else
+                {
+                    Instantiate(healthItem, thePlace,Quaternion.identity);
+                    _timeSinceLastHealth = 1;
+                }
+
             }
             else
             {
@@ -94,14 +113,16 @@ public class deathItems : MonoBehaviour
 
     } 
 
+
+    
+
     //For use with the boss's packages
     //This has been changed to also spawn health, don't want to change the name because it's used in other scripts
     public void JustSpawnBattery(Vector3 thePlace)
     {
-        thePlace = new Vector3(thePlace.x,thePlace.y,-1);
-        //Debug.Log(thePlace.ToString());
+        bool isFullHealth = _player.GetComponent<Player>().GetHealth() == _player.GetComponent<Player>().GetMaxHealth();
 
-        //GameObject temp = Instantiate(batteryItem,thePlace,Quaternion.Euler(0,0,-90));
+        thePlace = new Vector3(thePlace.x,thePlace.y,-1);
 
         int thisSpawnChance = 0;
 
@@ -118,14 +139,23 @@ public class deathItems : MonoBehaviour
         {
             if(Random.Range(0,4)==3 && !_bossGarlicLastSpawn)
             {
-                Instantiate(healthItem, thePlace,Quaternion.identity);
-                _bossGarlicLastSpawn = true;
+                if(isFullHealth)
+                {
+                    Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
+                    _bossGarlicLastSpawn = false;
+                }
+                else
+                {
+                    Instantiate(healthItem, thePlace,Quaternion.identity);
+                    _bossGarlicLastSpawn = true;
+                }
+
             }
             else
             {
                 Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
                 _bossGarlicLastSpawn = false;
-                Debug.Log("SPAWNED BATTERY");
+                //Debug.Log("SPAWNED BATTERY");
             }
 
         }

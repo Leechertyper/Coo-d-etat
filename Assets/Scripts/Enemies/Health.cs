@@ -10,11 +10,13 @@ public class Health : MonoBehaviour
     public Color hurtColor;
     public GameObject[] deathEffects;
 
-    public GameObject theDeathItems;
+    private GameObject theDeathItems;
     private void Start()
     {
         maxHealth = Mathf.RoundToInt(GetComponent<Enemy>().GetHealthVariable());
         health = maxHealth;
+        theDeathItems = GameObject.Find("DeathItems");
+
     }
 
     /// <summary>
