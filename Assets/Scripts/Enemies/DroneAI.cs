@@ -23,6 +23,7 @@ public class DroneAI : Enemy
     private Transform _target;
     private state _myState;
     private bool _awake;
+    private bool _dead = false;
     enum state {Chase, Pause};
 
     private bool _isSleeping;
@@ -36,8 +37,6 @@ public class DroneAI : Enemy
         _target = GameObject.FindGameObjectWithTag("Player").transform;
         _slowFire = TimedShoot(BalanceVariables.droneEnemy["slowShotCD"]);
         _fastFire = TimedShoot(BalanceVariables.droneEnemy["fastShotCD"]);
-        
-        BalanceVariables.seenDictionaries["droneEnemy"] = true;
     }
 
     // Update is called once per frame
@@ -99,11 +98,11 @@ public class DroneAI : Enemy
         {
             Vector3 direction = (_target.position - transform.position).normalized;
             angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-            if(direction.y >= 0.2)
+            if(direction.y >= 0.4)
             {
                 animator.SetBool("IsSide", true);
             }
-            else if (direction.y <= -0.2)
+            else if (direction.y <= -0.4)
             {
                 animator.SetBool("IsSide", true);
             }
@@ -144,7 +143,12 @@ public class DroneAI : Enemy
     /// </summary>
     public override void Die()
     {
-        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
+        if(_dead == false)
+        {
+            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
+            BalanceVariables.seenDictionaries["droneEnemy"] = true;
+            _dead = true;
+        }
         _rb.velocity = Vector2.zero;
         StopAllCoroutines();
         //AkSoundEngine.PostEvent("Play_Robot_Ouch", this.gameObject);

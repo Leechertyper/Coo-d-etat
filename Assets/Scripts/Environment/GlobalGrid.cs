@@ -100,10 +100,15 @@ public class GlobalGrid : MonoBehaviour
 
     [SerializeField] GameObject testTile;
 
+    public List<int> GetStartCenter()
+    {
+        return _roomCenters[0];
+    } 
 
 
     // Start is called before the first frame update
-    void Start()
+
+    void theGrid()
     {
         // calculating the total size of the grid
         // start with the amount of rooms and the size of each one
@@ -295,6 +300,23 @@ public class GlobalGrid : MonoBehaviour
     }
 
 
+    public static GlobalGrid Instance;
+    void Start()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        this.theGrid();
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -371,64 +393,19 @@ public class GlobalGrid : MonoBehaviour
     }
 
 
-    public bool TileOpen(Vector2Int destination)
-    {
-        // check the destination tile
-        if (_grid[destination.x, destination.y].blocked | _grid[destination.x, destination.y].door)
-        {
-            return false;
-        }
-        // if it is not blocked
-        else
-        {
-            return true;
-        }
-    }
-
-
-    public Vector2Int GetTileFromPos(Vector3 pos)
-    {
-        float bestDis = 10000;
-        Vector2Int gridPos = new Vector2Int(0, 0);
-        //Vector2 worldPos = new Vector2(0, 0);
-        for (int x = 0; x < _size.x; x++)
-        {
-            for (int y = 0; y < _size.y; y++)
-            {
-                if (Vector2.Distance(_grid[x, y].position, pos) < bestDis)
-                {
-                    bestDis = Vector2.Distance(_grid[x, y].position, pos);
-                    //worldPos = _grid[x, y].position;
-                    gridPos = new Vector2Int(x, y);
-                }
-            }
-        }
-        return gridPos;
-    }
-
-
     public Vector2 TileLocation(Vector3 currentPosition, Vector2Int destination)
     {
-        if (destination.x > 0 & destination.y > 0)
+        // check the destination tile
+        if (!_grid[destination.x, destination.y].blocked)
         {
-            // check the destination tile
-            if (!_grid[destination.x, destination.y].blocked )
-            {
-                return _grid[destination.x, destination.y].position;
-            }
-            // if its blocked
-            else
-            {
-                // just return where they started
-                return currentPosition;
-            }
+            return _grid[destination.x, destination.y].position;
         }
+        // if its blocked
         else
         {
-            Debug.Log("DOG move ERROR");
+            // just return where they started
             return currentPosition;
         }
-
     }
 
     public Vector2 GetTile(Vector3 pos, out Vector2Int gridPos)
@@ -494,6 +471,42 @@ public class GlobalGrid : MonoBehaviour
         int randomNum = Random.Range(0, freeTiles.Count);
         GameObject newItem = Instantiate(item);
         newItem.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
+    }
+
+
+
+    //I (Jorden) based this function on the one above it, someone please check it over and make sure its okay
+    public void PlaceInteractableObjectinRoom(List<GameObject> interactableObject, int roomIndex, int itemNum)
+    {
+        // grab the room being checked
+        List<int> room = _roomCenters[roomIndex];
+        // grab the center coordinatess
+        Vector2Int roomCoordinates = new Vector2Int(room[0], room[1]);
+     
+        List<Vector2Int> freeTiles = new List<Vector2Int>();
+        //Debug.Log(roomCoordinates.ToString());
+        
+       for(int i = roomCoordinates.x - (Mathf.FloorToInt(roomSize.x/2) - 1); i < roomCoordinates.x + (Mathf.FloorToInt(roomSize.x / 2) - 1); i++)
+        {
+            for(int j = roomCoordinates.y - (Mathf.FloorToInt(roomSize.y/2) - 1); j < roomCoordinates.y + (Mathf.FloorToInt(roomSize.y / 2) - 1); j++)
+            {
+                if(!_grid[i, j].door)
+                {
+                    freeTiles.Add(new Vector2Int(i, j));
+                }
+            }
+   
+        }
+        
+        //Debug.Log("Currenbly items of"+itemNum+"are being placed");
+
+        for(int i = 0; i < itemNum; i++){
+            int randomNum = Random.Range(0, freeTiles.Count);
+            GameObject newInteractableObject = Instantiate(interactableObject[i]);
+
+            newInteractableObject.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
+            newInteractableObject.transform.position = new Vector3(newInteractableObject.transform.position.x, newInteractableObject.transform.position.y, -1);
+        }
     }
 
     /// <summary>

@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool gameIsPaused;
+    public bool gameIsPaused = false;
     public GameObject pauseMenuUI;
+    
+    public GameObject DataBaseButton;
 
     // Update is called once per frame
     void Update()
@@ -29,13 +31,13 @@ public class PauseMenu : MonoBehaviour
     */
     public void Resume()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().LoadControls(); // Load Player Controls
         AkSoundEngine.PostEvent("Play_Unpause_SFX", this.gameObject);
         AkSoundEngine.SetRTPCValue("Dead_Mute", 100);
         AkSoundEngine.SetRTPCValue("Game_Is_Paused", 0);
         Time.timeScale = 1.0f;
         gameIsPaused = false;
-        pauseMenuUI.SetActive(false);
-        
+        pauseMenuUI.SetActive(false);        
     }
 
     /*
