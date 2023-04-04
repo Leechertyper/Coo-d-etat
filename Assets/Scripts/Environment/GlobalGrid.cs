@@ -532,4 +532,38 @@ public class GlobalGrid : MonoBehaviour
         GameObject newEnemy = Instantiate(boss);
         newEnemy.transform.position = _grid[room[0], room[1]].position;
     }
+
+    public bool TileOpen(Vector2Int destination)
+    {
+        // check the destination tile
+        if (_grid[destination.x, destination.y].blocked | _grid[destination.x, destination.y].door)
+        {
+            return false;
+        }
+        // if it is not blocked
+        else
+        {
+            return true;
+        }
+    }
+
+    public Vector2Int GetTileFromPos(Vector3 pos)
+    {
+        float bestDis = 10000;
+        Vector2Int gridPos = new Vector2Int(0, 0);
+        //Vector2 worldPos = new Vector2(0, 0);
+        for (int x = 0; x < _size.x; x++)
+        {
+            for (int y = 0; y < _size.y; y++)
+            {
+                if (Vector2.Distance(_grid[x, y].position, pos) < bestDis)
+                {
+                    bestDis = Vector2.Distance(_grid[x, y].position, pos);
+                    //worldPos = _grid[x, y].position;
+                    gridPos = new Vector2Int(x, y);
+                }
+            }
+        }
+        return gridPos;
+    }
 }
