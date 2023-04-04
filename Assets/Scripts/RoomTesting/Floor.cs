@@ -208,7 +208,7 @@ public class Floor : MonoBehaviour
         currentFloorType = _rooms[0][0].floorType;
         currentRoom = new Vector2Int(0, 0);
         changeTheme();
-        changeFloor()
+        changeFloor();
         var endRoom = Instantiate(endRooms[roomNum],transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
             endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
