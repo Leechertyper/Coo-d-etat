@@ -11,6 +11,7 @@ public class HighScoreMenu : MonoBehaviour
     public Text[] localScoreFields;
     public Text[] globalNameFields;
     public Text[] globalScoreFields;
+    public Text scoreText;
 
     public List<(string name, int score)> localHighScores;
     public InputField inputField;
@@ -38,6 +39,12 @@ public class HighScoreMenu : MonoBehaviour
         if (Score.GetInstance() == null || !Score.GetInstance().IsLocalHighScore())
         {
             GameObject.Find("NameInputBox").SetActive(false);
+        }
+
+        if (Score.GetInstance() != null)
+        {
+            int score = Score.GetInstance().GetScore();
+            scoreText.text = "Score: " + score;
         }        
     }    
 
@@ -56,7 +63,7 @@ public class HighScoreMenu : MonoBehaviour
     private void LoadLocalScoresText()
     {
         string localHighScoresJson = PlayerPrefs.GetString("HighScores");
-        Debug.Log(localHighScoresJson);
+
         if (!string.IsNullOrEmpty(localHighScoresJson) && localHighScoresJson != "null")
         {
             localHighScores = JsonConvert.DeserializeObject<List<(string, int)>>(localHighScoresJson);
@@ -124,9 +131,7 @@ public class HighScoreMenu : MonoBehaviour
         if (Score.GetInstance() != null)
         {
             Score.GetInstance().ResetScore();
-            Score.GetInstance().UpdateScoreText(0);
-            Score.GetInstance().scoreText.text = "";
-            Score.GetInstance().scoreIncrease.text = "";
+            /*Score.GetInstance().UpdateScoreText(0);*/
         }        
         if (player != null)
         {
