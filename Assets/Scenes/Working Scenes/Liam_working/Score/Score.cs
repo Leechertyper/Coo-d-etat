@@ -91,6 +91,7 @@ public class Score : MonoBehaviour
     public bool IsLocalHighScore()
     {
         LoadHighScores();
+        
         for (int i = 0; i < highScores.Count; i++)
         {
             if (_score > highScores[i].Item2)
@@ -132,7 +133,7 @@ public class Score : MonoBehaviour
     {
         string highScoresJson = PlayerPrefs.GetString("HighScores");
 
-        if (!string.IsNullOrEmpty(highScoresJson))
+        if (!string.IsNullOrEmpty(highScoresJson) && highScoresJson != "null")
         {
             highScores = JsonConvert.DeserializeObject<List<(string, int)>>(highScoresJson);
         }
