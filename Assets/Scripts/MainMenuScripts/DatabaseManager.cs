@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using UnityEngine;
 using System.Net;
 
+
 using System.Net.Sockets;
 public class DatabaseManager : MonoBehaviour
 {
@@ -48,10 +49,12 @@ public class DatabaseManager : MonoBehaviour
         {
             int x = System.Net.Dns.GetHostAddresses(Host).Length;
             _hostFound = true;
+             Debug.Log("Host found");
         }
         catch (SocketException exception)
         {
             _hostFound = false;
+             Debug.Log("Host not found");
         }
     }
 
@@ -115,7 +118,7 @@ public class DatabaseManager : MonoBehaviour
     *@return:None
     *@Post:Database is updated with a new value
     ***/
-    public void UpdateValue(string variable, float value)
+    public void UpdateSteps(string variable, float value)
     {
          MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
         builder.Server = Host;
@@ -127,26 +130,26 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-                string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `value` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
-                
+                string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `steps` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
+                //Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();
             }
         }
         catch (MySqlException exception)
         {   
-            print("Error updating value");
-            print(exception.Message);
+            Debug.Log("Error updating value");
+            Debug.Log(exception.Message);
         }
         
     }
     /***
-    *Retrieves a value from the database using a string
+    *Retrieves steps from the database using a string
     *@param: string variable - the Name of the variable from the database
-    *@return: float - value associated with the variable
+    *@return: float - steps - the steps taken from zero for climbing up a sigmoid function
     *@Post:None
     ***/
-    public float GetValue(string variable)
+    public float GetSteps(string variable)
     {
         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
         builder.Server = Host;
@@ -160,8 +163,8 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-                string sql = "SELECT value FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
-                Debug.Log(sql);
+                string sql = "SELECT steps FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
+                //Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 result = cmd.ExecuteScalar();
             }
@@ -175,7 +178,7 @@ public class DatabaseManager : MonoBehaviour
         if (result != null)
         {
             float r = Convert.ToSingle(result);
-            Debug.Log("Got " + r + " from GetValue");
+            //Debug.Log("Got " + r + " from GetSteps");
             return r;
         }
         else
@@ -291,18 +294,18 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-                string query = "SELECT COUNT(*) FROM `coo_d_etat`.`Highscores` WHERE (`name` = '" + name + "');";
+                string query = "SELECT COUNT(*) FROM `coo_d_etat`.`Highscores` WHERE ('name' = " + name+");";
                 MySqlCommand queryCMD = new MySqlCommand(query, connection);
                 object queryResult = queryCMD.ExecuteScalar();
                 int r = Convert.ToInt32(queryResult);
                 string sql = "";
-                if (r > 0)
+                if(r > 0)
                 {
-                    sql = "UPDATE `coo_d_etat`.`Highscores` SET `score` = '" + score + "' WHERE (`name` = '" + name + "');";
+                    sql = "UPDATE `coo_d_etat`.`Highscores` SET `score` = '"+score+"' WHERE (`name` = '"+name+"');";
                 }
                 else
                 {
-                    sql = "INSERT INTO `coo_d_etat`.`Highscores` (`name`, `score`) VALUES ('" + name + "', '" + score + "');";
+                    sql = "INSERT INTO `coo_d_etat`.`Highscores` (`name`, `score`) VALUES ('"+name+"', '"+score+"');"; 
                 }
                 //Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
