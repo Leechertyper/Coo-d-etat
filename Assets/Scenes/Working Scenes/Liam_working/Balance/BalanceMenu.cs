@@ -117,6 +117,7 @@ public class BalanceMenu : MonoBehaviour
             {
                 GameObject newButton = Instantiate(categoryPrefab, buttonContent.transform);
                 newButton.transform.Find("Desc").GetComponent<Text>().text = item;
+                newButton.transform.Find("Art").GetComponent<animationScript>().ChangeNameofCardSprite(item);
                 newButton.GetComponent<Button>().onClick.AddListener(() => DisplaySpecificDictButtons(item)); 
             }
         }

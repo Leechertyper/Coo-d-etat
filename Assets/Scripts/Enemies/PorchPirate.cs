@@ -16,6 +16,7 @@ public class PorchPirate : Enemy
     private bool _attackOnCooldown = false;
     private bool _altDirAttack = false;
     private bool _sleeping = false;
+    private bool _dead = false;
 
 
     // Start is called before the first frame update
@@ -142,7 +143,11 @@ public class PorchPirate : Enemy
     {
         // Death sound here
         AkSoundEngine.PostEvent("Play_Pirate_Dead", this.gameObject);
-        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
+        if(_dead==false)
+        {
+            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
+            _dead = true;
+        }
         Destroy(gameObject);
     }
 
