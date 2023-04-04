@@ -66,6 +66,15 @@ public class BalanceVariables : MonoBehaviour
         
     };
 
+    public static Dictionary<string, float> pirateEnemy = new Dictionary<string, float>()
+    {
+        // not implemented
+        {"attackDamage",10f},
+        {"moveSpeed",0.5f},
+        {"maxHealth",10},
+
+    };
+
     public static Dictionary<string,float> collectables = new Dictionary<string,float>()
     {
         //not sure where to find this

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9917e3f7c41d8c4c9c55b5c6ec5b551
+guid: 2fe32192a7a47b440a633b5c5a20e807
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,206 +113,152 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: energybank_0
+      name: Mail_Box_Side_0
       rect:
         serializedVersion: 2
-        x: 249
-        y: 4324
-        width: 582
-        height: 1287
+        x: 753
+        y: 1175
+        width: 448
+        height: 593
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 619965536e0147047afea603d9bcaa97
-      internalID: 1016479278
+      spriteID: 7a2b3ca711f13ab44bb7e8622d4fbad7
+      internalID: -2092326004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energybank_1
+      name: Mail_Box_Side_1
       rect:
         serializedVersion: 2
-        x: 1329
-        y: 4324
-        width: 582
-        height: 1286
+        x: 2668
+        y: 1194
+        width: 495
+        height: 571
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6223f4bc6fc86034c881bf5a7fb12876
-      internalID: 1829467091
+      spriteID: b77b73ab1ee8dec41aa941fccb2b01e4
+      internalID: 1733537543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energybank_2
+      name: Mail_Box_Side_5
       rect:
         serializedVersion: 2
-        x: 2409
-        y: 4324
-        width: 582
-        height: 1286
+        x: 2698
+        y: 126
+        width: 611
+        height: 221
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dfa036df0f01f14a998ec4a27624052
-      internalID: -1714127670
+      spriteID: 2e0123e3f8c46d24d9d9c53812a6d4ec
+      internalID: -497679011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energybank_3
+      name: Mail_Box_Side_4
       rect:
         serializedVersion: 2
-        x: 249
-        y: 2406
-        width: 582
-        height: 1285
+        x: 744
+        y: 79
+        width: 597
+        height: 422
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b1d40e05a6f5a041a7ddc85d70a5a50
-      internalID: 201406437
+      spriteID: 540852c55e8eb32438933b69918ae22a
+      internalID: 582453426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energybank_4
+      name: Mail_Box_Side_2
       rect:
         serializedVersion: 2
-        x: 1329
-        y: 2406
-        width: 582
-        height: 1285
+        x: 4635
+        y: 1198
+        width: 405
+        height: 540
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ac343ab21863ff4a8c0166baba52510
-      internalID: 677723523
+      spriteID: c592f0a870032d7408be1a0856f9033e
+      internalID: 1825071366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energybank_5
+      name: Mail_Box_Side_6
       rect:
         serializedVersion: 2
-        x: 2409
-        y: 2406
-        width: 582
-        height: 1285
+        x: 4657
+        y: 117
+        width: 585
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0189fd2b4c5510540a139e62c93e5b2a
-      internalID: -1158448952
+      spriteID: 2c80488ae136d1f498c229eec2a92812
+      internalID: -557169163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energybank_6
+      name: Mail_Box_Side_3
       rect:
         serializedVersion: 2
-        x: 249
-        y: 485
-        width: 582
-        height: 1285
+        x: 6534
+        y: 1198
+        width: 585
+        height: 508
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e24b8f1288b9ee45b6a8df1be56fa82
-      internalID: -45958795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: energybank_7
-      rect:
-        serializedVersion: 2
-        x: 1329
-        y: 485
-        width: 582
-        height: 1285
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5284468fe6fe9e140968aef9b4b8ec3a
-      internalID: 320871804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: energybank_8
-      rect:
-        serializedVersion: 2
-        x: 2409
-        y: 485
-        width: 582
-        height: 1285
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34f5efc19de73774d81b57603c03d428
-      internalID: 1186077420
+      spriteID: 2425b124898afec419930261a8fa565a
+      internalID: 490054341
       vertices: []
       indices: 
       edges: []
@@ -328,15 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      energybank_4: 677723523
-      energybank_1: 1829467091
-      energybank_3: 201406437
-      energybank_7: 320871804
-      energybank_6: -45958795
-      energybank_0: 1016479278
-      energybank_2: -1714127670
-      energybank_8: 1186077420
-      energybank_5: -1158448952
+      Mail_Box_Side_6: -557169163
+      Mail_Box_Side_3: 490054341
+      Mail_Box_Side_2: 1825071366
+      Mail_Box_Side_1: 1733537543
+      Mail_Box_Side_4: 582453426
+      Mail_Box_Side_5: -497679011
+      Mail_Box_Side_0: -2092326004
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

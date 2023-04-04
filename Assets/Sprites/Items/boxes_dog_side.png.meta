@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2fe32192a7a47b440a633b5c5a20e807
+guid: 99359f0dcaf643442b124a19eb316e22
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,164 +113,152 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mail_Box_Side_0
+      name: boxes_dog_side_0
       rect:
         serializedVersion: 2
-        x: 753
-        y: 1175
-        width: 448
-        height: 593
+        x: 692
+        y: 154
+        width: 525
+        height: 779
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a2b3ca711f13ab44bb7e8622d4fbad7
-      internalID: -2092326004
+      spriteID: a1ad9aba2ca9eb34d8dc84a2fe46ce65
+      internalID: 1284736086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_Side_1
+      name: boxes_dog_side_1
       rect:
         serializedVersion: 2
-        x: 2668
-        y: 1194
-        width: 495
-        height: 571
+        x: 2576
+        y: 154
+        width: 682
+        height: 779
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b77b73ab1ee8dec41aa941fccb2b01e4
-      internalID: 1733537543
+      spriteID: cd60a42771a474e428e26fb88bd15820
+      internalID: -1456892959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_Side_5
+      name: boxes_dog_side_2
       rect:
         serializedVersion: 2
-        x: 2698
-        y: 126
-        width: 611
-        height: 221
+        x: 4453
+        y: 147
+        width: 840
+        height: 766
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e0123e3f8c46d24d9d9c53812a6d4ec
-      internalID: -497679011
+      spriteID: 276aec4cbe3b5904b8d0202afbb84ed8
+      internalID: -448809519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_Side_4
+      name: boxes_dog_side_3
       rect:
         serializedVersion: 2
-        x: 744
-        y: 79
-        width: 597
-        height: 422
+        x: 6343
+        y: 141
+        width: 872
+        height: 758
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 540852c55e8eb32438933b69918ae22a
-      internalID: 582453426
+      spriteID: 26f659f01573c1e4ba2296ab8545691b
+      internalID: 811288812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_Side_2
+      name: boxes_dog_side_4
       rect:
         serializedVersion: 2
-        x: 4635
-        y: 1198
-        width: 405
-        height: 540
+        x: 8206
+        y: 134
+        width: 926
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c592f0a870032d7408be1a0856f9033e
-      internalID: 1825071366
+      spriteID: 3a299050887f5524681d166e1ae65ce0
+      internalID: 1778105184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_Side_6
+      name: boxes_dog_side_5
       rect:
         serializedVersion: 2
-        x: 4657
-        y: 117
-        width: 585
-        height: 154
+        x: 10083
+        y: 128
+        width: 1004
+        height: 654
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c80488ae136d1f498c229eec2a92812
-      internalID: -557169163
+      spriteID: 35ac1079316486943aff5611dbea9ff8
+      internalID: -981514570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mail_Box_Side_3
+      name: boxes_dog_side_6
       rect:
         serializedVersion: 2
-        x: 6534
-        y: 1198
-        width: 585
-        height: 508
+        x: 11981
+        y: 134
+        width: 1029
+        height: 609
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2425b124898afec419930261a8fa565a
-      internalID: 490054341
+      spriteID: 73dba7cf94b89844ebacaadc8208ac59
+      internalID: -1244425092
       vertices: []
       indices: 
       edges: []
@@ -286,13 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mail_Box_Side_6: -557169163
-      Mail_Box_Side_3: 490054341
-      Mail_Box_Side_2: 1825071366
-      Mail_Box_Side_1: 1733537543
-      Mail_Box_Side_4: 582453426
-      Mail_Box_Side_5: -497679011
-      Mail_Box_Side_0: -2092326004
+      boxes_dog_side_3: 811288812
+      boxes_dog_side_4: 1778105184
+      boxes_dog_side_1: -1456892959
+      boxes_dog_side_2: -448809519
+      boxes_dog_side_0: 1284736086
+      boxes_dog_side_6: -1244425092
+      boxes_dog_side_5: -981514570
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

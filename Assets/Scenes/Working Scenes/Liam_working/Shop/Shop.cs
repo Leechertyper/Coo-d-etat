@@ -192,6 +192,16 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void Clickybutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
+    }
+    
+    public void Hoverbutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_2", this.gameObject);
+    }
+
     /*
     * will save the shop items when the game is closed
     */

@@ -88,7 +88,7 @@ public class GlobalGrid : MonoBehaviour
     private GlobalTile[,] _grid;
 
     // the size of the grid
-    private Vector2Int _size;
+    public Vector2Int _size;
 
     // the center of the rooms
     private List<List<int>> _roomCenters = new List<List<int>>();

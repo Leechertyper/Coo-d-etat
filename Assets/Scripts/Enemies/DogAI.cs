@@ -20,6 +20,7 @@ public class DogAI : Enemy
     private bool _awake;
     private bool _moveUP = true;
     private bool _attackReady = true;
+    private bool _damage;
     enum state {Attact, PaceUp, PaceDown, Next, Wait}
 
 
@@ -133,7 +134,7 @@ public class DogAI : Enemy
         {
             if (_attackReady)
             {
-                collision.gameObject.GetComponent<Player>().TakeDamage(2);
+                collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.dogEnemy["attackDamage"]);
                 StopAllCoroutines();
                 transform.position = _grid.GetTile(transform.position);
                 animator.SetBool("IsRunning", false);
@@ -252,6 +253,11 @@ public class DogAI : Enemy
 
     public override void TakeDamage()
     {
+        AkSoundEngine.PostEvent("Play_Robot_Ouch", this.gameObject);
+    }
 
+    public override float GetHealthVariable()
+    {
+        return BalanceVariables.dogEnemy["maxHealth"];
     }
 }
