@@ -25,21 +25,6 @@
 						<Property Name="InitialValue" Type="Real64" Value="100"/>
 					</PropertyList>
 				</GameParameter>
-				<GameParameter Name="Master_Volume" ID="{4A51EA2B-CCDB-4823-A744-D930352DEC98}">
-					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="100"/>
-					</PropertyList>
-				</GameParameter>
-				<GameParameter Name="FX_Volume" ID="{3C68F952-87F8-4201-B230-9030598AA256}">
-					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="100"/>
-					</PropertyList>
-				</GameParameter>
-				<GameParameter Name="Music_Volume" ID="{179F318A-0D48-4B9C-897D-471D504A50DD}">
-					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="100"/>
-					</PropertyList>
-				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

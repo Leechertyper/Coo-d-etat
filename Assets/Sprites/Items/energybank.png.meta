@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1181b7cc3ce93bd448c1ae2c8fa1d004
+guid: f9917e3f7c41d8c4c9c55b5c6ec5b551
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,29 +113,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boxes_dog_front_0
+      name: energybank_0
       rect:
         serializedVersion: 2
-        x: 633
-        y: 160
-        width: 709
-        height: 714
+        x: 249
+        y: 4324
+        width: 582
+        height: 1287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb7cfdbd82c59f3469260e7d932aebd9
-      internalID: 72212761
+      spriteID: 619965536e0147047afea603d9bcaa97
+      internalID: 1016479278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_dog_front_1
+      name: energybank_1
       rect:
         serializedVersion: 2
-        x: 2543
-        y: 147
-        width: 682
-        height: 733
+        x: 1329
+        y: 4324
+        width: 582
+        height: 1286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f538c1449992d6141a8a3bb60cb01f46
-      internalID: 2114982855
+      spriteID: 6223f4bc6fc86034c881bf5a7fb12876
+      internalID: 1829467091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_dog_front_2
+      name: energybank_2
       rect:
         serializedVersion: 2
-        x: 4355
-        y: 147
-        width: 741
-        height: 753
+        x: 2409
+        y: 4324
+        width: 582
+        height: 1286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d579a06cbf60304d8a4a375638923a6
-      internalID: -2145091309
+      spriteID: 9dfa036df0f01f14a998ec4a27624052
+      internalID: -1714127670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_dog_front_3
+      name: energybank_3
       rect:
         serializedVersion: 2
-        x: 6271
-        y: 160
-        width: 747
-        height: 668
+        x: 249
+        y: 2406
+        width: 582
+        height: 1285
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 105dc5f8cb962ed44a602c11f75c4442
-      internalID: 535896954
+      spriteID: 8b1d40e05a6f5a041a7ddc85d70a5a50
+      internalID: 201406437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_dog_front_4
+      name: energybank_4
       rect:
         serializedVersion: 2
-        x: 8213
-        y: 147
-        width: 728
-        height: 628
+        x: 1329
+        y: 2406
+        width: 582
+        height: 1285
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87c3e9f21b9c53d4b8c15e3081e9008a
-      internalID: 1568364574
+      spriteID: 5ac343ab21863ff4a8c0166baba52510
+      internalID: 677723523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_dog_front_5
+      name: energybank_5
       rect:
         serializedVersion: 2
-        x: 10136
-        y: 75
-        width: 761
-        height: 648
+        x: 2409
+        y: 2406
+        width: 582
+        height: 1285
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d0c047e0fb92334aa25167645ca5bd2
-      internalID: -777253979
+      spriteID: 0189fd2b4c5510540a139e62c93e5b2a
+      internalID: -1158448952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boxes_dog_front_6
+      name: energybank_6
       rect:
         serializedVersion: 2
-        x: 12065
-        y: 0
-        width: 768
-        height: 767
+        x: 249
+        y: 485
+        width: 582
+        height: 1285
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,8 +257,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f08f363a15b5b26448151a8a9c788eda
-      internalID: 219907935
+      spriteID: 1e24b8f1288b9ee45b6a8df1be56fa82
+      internalID: -45958795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energybank_7
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 485
+        width: 582
+        height: 1285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5284468fe6fe9e140968aef9b4b8ec3a
+      internalID: 320871804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energybank_8
+      rect:
+        serializedVersion: 2
+        x: 2409
+        y: 485
+        width: 582
+        height: 1285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f5efc19de73774d81b57603c03d428
+      internalID: 1186077420
       vertices: []
       indices: 
       edges: []
@@ -286,13 +316,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      boxes_dog_front_1: 2114982855
-      boxes_dog_front_5: -777253979
-      boxes_dog_front_4: 1568364574
-      boxes_dog_front_2: -2145091309
-      boxes_dog_front_0: 72212761
-      boxes_dog_front_6: 219907935
-      boxes_dog_front_3: 535896954
+      energybank_4: 677723523
+      energybank_1: 1829467091
+      energybank_3: 201406437
+      energybank_7: 320871804
+      energybank_6: -45958795
+      energybank_0: 1016479278
+      energybank_2: -1714127670
+      energybank_8: 1186077420
+      energybank_5: -1158448952
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
