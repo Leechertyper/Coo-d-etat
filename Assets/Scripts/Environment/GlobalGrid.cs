@@ -486,16 +486,13 @@ public class GlobalGrid : MonoBehaviour
         List<Vector2Int> freeTiles = new List<Vector2Int>();
         //Debug.Log(roomCoordinates.ToString());
         
-       for(int i = roomCoordinates.x - (Mathf.FloorToInt(roomSize.x/2) - 1); i < roomCoordinates.x + (Mathf.FloorToInt(roomSize.x / 2) - 1); i++)
+        for (int i = roomCoordinates.x - (Mathf.FloorToInt(roomSize.x / 2) - 2); i < roomCoordinates.x + (Mathf.FloorToInt(roomSize.x / 2) - 2); i++)
         {
-            for(int j = roomCoordinates.y - (Mathf.FloorToInt(roomSize.y/2) - 1); j < roomCoordinates.y + (Mathf.FloorToInt(roomSize.y / 2) - 1); j++)
+            for(int j = roomCoordinates.y - (Mathf.FloorToInt(roomSize.y/2) - 2); j < roomCoordinates.y + (Mathf.FloorToInt(roomSize.y / 2) - 2); j++)
             {
-                if(!_grid[i, j].door)
-                {
-                    freeTiles.Add(new Vector2Int(i, j));
-                }
+                freeTiles.Add(new Vector2Int(i, j));
             }
-   
+
         }
         
         //Debug.Log("Currenbly items of"+itemNum+"are being placed");
