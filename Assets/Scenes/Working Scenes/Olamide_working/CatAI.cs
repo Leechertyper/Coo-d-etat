@@ -107,7 +107,7 @@ public class CatAI : Enemy
             if (_attackReady)
             {
                 AkSoundEngine.PostEvent("Play_Cat_Swipe", this.gameObject);
-                collision.gameObject.GetComponent<Player>().TakeDamage(2);
+                collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.catEnemy["attackDamage"]);
                 StartCoroutine(AttackCooldown(2));
             }
         }

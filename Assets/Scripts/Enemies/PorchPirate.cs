@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PorchPirate : Enemy
 {
-
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float damage = 20f;
+    public PirateHealth hp;
     [SerializeField] private GameObject projectile;
     private float currentHealth;
     private bool _attacking = false;
@@ -23,7 +21,6 @@ public class PorchPirate : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
         _grid = GameManager.Instance.Grid.GetComponent<GlobalGrid>();
         _player = GameManager.Instance.GetPlayerObject();
         _grid.GetTile(transform.position, out _gridPos);
@@ -111,11 +108,11 @@ public class PorchPirate : Enemy
         }
 
     }
-
+    
     public void TakeDamage(float damage)
     {
         // Damage sound here
-        AkSoundEngine.PostEvent("Play_Pigeon_Hurt", this.gameObject);
+        AkSoundEngine.PostEvent("Play_Pirate_Noise", this.gameObject);
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
@@ -132,14 +129,19 @@ public class PorchPirate : Enemy
         _attacking = true;
         GetComponent<Animator>().SetBool("Attack", true);
         StartCoroutine(AttackTimer());
+        StartCoroutine(BoxAttack());
     }
 
     /// <summary>
     /// Spawns a box at the current position that moves in the given direction
     /// </summary>
     /// <param name="dir">The direction the box should go</param>
-    private void SpawnBox(Vector2 dir)
+    private void SpawnBox(int dir)
     {
+        GameObject box = Instantiate(projectile);
+        box.transform.position = transform.position;
+        box.GetComponent<BoxLerp>().direction = dir;
+        box.GetComponent<BoxLerp>().boxType = 1;
 
     }
 
@@ -148,7 +150,8 @@ public class PorchPirate : Enemy
         // Death sound here
         AkSoundEngine.PostEvent("Play_Pirate_Dead", this.gameObject);
         GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
-        Destroy(gameObject);
+        StopAllCoroutines();
+        this.enabled = false;
     }
 
     public override void TakeDamage()
@@ -181,18 +184,22 @@ public class PorchPirate : Enemy
         if (_altDirAttack)
         {
             _altDirAttack = false;
-            SpawnBox(new Vector2(5, 5));
-            SpawnBox(new Vector2(-5, 5));
-            SpawnBox(new Vector2(-5, -5));
-            SpawnBox(new Vector2(5, -5));
+            SpawnBox(4);
+            SpawnBox(5);
+            SpawnBox(6);
+            SpawnBox(7);
         }
         else
         {
             _altDirAttack = true;
-            SpawnBox(new Vector2(10, 0));
-            SpawnBox(new Vector2(-10, 0));
-            SpawnBox(new Vector2(0, 10));
-            SpawnBox(new Vector2(0, -10));
+            SpawnBox(0);
+            SpawnBox(1);
+            SpawnBox(2);
+            SpawnBox(3);
+        }
+        if (_attacking)
+        {
+            StartCoroutine(BoxAttack());
         }
     }
 
@@ -229,8 +236,15 @@ public class PorchPirate : Enemy
         _attackOnCooldown = false;
     }
 
+<<<<<<< Updated upstream
     public override float GetHealthVariable()
     {
         return BalanceVariables.pirateEnemy["maxHealth"];
+=======
+    IEnumerator BoxAttack()
+    {
+        yield return new WaitForSeconds(1);
+        ThrowBoxes();
+>>>>>>> Stashed changes
     }
 }
