@@ -235,6 +235,6 @@ public class CatAI : Enemy
 
     public override void TakeDamage()
     {
-
+        AkSoundEngine.PostEvent("Play_Cat_Hurt", this.gameObject);
     }
 }

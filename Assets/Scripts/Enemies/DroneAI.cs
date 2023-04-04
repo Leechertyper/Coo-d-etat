@@ -154,7 +154,7 @@ public class DroneAI : Enemy
 
     public override void TakeDamage()
     {
-        
+        AkSoundEngine.PostEvent("Play_Robot_Ouch", this.gameObject);
     }
 
     public override void Awaken()
