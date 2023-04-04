@@ -60,47 +60,21 @@ public class Room : MonoBehaviour
 
     private void EnemiesAwake()
     {
-        List<Enemy> removalList = new List<Enemy>();
         if (_enemies == null) return;
         foreach (var enemy in _enemies)
         {
-            if (enemy == null)
-            {
-                removalList.Add(enemy);
-            }
-            else
-            {
-                enemy.Awaken();
-            }
+            enemy.Awaken();
         }
-        removeEnemies(removalList);
     }
     private void EnemiesSleep()
     {
-        List<Enemy> removalList = new List<Enemy>();
         if (_enemies == null) return;
         foreach (var enemy in _enemies)
         {
-            if(enemy == null)
-            {
-                removalList.Add(enemy);
-            }
-            else
-            {
-                enemy.Sleep();
-            }
+            enemy.Sleep();
         }
-        removeEnemies(removalList);
     }
     
-    private void removeEnemies(List<Enemy> removeList)
-    {
-        foreach(var enemy in removeList)
-        {
-            _enemies.Remove(enemy);
-        }
-    }
-
     public void SetRoomType(RoomType roomType)
     {
         this.roomType = roomType;

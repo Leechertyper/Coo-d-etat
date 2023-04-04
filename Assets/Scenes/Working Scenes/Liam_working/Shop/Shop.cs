@@ -34,9 +34,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    /* 
-    * Start is called before the first frame update will create the shop items and display them
-    */
+    // Start is called before the first frame update will create the shop items and display them
     void Start()
     {
         if (instance == null) {
@@ -57,9 +55,6 @@ public class Shop : MonoBehaviour
         DisplayItemButtons();
     }
 
-    /*
-    * This returns the damage multiplier
-    */
     public float GetDamageMultiplier()
     {
         foreach (ShopItem item in shopItemList)
@@ -72,9 +67,6 @@ public class Shop : MonoBehaviour
         return 1;
     }
 
-    /*
-    * This returns the health multiplier
-    */
     public float GetHealthMultiplier()
     {
         foreach (ShopItem item in shopItemList)
@@ -87,9 +79,6 @@ public class Shop : MonoBehaviour
         return 1;
     }
 
-    /*
-    * This returns the battery multiplier
-    */
     public float GetBatteryMultiplier()
     {
         foreach (ShopItem item in shopItemList)
@@ -102,26 +91,17 @@ public class Shop : MonoBehaviour
         return 1;
     }
 
-    /*
-    * This will close the shop's ui
-    */
     public void CloseShop()
     {
         shopUI.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    /*
-    * This will display balance for the players points
-    */
     private void DisplayPlayerBalance()
     {
         playerBalanceText.text = "Balance: " + GameObject.Find("ScoreManager").GetComponent<Score>().GetScore().ToString();
     }
 
-    /*
-    * This will open the shop's ui
-    */
     public void OpenShop()
     {
         shopUI.SetActive(true);
@@ -130,9 +110,7 @@ public class Shop : MonoBehaviour
         
     }
 
-    /*
-    *  will check if there is a new item added to the shop
-    */
+    // will check if there is a new item added to the shop
     private void CheckForNewItem()
     {
         bool exists = false;
@@ -154,9 +132,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    /*
-    * will get the item value
-    */
+    // will get the item value
     public float GetItemValue(string itemName)
     {
         foreach (ShopItem item in shopItemList)
@@ -169,9 +145,19 @@ public class Shop : MonoBehaviour
         return 0;
     }
 
-    /*
-    * will check if there is an item removed from the shop
-    */
+    // will get the player balance
+    public int GetPlayerBalance()
+    {
+        return playerBalance;
+    }
+
+    // will add money to the player balance
+    public void AddMoney(int amount)
+    {
+        playerBalance += amount;
+    }
+
+    // will check if there is an item removed from the shop
     private void CheckForOldRemovedItem()
     {
         for (int i = 0; i < shopItemList.Count; i++)
@@ -192,9 +178,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    /*
-    * will save the shop items when the game is closed
-    */
+    // will save the shop items when the game is closed
     void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("itemDataCount", shopItemList.Count);
@@ -204,9 +188,7 @@ public class Shop : MonoBehaviour
         } 
     }
 
-    /*
-    * will display the shop items
-    */
+    // will display the shop items
     public void DisplayItemButtons()
     {
         foreach (ShopItem item in shopItemList)
@@ -226,9 +208,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    /*
-    * will buy the item and increase the price
-    */
+    // will buy the item and increase the price
     public void BuyItem(ShopItem item, Text itemPriceText)
     {
         if (GameObject.Find("ScoreManager").GetComponent<Score>().GetScore() >= item.price)
@@ -242,9 +222,7 @@ public class Shop : MonoBehaviour
     }
 }
 
-/*
-* This is the shop item class
-*/
+
 [Serializable]
 public class ShopItem
 {

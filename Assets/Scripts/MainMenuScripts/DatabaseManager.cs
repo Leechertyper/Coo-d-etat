@@ -3,7 +3,6 @@ using MySql.Data.MySqlClient;
 using UnityEngine;
 using System.Net;
 
-
 using System.Net.Sockets;
 public class DatabaseManager : MonoBehaviour
 {
@@ -49,12 +48,10 @@ public class DatabaseManager : MonoBehaviour
         {
             int x = System.Net.Dns.GetHostAddresses(Host).Length;
             _hostFound = true;
-             Debug.Log("Host found");
         }
         catch (SocketException exception)
         {
             _hostFound = false;
-             Debug.Log("Host not found");
         }
     }
 
@@ -118,7 +115,7 @@ public class DatabaseManager : MonoBehaviour
     *@return:None
     *@Post:Database is updated with a new value
     ***/
-    public void UpdateSteps(string variable, float value)
+    public void UpdateValue(string variable, float value)
     {
          MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
         builder.Server = Host;
@@ -130,26 +127,26 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-                string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `steps` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
-                //Debug.Log(sql);
+                string sql = "UPDATE `coo_d_etat`.`GameBalance` SET `value` = '" + value + "' WHERE (`variableName` = '" +variable +"');"; 
+                
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();
             }
         }
         catch (MySqlException exception)
         {   
-            Debug.Log("Error updating value");
-            Debug.Log(exception.Message);
+            print("Error updating value");
+            print(exception.Message);
         }
         
     }
     /***
-    *Retrieves steps from the database using a string
+    *Retrieves a value from the database using a string
     *@param: string variable - the Name of the variable from the database
-    *@return: float - steps - the steps taken from zero for climbing up a sigmoid function
+    *@return: float - value associated with the variable
     *@Post:None
     ***/
-    public float GetSteps(string variable)
+    public float GetValue(string variable)
     {
         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
         builder.Server = Host;
@@ -163,8 +160,8 @@ public class DatabaseManager : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(builder.ToString()))
             {
                 connection.Open();
-                string sql = "SELECT steps FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
-                //Debug.Log(sql);
+                string sql = "SELECT value FROM `coo_d_etat`.`GameBalance` WHERE (`variableName` = '" +variable +"');";
+                Debug.Log(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 result = cmd.ExecuteScalar();
             }
@@ -178,7 +175,7 @@ public class DatabaseManager : MonoBehaviour
         if (result != null)
         {
             float r = Convert.ToSingle(result);
-            //Debug.Log("Got " + r + " from GetSteps");
+            Debug.Log("Got " + r + " from GetValue");
             return r;
         }
         else
