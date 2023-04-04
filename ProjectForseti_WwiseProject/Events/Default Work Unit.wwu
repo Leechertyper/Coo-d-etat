@@ -570,6 +570,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Hover_Click_01" ID="{31EB61A6-E510-4F3B-9353-96F73C5981D3}">
+					<ChildrenList>
+						<Action Name="" ID="{F2907ED2-BFF5-4FA4-B639-A009F4D6A83F}" ShortID="115326204">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Hover Click 2" ID="{4F46759C-BFB4-464E-A58A-B9A3AC37A88D}" WorkUnitID="{8CE5C30E-B1EC-4291-9725-077135583E75}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

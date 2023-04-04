@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class PorchPirate : Enemy
 {
-
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float damage = 20f;
+    public Health hp;
     [SerializeField] private GameObject projectile;
     private float currentHealth;
     private bool _attacking = false;
     private bool _moving = false;
     private Vector2Int _gridPos;
+    private GameObject _player;
     private int _dir = 0;
     private bool _attackOnCooldown = false;
     private bool _altDirAttack = false;
-    private bool _sleeping = false;
+    private bool _sleeping = true;
+    private GlobalGrid _grid;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        GameManager.Instance.Grid.GetComponent<GlobalGrid>().GetTile(transform.position, out _gridPos);
+        _sleeping = true;
+        _grid = GameManager.Instance.Grid.GetComponent<GlobalGrid>();
+        _player = GameManager.Instance.GetPlayerObject();
+        _grid.GetTile(transform.position, out _gridPos);
     }
 
     // Update is called once per frame
@@ -39,37 +41,41 @@ public class PorchPirate : Enemy
     /// Determines where to move
     /// </summary>
     /// <returns>Where to move</returns>
-    private Vector2 CheckMove()
+    private Vector3 CheckMove()
     {
         if (!_moving && !_attacking)
         {
             // if it is to the down by more than 2 tiles
-            if (GameManager.Instance.GetPlayerObject().transform.position.y > transform.position.y + 6)
+            if (_player.transform.position.y > transform.position.y + 6)// && _grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.up * 6))))
             {
                 _dir = 0;
-                _gridPos += new Vector2Int(0, -1);
-                return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+                GetComponent<Animator>().SetInteger("Direction", _dir);
+                GetComponent<Animator>().SetBool("Moving", true);
+                return transform.position + (Vector3.up * 3);
             }
             // if it is to the up by more than 2 tiles
-            else if (GameManager.Instance.GetPlayerObject().transform.position.y < transform.position.y - 6)
+            else if (_player.transform.position.y < transform.position.y - 6 )//&& _grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.down * 6))))
             {
                 _dir = 1;
-                _gridPos += new Vector2Int(0, 1);
-                return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+                GetComponent<Animator>().SetInteger("Direction", _dir);
+                GetComponent<Animator>().SetBool("Moving", true);
+                return transform.position + (Vector3.down * 3);
             }
             // right
-            else if (GameManager.Instance.GetPlayerObject().transform.position.x > transform.position.x + 6)
+            else if (_player.transform.position.x > transform.position.x + 6 && _grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.right * 6))))
             {
                 _dir = 3;
-                _gridPos += new Vector2Int(1, 0);
-                return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+                GetComponent<Animator>().SetInteger("Direction", _dir);
+                GetComponent<Animator>().SetBool("Moving", true);
+                return transform.position + (Vector3.right * 3);
             }
             // left
-            else if (GameManager.Instance.GetPlayerObject().transform.position.x < transform.position.x - 6)
+            else if (_player.transform.position.x < transform.position.x - 6 && _grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.left * 6))))
             {
                 _dir = 2;
-                _gridPos += new Vector2Int(-1, 0);
-                return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+                GetComponent<Animator>().SetInteger("Direction", _dir);
+                GetComponent<Animator>().SetBool("Moving", true);
+                return transform.position + (Vector3.left * 3);
             }
             else
             {
@@ -78,10 +84,9 @@ public class PorchPirate : Enemy
                 {
                     Attack();
                 }
-                
             }
         }
-        return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+        return transform.position;
     }
 
     /// <summary>
@@ -98,19 +103,17 @@ public class PorchPirate : Enemy
             }
             else
             {
-                GetComponent<Animator>().SetInteger("Direction", _dir);
-                GetComponent<Animator>().SetBool("Moving", true);
                 _moving = true;
                 StartCoroutine(Move(destination));
             }
         }
 
     }
-
+    
     public void TakeDamage(float damage)
     {
         // Damage sound here
-        AkSoundEngine.PostEvent("Play_Pigeon_Hurt", this.gameObject);
+        AkSoundEngine.PostEvent("Play_Pirate_Noise", this.gameObject);
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
@@ -127,14 +130,19 @@ public class PorchPirate : Enemy
         _attacking = true;
         GetComponent<Animator>().SetBool("Attack", true);
         StartCoroutine(AttackTimer());
+        StartCoroutine(BoxAttack());
     }
 
     /// <summary>
     /// Spawns a box at the current position that moves in the given direction
     /// </summary>
     /// <param name="dir">The direction the box should go</param>
-    private void SpawnBox(Vector2 dir)
+    private void SpawnBox(int dir)
     {
+        GameObject box = Instantiate(projectile);
+        box.transform.position = transform.position;
+        box.GetComponent<BoxLerp>().direction = dir;
+        box.GetComponent<BoxLerp>().boxType = 1;
 
     }
 
@@ -143,7 +151,13 @@ public class PorchPirate : Enemy
         // Death sound here
         AkSoundEngine.PostEvent("Play_Pirate_Dead", this.gameObject);
         GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
-        Destroy(gameObject);
+        StopAllCoroutines();
+        this.enabled = false;
+    }
+
+    public override void TakeDamage()
+    {
+
     }
 
     public override void Awaken()
@@ -171,18 +185,22 @@ public class PorchPirate : Enemy
         if (_altDirAttack)
         {
             _altDirAttack = false;
-            SpawnBox(new Vector2(5, 5));
-            SpawnBox(new Vector2(-5, 5));
-            SpawnBox(new Vector2(-5, -5));
-            SpawnBox(new Vector2(5, -5));
+            SpawnBox(4);
+            SpawnBox(5);
+            SpawnBox(6);
+            SpawnBox(7);
         }
         else
         {
             _altDirAttack = true;
-            SpawnBox(new Vector2(10, 0));
-            SpawnBox(new Vector2(-10, 0));
-            SpawnBox(new Vector2(0, 10));
-            SpawnBox(new Vector2(0, -10));
+            SpawnBox(0);
+            SpawnBox(1);
+            SpawnBox(2);
+            SpawnBox(3);
+        }
+        if (_attacking)
+        {
+            StartCoroutine(BoxAttack());
         }
     }
 
@@ -217,5 +235,18 @@ public class PorchPirate : Enemy
     {
         yield return new WaitForSeconds(6);
         _attackOnCooldown = false;
+    }
+
+
+    public override float GetHealthVariable()
+    {
+        return BalanceVariables.pirateEnemy["maxHealth"];
+    }
+
+    IEnumerator BoxAttack()
+    {
+        yield return new WaitForSeconds(1);
+        ThrowBoxes();
+
     }
 }

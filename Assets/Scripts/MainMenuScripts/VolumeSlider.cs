@@ -20,6 +20,7 @@ public class VolumeSlider : MonoBehaviour
     {
         volumeLevel.text = newVolumeLevel.ToString() + "%";
         PlayerPrefs.SetFloat("VolumeLevel", newVolumeLevel);
+        AkSoundEngine.SetRTPCValue("Master_Volume", newVolumeLevel);
     }
 
 }

@@ -67,6 +67,7 @@ public class HighScoreMenu : MonoBehaviour
         if (!string.IsNullOrEmpty(localHighScoresJson) && localHighScoresJson != "null")
         {
             localHighScores = JsonConvert.DeserializeObject<List<(string, int)>>(localHighScoresJson);
+            
         }
         else
         {
@@ -76,6 +77,7 @@ public class HighScoreMenu : MonoBehaviour
                 localHighScores.Add(("---", 0));
             }
         }
+        //Debug.Log(localHighScores);
 
         for (int i = 0; i < localHighScores.Count; i++)
         {

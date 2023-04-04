@@ -14,6 +14,7 @@ public class Loading : MonoBehaviour
     public Text downKeyText;
     public Text fireKeyText;
     public Text dashKeyText;
+    [SerializeField] public Text factsText;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class Loading : MonoBehaviour
         loadingScreen.SetActive(true);
 
         LoadControls();
+        PigeonFacts();
 
         // Start loading the next scene in the background
         StartCoroutine(LoadNextSceneAsync());
@@ -79,5 +81,27 @@ public class Loading : MonoBehaviour
         {
             dashKeyText.text = "Dash: " + PlayerPrefs.GetString("dashKey");
         }
+    }
+
+    public void PigeonFacts() {
+
+        List<string> facts = new List<string>();
+
+        facts.Add("Pigeons can control time! They do this out of spite.");
+        facts.Add("Drones legally cannot fly within 5.6km of an airport. Pigeons, however, are above the law, and can fly wherever they want.");
+        facts.Add("There are approximately 400 million pigeons worldwide, meaning every pigeon is responible for monitoring 20 people.");
+        facts.Add("Pigeons are not yet classified as a bioweapon.");
+        facts.Add("Pigeons are regularly spotted under bridges, as many of them are employed as structural inspectors.");
+        facts.Add("The average pigeon eats 112 spiders a year. Pigeons Georg, who eats 10,000 spiders a year, is an outlier and should not be counted.");
+        facts.Add("Cuneiform was actually created by pigeons stepping on wet clay. It took the Sumerians 500 years to figure out how to read it.");
+        facts.Add("Garlic is beneficial for pigeons, as it helps them ward off vampire bats.");
+        facts.Add("Pigeons are excellent actors, and have won several Oscars for their performances in movies.");
+        facts.Add("Pigeons are sensitive to the Earth's magnetic field, despite definitely not being made of metal in any way.");
+        facts.Add("Pigeons know why kids love the taste of Cinnamon Toast Crunch!");
+        facts.Add("Pigeons know what you'd do for a Klondike Bar. They advise you to never tell anyone.");
+        facts.Add("Recently, scientists learned that pigeons account for 99% of all ordinary matter in the known universe.");
+
+        var num = Random.Range(0, 12);
+        factsText.text = facts[num];
     }
 }

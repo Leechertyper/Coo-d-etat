@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    
+
     [SerializeField] GameObject _thePlayerObject;
     [SerializeField] Player _thePlayer;
     private Vector2 _endRoomPos;
     private ArrayList allRooms;
+
+    [SerializeField] private int roomNum;
+
     // When there is more enemy types each will get their own list
     private List<GameObject> allDroneEnemies;
 
@@ -31,27 +34,31 @@ public class GameManager : MonoBehaviour
     //this is for now until next level implimented
     private bool _died = false;
 
+    public bool inGame = false;
+
     void Awake()
     {
         if (Instance == null) // If there is no instance already
         {
-            //DontDestroyOnLoad(gameObject); // bugs the game with this line
+            DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
-            
-            
+
+
         }
         else if (Instance != this) // If there is already an instance and it's not `this` instance
         {
             Destroy(gameObject); // Destroy the GameObject, this component is attached to
         }
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        roomNum = 1;
         allRooms = null;
         allDroneEnemies = null;
+        inGame = true;
 
         theBoss = null;
 
@@ -83,6 +90,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public int getRoomNum()
+    {
+        return roomNum;
     }
 
     //My idea is that the pcg script will call this function when it has all the rooms generated
@@ -181,6 +193,7 @@ public class GameManager : MonoBehaviour
         AkSoundEngine.SetRTPCValue("Dead_Mute", 0);
         AkSoundEngine.SetState("PlayerLife", "Defeated");
         _died = true;
+        inGame = false;
         if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance)
         {
             StartBalanceMenu();
@@ -195,6 +208,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextFloor(){
 
+        inGame = false;
         Debug.Log("GameManagerScript: GoToNextFloor() called");
         if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance && !_hasBalanced)
         {
@@ -202,6 +216,11 @@ public class GameManager : MonoBehaviour
             StartBalanceMenu();
         }
         else{
+            roomNum += 1;
+            if (roomNum > 4)
+            {
+                roomNum = 1;
+            }
             _skipBalance = false;
             //update load next floor here
             //Grid.GetComponent<GlobalGrid>().
@@ -214,7 +233,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-     public GameObject GetPlayerObject()
+    public GameObject GetPlayerObject()
      {
         return _thePlayerObject;
      }

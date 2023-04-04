@@ -91,6 +91,7 @@ public class Score : MonoBehaviour
     public bool IsLocalHighScore()
     {
         LoadHighScores();
+        
         for (int i = 0; i < highScores.Count; i++)
         {
             if (_score > highScores[i].Item2)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        /*transform.position = GameManager.Instance.Grid.GetTile(transform.position);*/
+        //transform.position = GameManager.Instance.Grid.GetTile(transform.position);
         rb = GetComponent<Rigidbody2D>();
         startInt = new Vector2Int(8,4);
         LoadControls();
@@ -66,101 +67,106 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", _movement.x);
         animator.SetFloat("Vertical", _movement.y);
         animator.SetFloat("Speed", _movement.sqrMagnitude);*/
-
-        if (!isMoving) // Make sure Player isn't moving
-
+        if (GameManager.Instance.inGame && !(SceneManager.GetActiveScene().name == "Loading"))
         {
-            if (Input.GetKey(upKey))
+            if (!isMoving) // Make sure Player isn't moving
             {
-                startMovePosition = rb.position;
-                targetPosition = startMovePosition + Vector2.up * tileSize;
-                isMoving = true;
-                readyForDash = true;
+                if (Input.GetKey(upKey))
+                {
+                    startMovePosition = rb.position;
+                    targetPosition = startMovePosition + Vector2.up * tileSize;
+                    isMoving = true;
+                    readyForDash = true;
+                }
+                else if (Input.GetKey(downKey))
+                {
+                    startMovePosition = rb.position;
+                    targetPosition = startMovePosition + Vector2.down * tileSize;
+                    isMoving = true;
+                    readyForDash = true;
+                }
+                else if (Input.GetKey(leftKey))
+                {
+                    startMovePosition = rb.position;
+                    targetPosition = startMovePosition + Vector2.left * tileSize;
+                    isMoving = true;
+                    readyForDash = true;
+                }
+                else if (Input.GetKey(rightKey))
+                {
+                    startMovePosition = rb.position;
+                    targetPosition = startMovePosition + Vector2.right * tileSize;
+                    isMoving = true;
+                    readyForDash = true;
+                }
             }
-            else if (Input.GetKey(downKey))
+            else if (readyForDash && Time.time - lastDashTime > dashCooldown)
             {
-                startMovePosition = rb.position;
-                targetPosition = startMovePosition + Vector2.down * tileSize;
-                isMoving = true;
-                readyForDash = true;
+                if (Input.GetKey(dashKey))
+                {
+                    lastDashTime = Time.time;
+                    readyForDash = false;
+                    Vector2 direction = targetPosition - startMovePosition;
+                    direction.Normalize();
+                    targetPosition = startMovePosition + direction * tileSize * dashDistance;
+                    dashing = true;
+                    AkSoundEngine.PostEvent("Play_Pigeon_wing_flutter", this.gameObject);
+                    animator.SetBool("Dash", true);
+                    StartCoroutine(InvincibilityFrame());
+                }
             }
-            else if (Input.GetKey(leftKey))
-            {
-                startMovePosition = rb.position;
-                targetPosition = startMovePosition + Vector2.left * tileSize;
-                isMoving = true;
-                readyForDash = true;
-            }
-            else if (Input.GetKey(rightKey))
-            {
-                startMovePosition = rb.position;
-                targetPosition = startMovePosition + Vector2.right * tileSize;
-                isMoving = true;
-                readyForDash = true;
-            }
-        }
-        else if (readyForDash && Time.time - lastDashTime > dashCooldown)
-        {
-            if (Input.GetKey(dashKey))
-            {
-                lastDashTime = Time.time;
-                readyForDash = false;
-                Vector2 direction = targetPosition - startMovePosition;
-                direction.Normalize();
-                targetPosition = startMovePosition + direction * tileSize * dashDistance;
-                dashing = true;
-                AkSoundEngine.PostEvent("Play_Pigeon_wing_flutter", this.gameObject);
-                animator.SetBool("Dash", true);
-                StartCoroutine(InvincibilityFrame());
-            }
-        }
 
-        // Set slider value to the fraction of time left until the next dash
-        dashSlider.value = 1f - (Time.time - lastDashTime) / dashCooldown;
+            // Set slider value to the fraction of time left until the next dash
+            dashSlider.value = 1f - (Time.time - lastDashTime) / dashCooldown;
+        }
     }
 
     void FixedUpdate()
     {
-        if (isMoving)
+        if (GameManager.Instance.inGame && !(SceneManager.GetActiveScene().name == "Loading"))
         {
-            // Debug.Log("MOVING");
-            float moveSpeed = speed;
-            if (dashing)
+            if (isMoving)
             {
-                moveSpeed *= dashDistance;
-            } else
-            {
-                moveSpeed = speed;
+                // Debug.Log("MOVING");
+                float moveSpeed = speed;
+                if (dashing)
+                {
+                    moveSpeed *= dashDistance;
+                }
+                else
+                {
+                    moveSpeed = speed;
+                }
+                Vector2 currentPosition = rb.position;
+                Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, moveSpeed * Time.fixedDeltaTime);
+                rb.MovePosition(newPosition);
+                //theGrid.MoveToTile(this.gameObject,new Vector2Int(),newPosition);
+                // Calculate the movement direction
+                Vector2 movementDirection = newPosition - currentPosition;
+
+                //theGrid.MoveToTile(this.gameObject, )
+                // theGrid.MoveToTile(this.gameObject,curPlace,curPlace + new Vector2Int(0,1));
+                curPlace += new Vector2Int(0, 1);
+                // Set the animator parameters
+                animator.SetFloat("Horizontal", movementDirection.x * 5);
+                animator.SetFloat("Vertical", movementDirection.y * 5);
+                animator.SetFloat("Speed", movementDirection.sqrMagnitude * 5);
+                animator.SetFloat("PlayerSpeed", speed);
+                if ((movementDirection.x <= 0.001 && movementDirection.y <= 0.001) && (_direction.x != 0 || _direction.y != 0))
+                {
+                    _lastMoveDirection = _direction;
+                }
+
+                _direction = new Vector2(movementDirection.x, movementDirection.y).normalized;
+
+                animator.SetFloat("LastMoveX", _lastMoveDirection.x);
+                animator.SetFloat("LastMoveY", _lastMoveDirection.y);
+
+                // check if the player has stopped moving
+                StartCoroutine(CheckMovementDelay());
+
+                previousPosition = rb.position;
             }
-            Vector2 currentPosition = rb.position;
-            Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, moveSpeed * Time.fixedDeltaTime);
-            rb.MovePosition(newPosition);
-            //theGrid.MoveToTile(this.gameObject,new Vector2Int(),newPosition);
-            // Calculate the movement direction
-            Vector2 movementDirection = newPosition - currentPosition;
-
-            //theGrid.MoveToTile(this.gameObject, )
-           // theGrid.MoveToTile(this.gameObject,curPlace,curPlace + new Vector2Int(0,1));
-            curPlace += new Vector2Int(0,1);
-            // Set the animator parameters
-            animator.SetFloat("Horizontal", movementDirection.x * 5);
-            animator.SetFloat("Vertical", movementDirection.y * 5);
-            animator.SetFloat("Speed", movementDirection.sqrMagnitude * 5);
-            animator.SetFloat("PlayerSpeed", speed);
-            if ((movementDirection.x <= 0.001 && movementDirection.y <= 0.001) && (_direction.x != 0 || _direction.y != 0))
-            {
-                _lastMoveDirection = _direction;
-            }
-
-            _direction = new Vector2(movementDirection.x, movementDirection.y).normalized;
-
-            animator.SetFloat("LastMoveX", _lastMoveDirection.x);
-            animator.SetFloat("LastMoveY", _lastMoveDirection.y);
-
-            // check if the player has stopped moving
-            StartCoroutine(CheckMovementDelay());
-
-            previousPosition = rb.position;
         }
     }
 
