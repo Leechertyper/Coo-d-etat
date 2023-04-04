@@ -10,13 +10,14 @@ State	ID	Name	State Group			Notes
 	578926554	Lab	Stage_State			
 	748895195	None	Stage_State			
 	1610254009	Park	Stage_State			
+	2061969897	Pier	Stage_State			
 	3888786832	City	Stage_State			
-	502402914	Mystery_Room	Music_State			
 	748895195	None	Music_State			
 	1198379314	End_Room	Music_State			
-	1233056360	Objective_Room	Music_State			
 	3269879827	Rest_Room	Music_State			
 	3359767828	Boss_Room	Music_State			
+	3627238839	Start_Room	Music_State			
+	3831110053	Shop_Room	Music_State			
 	3900115470	Normal_Room	Music_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes

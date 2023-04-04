@@ -2944,6 +2944,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096477294}
   m_CullTransparentMesh: 1
+--- !u!1 &1100334485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1055407726, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+  m_PrefabInstance: {fileID: 1351523291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1100334488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100334485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1107517650
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,6 +3767,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: endRooms.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: mainRooms.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: endRooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 7424634987486067247, guid: d7f06cd7ac486834faf57bd4c6b53e25, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: endRooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 7424634987486067247, guid: 954c3a01116258d42a6d2619dc723e05, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: endRooms.Array.data[2]
+      value: 
+      objectReference: {fileID: 7424634987486067247, guid: 74ea4753f2ee4c045a35c04211f8a2b3, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: endRooms.Array.data[3]
+      value: 
+      objectReference: {fileID: 7424634987486067247, guid: b3fd9281ccac1f045b4bfdf864fba1e5, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: mainRooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 3100153155850450629, guid: 158030306bbed054d924d90fd4c3656c, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: mainRooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 3100153155850450629, guid: f5833d09c98bc694db56ef9230f6272c, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: mainRooms.Array.data[2]
+      value: 
+      objectReference: {fileID: 3100153155850450629, guid: 5a22724ef17f80f4c84f71f2de4fe024, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: mainRooms.Array.data[3]
+      value: 
+      objectReference: {fileID: 3100153155850450629, guid: c1da1370539624f4d86999f8e7a98508, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableEnemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableEnemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 5347276051697959213, guid: 7bbb9f4af87f2dc4da1d7b363a63eaf5, type: 3}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.size
       value: 6

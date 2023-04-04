@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private Vector2 _endRoomPos;
     private ArrayList allRooms;
 
-    private int roomNum;
+    [SerializeField] private int roomNum;
 
     // When there is more enemy types each will get their own list
     private List<GameObject> allDroneEnemies;
@@ -40,8 +40,9 @@ public class GameManager : MonoBehaviour
         {
             //DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
-            
-            
+            DontDestroyOnLoad(gameObject);
+
+
         }
         else if (Instance != this) // If there is already an instance and it's not `this` instance
         {

@@ -2902,8 +2902,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5824542724647224914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.83, y: 11.74, z: 0.9912132}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -10.514, y: 9.944, z: 0.9912132}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3434815858240574070}
@@ -2920,8 +2920,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 17.675035, y: 6.0398426, z: 1}
+  m_Center: {x: -0.09333134, y: -4.6354113, z: 0}
 --- !u!95 &3664076404102321309
 Animator:
   serializedVersion: 5
@@ -2983,15 +2983,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2014105656, guid: e6190910cbee292498dd20c344d3ae9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.709999, y: 9.592341}
+  m_Size: {x: 8.709999, y: 9.212249}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6299839255005091897
@@ -3179,7 +3179,7 @@ GameObject:
   - component: {fileID: 3434815858240574070}
   - component: {fileID: 5796459772543968625}
   m_Layer: 0
-  m_Name: EndRoom
+  m_Name: LabEndRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
