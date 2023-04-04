@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    
+
     [SerializeField] GameObject _thePlayerObject;
     [SerializeField] Player _thePlayer;
     private Vector2 _endRoomPos;
     private ArrayList allRooms;
+
+    private int roomNum;
+
     // When there is more enemy types each will get their own list
     private List<GameObject> allDroneEnemies;
 
@@ -49,7 +52,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        roomNum = 1;
         allRooms = null;
         allDroneEnemies = null;
 
@@ -83,6 +86,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public int getRoomNum()
+    {
+        return roomNum;
     }
 
     //My idea is that the pcg script will call this function when it has all the rooms generated
@@ -196,6 +204,7 @@ public class GameManager : MonoBehaviour
     public void GoToNextFloor(){
 
         Debug.Log("GameManagerScript: GoToNextFloor() called");
+        roomNum = (roomNum + 1) % 4;
         if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance && !_hasBalanced)
         {
             Debug.Log("GameManagerScript: GoToNextFloor() called, starting balance menu");
