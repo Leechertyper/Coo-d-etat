@@ -30,9 +30,9 @@ public class Floor : MonoBehaviour
     public Vector2Int currentRoom;
 
 
-
-    [SerializeField] private GameObject roomPrefab;
-    [SerializeField] private GameObject endRoomPrefab;
+    [SerializeField] private List<GameObject> mainRooms;
+    [SerializeField] private List<GameObject> endRooms;
+    private int roomNum;
 
     private CameraController _camController;
     
@@ -61,6 +61,7 @@ public class Floor : MonoBehaviour
         _camController = Camera.main.GetComponent<CameraController>();
         _floorXDimension = 3;
         _floorYDimension = 3;
+        roomNum = GameManager.Instance.getRoomNum() - 1;
         Debug.Log("I AM HERE, FLOOR START");
         SpawnRooms(_floorXDimension, _floorYDimension);
     }
@@ -108,7 +109,7 @@ public class Floor : MonoBehaviour
         {
             for (var j = 0; j < c; j++)
             {
-                var newRoom = Instantiate(roomPrefab, transform);
+                var newRoom = Instantiate(mainRooms[roomNum], transform);
                 var newRoomScript = newRoom.GetComponent<Room>();
                 newRoomScript.InitializeRoom(i,j,_floorXDimension,_floorYDimension);
                 newRoom.transform.position =
@@ -207,7 +208,7 @@ public class Floor : MonoBehaviour
         currentFloorType = _rooms[0][0].floorType;
         currentRoom = new Vector2Int(0, 0);
         changeTheme();
-        var endRoom = Instantiate(endRoomPrefab,transform);
+        var endRoom = Instantiate(endRooms[roomNum],transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
             endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
         var endRoomScript = endRoom.GetComponent<Room>();
