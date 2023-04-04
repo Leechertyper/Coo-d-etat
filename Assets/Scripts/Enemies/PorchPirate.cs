@@ -14,7 +14,7 @@ public class PorchPirate : Enemy
     private int _dir = 0;
     private bool _attackOnCooldown = false;
     private bool _altDirAttack = false;
-    private bool _sleeping = false;
+    private bool _sleeping = true;
     private GlobalGrid _grid;
 
 

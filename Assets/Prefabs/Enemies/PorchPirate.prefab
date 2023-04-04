@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 5347276051697959217}
   - component: {fileID: 5347276051697959216}
   - component: {fileID: -3235181677791873284}
-  - component: {fileID: -8439852413966295576}
-  - component: {fileID: 2097230170}
+  - component: {fileID: 5347276052053751236}
   m_Layer: 0
   m_Name: PorchPirate
   m_TagString: Enemy
@@ -101,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb039c282190bdb47aa5699fe5a0b05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: {fileID: 2097230170}
+  hp: {fileID: 5347276052053751236}
   projectile: {fileID: 2187918097288055020, guid: 48c1d0d846e58cf4d9b52298063873d3, type: 3}
 --- !u!95 &5347276051697959216
 Animator:
@@ -149,28 +148,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.22, y: 4.1010017}
   m_EdgeRadius: 0
---- !u!50 &-8439852413966295576
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5347276051697959213}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &2097230170
+--- !u!114 &5347276052053751236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,11 +157,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5347276051697959213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcaebdfa1c7b6c04bad3445dd9939470, type: 3}
+  m_Script: {fileID: 11500000, guid: b1192c88dd8088a428afe962fde587d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
   health: 0
   hurtColor: {r: 0, g: 0, b: 0, a: 0}
-  deathEffects: []
-  theDeathItems: {fileID: 0}
+  deathEffects:
+  - {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
+  theDeathItems: {fileID: 2887637984562674970, guid: cff8afb325b205346b551f5590444fdc, type: 3}
