@@ -12,17 +12,21 @@ public class PorchPirate : Enemy
     private bool _attacking = false;
     private bool _moving = false;
     private Vector2Int _gridPos;
+    private GameObject _player;
     private int _dir = 0;
     private bool _attackOnCooldown = false;
     private bool _altDirAttack = false;
     private bool _sleeping = false;
+    private GlobalGrid _grid;
 
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-        GameManager.Instance.Grid.GetComponent<GlobalGrid>().GetTile(transform.position, out _gridPos);
+        _grid = GameManager.Instance.Grid.GetComponent<GlobalGrid>();
+        _player = GameManager.Instance.GetPlayerObject();
+        _grid.GetTile(transform.position, out _gridPos);
     }
 
     // Update is called once per frame
@@ -39,37 +43,41 @@ public class PorchPirate : Enemy
     /// Determines where to move
     /// </summary>
     /// <returns>Where to move</returns>
-    private Vector2 CheckMove()
+    private Vector3 CheckMove()
     {
         if (!_moving && !_attacking)
         {
             // if it is to the down by more than 2 tiles
-            if (GameManager.Instance.GetPlayerObject().transform.position.y > transform.position.y + 6)
+            if (_player.transform.position.y > transform.position.y + 6)// && _grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.up * 6))))
             {
                 _dir = 0;
-                _gridPos += new Vector2Int(0, -1);
-                return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+                GetComponent<Animator>().SetInteger("Direction", _dir);
+                GetComponent<Animator>().SetBool("Moving", true);
+                return transform.position + (Vector3.up * 3);
             }
             // if it is to the up by more than 2 tiles
-            else if (GameManager.Instance.GetPlayerObject().transform.position.y < transform.position.y - 6)
+            else if (_player.transform.position.y < transform.position.y - 6 )//&& _grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.down * 6))))
             {
                 _dir = 1;
-                _gridPos += new Vector2Int(0, 1);
-                return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+                GetComponent<Animator>().SetInteger("Direction", _dir);
+                GetComponent<Animator>().SetBool("Moving", true);
+                return transform.position + (Vector3.down * 3);
             }
             // right
-            else if (GameManager.Instance.GetPlayerObject().transform.position.x > transform.position.x + 6)
+            else if (_player.transform.position.x > transform.position.x + 6 && _grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.right * 6))))
             {
                 _dir = 3;
-                _gridPos += new Vector2Int(1, 0);
-                return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+                GetComponent<Animator>().SetInteger("Direction", _dir);
+                GetComponent<Animator>().SetBool("Moving", true);
+                return transform.position + (Vector3.right * 3);
             }
             // left
-            else if (GameManager.Instance.GetPlayerObject().transform.position.x < transform.position.x - 6)
+            else if (_player.transform.position.x < transform.position.x - 6 && _grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.left * 6))))
             {
                 _dir = 2;
-                _gridPos += new Vector2Int(-1, 0);
-                return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+                GetComponent<Animator>().SetInteger("Direction", _dir);
+                GetComponent<Animator>().SetBool("Moving", true);
+                return transform.position + (Vector3.left * 3);
             }
             else
             {
@@ -78,10 +86,9 @@ public class PorchPirate : Enemy
                 {
                     Attack();
                 }
-                
             }
         }
-        return GameManager.Instance.Grid.GetComponent<GlobalGrid>().TileLocation(transform.position, _gridPos);
+        return transform.position;
     }
 
     /// <summary>
@@ -98,8 +105,6 @@ public class PorchPirate : Enemy
             }
             else
             {
-                GetComponent<Animator>().SetInteger("Direction", _dir);
-                GetComponent<Animator>().SetBool("Moving", true);
                 _moving = true;
                 StartCoroutine(Move(destination));
             }
