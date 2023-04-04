@@ -233,5 +233,8 @@ public class CatAI : Enemy
         this.enabled = false;
     }
 
+    public override void TakeDamage()
+    {
 
+    }
 }

@@ -146,6 +146,11 @@ public class PorchPirate : Enemy
         Destroy(gameObject);
     }
 
+    public override void TakeDamage()
+    {
+
+    }
+
     public override void Awaken()
     {
         // would be funny if he made a "huh?" noise when he awoke

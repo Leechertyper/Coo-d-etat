@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
     /// <param name="damage">Damage Taken</param>
     public void TakeDamage(int damage)
     {
-        AkSoundEngine.PostEvent("Play_Robot_Hurt", this.gameObject);
+        GetComponent<Enemy>().TakeDamage();
         if (health > 0)
         {
             StartCoroutine(DamageFlash());

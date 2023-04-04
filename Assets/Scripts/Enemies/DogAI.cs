@@ -249,4 +249,9 @@ public class DogAI : Enemy
         StopAllCoroutines();
         this.enabled = false;
     }
+
+    public override void TakeDamage()
+    {
+
+    }
 }

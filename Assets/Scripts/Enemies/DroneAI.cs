@@ -152,6 +152,11 @@ public class DroneAI : Enemy
 
     }
 
+    public override void TakeDamage()
+    {
+        
+    }
+
     public override void Awaken()
     {
         AkSoundEngine.PostEvent("Play_Robot_Alert_SFX", this.gameObject);
@@ -183,5 +188,7 @@ public class DroneAI : Enemy
 
         BalanceVariables.droneEnemy["fastShotCD"] = newAttackSpeed/2; // maybe there needs to be another fast shot var?
     }
+
+    
 
 }
