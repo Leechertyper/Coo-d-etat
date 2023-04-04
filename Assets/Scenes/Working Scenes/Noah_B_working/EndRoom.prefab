@@ -3411,6 +3411,7 @@ MonoBehaviour:
   bottomDoor: {fileID: 0}
   leftDoor: {fileID: 0}
   rightDoor: {fileID: 0}
+  floorType: 1
   roomHasBeenInitialized: 0
 --- !u!1 &7574388468020146988
 GameObject:

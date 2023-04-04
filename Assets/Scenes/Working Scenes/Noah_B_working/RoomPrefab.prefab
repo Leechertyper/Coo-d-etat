@@ -1990,6 +1990,7 @@ MonoBehaviour:
   bottomDoor: {fileID: 1628211637241934014}
   leftDoor: {fileID: 2684117062971286468}
   rightDoor: {fileID: 4994725964039517556}
+  floorType: 1
   roomHasBeenInitialized: 0
 --- !u!61 &2517681754602600307
 BoxCollider2D:
