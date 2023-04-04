@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoxLerp : MonoBehaviour
 {
 
-    public GameObject deathItems;
+    private GameObject deathItems;
     // 0 = boss, 1 = enemy
     public int boxType;
     public int direction;
@@ -14,6 +14,8 @@ public class BoxLerp : MonoBehaviour
     void Start()
     {
         //StartCoroutine(Test2(new Vector3(10,-8,0)));
+
+        deathItems = GameObject.Find("DeathItems");
     }
 
     // Update is called once per frame

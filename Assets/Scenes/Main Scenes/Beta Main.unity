@@ -2592,6 +2592,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1164434089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1055407726, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+  m_PrefabInstance: {fileID: 1351523291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1164434092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164434089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1171080516
 GameObject:
   m_ObjectHideFlags: 0
@@ -3225,7 +3263,7 @@ PrefabInstance:
       objectReference: {fileID: 5347276051697959213, guid: 7bbb9f4af87f2dc4da1d7b363a63eaf5, type: 3}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.size
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.data[0]
@@ -3234,23 +3272,39 @@ PrefabInstance:
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.data[1]
       value: 
-      objectReference: {fileID: 4626995767289255666, guid: 8edcef4897d04794c9cdfc17596c85e7, type: 3}
+      objectReference: {fileID: 5067774303997582317, guid: c6502a2226b778d45a5b6430a6ce3ad8, type: 3}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.data[2]
       value: 
-      objectReference: {fileID: 3588352420289795049, guid: 6bfb557f9f7ad3b43a592ae861f68092, type: 3}
+      objectReference: {fileID: 3414304623708286445, guid: d2af23a1cb9bb6b4f9a145bb245d3530, type: 3}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.data[3]
       value: 
-      objectReference: {fileID: 2957973375228795393, guid: 604222b7be4591c45830264c4198b20b, type: 3}
+      objectReference: {fileID: 3588352420289795049, guid: 6bfb557f9f7ad3b43a592ae861f68092, type: 3}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.data[4]
       value: 
-      objectReference: {fileID: 5968867129527489947, guid: 36111db408638ed48aa402bbb526b6aa, type: 3}
+      objectReference: {fileID: 921722796909797769, guid: 54a66b2d9affb2846a8b1d00abe02353, type: 3}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.data[5]
       value: 
-      objectReference: {fileID: 4794705679820133722, guid: db62f20ca926aae4ea7949b33f25fecd, type: 3}
+      objectReference: {fileID: 50628325345972070, guid: 9459d49539efdf14abdb6bae28b710ce, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableInteractables.Array.data[6]
+      value: 
+      objectReference: {fileID: 5968867129527489947, guid: 36111db408638ed48aa402bbb526b6aa, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableInteractables.Array.data[7]
+      value: 
+      objectReference: {fileID: 5411908324155027553, guid: 87c62cef7a2ae6747bfe213933a12c77, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableInteractables.Array.data[8]
+      value: 
+      objectReference: {fileID: 2058999178473931938, guid: d1060f29b0593ce49a0f3665ef172314, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableInteractables.Array.data[9]
+      value: 
+      objectReference: {fileID: 8992926460840148206, guid: c799fcea3a5fddc43ba2efcd9e395df4, type: 3}
     - target: {fileID: 5392540130517398117, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: m_Name
       value: Floor
