@@ -21,6 +21,7 @@ public class PorchPirate : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        _sleeping = true;
         _grid = GameManager.Instance.Grid.GetComponent<GlobalGrid>();
         _player = GameManager.Instance.GetPlayerObject();
         _grid.GetTile(transform.position, out _gridPos);
