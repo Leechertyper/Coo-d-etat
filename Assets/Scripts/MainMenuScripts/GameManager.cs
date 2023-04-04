@@ -38,9 +38,8 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) // If there is no instance already
         {
-            //DontDestroyOnLoad(gameObject); // bugs the game with this line
+            DontDestroyOnLoad(gameObject); // bugs the game with this line
             Instance = this;
-            DontDestroyOnLoad(gameObject);
 
 
         }
@@ -48,6 +47,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Destroy the GameObject, this component is attached to
         }
+
     }
 
     // Start is called before the first frame update
@@ -205,13 +205,17 @@ public class GameManager : MonoBehaviour
     public void GoToNextFloor(){
 
         Debug.Log("GameManagerScript: GoToNextFloor() called");
-        roomNum = (roomNum + 1) % 4;
         if (PointBalanceTimer.Instance.counter > 0 && !_skipBalance && !_hasBalanced)
         {
             Debug.Log("GameManagerScript: GoToNextFloor() called, starting balance menu");
             StartBalanceMenu();
         }
         else{
+            roomNum += 1;
+            if (roomNum > 4)
+            {
+                roomNum = 1;
+            }
             _skipBalance = false;
             //update load next floor here
             //Grid.GetComponent<GlobalGrid>().
@@ -224,7 +228,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-     public GameObject GetPlayerObject()
+    public GameObject GetPlayerObject()
      {
         return _thePlayerObject;
      }
