@@ -70,7 +70,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{1BB7BFC8-EA5A-7FED-65F2-77697C8A2DAA}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{447910BD-E6C1-EDF3-AA78-D63A3D60B516}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -204,7 +204,7 @@
 				</File>
 				<File Id="719609388" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Heavy Blast.wav</ShortName>
-					<CachePath>SFX/Heavy Blast_A8B54F02.wem</CachePath>
+					<CachePath>SFX/Heavy Blast_B42F37A5.wem</CachePath>
 				</File>
 				<File Id="740621105" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 1.wav</ShortName>
@@ -649,5 +649,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{2863E4F4-4852-3EEF-16F5-40B3BF805227}</FileHash>
+	<FileHash>{FFADB206-E1E7-D85F-27AB-03493D4F59CA}</FileHash>
 </SoundBanksInfo>

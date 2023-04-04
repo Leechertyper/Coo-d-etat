@@ -10,7 +10,7 @@ public class DogAI : Enemy
     public Animator animator;
     public Health hp;
 
-    [SerializeField] private int leapDistance = 20;
+    [SerializeField] private int leapDistance = 5;
     private GlobalGrid _grid;
     private Vector2Int _gridPos;
     private Transform _target;
@@ -18,16 +18,15 @@ public class DogAI : Enemy
     private float _distX;
     private float _distY;
     private bool _awake;
+    private bool _moveUP = true;
     private bool _attackReady = true;
-    private bool _dead = false;
-    enum state { Dash, Leap, Next, Wait, Attack}
+    enum state {Attact, PaceUp, PaceDown, Next, Wait}
 
 
     public override void Awaken()
     {
         _awake = true;
-        _myState = state.Dash;
-        leapDistance = Mathf.RoundToInt(BalanceVariables.dogEnemy["leapDistance"]);
+        _myState = state.PaceUp;
     }
 
     public override void Sleep()
@@ -44,57 +43,87 @@ public class DogAI : Enemy
         _target = GameObject.FindGameObjectWithTag("Player").transform;
         animator.SetInteger("Direction", 2);
         _grid = GameManager.Instance.Grid;
-        _grid.GetTile(transform.position, out _gridPos);
+        _gridPos = _grid.GetTileFromPos(transform.position);
+        BalanceVariables.seenDictionaries["dogEnemy"] = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!_awake) return;
-        
-        if (_myState == state.Next)
+        switch (_myState)
         {
-            if (Vector2.Distance(_target.transform.position, transform.position) > leapDistance)
-            {
-                _myState = state.Leap;
-            }
-            else
-            {
-                _myState = state.Dash;
-            }
-        }
+            case state.Next:
+                if ((_target.transform.position.y - transform.transform.position.y) == 0 & _attackReady)
+                {
+                    _myState = state.Attact;
+                } 
+                else 
+                {
+                    if (_moveUP)
+                    {
+                        _myState = state.PaceUp;
+                    }
+                    else
+                    {
+                        _myState = state.PaceDown;
+                    }
+                }
+                break;
 
-        if (_myState == state.Dash)
-        {
-            _myState = state.Wait;
-            _distX = _target.transform.position.x - transform.transform.position.x;
-            _distY = _target.transform.position.y - transform.transform.position.y;
-            if (Mathf.Abs(_distX) > Mathf.Abs(_distY))
-            {
-                if (_distX > 0)
+            case state.PaceUp:
+                _myState = state.Wait;
+                if (_grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.up * 3))))
                 {
-                    StartCoroutine(Dash(1, 1));
+                    StartCoroutine(Move(0, 1));
                 }
                 else
                 {
-                    StartCoroutine(Dash(3, 1));
+                    _moveUP = false;
+                    _myState = state.Next;
                 }
-            }
-            else
-            {
-                if (_distY > 0)
+                break;
+
+            case state.PaceDown:
+                _myState = state.Wait;
+                if (_grid.TileOpen(_grid.GetTileFromPos(transform.position + (Vector3.down * 3))))
                 {
-                    StartCoroutine(Dash(0, 1));
+                    StartCoroutine(Move(2, 1));
                 }
                 else
                 {
-                    StartCoroutine(Dash(2, 1));
+                    _moveUP = true;
+                    _myState = state.Next;
                 }
-            }
-        }
-        if (_myState == state.Leap)
-        {
-            StartCoroutine(LeapAtPlayer());
+                break;
+
+            case state.Attact:
+                _myState = state.Wait;
+                int tempPos = 1;
+                if((_target.transform.position.x - transform.transform.position.x) > 0)
+                {
+                    while (_grid.TileOpen(_grid.GetTileFromPos(transform.position + ((Vector3.right * 3) * tempPos ))))
+                    {
+                        tempPos++;
+                    }
+                    StartCoroutine(Attack(1, tempPos - 1, 0.25f));
+                }
+                else
+                {
+                    while (_grid.TileOpen(_grid.GetTileFromPos(transform.position + ((Vector3.left * 3) * tempPos))))
+                    {
+                        tempPos++;
+                    }
+                    StartCoroutine(Attack(3, tempPos - 1, 0.25f));
+                }
+                break;
+
+            case state.Wait:
+                break;
+
+            default:
+                _myState = state.Next;
+                break;
         }
     }
 
@@ -104,9 +133,17 @@ public class DogAI : Enemy
         {
             if (_attackReady)
             {
-                collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.dogEnemy["attackDamage"]);
+                collision.gameObject.GetComponent<Player>().TakeDamage(2);
+                StopAllCoroutines();
+                transform.position = _grid.GetTile(transform.position);
+                animator.SetBool("IsRunning", false);
                 StartCoroutine(AttackCooldown(2));
-            }           
+                _myState = state.Next;
+            }
+            else
+            {
+
+            }
         }
     }
 
@@ -120,7 +157,7 @@ public class DogAI : Enemy
         }
     }
 
-    private IEnumerator Dash(int direction, int distance)
+    private IEnumerator Attack(int direction, int distance, float speed)
     {
         animator.SetInteger("Direction", direction);
         animator.SetBool("IsRunning", true);
@@ -128,31 +165,71 @@ public class DogAI : Enemy
         float timeElapsed = 0;
         float runTime = 1f;
         Vector3 move;
+
         switch (direction)
         {
             case 0:
-                _gridPos += new Vector2Int(0, -distance);
-                move = _grid.TileLocation(transform.position, _gridPos);
+                move = transform.position + (Vector3.up * distance);
                 break;
             case 1:
-                _gridPos += new Vector2Int(distance, 0);
-                move = _grid.TileLocation(transform.position, _gridPos);
+                move = transform.position + (Vector3.right * distance);
                 break;
             case 2:
-                _gridPos += new Vector2Int(0, distance);
-                move = _grid.TileLocation(transform.position, _gridPos);
+                move = transform.position + (Vector3.down * distance);
                 break;
             case 3:
-                _gridPos += new Vector2Int(-distance, 0);
-                move = _grid.TileLocation(transform.position, _gridPos);
+                move = transform.position + (Vector3.left * distance);
                 break;
             default:
                 move = new Vector3(0, 0, 0);
                 break;
-        }
 
+        }
         Vector3 inital = transform.position;
-        Vector3 goal = new Vector3(move.x, move.y, 0);
+        Vector3 goal = move;
+        // Debug.Log(goal);
+        while (timeElapsed < runTime)
+        {
+            transform.position = Vector2.Lerp(inital, goal, timeElapsed / runTime);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = _grid.GetTile(goal);
+        animator.SetBool("IsRunning", false);
+        _myState = state.Next;
+        yield break;
+    }
+
+    private IEnumerator Move(int direction, int distance)
+    {
+        animator.SetInteger("Direction", direction);
+        animator.SetBool("IsRunning", true);
+        distance *= 3;
+        float timeElapsed = 0;
+        float runTime = 1f;
+        Vector3 move;
+
+        switch (direction)
+        {
+            case 0:
+                move = transform.position + (Vector3.up * distance);
+                break;
+            case 1:
+                move = transform.position + (Vector3.right * distance);
+                break;
+            case 2:
+                move = transform.position + (Vector3.down * distance);
+                break;
+            case 3:
+                move = transform.position + (Vector3.left * distance);
+                break;
+            default:
+                move = new Vector3(0, 0, 0);
+                break;
+
+        }
+        Vector3 inital = transform.position;
+        Vector3 goal = move;
        // Debug.Log(goal);
         while (timeElapsed < runTime)
         {
@@ -160,64 +237,15 @@ public class DogAI : Enemy
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        transform.position = goal;
+        transform.position = _grid.GetTile(goal);
         animator.SetBool("IsRunning", false);
         _myState = state.Next;
         yield break;
     }
 
-    private IEnumerator LeapAtPlayer()
-    {
-        _myState = state.Wait;
-        Vector3 player = _target.transform.position;
-        float timeElapsed = 0;
-        float runTime = 1f;
-        Vector3 inital = transform.position;
-        while (timeElapsed < runTime)
-        {
-            transform.position = SampleParabola(inital, player, 2, timeElapsed / runTime);
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = _grid.GetTile(player, out _gridPos);
-        _myState = state.Next;
-        yield break;
-    }
-
-    Vector3 SampleParabola(Vector3 start, Vector3 end, float height, float t)
-    {
-        float parabolicT = t * 2 - 1;
-        if (Mathf.Abs(start.y - end.y) < 0.1f)
-        {
-            //start and end are roughly level, pretend they are - simpler solution with less steps
-            Vector3 travelDirection = end - start;
-            Vector3 result = start + t * travelDirection;
-            result.y += (-parabolicT * parabolicT + 1) * height;
-            return result;
-        }
-        else
-        {
-            //start and end are not level, gets more complicated
-            Vector3 travelDirection = end - start;
-            Vector3 levelDirecteion = end - new Vector3(start.x, end.y, start.z);
-            Vector3 right = Vector3.Cross(travelDirection, levelDirecteion);
-            Vector3 up = Vector3.Cross(right, travelDirection);
-            if (end.y > start.y)
-                up = -up;
-            Vector3 result = start + t * travelDirection;
-            result += ((-parabolicT * parabolicT + 1) * height) * up.normalized;
-            return result;
-        }
-    }
-
     public override void Die()
     {
-        BalanceVariables.seenDictionaries["dogEnemy"] = true;
-        if(_dead == false)
-        {
-            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
-            _dead = true;
-        }
+        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
         StopAllCoroutines();
         this.enabled = false;
     }
