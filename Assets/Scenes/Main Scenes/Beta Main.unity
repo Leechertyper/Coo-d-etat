@@ -234,6 +234,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 231.83002
       objectReference: {fileID: 0}
+    - target: {fileID: 637926928, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637926928, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 637926928, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 721080585, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 721080585, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 721080585, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 1246751977, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -366,6 +390,18 @@ PrefabInstance:
       propertyPath: _healthText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1527911633576535455, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527911633576535455, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527911633576535455, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 2266270020640335027, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -377,6 +413,18 @@ PrefabInstance:
     - target: {fileID: 2726893302692670051, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5718576815968574262, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5718576815968574262, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5718576815968574262, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
