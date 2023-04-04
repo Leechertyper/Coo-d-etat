@@ -273,6 +273,7 @@ public class Floor : MonoBehaviour
         _camController.MoveRight();
         currentRoom += new Vector2Int(0, 1);
         currentRoomType = _rooms[currentRoom.x][currentRoom.y].roomType;
+        changeFloor();
         changeTheme();
         Debug.Log(currentRoom);
         Debug.Log(currentRoomType);
@@ -295,6 +296,29 @@ public class Floor : MonoBehaviour
         Debug.Log(currentRoom);
         Debug.Log(currentRoomType);
     }
+
+    public void changeFloor()
+    {
+        switch (currentFloorType)
+        {
+            case Room.FloorType.Lab:
+                AkSoundEngine.SetState("Stage_State", "Lab");
+                break;
+            case Room.FloorType.Park:
+                AkSoundEngine.SetState("Stage_State", "Park");
+                break;
+            case Room.FloorType.City:
+                AkSoundEngine.SetState("Stage_State", "City");
+                break;
+            case Room.FloorType.Pier:
+                AkSoundEngine.SetState("Stage_State", "Pier");
+                break;
+            default:
+                AkSoundEngine.SetState("Stage_State", "None");
+                break;
+        }
+    }
+
 
     public void changeTheme()
     {
