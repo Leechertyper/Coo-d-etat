@@ -341,6 +341,11 @@ public class BalanceMenu : MonoBehaviour
     {
         AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
     }
+    
+    public void Hoverbutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_2", this.gameObject);
+    }
 }
 
 /*
