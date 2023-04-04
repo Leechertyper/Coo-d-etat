@@ -106,6 +106,7 @@ public class CatAI : Enemy
         {
             if (_attackReady)
             {
+                AkSoundEngine.PostEvent("Play_Cat_Swipe", this.gameObject);
                 collision.gameObject.GetComponent<Player>().TakeDamage(2);
                 StartCoroutine(AttackCooldown(2));
             }
@@ -226,6 +227,7 @@ public class CatAI : Enemy
 
     public override void Die()
     {
+        AkSoundEngine.PostEvent("Play_Cat_Death", this.gameObject);
         GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
         StopAllCoroutines();
         this.enabled = false;
