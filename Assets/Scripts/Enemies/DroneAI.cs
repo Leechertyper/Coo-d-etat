@@ -191,7 +191,7 @@ public class DroneAI : Enemy
 
     public override float GetHealthVariable()
     {
-        BalanceVariables.droneEnemy["maxHealth"];
+        return BalanceVariables .droneEnemy["maxHealth"];
     }
 
 }

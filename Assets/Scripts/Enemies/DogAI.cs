@@ -258,6 +258,6 @@ public class DogAI : Enemy
 
     public override float GetHealthVariable()
     {
-        BalanceVariables.dogEnemy["maxHealth"];
+        return BalanceVariables.dogEnemy["maxHealth"];
     }
 }

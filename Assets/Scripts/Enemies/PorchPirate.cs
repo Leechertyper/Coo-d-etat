@@ -228,4 +228,9 @@ public class PorchPirate : Enemy
         yield return new WaitForSeconds(6);
         _attackOnCooldown = false;
     }
+
+    public override float GetHealthVariable()
+    {
+        return BalanceVariables.pirateEnemy["maxHealth"];
+    }
 }

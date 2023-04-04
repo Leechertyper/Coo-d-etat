@@ -240,6 +240,6 @@ public class CatAI : Enemy
 
     public override float GetHealthVariable()
     {
-        BalanceVariables.catEnemy["maxHealth"];
+       return BalanceVariables.catEnemy["maxHealth"];
     }
 }
