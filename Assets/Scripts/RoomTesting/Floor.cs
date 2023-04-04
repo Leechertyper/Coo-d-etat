@@ -206,6 +206,8 @@ public class Floor : MonoBehaviour
         currentRoomType = _rooms[0][0].roomType;
         currentFloorType = _rooms[0][0].floorType;
         currentRoom = new Vector2Int(0, 0);
+        
+        changeFloor();
         changeTheme();
         var endRoom = Instantiate(endRoomPrefab,transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
@@ -316,6 +318,28 @@ public class Floor : MonoBehaviour
                 break;
             default:
                 AkSoundEngine.SetState("Music_State", "None");
+                break;
+        }
+    }
+    
+    public void changeFloor()
+    {
+        switch (currentFloorType)
+        {
+            case Room.FloorType.Lab:
+                AkSoundEngine.SetState("Stage_State", "Lab");
+                break;
+            case Room.FloorType.Park:
+                AkSoundEngine.SetState("Stage_State", "Park");
+                break;
+            case Room.FloorType.City:
+                AkSoundEngine.SetState("Stage_State", "City");
+                break;
+            case Room.FloorType.Pier:
+                AkSoundEngine.SetState("Stage_State", "Pier");
+                break;
+            default:
+                AkSoundEngine.SetState("Stage_State", "None");
                 break;
         }
     }
