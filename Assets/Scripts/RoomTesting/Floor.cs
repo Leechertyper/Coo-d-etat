@@ -26,6 +26,7 @@ public class Floor : MonoBehaviour
     private int _floorYDimension;
     public List<List<Room>> _rooms;
     public Room.RoomType currentRoomType;
+    public Room.FloorType currentFloorType;
     public Vector2Int currentRoom;
 
 
@@ -203,6 +204,7 @@ public class Floor : MonoBehaviour
 
         _camController.MoveCameraToStart(_rooms[0][0].transform);//moves camera to the first room
         currentRoomType = _rooms[0][0].roomType;
+        currentFloorType = _rooms[0][0].floorType;
         currentRoom = new Vector2Int(0, 0);
         changeTheme();
         var endRoom = Instantiate(endRoomPrefab,transform);
@@ -298,13 +300,13 @@ public class Floor : MonoBehaviour
         switch (currentRoomType)
         {
             case Room.RoomType.Start:
-                AkSoundEngine.SetState("Music_State", "Objective_Room");
+                AkSoundEngine.SetState("Music_State", "Start_Room");
                 break;
             case Room.RoomType.Boss:
                 AkSoundEngine.SetState("Music_State", "Boss_Room");
                 break;
             case Room.RoomType.Charger:
-                AkSoundEngine.SetState("Music_State", "Mystery_Room");
+                AkSoundEngine.SetState("Music_State", "Rest_Room");
                 break;
             case Room.RoomType.Enemy:
                 AkSoundEngine.SetState("Music_State", "Normal_Room");
@@ -314,7 +316,6 @@ public class Floor : MonoBehaviour
                 break;
             default:
                 AkSoundEngine.SetState("Music_State", "None");
-
                 break;
         }
     }

@@ -44,6 +44,7 @@ public class BoxDogScript : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player" && !_isTriggered)
         {
+            AkSoundEngine.PostEvent("Play_Cardboard_Box_Hit", this.gameObject);
             theAnimator.SetTrigger("Start");
             _isTriggered = true;
             _playerHit = true;
@@ -52,6 +53,8 @@ public class BoxDogScript : MonoBehaviour
         }
         else if(collider.gameObject.tag == "Enemy" && !_isTriggered)
         {
+            //UnityEngine.Debug.Log("play sound in enemy");
+            AkSoundEngine.PostEvent("Play_Cardboard_Box_Hit", this.gameObject);
             theAnimator.SetTrigger("Start");
             _isTriggered = true;
             StartCoroutine(FadeAway());

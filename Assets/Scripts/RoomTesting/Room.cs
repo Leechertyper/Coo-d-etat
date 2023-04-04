@@ -29,6 +29,7 @@ public class Room : MonoBehaviour
 
     private bool _hasBeenCleared;
     public RoomType roomType { get; private set; }
+    [SerializeField] public FloorType floorType;
     public bool roomHasBeenInitialized;
 
     private List<Enemy> _enemies = new List<Enemy>();
@@ -41,6 +42,14 @@ public class Room : MonoBehaviour
         Boss,
         Charger,
         EndRoom
+    }
+
+    public enum FloorType
+    {
+        City,
+        Lab,
+        Park,
+        Pier
     }
 
     private void OnTriggerEnter2D(Collider2D col)

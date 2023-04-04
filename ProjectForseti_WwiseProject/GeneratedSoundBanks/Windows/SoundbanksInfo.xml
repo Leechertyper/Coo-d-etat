@@ -54,23 +54,24 @@
 						<State Id="578926554" Name="Lab"/>
 						<State Id="748895195" Name="None"/>
 						<State Id="1610254009" Name="Park"/>
+						<State Id="2061969897" Name="Pier"/>
 						<State Id="3888786832" Name="City"/>
 					</States>
 				</StateGroup>
 				<StateGroup Id="3826569560" Name="Music_State">
 					<States>
-						<State Id="502402914" Name="Mystery_Room"/>
 						<State Id="748895195" Name="None"/>
 						<State Id="1198379314" Name="End_Room"/>
-						<State Id="1233056360" Name="Objective_Room"/>
 						<State Id="3269879827" Name="Rest_Room"/>
 						<State Id="3359767828" Name="Boss_Room"/>
+						<State Id="3627238839" Name="Start_Room"/>
+						<State Id="3831110053" Name="Shop_Room"/>
 						<State Id="3900115470" Name="Normal_Room"/>
 					</States>
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{447910BD-E6C1-EDF3-AA78-D63A3D60B516}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{9803E3C9-A175-BF83-6878-8489C25B8827}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -85,6 +86,10 @@
 				<File Id="30992161" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 10.wav</ShortName>
 					<CachePath>SFX/Pigeon Coo 10_10C4C929.wem</CachePath>
+				</File>
+				<File Id="110455559" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>cardboardbox2.wav</ShortName>
+					<CachePath>SFX/cardboardbox2_10C4C929.wem</CachePath>
 				</File>
 				<File Id="115255994" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 4.wav</ShortName>
@@ -110,9 +115,17 @@
 					<ShortName>Pigeon Coo 2.wav</ShortName>
 					<CachePath>SFX/Pigeon Coo 2_10C4C929.wem</CachePath>
 				</File>
+				<File Id="158730224" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cymatics - Video Game Vocal 124.wav</ShortName>
+					<CachePath>SFX/Cymatics - Video Game Vocal 124_10C4C929.wem</CachePath>
+				</File>
 				<File Id="161308221" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Robot Activated.wav</ShortName>
 					<CachePath>SFX/Robot Activated_10C4C929.wem</CachePath>
+				</File>
+				<File Id="223278938" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>potential stat screen theme 1.wav</ShortName>
+					<CachePath>SFX/potential stat screen theme 1_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="225419399" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Machine wub 1.wav</ShortName>
@@ -129,6 +142,10 @@
 				<File Id="249967903" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 11.wav</ShortName>
 					<CachePath>SFX/Pigeon Coo 11_10C4C929.wem</CachePath>
+				</File>
+				<File Id="294093001" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BRASS CITY 2.wav</ShortName>
+					<CachePath>SFX/BRASS CITY 2_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="307598767" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>door slide open.wav</ShortName>
@@ -162,13 +179,61 @@
 					<ShortName>wing flap.wav</ShortName>
 					<CachePath>SFX/wing flap_9090667F.wem</CachePath>
 				</File>
+				<File Id="360692969" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>lab rest theme 2.wav</ShortName>
+					<CachePath>SFX/lab rest theme 2_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="382990635" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>OneShot_AnimalsCat_10.wav</ShortName>
+					<CachePath>SFX/OneShot_AnimalsCat_10_5CE0A700.wem</CachePath>
+				</File>
+				<File Id="384511374" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>cardboardbox0.wav</ShortName>
+					<CachePath>SFX/cardboardbox0_10C4C929.wem</CachePath>
+				</File>
 				<File Id="387236824" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon wing flutter.wav</ShortName>
 					<CachePath>SFX/Pigeon wing flutter_77FD64A7.wem</CachePath>
 				</File>
+				<File Id="427093008" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>boss theme.wav</ShortName>
+					<CachePath>SFX/boss theme_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="439298529" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BRASS CITY 3.wav</ShortName>
+					<CachePath>SFX/BRASS CITY 3_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="446377031" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>swoosh.wav</ShortName>
 					<CachePath>SFX/swoosh_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="456314218" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BRASS CITY 4.wav</ShortName>
+					<CachePath>SFX/BRASS CITY 4_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="458494292" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>swipe.wav</ShortName>
+					<CachePath>SFX/swipe_10C4C929.wem</CachePath>
+				</File>
+				<File Id="483069929" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>lab theme 1.wav</ShortName>
+					<CachePath>SFX/lab theme 1_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="484237630" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>WEIRD PARK 1.wav</ShortName>
+					<CachePath>SFX/WEIRD PARK 1_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="489368679" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CHILL PIER 1.wav</ShortName>
+					<CachePath>SFX/CHILL PIER 1_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="509622454" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>lab rest theme 1.wav</ShortName>
+					<CachePath>SFX/lab rest theme 1_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="513937548" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>WEIRD PARK 4.wav</ShortName>
+					<CachePath>SFX/WEIRD PARK 4_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="514170223" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon hoo hoo.wav</ShortName>
@@ -182,9 +247,33 @@
 					<ShortName>Heavy reload.wav</ShortName>
 					<CachePath>SFX/Heavy reload_10C4C929.wem</CachePath>
 				</File>
+				<File Id="604525684" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CHILL PIER 2.wav</ShortName>
+					<CachePath>SFX/CHILL PIER 2_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="604740649" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>glitch boss theme.wav</ShortName>
+					<CachePath>SFX/glitch boss theme_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="605287972" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BRASS CITY 1.wav</ShortName>
+					<CachePath>SFX/BRASS CITY 1_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="608621314" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cymatics - Video Game Vocal 107.wav</ShortName>
+					<CachePath>SFX/Cymatics - Video Game Vocal 107_10C4C929.wem</CachePath>
+				</File>
+				<File Id="633509221" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>WEIRD PARK 2.wav</ShortName>
+					<CachePath>SFX/WEIRD PARK 2_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="647569083" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 14.wav</ShortName>
 					<CachePath>SFX/Pigeon Coo 14_10C4C929.wem</CachePath>
+				</File>
+				<File Id="655724467" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CHILL PIER 3.wav</ShortName>
+					<CachePath>SFX/CHILL PIER 3_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="682039198" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Hover Click 2.wav</ShortName>
@@ -197,6 +286,10 @@
 				<File Id="688570229" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>door slide close.wav</ShortName>
 					<CachePath>SFX/door slide close_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="709855185" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>OneShot_AnimalsCat_12.wav</ShortName>
+					<CachePath>SFX/OneShot_AnimalsCat_12_FFAE93B6.wem</CachePath>
 				</File>
 				<File Id="715870971" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>heartbeat.wav</ShortName>
@@ -217,6 +310,10 @@
 				<File Id="762522150" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pigeon Coo 6.wav</ShortName>
 					<CachePath>SFX/Pigeon Coo 6_10C4C929.wem</CachePath>
+				</File>
+				<File Id="764377300" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>WEIRD PARK 3.wav</ShortName>
+					<CachePath>SFX/WEIRD PARK 3_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="765581632" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Space Blip.wav</ShortName>
@@ -250,9 +347,29 @@
 					<ShortName>Potential Pickup SFX 2.wav</ShortName>
 					<CachePath>SFX/Potential Pickup SFX 2_10C4C929.wem</CachePath>
 				</File>
+				<File Id="829231614" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cymatics - Video Game Vocal 7.wav</ShortName>
+					<CachePath>SFX/Cymatics - Video Game Vocal 7_10C4C929.wem</CachePath>
+				</File>
+				<File Id="834286582" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CHILL PIER 4.wav</ShortName>
+					<CachePath>SFX/CHILL PIER 4_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="847018787" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>wind noise 1.wav</ShortName>
 					<CachePath>SFX/wind noise 1_CB8CCBB2.wem</CachePath>
+				</File>
+				<File Id="873893434" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>lab theme 2.wav</ShortName>
+					<CachePath>SFX/lab theme 2_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="874560864" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>OneShot_AnimalsCat_11.wav</ShortName>
+					<CachePath>SFX/OneShot_AnimalsCat_11_7C243FC9.wem</CachePath>
+				</File>
+				<File Id="897335491" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>cardboardbox1.wav</ShortName>
+					<CachePath>SFX/cardboardbox1_10C4C929.wem</CachePath>
 				</File>
 				<File Id="909240164" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>tornado.wav</ShortName>
@@ -296,6 +413,59 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="2723394006" Name="Play_Cardboard_Box_Fall_1" DurationType="OneShot" DurationMin="0.20793651" DurationMax="0.20793651">
+					<MediaRefs>
+						<MediaRef Id="384511374"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2723394005" Name="Play_Cardboard_Box_Fall_2" DurationType="OneShot" DurationMin="0.23650794" DurationMax="0.23650794">
+					<MediaRefs>
+						<MediaRef Id="897335491"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2723394004" Name="Play_Cardboard_Box_Fall_3" DurationType="OneShot" DurationMin="0.21936508" DurationMax="0.21936508">
+					<MediaRefs>
+						<MediaRef Id="110455559"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2122031380" Name="Play_Cardboard_Box_Hit" DurationType="OneShot" DurationMin="0.20793651" DurationMax="0.23650794">
+					<MediaRefs>
+						<MediaRef Id="110455559"/>
+						<MediaRef Id="384511374"/>
+						<MediaRef Id="897335491"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2280425489" Name="Play_Cat_Death" DurationType="OneShot" DurationMin="0.82176876" DurationMax="1.0353638">
+					<MediaRefs>
+						<MediaRef Id="709855185"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2612945666" Name="Play_Cat_Hurt" DurationType="OneShot" DurationMin="0.6249885" DurationMax="1.2649891">
+					<MediaRefs>
+						<MediaRef Id="382990635"/>
+						<MediaRef Id="874560864"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="357614033" Name="Play_Cat_Meow_1" DurationType="OneShot" DurationMin="0.7968932" DurationMax="1.2649891">
+					<MediaRefs>
+						<MediaRef Id="382990635"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="357614034" Name="Play_Cat_Meow_2" DurationType="OneShot" DurationMin="0.6249885" DurationMax="0.99210745">
+					<MediaRefs>
+						<MediaRef Id="874560864"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="357614035" Name="Play_Cat_Meow_3" DurationType="OneShot" DurationMin="0.82176876" DurationMax="1.0353638">
+					<MediaRefs>
+						<MediaRef Id="709855185"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3921222901" Name="Play_Cat_Swipe" DurationType="OneShot" DurationMin="0.45789862" DurationMax="0.72686875">
+					<MediaRefs>
+						<MediaRef Id="458494292"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2911254633" Name="Play_Controller_Switch" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="307598767"/>
@@ -336,6 +506,394 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="360692969"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="483069929"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="873893434"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="509622454"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="633509221"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="513937548"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="764377300"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="484237630"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="439298529"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="294093001"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="605287972"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="456314218"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="489368679"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="604525684"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="655724467"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="834286582"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
 							<SwitchValue GroupType="State" GroupId="444815956" Id="2791675679"/>
 							<Children>
 								<SwitchContainer>
@@ -367,6 +925,394 @@
 								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="360692969"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="483069929"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="873893434"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="509622454"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="633509221"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="513937548"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="764377300"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="484237630"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="439298529"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="294093001"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="605287972"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="456314218"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="489368679"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="604525684"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="655724467"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="834286582"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="2639148008" Name="Play_Heal" DurationType="OneShot" DurationMin="1.0594558" DurationMax="1.0594558">
@@ -384,7 +1330,7 @@
 						<MediaRef Id="719609388"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="872037337" Name="Play_Heavy_reload" DurationType="OneShot" DurationMin="0.6814739" DurationMax="0.6814739">
+				<Event Id="872037337" Name="Play_Heavy_reload" DurationType="OneShot" DurationMin="1.1134708" DurationMax="1.1134708">
 					<MediaRefs>
 						<MediaRef Id="563781845"/>
 					</MediaRefs>
@@ -493,6 +1439,13 @@
 				<Event Id="3748288237" Name="Play_Pigeon_wing_flutter" DurationType="OneShot" DurationMin="0.33449355" DurationMax="0.53097546">
 					<MediaRefs>
 						<MediaRef Id="387236824"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3056917726" Name="Play_Pirate_Dead" DurationType="OneShot" DurationMin="0.62231064" DurationMax="2.1666667">
+					<MediaRefs>
+						<MediaRef Id="158730224"/>
+						<MediaRef Id="608621314"/>
+						<MediaRef Id="829231614"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="201053746" Name="Play_Pirate_Noise" DurationType="OneShot" DurationMin="0.54403406" DurationMax="0.68543994">
@@ -611,6 +1564,394 @@
 								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="360692969"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="483069929"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="873893434"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="578926554"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="509622454"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="633509221"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="513937548"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="764377300"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="1610254009"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="484237630"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="439298529"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="294093001"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="605287972"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="3888786832"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="456314218"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3831110053"/>
+											<MediaRefs>
+												<MediaRef Id="489368679"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3269879827"/>
+											<MediaRefs>
+												<MediaRef Id="604525684"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3900115470"/>
+											<MediaRefs>
+												<MediaRef Id="655724467"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3627238839"/>
+											<MediaRefs>
+												<MediaRef Id="834286582"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="1198379314"/>
+											<MediaRefs>
+												<MediaRef Id="223278938"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="444815956" Id="655265632"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="745520955" Id="2061969897"/>
+									<Children>
+										<SwitchContainer>
+											<SwitchValue GroupType="State" GroupId="3826569560" Id="3359767828"/>
+											<MediaRefs>
+												<MediaRef Id="427093008"/>
+												<MediaRef Id="604740649"/>
+											</MediaRefs>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="3319673256" Name="Stop_Heartbeat" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
@@ -632,22 +1973,23 @@
 						<State Id="578926554" Name="Lab"/>
 						<State Id="748895195" Name="None"/>
 						<State Id="1610254009" Name="Park"/>
+						<State Id="2061969897" Name="Pier"/>
 						<State Id="3888786832" Name="City"/>
 					</States>
 				</StateGroup>
 				<StateGroup Id="3826569560" Name="Music_State">
 					<States>
-						<State Id="502402914" Name="Mystery_Room"/>
 						<State Id="748895195" Name="None"/>
 						<State Id="1198379314" Name="End_Room"/>
-						<State Id="1233056360" Name="Objective_Room"/>
 						<State Id="3269879827" Name="Rest_Room"/>
 						<State Id="3359767828" Name="Boss_Room"/>
+						<State Id="3627238839" Name="Start_Room"/>
+						<State Id="3831110053" Name="Shop_Room"/>
 						<State Id="3900115470" Name="Normal_Room"/>
 					</States>
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{FFADB206-E1E7-D85F-27AB-03493D4F59CA}</FileHash>
+	<FileHash>{A018DBF5-912B-8DC7-A18F-C0679DA0D5FF}</FileHash>
 </SoundBanksInfo>
