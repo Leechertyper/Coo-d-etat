@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PorchPirate : Enemy
 {
-    public PirateHealth hp;
+    public Health hp;
     [SerializeField] private GameObject projectile;
     private float currentHealth;
     private bool _attacking = false;
@@ -236,15 +236,16 @@ public class PorchPirate : Enemy
         _attackOnCooldown = false;
     }
 
-<<<<<<< Updated upstream
+
     public override float GetHealthVariable()
     {
         return BalanceVariables.pirateEnemy["maxHealth"];
-=======
+    }
+
     IEnumerator BoxAttack()
     {
         yield return new WaitForSeconds(1);
         ThrowBoxes();
->>>>>>> Stashed changes
+
     }
 }
