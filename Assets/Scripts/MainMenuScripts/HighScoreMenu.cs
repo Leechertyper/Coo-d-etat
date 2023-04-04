@@ -57,7 +57,7 @@ public class HighScoreMenu : MonoBehaviour
     {
         string localHighScoresJson = PlayerPrefs.GetString("HighScores");
 
-        if (!string.IsNullOrEmpty(localHighScoresJson))
+        if (!string.IsNullOrEmpty(localHighScoresJson) && localHighScoresJson != "null")
         {
             localHighScores = JsonConvert.DeserializeObject<List<(string, int)>>(localHighScoresJson);
         }
@@ -122,9 +122,7 @@ public class HighScoreMenu : MonoBehaviour
         if (Score.GetInstance() != null)
         {
             Score.GetInstance().ResetScore();
-            Score.GetInstance().UpdateScoreText(0);
-            Score.GetInstance().scoreText.text = "";
-            Score.GetInstance().scoreIncrease.text = "";
+            /*Score.GetInstance().UpdateScoreText(0);*/
         }        
         if (player != null)
         {

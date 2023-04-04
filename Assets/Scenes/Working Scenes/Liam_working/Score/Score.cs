@@ -132,7 +132,7 @@ public class Score : MonoBehaviour
     {
         string highScoresJson = PlayerPrefs.GetString("HighScores");
 
-        if (!string.IsNullOrEmpty(highScoresJson))
+        if (!string.IsNullOrEmpty(highScoresJson) && highScoresJson != "null")
         {
             highScores = JsonConvert.DeserializeObject<List<(string, int)>>(highScoresJson);
         }
