@@ -828,6 +828,7 @@ MonoBehaviour:
   tileScale: 3
   printGrid: 1
   spawnTiles: 0
+  _size: {x: 0, y: 0}
   gridGenerated: 0
   testTile: {fileID: 2069081458}
 --- !u!4 &210725630
@@ -3810,6 +3811,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableEnemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableEnemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 5347276051697959213, guid: 7bbb9f4af87f2dc4da1d7b363a63eaf5, type: 3}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.size
       value: 6

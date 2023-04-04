@@ -2052,6 +2052,10 @@ PrefabInstance:
       value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 6489426979874855014, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
+      propertyPath: volumeLevel
+      value: 
+      objectReference: {fileID: 862080072}
+    - target: {fileID: 6489426979874855014, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
       propertyPath: volumeLevel_SFX
       value: 
       objectReference: {fileID: 200639393}
@@ -2063,6 +2067,10 @@ PrefabInstance:
       propertyPath: volumeLevel_Master
       value: 
       objectReference: {fileID: 862080072}
+    - target: {fileID: 6489426979874855015, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6489426979874855015, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2085,11 +2093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6489426979874855015, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetValueTextmaster
+      value: SetValuetext
       objectReference: {fileID: 0}
     - target: {fileID: 6489426979874855015, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: VolumeSliderMaster, Assembly-CSharp
+      value: VolumeSlider, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6489426979874855015, guid: 93349360c11c41a4a9af47b347cbd400, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
