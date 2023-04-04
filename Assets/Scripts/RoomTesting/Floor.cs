@@ -298,13 +298,13 @@ public class Floor : MonoBehaviour
         switch (currentRoomType)
         {
             case Room.RoomType.Start:
-                AkSoundEngine.SetState("Music_State", "Objective_Room");
+                AkSoundEngine.SetState("Music_State", "Start_Room");
                 break;
             case Room.RoomType.Boss:
                 AkSoundEngine.SetState("Music_State", "Boss_Room");
                 break;
             case Room.RoomType.Charger:
-                AkSoundEngine.SetState("Music_State", "Mystery_Room");
+                AkSoundEngine.SetState("Music_State", "Rest_Room");
                 break;
             case Room.RoomType.Enemy:
                 AkSoundEngine.SetState("Music_State", "Normal_Room");
@@ -314,7 +314,6 @@ public class Floor : MonoBehaviour
                 break;
             default:
                 AkSoundEngine.SetState("Music_State", "None");
-
                 break;
         }
     }
