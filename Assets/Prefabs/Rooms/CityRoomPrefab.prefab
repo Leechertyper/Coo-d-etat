@@ -1580,7 +1580,6 @@ GameObject:
   - component: {fileID: 1772439819912909612}
   - component: {fileID: 4259832604556944962}
   - component: {fileID: 8231672735005149221}
-  - component: {fileID: 7615626748652311343}
   m_Layer: 0
   m_Name: TopDoorBlank
   m_TagString: Untagged
@@ -1780,22 +1779,6 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!19719996 &7615626748652311343
-TilemapCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880041767998118717}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0
 --- !u!1 &1970622688814156214
 GameObject:
   m_ObjectHideFlags: 0
