@@ -110,6 +110,7 @@ public class PorchPirate : Enemy
     public void TakeDamage(float damage)
     {
         // Damage sound here
+        AkSoundEngine.PostEvent("Play_Pigeon_Hurt", this.gameObject);
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
@@ -140,6 +141,7 @@ public class PorchPirate : Enemy
     public override void Die()
     {
         // Death sound here
+        AkSoundEngine.PostEvent("Play_Pirate_Dead", this.gameObject);
         GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
         Destroy(gameObject);
     }
@@ -147,6 +149,7 @@ public class PorchPirate : Enemy
     public override void Awaken()
     {
         // would be funny if he made a "huh?" noise when he awoke
+        AkSoundEngine.PostEvent("Play_Pirate_Noise", this.gameObject);
         _sleeping = false;
     }
 
@@ -164,6 +167,7 @@ public class PorchPirate : Enemy
     private void ThrowBoxes()
     {
         // Kirk add sounds here for attack
+        AkSoundEngine.PostEvent("Play_Tornado", this.gameObject); 
         if (_altDirAttack)
         {
             _altDirAttack = false;
