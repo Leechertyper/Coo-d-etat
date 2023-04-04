@@ -95,8 +95,13 @@ public class Loading : MonoBehaviour
         facts.Add("The average pigeon eats 112 spiders a year. Pigeons Georg, who eats 10,000 spiders a year, is an outlier and should not be counted.");
         facts.Add("Cuneiform was actually created by pigeons stepping on wet clay. It took the Sumerians 500 years to figure out how to read it.");
         facts.Add("Garlic is beneficial for pigeons, as it helps them ward off vampire bats.");
+        facts.Add("Pigeons are excellent actors, and have won several Oscars for their performances in movies.");
+        facts.Add("Pigeons are sensitive to the Earth's magnetic field, despite definitely not being made of metal in any way.");
+        facts.Add("Pigeons know why kids love the taste of Cinnamon Toast Crunch!");
+        facts.Add("Pigeons know what you'd do for a Klondike Bar. They advise you to never tell anyone.");
+        facts.Add("Recently, scientists learned that pigeons account for 99% of all ordinary matter in the known universe.");
 
-        var num = Random.Range(0, 7);
+        var num = Random.Range(0, 12);
         factsText.text = facts[num];
     }
 }
