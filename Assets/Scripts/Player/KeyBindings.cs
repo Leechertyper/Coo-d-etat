@@ -58,22 +58,19 @@ public class KeyBindings : MonoBehaviour
         switch (keyName)
         {
             case "Up":
-                upKeyText.text = "Enter UP key";
+                upKeyText.text = "Press new key:";
                 break;
             case "Down":
-                downKeyText.text = "Enter DOWN key";
+                downKeyText.text = "Press new key:";
                 break;
             case "Left":
-                leftKeyText.text = "Enter LEFT key";
+                leftKeyText.text = "Press new key:";
                 break;
             case "Right":
-                rightKeyText.text = "Enter RIGHT key";
-                break;
-            case "Shoot":
-                fireKeyText.text = "Enter FIRE key";
+                rightKeyText.text = "Press new key:";
                 break;
             case "Dash":
-                dashKeyText.text = "Enter DASH key";
+                dashKeyText.text = "Press new key:";
                 break;
         }
 
@@ -101,10 +98,6 @@ public class KeyBindings : MonoBehaviour
             case "Right":
                 PlayerPrefs.SetString("rightKey", newKey.ToString());
                 rightKeyText.text = "Right: " + newKey;
-                break;
-            case "Shoot":
-                PlayerPrefs.SetString("fireKey", newKey.ToString());
-                fireKeyText.text = "Shoot: " + newKey;
                 break;
             case "Dash":
                 PlayerPrefs.SetString("dashKey", newKey.ToString());
