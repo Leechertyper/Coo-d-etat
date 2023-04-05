@@ -54,6 +54,9 @@ public class MainMenu : MonoBehaviour
             GameObject.Find("ScoreManager").GetComponent<Score>().ResetScore();
             GameObject.Find("ScoreManager").GetComponent<Score>().ResetHighScore();
         }
+        AkSoundEngine.SetRTPCValue("Master_Volume", PlayerPrefs.GetFloat("VolumeLevel",100f));
+        AkSoundEngine.SetRTPCValue("FX_Volume", PlayerPrefs.GetFloat("VolumeLevel_SFX",100f));
+        AkSoundEngine.SetRTPCValue("Music_Volume", PlayerPrefs.GetFloat("VolumeLevel_Music",100f));
     }
 
     /*

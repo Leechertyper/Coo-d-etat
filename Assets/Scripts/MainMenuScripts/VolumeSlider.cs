@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,28 @@ public class VolumeSlider : MonoBehaviour
 {
     public Text volumeLevel;
 
-    void Start()
+    private void Start()
     {
+
+        if (PlayerPrefs.HasKey("VolumeLevel"))
+        {
+            var newVolumeLevel = PlayerPrefs.GetFloat("VolumeLevel");
+            volumeLevel.text = newVolumeLevel + "%";
+            AkSoundEngine.SetRTPCValue("Master_Volume", newVolumeLevel);
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("VolumeLevel", 100f);
+            volumeLevel.text = PlayerPrefs.GetFloat("VolumeLevel") + "%";
+            AkSoundEngine.SetRTPCValue("Master_Volume", 100f);
+        }
         // Set the volume level to the current volume level
-        volumeLevel.text = PlayerPrefs.GetFloat("VolumeLevel", 100).ToString() + "%";
+        
+    }
+
+    private void OnEnable()
+    {
+        GetComponent<Slider>().value = PlayerPrefs.GetFloat("VolumeLevel", 100f);
     }
 
     /*
@@ -18,7 +37,7 @@ public class VolumeSlider : MonoBehaviour
     */
     public void SetValuetext(float newVolumeLevel)
     {
-        volumeLevel.text = newVolumeLevel.ToString() + "%";
+        volumeLevel.text = newVolumeLevel + "%";
         PlayerPrefs.SetFloat("VolumeLevel", newVolumeLevel);
         AkSoundEngine.SetRTPCValue("Master_Volume", newVolumeLevel);
     }
