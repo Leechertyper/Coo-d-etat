@@ -14,24 +14,28 @@ public class Shop : MonoBehaviour
     private static Shop instance;
     public static List<ShopItem> shopItemList = new List<ShopItem>();
     private List<ShopItem> starterShopItemList = new List<ShopItem>(new ShopItem[]{
-        new ShopItem("Increase Battery", 10, "Upgrade your battery and keep your lazer powered for longer!",1f),
-        new ShopItem("Increase Health", 10, "Boost your health and increase your chances of survival!",1f),
-        new ShopItem("Increase Damage", 10, "Upgrade your weapon and deal more destruction than ever before.",1f),
+        new ShopItem("Increase Battery", 100, "Upgrade your battery and keep your lazer powered for longer!",1f),
+        new ShopItem("Increase Health", 100, "Boost your health and increase your chances of survival!",1f),
+        new ShopItem("Increase Damage", 100, "Upgrade your weapon and deal more destruction than ever before.",1f),
     });
 
+    private void Awake()
+    {
+        if (instance == null) // If there is no instance already
+        {
+            DontDestroyOnLoad(gameObject); // bugs the game with this line
+            instance = this;
+
+
+        }
+        else if (instance != this) // If there is already an instance and it's not `this` instance
+        {
+            Destroy(gameObject); // Destroy the GameObject, this component is attached to
+        }
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (shopUI.activeSelf)
-            {
-                CloseShop();
-            }
-            else
-            {
-                OpenShop();
-            }
-        }
+
     }
 
     /* 
@@ -39,11 +43,13 @@ public class Shop : MonoBehaviour
     */
     void Start()
     {
+
         shopUI.SetActive(false);
         shopItemList.Clear();
         CheckForNewItem();
         CheckForOldRemovedItem();
         DisplayItemButtons();
+
     }
 
     /*
@@ -98,6 +104,7 @@ public class Shop : MonoBehaviour
     {
         shopUI.SetActive(false);
         Time.timeScale = 1f;
+        GameManager.Instance.inGame = true;
     }
 
     /*
@@ -116,6 +123,7 @@ public class Shop : MonoBehaviour
         shopUI.SetActive(true);
         Time.timeScale = 0f;
         DisplayPlayerBalance();
+        GameManager.Instance.inGame = false;
 
     }
 
@@ -196,7 +204,7 @@ public class Shop : MonoBehaviour
             Button buyButton = buttonObject.transform.Find("BuyButton").GetComponent<Button>();
 
             itemNameText.text = item.name;
-            itemPriceText.text = "$" + item.price.ToString();
+            itemPriceText.text =  item.price.ToString() + " Points";
             itemDescriptionText.text = item.description;
 
             buyButton.onClick.AddListener(() => BuyItem(item, itemPriceText));
@@ -212,7 +220,7 @@ public class Shop : MonoBehaviour
         {
             GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(-item.price);
             item.price = Mathf.RoundToInt(item.price * 1.5f);
-            itemPriceText.text = "$" + item.price.ToString();
+            itemPriceText.text = item.price.ToString() + " Points";
             item.value += 0.1f;
             DisplayPlayerBalance();
         }
