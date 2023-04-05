@@ -19,6 +19,7 @@ public class ShopObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("AYO WE TOUCHIN");
         if(collision.gameObject.tag == "Player")
         {
             shopManager.GetComponent<Shop>().shopUI.SetActive(true);

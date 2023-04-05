@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        roomNum = 1;
        //SetupGame();
     }
     
@@ -210,6 +211,7 @@ public class GameManager : MonoBehaviour
             StartBalanceMenu();
         }
         else{
+            Debug.Log("Current Floor Type is: " + roomNum);
             roomNum += 1;
             levelNum += 1;
             if (roomNum > 4)
@@ -357,7 +359,6 @@ public class GameManager : MonoBehaviour
     {
         _thePlayerObject = GameObject.Find("Player");
         _thePlayer = _thePlayerObject.GetComponent<Player>();
-        roomNum = 1;
         levelNum = 1;
         allRooms = null;
         allDroneEnemies = null;
