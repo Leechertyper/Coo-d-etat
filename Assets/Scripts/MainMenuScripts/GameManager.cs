@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _thePlayerObject = GameObject.Find("Player");
         roomNum = 1;
         levelNum = 1;
         allRooms = null;

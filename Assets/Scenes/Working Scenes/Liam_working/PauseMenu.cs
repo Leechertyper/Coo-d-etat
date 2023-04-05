@@ -12,6 +12,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject options;
 
+    public GameObject cursor;
+
     // Update is called once per frame
     void Update()
     {
@@ -21,10 +23,12 @@ public class PauseMenu : MonoBehaviour
             gameIsPaused = !gameIsPaused;
             if(gameIsPaused)
             {
+                cursor.GetComponent<CursorScript>().UnsetCursor();
                 GameManager.Instance.inGame = false;
                 Pause();
             } else
             {
+                cursor.GetComponent<CursorScript>().SetCursor();
                 GameManager.Instance.inGame = true;
                 Resume();
             }
