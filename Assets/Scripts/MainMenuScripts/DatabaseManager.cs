@@ -297,11 +297,17 @@ public class DatabaseManager : MonoBehaviour
                 string query = "SELECT COUNT(*) FROM `coo_d_etat`.`Highscores` WHERE (`name` = '" + name + "');";
                 MySqlCommand queryCMD = new MySqlCommand(query, connection);
                 object queryResult = queryCMD.ExecuteScalar();
-                int r = Convert.ToInt32(queryResult);
+                int r = Convert.ToInt32(queryResult);   
                 string sql = "";
                 if (r > 0)
-                {
-                    sql = "UPDATE `coo_d_etat`.`Highscores` SET `score` = '" + score + "' WHERE (`name` = '" + name + "');";
+                {   
+                    query = "SELECT score FROM `coo_d_etat`.`Highscores` WHERE (`name` = '" + name + "');";
+                    queryCMD = new MySqlCommand(query, connection);
+                    queryResult = queryCMD.ExecuteScalar();
+                    r = Convert.ToInt32(queryResult);
+                    if(score > r){
+                        sql = "UPDATE `coo_d_etat`.`Highscores` SET `score` = '" + score + "' WHERE (`name` = '" + name + "');";
+                    }
                 }
                 else
                 {
