@@ -4,6 +4,9 @@ public class GOTONEXTROOM : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D col)
     {
-        GameManager.Instance.GoToNextFloor();
+        if(col.gameObject.tag == "Player")
+        {
+            GameManager.Instance.GoToNextFloor();
+        }
     }
 }

@@ -120,4 +120,13 @@ public class KeyBindings : MonoBehaviour
             }
         }
     }
+    public void Clickybutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
+    }
+    
+    public void Hoverbutton()
+    {
+        AkSoundEngine.PostEvent("Play_Hover_Click_2", this.gameObject);
+    }
 }

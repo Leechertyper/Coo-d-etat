@@ -20,7 +20,7 @@ public class BoxDogScript : MonoBehaviour
 
     private GameObject _deathItems;
 
-
+    private bool _dead = false;
 
 
     private BoxCollider2D _theCollider;
@@ -44,6 +44,11 @@ public class BoxDogScript : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player" && !_isTriggered)
         {
+            if(_dead==false)
+            {
+                GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(10);
+                _dead = true;
+            }
             AkSoundEngine.PostEvent("Play_Cardboard_Box_Hit", this.gameObject);
             theAnimator.SetTrigger("Start");
             _isTriggered = true;

@@ -10,18 +10,20 @@ State	ID	Name	State Group			Notes
 	578926554	Lab	Stage_State			
 	748895195	None	Stage_State			
 	1610254009	Park	Stage_State			
+	2061969897	Pier	Stage_State			
 	3888786832	City	Stage_State			
-	502402914	Mystery_Room	Music_State			
 	748895195	None	Music_State			
 	1198379314	End_Room	Music_State			
-	1233056360	Objective_Room	Music_State			
 	3269879827	Rest_Room	Music_State			
 	3359767828	Boss_Room	Music_State			
+	3627238839	Start_Room	Music_State			
+	3831110053	Shop_Room	Music_State			
 	3900115470	Normal_Room	Music_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	151362964	PlayerHealth			\Default Work Unit\PlayerHealth	
 	1006694123	Music_Volume			\Default Work Unit\Music_Volume	
+	2234500385	SFX_playing			\Default Work Unit\SFX_playing	
 	2536527299	Game_Is_Paused			\Default Work Unit\Game_Is_Paused	
 	3350225276	FX_Volume			\Default Work Unit\FX_Volume	
 	4179668880	Master_Volume			\Default Work Unit\Master_Volume	

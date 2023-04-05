@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 5347276051697959218}
   - component: {fileID: 5347276051697959217}
   - component: {fileID: 5347276051697959216}
+  - component: {fileID: -3235181677791873284}
+  - component: {fileID: 5347276052053751236}
   m_Layer: 0
   m_Name: PorchPirate
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 388309143, guid: 38b0f8b873d7e694086b6639e2f4201e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,9 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb039c282190bdb47aa5699fe5a0b05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  damage: 20
-  projectile: {fileID: 0}
+  hp: {fileID: 5347276052053751236}
+  projectile: {fileID: 2187918097288055020, guid: 48c1d0d846e58cf4d9b52298063873d3, type: 3}
 --- !u!95 &5347276051697959216
 Animator:
   serializedVersion: 5
@@ -121,3 +122,47 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!61 &-3235181677791873284
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347276051697959213}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.22, y: 4.1010017}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.22, y: 4.1010017}
+  m_EdgeRadius: 0
+--- !u!114 &5347276052053751236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347276051697959213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1192c88dd8088a428afe962fde587d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  health: 0
+  hurtColor: {r: 0, g: 0, b: 0, a: 0}
+  deathEffects:
+  - {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
+  theDeathItems: {fileID: 2887637984562674970, guid: cff8afb325b205346b551f5590444fdc, type: 3}
