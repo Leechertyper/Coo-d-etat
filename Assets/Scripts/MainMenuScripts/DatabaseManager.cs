@@ -308,6 +308,10 @@ public class DatabaseManager : MonoBehaviour
                     if(score > r){
                         sql = "UPDATE `coo_d_etat`.`Highscores` SET `score` = '" + score + "' WHERE (`name` = '" + name + "');";
                     }
+                    else
+                    {
+                        return;
+                    }
                 }
                 else
                 {
