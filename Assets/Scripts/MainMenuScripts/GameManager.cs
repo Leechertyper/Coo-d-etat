@@ -94,6 +94,10 @@ public class GameManager : MonoBehaviour
     {
     }
 
+    public int getRoomNum()
+    {
+        return roomNum;
+    }
     public int getLevelNum()
     {
         return levelNum;

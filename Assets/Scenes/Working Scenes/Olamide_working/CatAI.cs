@@ -237,10 +237,6 @@ public class CatAI : Enemy
     {
         AkSoundEngine.PostEvent("Play_Cat_Hurt", this.gameObject);
     }
-    public override void TakeDamage()
-    {
-        AkSoundEngine.PostEvent("Play_Cat_Hurt", this.gameObject);
-    }
 
     public override float GetHealthVariable()
     {
