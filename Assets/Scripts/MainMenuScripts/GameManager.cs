@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Player _thePlayer;
     private Vector2 _endRoomPos;
     private ArrayList allRooms;
+    private bool seenPopup = false;
 
     [SerializeField] private int roomNum;
     private int levelNum;
@@ -386,5 +387,15 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        if(seenPopup)
+        {
+            GameObject.Find("StartPopup").SetActive(false);
+        }
+    }
+
+    public void SeenPopup()
+    {
+        seenPopup = true;
+        GameObject.Find("StartPopup").SetActive(false);
     }
 }
