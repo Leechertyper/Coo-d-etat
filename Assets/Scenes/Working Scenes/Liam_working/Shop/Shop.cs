@@ -105,6 +105,7 @@ public class Shop : MonoBehaviour
         shopUI.SetActive(false);
         Time.timeScale = 1f;
         GameManager.Instance.inGame = true;
+        AkSoundEngine.SetState("Music_State", "End_Room");
     }
 
     /*
@@ -120,6 +121,7 @@ public class Shop : MonoBehaviour
     */
     public void OpenShop()
     {
+        AkSoundEngine.SetState("Music_State", "Shop_Room");
         shopUI.SetActive(true);
         Time.timeScale = 0f;
         DisplayPlayerBalance();
