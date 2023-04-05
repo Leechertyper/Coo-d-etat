@@ -6,7 +6,6 @@ public class PorchPirate : Enemy
 {
     public Health hp;
     [SerializeField] private GameObject projectile;
-    private float currentHealth;
     private bool _attacking = false;
     private bool _moving = false;
     private Vector2Int _gridPos;
@@ -111,15 +110,10 @@ public class PorchPirate : Enemy
 
     }
     
-    public void TakeDamage(float damage)
+    public override void TakeDamage()
     {
         // Damage sound here
         AkSoundEngine.PostEvent("Play_Pirate_Noise", this.gameObject);
-        currentHealth -= damage;
-        if(currentHealth <= 0)
-        {
-            Die();
-        }
     }
 
     /// <summary>
@@ -244,7 +238,7 @@ public class PorchPirate : Enemy
 
     public override float GetHealthVariable()
     {
-        return BalanceVariables.pirateEnemy["maxHealth"];
+        return BalanceVariables.pirateEnemy["maxHealth"] * (0.5f + (Mathf.Sqrt(GameManager.Instance.getLevelNum()) / 2));
     }
 
     IEnumerator BoxAttack()
@@ -253,4 +247,5 @@ public class PorchPirate : Enemy
         ThrowBoxes();
 
     }
+
 }
