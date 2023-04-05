@@ -89,7 +89,7 @@ public class BalanceMenu : MonoBehaviour
     {
         string _temp = _string;
         _temp = _temp[0].ToString().ToUpper() + _temp.Substring(1);
-        for(int i=0; i<_temp.Length; i++)
+        for(int i=1; i<_temp.Length; i++)
         {
             if(char.IsUpper(_temp[i]))
             {
