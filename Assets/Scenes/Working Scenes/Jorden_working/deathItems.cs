@@ -124,44 +124,52 @@ public class deathItems : MonoBehaviour
 
         thePlace = new Vector3(thePlace.x,thePlace.y,-1);
 
-        int thisSpawnChance = 0;
 
-        if(_itemSpawnChance*3> 75)
+        if(_player.GetComponent<PlayerAttack>().GetCurrentAmmo() <= 1)
         {
-            thisSpawnChance = 75;
+            Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
+            Debug.Log("Spawned battery because ammo was empty");
         }
-        else
-        {
-            thisSpawnChance = _itemSpawnChance*3;
-        }   
+            else{
 
-        if(Random.Range(0,100) <= thisSpawnChance)
-        {
-            if(Random.Range(0,4)==3 && !_bossGarlicLastSpawn)
+            int thisSpawnChance = 0;
+
+            if(_itemSpawnChance*3> 75)
             {
-                if(isFullHealth)
-                {
-                    Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
-                    _bossGarlicLastSpawn = false;
-                }
-                else
-                {
-                    Instantiate(healthItem, thePlace,Quaternion.identity);
-                    _bossGarlicLastSpawn = true;
-                }
-
+                thisSpawnChance = 75;
             }
             else
             {
-                Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
-                _bossGarlicLastSpawn = false;
-                //Debug.Log("SPAWNED BATTERY");
-            }
+                thisSpawnChance = _itemSpawnChance*3;
+            }   
 
+            if(Random.Range(0,100) <= thisSpawnChance)
+            {
+                if(Random.Range(0,4)==3 && !_bossGarlicLastSpawn)
+                {
+                    if(isFullHealth)
+                    {
+                        Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
+                        _bossGarlicLastSpawn = false;
+                    }
+                    else
+                    {
+                        Instantiate(healthItem, thePlace,Quaternion.identity);
+                        _bossGarlicLastSpawn = true;
+                    }
+
+                }
+                else
+                {
+                    Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
+                    _bossGarlicLastSpawn = false;
+                    //Debug.Log("SPAWNED BATTERY");
+                }
+
+            }
+       
+       
         }
-       
-       
-        
     }
 
 
