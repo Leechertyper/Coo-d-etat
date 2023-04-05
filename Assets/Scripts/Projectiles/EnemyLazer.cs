@@ -9,7 +9,7 @@ public class EnemyLazer : MonoBehaviour
     private float _dronePower;
     private void Awake()
     {
-        _dronePower = BalanceVariables.droneEnemy["lazerDamage"];
+        _dronePower = BalanceVariables.droneEnemy["lazerDamage"] * (0.5f + (Mathf.Sqrt(GameManager.Instance.getLevelNum()) / 2));
     }
 
     // When off screen Destroy Lazer

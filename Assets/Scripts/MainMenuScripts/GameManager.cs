@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private ArrayList allRooms;
 
     [SerializeField] private int roomNum;
+    private int levelNum;
 
     // When there is more enemy types each will get their own list
     private List<GameObject> allDroneEnemies;
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         roomNum = 1;
+        levelNum = 1;
         allRooms = null;
         allDroneEnemies = null;
         inGame = true;
@@ -95,6 +97,11 @@ public class GameManager : MonoBehaviour
     public int getRoomNum()
     {
         return roomNum;
+    }
+
+    public int getLevelNum()
+    {
+        return levelNum;
     }
 
     //My idea is that the pcg script will call this function when it has all the rooms generated
@@ -217,6 +224,7 @@ public class GameManager : MonoBehaviour
         }
         else{
             roomNum += 1;
+            levelNum += 1;
             if (roomNum > 4)
             {
                 roomNum = 1;

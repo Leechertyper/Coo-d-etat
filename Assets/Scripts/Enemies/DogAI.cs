@@ -135,7 +135,7 @@ public class DogAI : Enemy
         {
             if (_attackReady)
             {
-                collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.dogEnemy["attackDamage"]);
+                collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.dogEnemy["attackDamage"] * (0.5f + (Mathf.Sqrt(GameManager.Instance.getLevelNum()) / 2)));
                 StopAllCoroutines();
                 transform.position = _grid.GetTile(transform.position);
                 animator.SetBool("IsRunning", false);
@@ -263,6 +263,6 @@ public class DogAI : Enemy
 
     public override float GetHealthVariable()
     {
-        return BalanceVariables.dogEnemy["maxHealth"];
+        return BalanceVariables.dogEnemy["maxHealth"] * (0.5f + (Mathf.Sqrt(GameManager.Instance.getLevelNum()) / 2));
     }
 }

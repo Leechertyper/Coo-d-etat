@@ -244,7 +244,7 @@ public class PorchPirate : Enemy
 
     public override float GetHealthVariable()
     {
-        return BalanceVariables.pirateEnemy["maxHealth"];
+        return BalanceVariables.pirateEnemy["maxHealth"] * (0.5f + (Mathf.Sqrt(GameManager.Instance.getLevelNum()) / 2));
     }
 
     IEnumerator BoxAttack()
@@ -252,5 +252,10 @@ public class PorchPirate : Enemy
         yield return new WaitForSeconds(1);
         ThrowBoxes();
 
+    }
+
+    public override void TakeDamage()
+    {
+        
     }
 }
