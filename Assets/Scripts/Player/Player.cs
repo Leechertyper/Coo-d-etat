@@ -56,36 +56,39 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (_healthChanging)
+        if (GameManager.Instance.inGame)
         {
-            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()), 3f * Time.deltaTime);
-            if (Mathf.Round(healthBar.fillAmount * (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier())) == Mathf.Round(_health))
+            if (_healthChanging)
             {
-                _healthChanging = false;
-                _healthTrailChanging = true;
-            }
-            else
-            {
-                _healthTrailChanging = false;
-            }
-        }
-
-        if (_healthTrailChanging)
-        {
-            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()), 5f * Time.deltaTime);
-            if (Mathf.Round(healthTrail.fillAmount * (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier())) == Mathf.Round(_health))
-            {
-                _healthTrailChanging = false;
+                healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / (BalanceVariables.player["maxHealth"] * GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()), 3f * Time.deltaTime);
+                if (Mathf.Round(healthBar.fillAmount * (BalanceVariables.player["maxHealth"] * GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier())) == Mathf.Round(_health))
+                {
+                    _healthChanging = false;
+                    _healthTrailChanging = true;
+                }
+                else
+                {
+                    _healthTrailChanging = false;
+                }
             }
 
-        }
-        if (_isInvuln)
-        {
-            _invulnTime -= Time.deltaTime;
-            if(_invulnTime <= 0f)
+            if (_healthTrailChanging)
             {
-                _isInvuln = false;
-                _invulnTime = 1f;
+                healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / (BalanceVariables.player["maxHealth"] * GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()), 5f * Time.deltaTime);
+                if (Mathf.Round(healthTrail.fillAmount * (BalanceVariables.player["maxHealth"] * GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier())) == Mathf.Round(_health))
+                {
+                    _healthTrailChanging = false;
+                }
+
+            }
+            if (_isInvuln)
+            {
+                _invulnTime -= Time.deltaTime;
+                if (_invulnTime <= 0f)
+                {
+                    _isInvuln = false;
+                    _invulnTime = 1f;
+                }
             }
         }
     }

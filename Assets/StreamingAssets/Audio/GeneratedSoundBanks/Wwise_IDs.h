@@ -28,6 +28,7 @@ namespace AK
         static const AkUniqueID PLAY_HEARTBEAT = 3765695918U;
         static const AkUniqueID PLAY_HEAVY_BLAST = 516331348U;
         static const AkUniqueID PLAY_HEAVY_RELOAD = 872037337U;
+        static const AkUniqueID PLAY_HOVER_CLICK_01 = 78628049U;
         static const AkUniqueID PLAY_HOVER_CLICK_1 = 3744969633U;
         static const AkUniqueID PLAY_HOVER_CLICK_2 = 3744969634U;
         static const AkUniqueID PLAY_HURT_NOISE_1 = 1011706546U;

@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	78628049	Play_Hover_Click_01			\Default Work Unit\Play_Hover_Click_01	
 	201053746	Play_Pirate_Noise			\Default Work Unit\Play_Pirate_Noise	
 	252290767	Play_wind_noise_1			\Default Work Unit\Play_wind_noise_1	
 	331850419	Play_Potential_Pickup_SFX			\Default Work Unit\Play_Potential_Pickup_SFX	
