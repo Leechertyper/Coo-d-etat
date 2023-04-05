@@ -21,7 +21,17 @@ public class Shop : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if (shopUI.activeSelf)
+            {
+                CloseShop();
+            }
+            else
+            {
+                OpenShop();
+            }
+        }
     }
 
     /* 
@@ -29,19 +39,8 @@ public class Shop : MonoBehaviour
     */
     void Start()
     {
-        if (instance == null) {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        } else {
-            Destroy(gameObject);
-        }
         shopUI.SetActive(false);
-        int _savedShopItemCount = PlayerPrefs.GetInt("itemDataCount");
-        for (int i = 0; i < Mathf.Min(_savedShopItemCount,3); i++)
-        {
-            string itemData = PlayerPrefs.GetString("itemData" + i);
-            shopItemList.Add(JsonUtility.FromJson<ShopItem>(itemData));
-        }
+        shopItemList.Clear();
         CheckForNewItem();
         CheckForOldRemovedItem();
         DisplayItemButtons();
@@ -99,7 +98,6 @@ public class Shop : MonoBehaviour
     {
         shopUI.SetActive(false);
         Time.timeScale = 1f;
-        GameManager.Instance.inGame = true;
     }
 
     /*
@@ -115,11 +113,10 @@ public class Shop : MonoBehaviour
     */
     public void OpenShop()
     {
-        GameManager.Instance.inGame = false;
         shopUI.SetActive(true);
         Time.timeScale = 0f;
         DisplayPlayerBalance();
-        
+
     }
 
     /*
@@ -182,28 +179,6 @@ public class Shop : MonoBehaviour
                 shopItemList.RemoveAt(i);
             }
         }
-    }
-
-    public void Clickybutton()
-    {
-        AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
-    }
-    
-    public void Hoverbutton()
-    {
-        AkSoundEngine.PostEvent("Play_Hover_Click_2", this.gameObject);
-    }
-
-    /*
-    * will save the shop items when the game is closed
-    */
-    void OnApplicationQuit()
-    {
-        PlayerPrefs.SetInt("itemDataCount", shopItemList.Count);
-        for(int i = 0; i < shopItemList.Count; i++)
-        {
-            PlayerPrefs.SetString("itemData"+i, JsonUtility.ToJson(shopItemList[i]));
-        } 
     }
 
     /*
