@@ -56,39 +56,26 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _thePlayerObject = GameObject.Find("Player");
-        roomNum = 1;
-        levelNum = 1;
-        allRooms = null;
-        allDroneEnemies = null;
-        inGame = true;
-
-        theBoss = null;
-
-        //healthItemValue = 1f;
-
-        //Database needs the GetHostFound for it to work, this needs to happen after the Awake phase of initialization.
-        dbInstance = this.gameObject.GetComponent<DatabaseManager>();
-        if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
-        {
-            for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
-            {
-                List<string> keys = new List<string>(BalanceVariables.dictionaryList[i].Keys);
-                foreach(string key in keys)
-                {
-                    float maxVal = dbInstance.GetMaxValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
-                    float minVal = dbInstance.GetMinValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
-                    float difference = maxVal - minVal;
-                    float scaledValue = Tikhonov(dbInstance.GetSteps(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1)),10f,32f )*difference;
-                    Debug.Log("Putting in :" + scaledValue + " with min value: " + minVal + " for " + BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
-                    BalanceVariables.dictionaryList[i][key] =minVal + scaledValue;
-                }
-            }
-        }
-
+       SetupGame();
     }
     
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == "Beta Main")
+        {
+            SetupGame();
+        }
+    }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     // Update is called once per frame
     void Update()
@@ -364,5 +351,39 @@ public class GameManager : MonoBehaviour
     public float Tikhonov(float val, float steepness, float half){
         float scalar = Mathf.Pow(val,steepness)/(Mathf.Pow(val,steepness) + Mathf.Pow(half,steepness));
         return scalar;
+    }
+
+    public void SetupGame()
+    {
+        _thePlayerObject = GameObject.Find("Player");
+        _thePlayer = _thePlayerObject.GetComponent<Player>();
+        roomNum = 1;
+        levelNum = 1;
+        allRooms = null;
+        allDroneEnemies = null;
+        inGame = true;
+
+        theBoss = null;
+
+        //healthItemValue = 1f;
+
+        //Database needs the GetHostFound for it to work, this needs to happen after the Awake phase of initialization.
+        dbInstance = this.gameObject.GetComponent<DatabaseManager>();
+        if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
+        {
+            for(int i = 0;i<BalanceVariables.dictionaryList.Count;i++)
+            {
+                List<string> keys = new List<string>(BalanceVariables.dictionaryList[i].Keys);
+                foreach(string key in keys)
+                {
+                    float maxVal = dbInstance.GetMaxValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    float minVal = dbInstance.GetMinValue(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    float difference = maxVal - minVal;
+                    float scaledValue = Tikhonov(dbInstance.GetSteps(BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1)),10f,32f )*difference;
+                    //Debug.Log("Putting in :" + scaledValue + " with min value: " + minVal + " for " + BalanceVariables.dictionaryListStrings[i]+char.ToUpper(key[0]) + key.Substring(1));
+                    BalanceVariables.dictionaryList[i][key] =minVal + scaledValue;
+                }
+            }
+        }
     }
 }

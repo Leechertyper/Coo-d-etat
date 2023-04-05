@@ -41,11 +41,11 @@ public class Loading : MonoBehaviour
         {
             // Update the progress bar or loading text as needed
             float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f); // 0.9f is the progress at which the scene is considered loaded
-            Debug.Log("Loading progress: " + (int)(progress * 100) + "%");
+            //Debug.Log("Loading progress: " + (int)(progress * 100) + "%");
 
             yield return null;
         }
-
+        
         // Hide the loading screen
         loadingScreen.SetActive(false);
     }

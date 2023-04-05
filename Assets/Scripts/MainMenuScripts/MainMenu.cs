@@ -38,6 +38,7 @@ public class MainMenu : MonoBehaviour
         {
             Destroy(GameObject.Find("Player"));
         }
+        
     }
 
     /*
@@ -48,6 +49,11 @@ public class MainMenu : MonoBehaviour
     {
         AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
         SceneManager.LoadScene(startScene); 
+        if(GameObject.Find("ScoreManager"))
+        {
+            GameObject.Find("ScoreManager").GetComponent<Score>().ResetScore();
+            GameObject.Find("ScoreManager").GetComponent<Score>().ResetHighScore();
+        }
     }
 
     /*

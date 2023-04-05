@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
 
 public class Score : MonoBehaviour
@@ -41,6 +42,23 @@ public class Score : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == "Beta Main"){
+            scoreText = GameObject.Find("Player/Score Canvas/ScoreText").GetComponent<Text>();
+            scoreIncrease = GameObject.Find("Player/Score Canvas/ScoreIncrease").GetComponent<Text>();
+        }
+    }
     public void UpdateScoreText(int amount)
     {
         if (scoreText != null)
@@ -84,6 +102,11 @@ public class Score : MonoBehaviour
     public void ResetScore()
     {
         _score = 0;
+    }
+
+    public void ResetHighScore()
+    {
+        _highScore = 0;
     }
 
     public int GetScore()

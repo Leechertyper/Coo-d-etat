@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class deathItems : MonoBehaviour
@@ -42,6 +43,15 @@ public class deathItems : MonoBehaviour
         _player = GameObject.Find("Player");
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.L))
@@ -175,6 +185,15 @@ public class deathItems : MonoBehaviour
         else
         {
             _itemSpawnChance = newValue;
+        }
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log(scene.name);
+        if(scene.name == "Beta Main")
+        {
+            _player = GameObject.Find("Player");
         }
     }
 

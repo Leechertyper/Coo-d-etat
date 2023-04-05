@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         _rtpc.SetGlobalValue(_health);
         //_power = (BalanceVariables.player["maxPower"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetBatteryMultiplier());
         AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
-
+        
         if (Instance == null)
         {
             Instance = this;
