@@ -2626,6 +2626,17 @@ MonoBehaviour:
   User: coo_d_etat_user
   Password: 2kkj23hvuiio32hlasjvkaf
   Database: coo_d_etat
+--- !u!114 &1596433681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3130696205457889803, guid: 52754418ab76ed9409cfe57b19aa6b1a, type: 3}
+  m_PrefabInstance: {fileID: 1596433678}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596433679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc92003f09807a4b9cc5f30475110e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1653627230 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1653627230, guid: db3e2839f0cf5274da48bc9d20246bf3, type: 3}
@@ -3118,6 +3129,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7367942632492886169, guid: cf4cd85fba941d44d9bf709b23b73d15, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367942634137588713, guid: cf4cd85fba941d44d9bf709b23b73d15, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367942634137588713, guid: cf4cd85fba941d44d9bf709b23b73d15, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1596433681}
+    - target: {fileID: 7367942634137588713, guid: cf4cd85fba941d44d9bf709b23b73d15, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SeenPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367942634137588713, guid: cf4cd85fba941d44d9bf709b23b73d15, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367942634137588713, guid: cf4cd85fba941d44d9bf709b23b73d15, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
