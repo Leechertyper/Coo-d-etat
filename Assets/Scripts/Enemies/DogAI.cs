@@ -20,8 +20,6 @@ public class DogAI : Enemy
     private bool _awake;
     private bool _moveUP = true;
     private bool _attackReady = true;
-    private bool _dead = false;
-    private bool _damage;
     enum state {Attact, PaceUp, PaceDown, Next, Wait}
 
 
@@ -247,11 +245,7 @@ public class DogAI : Enemy
 
     public override void Die()
     {
-        if(_dead==false)
-        {
-            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
-            _dead = true;
-        }
+        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
         StopAllCoroutines();
         this.enabled = false;
     }

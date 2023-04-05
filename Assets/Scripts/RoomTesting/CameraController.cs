@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
 
     public void MoveCameraToStart(Transform startRoomPosition)
     {
-        _mainCam.transform.position = new Vector3(startRoomPosition.position.x - 1.5f, startRoomPosition.position.y + 2f, -10);
+        _mainCam.transform.position = new Vector3(startRoomPosition.position.x - 1.5f, startRoomPosition.position.y + 3.5f, -10);
     }
 
     /// <summary>

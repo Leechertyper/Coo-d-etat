@@ -23,7 +23,6 @@ public class DroneAI : Enemy
     private Transform _target;
     private state _myState;
     private bool _awake;
-    private bool _dead = false;
     enum state {Chase, Pause};
 
     private bool _isSleeping;
@@ -145,21 +144,12 @@ public class DroneAI : Enemy
     /// </summary>
     public override void Die()
     {
-        if(_dead==false)
-        {
-            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
-            _dead = true;
-        }
+        GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(100);
         _rb.velocity = Vector2.zero;
         StopAllCoroutines();
         //AkSoundEngine.PostEvent("Play_Robot_Ouch", this.gameObject);
         this.enabled = false;
 
-    }
-
-    public override void TakeDamage()
-    {
-        AkSoundEngine.PostEvent("Play_Robot_Ouch", this.gameObject);
     }
 
     public override void Awaken()

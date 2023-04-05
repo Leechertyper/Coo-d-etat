@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemEffect: {fileID: 11400000, guid: 0d537ffa5ed18cb4b8c6ae18c6ce209f, type: 2}
-  _particleSystem: {fileID: 5070027295023308646, guid: 5c39817cab1621f4da9ca75005f591af, type: 3}
 --- !u!61 &-3779515062183886713
 BoxCollider2D:
   m_ObjectHideFlags: 0

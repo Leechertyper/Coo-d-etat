@@ -10,13 +10,11 @@ public class Health : MonoBehaviour
     public Color hurtColor;
     public GameObject[] deathEffects;
 
-    private GameObject theDeathItems;
+    public GameObject theDeathItems;
     private void Start()
     {
-        maxHealth = Mathf.RoundToInt(GetComponent<Enemy>().GetHealthVariable());
+        maxHealth = Mathf.RoundToInt(BalanceVariables.droneEnemy["maxHealth"]);
         health = maxHealth;
-        theDeathItems = GameObject.Find("DeathItems");
-
     }
 
     /// <summary>
@@ -25,7 +23,7 @@ public class Health : MonoBehaviour
     /// <param name="damage">Damage Taken</param>
     public void TakeDamage(int damage)
     {
-        GetComponent<Enemy>().TakeDamage();
+        AkSoundEngine.PostEvent("Play_Robot_Hurt", this.gameObject);
         if (health > 0)
         {
             StartCoroutine(DamageFlash());
@@ -52,13 +50,13 @@ public class Health : MonoBehaviour
     {
         if(newHealth > 0)
         {
-            if(newHealth < maxHealth)
+            if(newHealth < BalanceVariables.droneEnemy["maxHealth"])
             {
                 health = newHealth;
             }
             else
             {
-                health = Mathf.RoundToInt(maxHealth);
+                health = Mathf.RoundToInt(BalanceVariables.droneEnemy["maxHealth"]);
             }
         }  
     }

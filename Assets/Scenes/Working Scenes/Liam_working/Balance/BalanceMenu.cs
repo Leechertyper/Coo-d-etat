@@ -117,7 +117,6 @@ public class BalanceMenu : MonoBehaviour
             {
                 GameObject newButton = Instantiate(categoryPrefab, buttonContent.transform);
                 newButton.transform.Find("Desc").GetComponent<Text>().text = item;
-                newButton.transform.Find("Art").GetComponent<animationScript>().ChangeNameofCardSprite(item);
                 newButton.GetComponent<Button>().onClick.AddListener(() => DisplaySpecificDictButtons(item)); 
             }
         }
@@ -340,11 +339,6 @@ public class BalanceMenu : MonoBehaviour
     public void Clickybutton()
     {
         AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
-    }
-    
-    public void Hoverbutton()
-    {
-        AkSoundEngine.PostEvent("Play_Hover_Click_2", this.gameObject);
     }
 }
 

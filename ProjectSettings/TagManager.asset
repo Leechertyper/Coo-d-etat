@@ -8,7 +8,6 @@ TagManager:
   - Enemy
   - Boss
   - Walls
-  - GlobalLight
   layers:
   - Default
   - TransparentFX

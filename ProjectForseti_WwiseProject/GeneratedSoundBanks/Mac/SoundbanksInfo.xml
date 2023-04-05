@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C1DE7623-3792-1CE8-5711-E5C987E84DBF}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{6EDCBA2A-8BF1-FB15-4ABB-9E8A2791C685}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -71,7 +71,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{8251EBFE-6DA9-DB36-4185-00D922EE364B}">
+		<SoundBank Id="2228651116" Type="User" Language="SFX" Hash="{9803E3C9-A175-BF83-6878-8489C25B8827}">
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
 			<Media>
@@ -1335,11 +1335,6 @@
 						<MediaRef Id="563781845"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="78628049" Name="Play_Hover_Click_01" DurationType="OneShot" DurationMin="0.17537415" DurationMax="0.17537415">
-					<MediaRefs>
-						<MediaRef Id="682039198"/>
-					</MediaRefs>
-				</Event>
 				<Event Id="3744969633" Name="Play_Hover_Click_1" DurationType="OneShot" DurationMin="0.15027212" DurationMax="0.15027212">
 					<MediaRefs>
 						<MediaRef Id="1021227817"/>
@@ -1996,5 +1991,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{1E00BDD4-5832-7D72-558E-9F2E88B3E88B}</FileHash>
+	<FileHash>{3A658E0C-4350-A334-36C0-99A581DC4225}</FileHash>
 </SoundBanksInfo>

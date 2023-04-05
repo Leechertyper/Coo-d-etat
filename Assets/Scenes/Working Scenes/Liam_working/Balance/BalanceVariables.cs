@@ -34,7 +34,7 @@ public class BalanceVariables : MonoBehaviour
     public static Dictionary<string,float> dogEnemy = new Dictionary<string,float>()
     {
         //found in Health.cs should have its own
-        {"maxHealth",100},
+        {"maxHealth",10},
         //not implemented dont know where
         {"moveSpeed",1f},
         //found in DogAI.cs
@@ -62,17 +62,8 @@ public class BalanceVariables : MonoBehaviour
         {"attackDamage",10f},
         {"leapDistance",20f},
         {"moveSpeed",1f},
-        {"maxHealth",100},
+        {"maxHealth",10},
         
-    };
-
-    public static Dictionary<string, float> pirateEnemy = new Dictionary<string, float>()
-    {
-        // not implemented
-        {"attackDamage",10f},
-        {"moveSpeed",0.5f},
-        {"maxHealth",100},
-
     };
 
     public static Dictionary<string,float> collectables = new Dictionary<string,float>()

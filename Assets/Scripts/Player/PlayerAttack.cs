@@ -39,50 +39,47 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.inGame)
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector3 rotation = mousePosition - transform.position;
+        rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        
+
+        direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+
+        if (_energyChanging)
         {
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            Vector3 rotation = mousePosition - transform.position;
-            rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
-
-            direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-
-            if (_energyChanging)
+            energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, _curAmmo / BalanceVariables.player["maxAmmo"], 3f * Time.deltaTime);
+            if (Mathf.Round(energyBar.fillAmount * BalanceVariables.player["maxAmmo"]) == Mathf.Round(_curAmmo))
             {
-                energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, _curAmmo / BalanceVariables.player["maxAmmo"], 3f * Time.deltaTime);
-                if (Mathf.Round(energyBar.fillAmount * BalanceVariables.player["maxAmmo"]) == Mathf.Round(_curAmmo))
-                {
-                    _energyChanging = false;
-                    _energyTrailChanging = true;
-                }
-                else
-                {
-                    _energyTrailChanging = false;
-                }
+                _energyChanging = false;
+                _energyTrailChanging = true;
             }
-
-            if (_energyTrailChanging)
+            else
             {
-                energyTrail.fillAmount = Mathf.Lerp(energyTrail.fillAmount, _curAmmo / BalanceVariables.player["maxAmmo"], 5f * Time.deltaTime);
-                if (Mathf.Round(energyTrail.fillAmount * BalanceVariables.player["maxAmmo"]) == Mathf.Round(_curAmmo))
-                {
-                    _energyTrailChanging = false;
-                }
-
+                _energyTrailChanging = false;
             }
-
-            if (Input.GetKey(KeyCode.Mouse0))
-            {
-
-                ShootProjectile(direction);
-
-            }
-
-            // Update the shoot timer
-            shootTimer -= Time.deltaTime;
         }
+
+        if (_energyTrailChanging)
+        {
+            energyTrail.fillAmount = Mathf.Lerp(energyTrail.fillAmount, _curAmmo / BalanceVariables.player["maxAmmo"], 5f * Time.deltaTime);
+            if (Mathf.Round(energyTrail.fillAmount * BalanceVariables.player["maxAmmo"]) == Mathf.Round(_curAmmo))
+            {
+                _energyTrailChanging = false;
+            }
+
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            
+            ShootProjectile(direction);
+
+        }
+
+        // Update the shoot timer
+        shootTimer -= Time.deltaTime;
     }
 
     // Method to shoot a projectile in the specified direction

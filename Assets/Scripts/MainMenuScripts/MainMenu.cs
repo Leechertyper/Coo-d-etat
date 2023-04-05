@@ -33,11 +33,6 @@ public class MainMenu : MonoBehaviour
             DataBaseButton.GetComponentInChildren<Text>().text = "Enable Balance DataBase";
         }
 
-        // Destroy Player if exists
-        if (GameObject.Find("Player") != null)
-        {
-            Destroy(GameObject.Find("Player"));
-        }
     }
 
     /*
@@ -63,11 +58,6 @@ public class MainMenu : MonoBehaviour
     public void Clickybutton()
     {
         AkSoundEngine.PostEvent("Play_Hover_Click_1", this.gameObject);
-    }
-    
-    public void Hoverbutton()
-    {
-        AkSoundEngine.PostEvent("Play_Hover_Click_2", this.gameObject);
     }
 
     public void ChangeDataBasePref()
