@@ -297,11 +297,6 @@ public class DroneBoss : MonoBehaviour
     IEnumerator Death()
     {
         yield return new WaitForSeconds(1);
-        if(_dead==false)
-        {
-            GameObject.Find("ScoreManager").GetComponent<Score>().AddScore(1000);
-            _dead = true;
-        }
         Destroy(grid.gameObject);
     }
     IEnumerator LerpFunction(Vector2 endValue, float duration)

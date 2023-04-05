@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemEffect: {fileID: 11400000, guid: 26965d8e12ce6e643af798de2d051fb5, type: 2}
-  _particleSystem: {fileID: 7838819276560123424, guid: ff77a85e63ef95b42b8489d57c9c25e3, type: 3}
-  sR: {fileID: 0}
 --- !u!61 &797528522590726281
 BoxCollider2D:
   m_ObjectHideFlags: 0

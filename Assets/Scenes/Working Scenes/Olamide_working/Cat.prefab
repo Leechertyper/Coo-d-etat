@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6411591702230780126}
-  hp: {fileID: 6865959013539888175}
+  hp: {fileID: 0}
   leapDistance: 20
   _myState: 0
 --- !u!114 &6865959013539888175

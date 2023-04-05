@@ -20,17 +20,17 @@
 								<ObjectList Name="RTPC">
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{EE6DBACD-C195-4A8F-B98C-30DA09057F74}" ShortID="633317478">
+											<RTPC Name="" ID="{719811C7-A9AA-4FE8-902A-9EB237293C46}" ShortID="809977971">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="Volume"/>
 												</PropertyList>
 												<ReferenceList>
 													<Reference Name="ControlInput">
-														<ObjectRef Name="FX_Volume" ID="{293B9618-1957-49BD-9BDE-2D6E5EAEA909}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+														<ObjectRef Name="FX_Volume" ID="{3C68F952-87F8-4201-B230-9030598AA256}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{4E9D4600-62CC-4DC5-B1F6-9B51E326760B}">
+															<Curve Name="" ID="{5C6B810F-DCA5-408F-AAC2-3891104333D4}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="3"/>
 																</PropertyList>
@@ -59,47 +59,6 @@
 						<Bus Name="Environment_bus" ID="{D0283D79-7397-4E80-8020-98E0F36498D7}">
 							<ObjectLists>
 								<ObjectList Name="RTPC">
-									<Reference>
-										<Local>
-											<RTPC Name="" ID="{26ACED0C-8B30-45C6-A032-60A6D3F030A7}" ShortID="967370720">
-												<PropertyList>
-													<Property Name="PropertyName" Type="string" Value="Volume"/>
-												</PropertyList>
-												<ReferenceList>
-													<Reference Name="ControlInput">
-														<ObjectRef Name="SFX_playing" ID="{8F4436A4-F9AE-4FC3-B8E4-8128C4A4DB15}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
-													</Reference>
-													<Reference Name="Curve">
-														<Custom>
-															<Curve Name="" ID="{54CBD737-6454-4A48-A563-532C65370072}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="3"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>-48</XPos>
-																		<YPos>0</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>-22.16727</XPos>
-																		<YPos>-0.07269</YPos>
-																		<Flags>0</Flags>
-																		<SegmentShape>Log1</SegmentShape>
-																	</Point>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>-2.34479</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</Custom>
-													</Reference>
-												</ReferenceList>
-											</RTPC>
-										</Local>
-									</Reference>
 									<Reference>
 										<Local>
 											<RTPC Name="" ID="{4DE9C2DD-0C33-47CF-9DD8-ED0E6EE2C124}" ShortID="402802993">
@@ -254,17 +213,17 @@
 									</Reference>
 									<Reference>
 										<Local>
-											<RTPC Name="" ID="{862AC9BE-C5FD-4611-A56E-474E286161BA}" ShortID="705120075">
+											<RTPC Name="" ID="{21FF4E45-664F-48C8-9EE1-7CB6A9170F8F}" ShortID="209790244">
 												<PropertyList>
 													<Property Name="PropertyName" Type="string" Value="Volume"/>
 												</PropertyList>
 												<ReferenceList>
 													<Reference Name="ControlInput">
-														<ObjectRef Name="Music_Volume" ID="{62106D8E-F383-47D1-AB97-D912FC3FC3D5}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+														<ObjectRef Name="Music_Volume" ID="{179F318A-0D48-4B9C-897D-471D504A50DD}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
-															<Curve Name="" ID="{7FA91596-E554-4FDB-909B-0F4B8F476388}">
+															<Curve Name="" ID="{3E7B3128-FB1A-4DEF-BD9E-12BE3600337E}">
 																<PropertyList>
 																	<Property Name="Flags" Type="int32" Value="3"/>
 																</PropertyList>
@@ -295,17 +254,17 @@
 						<ObjectList Name="RTPC">
 							<Reference>
 								<Local>
-									<RTPC Name="" ID="{E85FDF0D-94B6-474D-9FE9-694E8326B0F2}" ShortID="624729789">
+									<RTPC Name="" ID="{114D03C7-245F-48C5-8708-A1459173623B}" ShortID="831006975">
 										<PropertyList>
 											<Property Name="PropertyName" Type="string" Value="Volume"/>
 										</PropertyList>
 										<ReferenceList>
 											<Reference Name="ControlInput">
-												<ObjectRef Name="Master_Volume" ID="{8CE4F006-8DA3-4036-A646-E0C5C5DEB03D}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
+												<ObjectRef Name="Master_Volume" ID="{4A51EA2B-CCDB-4823-A744-D930352DEC98}" WorkUnitID="{183E6E5F-92AC-488C-B7E9-460E2019BF7F}"/>
 											</Reference>
 											<Reference Name="Curve">
 												<Custom>
-													<Curve Name="" ID="{4EDE9AFB-7334-415E-8EB0-7A5CACA5B1CF}">
+													<Curve Name="" ID="{10B478EA-40E4-4235-A321-F7F62F2B1665}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="3"/>
 														</PropertyList>

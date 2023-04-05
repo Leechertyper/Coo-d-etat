@@ -30,9 +30,9 @@ public class Floor : MonoBehaviour
     public Vector2Int currentRoom;
 
 
-    [SerializeField] private List<GameObject> mainRooms;
-    [SerializeField] private List<GameObject> endRooms;
-    private int roomNum;
+
+    [SerializeField] private GameObject roomPrefab;
+    [SerializeField] private GameObject endRoomPrefab;
 
     private CameraController _camController;
     
@@ -58,12 +58,10 @@ public class Floor : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.inGame = true;
         _camController = Camera.main.GetComponent<CameraController>();
         _floorXDimension = 3;
         _floorYDimension = 3;
-        roomNum = GameManager.Instance.getRoomNum() - 1;
-        //Debug.Log("I AM HERE, FLOOR START");
+        Debug.Log("I AM HERE, FLOOR START");
         SpawnRooms(_floorXDimension, _floorYDimension);
     }
 
@@ -72,7 +70,7 @@ public class Floor : MonoBehaviour
         _camController = Camera.main.GetComponent<CameraController>();
         _floorXDimension = 3;
         _floorYDimension = 3;
-        //Debug.Log("I AM HERE, FLOOR TESTING");
+        Debug.Log("I AM HERE, FLOOR TESTING");
         SpawnRooms(_floorXDimension, _floorYDimension);
     }
 
@@ -102,7 +100,7 @@ public class Floor : MonoBehaviour
         {
             _rooms.Add(new List<Room>()); // initializes the rooms sub-arrays
         }
-        //Debug.Log("I AM HERE, FLOOR SPAWN ROOMS"+ _rooms.Count);
+        Debug.Log("I AM HERE, FLOOR SPAWN ROOMS"+ _rooms.Count);
         
 
         _rooms.Add(new List<Room>());// adds an extra list on the bottom for the end room
@@ -110,7 +108,7 @@ public class Floor : MonoBehaviour
         {
             for (var j = 0; j < c; j++)
             {
-                var newRoom = Instantiate(mainRooms[roomNum], transform);
+                var newRoom = Instantiate(roomPrefab, transform);
                 var newRoomScript = newRoom.GetComponent<Room>();
                 newRoomScript.InitializeRoom(i,j,_floorXDimension,_floorYDimension);
                 newRoom.transform.position =
@@ -209,8 +207,7 @@ public class Floor : MonoBehaviour
         currentFloorType = _rooms[0][0].floorType;
         currentRoom = new Vector2Int(0, 0);
         changeTheme();
-        changeFloor();
-        var endRoom = Instantiate(endRooms[roomNum],transform);
+        var endRoom = Instantiate(endRoomPrefab,transform);
         endRoom.transform.position = new Vector3(endRoom.transform.position.x + FloorConstants.HorizontalRoomOffset * (_floorXDimension-1),
             endRoom.transform.position.y - FloorConstants.VerticalRoomOffset * _floorYDimension);
         var endRoomScript = endRoom.GetComponent<Room>();
@@ -297,29 +294,6 @@ public class Floor : MonoBehaviour
         Debug.Log(currentRoom);
         Debug.Log(currentRoomType);
     }
-
-    public void changeFloor()
-    {
-        switch (currentFloorType)
-        {
-            case Room.FloorType.Lab:
-                AkSoundEngine.SetState("Stage_State", "Lab");
-                break;
-            case Room.FloorType.Park:
-                AkSoundEngine.SetState("Stage_State", "Park");
-                break;
-            case Room.FloorType.City:
-                AkSoundEngine.SetState("Stage_State", "City");
-                break;
-            case Room.FloorType.Pier:
-                AkSoundEngine.SetState("Stage_State", "Pier");
-                break;
-            default:
-                AkSoundEngine.SetState("Stage_State", "None");
-                break;
-        }
-    }
-
 
     public void changeTheme()
     {
