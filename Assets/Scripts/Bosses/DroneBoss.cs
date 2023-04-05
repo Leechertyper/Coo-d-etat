@@ -71,7 +71,8 @@ public class DroneBoss : MonoBehaviour
     public void Awaken()
     {
         AkSoundEngine.PostEvent("Play_Machine_wub_2", this.gameObject);
-        grid.GetComponent<Animator>().SetBool("AreaEntered", true);
+        GetComponent<Animator>().SetBool("AreaEntered", true);
+        grid.GetComponent<DroneBossGrid>().animUI.SetBool("AreaEntered", true);
         StartCoroutine(TimeUntilNextDirectAttack());
         //GameManager.Instance.SetBossStats();
     }
@@ -231,7 +232,8 @@ public class DroneBoss : MonoBehaviour
         if(_currentHealth <= 0)
         {
             StopAllCoroutines();
-            grid.GetComponent<Animator>().SetBool("BossDead", true);
+            GetComponent<Animator>().SetBool("BossDead", true);
+            grid.GetComponent<DroneBossGrid>().animUI.SetBool("isDead", true);
             GameObject key = Instantiate(keycard);
             key.transform.position = transform.position;
             if(_dead==false)

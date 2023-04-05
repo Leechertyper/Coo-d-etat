@@ -102,10 +102,12 @@ public class Shop : MonoBehaviour
     */
     public void CloseShop()
     {
+        GameObject.Find("Cursor").GetComponent<CursorScript>().SetCursor();
+        AkSoundEngine.SetState("Music_State", "End_Room");
         shopUI.SetActive(false);
         Time.timeScale = 1f;
         GameManager.Instance.inGame = true;
-        AkSoundEngine.SetState("Music_State", "End_Room");
+        
     }
 
     /*
@@ -121,6 +123,7 @@ public class Shop : MonoBehaviour
     */
     public void OpenShop()
     {
+        GameObject.Find("Cursor").GetComponent<CursorScript>().UnsetCursor();
         AkSoundEngine.SetState("Music_State", "Shop_Room");
         shopUI.SetActive(true);
         Time.timeScale = 0f;

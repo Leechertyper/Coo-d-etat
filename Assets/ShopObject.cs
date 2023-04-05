@@ -22,8 +22,7 @@ public class ShopObject : MonoBehaviour
         Debug.Log("AYO WE TOUCHIN");
         if(collision.gameObject.CompareTag("Player"))
         {
-            shopManager.GetComponent<Shop>().shopUI.SetActive(true);
-            Time.timeScale = 0;
+            shopManager.GetComponent<Shop>().OpenShop();
         }
     }
 }

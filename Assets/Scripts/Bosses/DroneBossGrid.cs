@@ -30,6 +30,8 @@ public class DroneBossGrid : MonoBehaviour
 
     [SerializeField] Canvas healthBars;
 
+    public Animator animUI;
+
 
     // The tile grid
     private Tile[,] _grid;
