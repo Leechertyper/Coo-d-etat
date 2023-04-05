@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7298931606942328793}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,16 +97,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 893092635, guid: 87b80f704443e7e49b558b7849a34f7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.199999, y: 10.799999}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6411591702230780112
@@ -124,7 +124,7 @@ MonoBehaviour:
   animator: {fileID: 6411591702230780126}
   hp: {fileID: 6865959013539888175}
   leapDistance: 20
-  _myState: 0
+  _myState: 3
 --- !u!114 &6865959013539888175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,8 +140,8 @@ MonoBehaviour:
   maxHealth: 0
   health: 0
   hurtColor: {r: 0, g: 0, b: 0, a: 0}
-  deathEffects: []
-  theDeathItems: {fileID: 0}
+  deathEffects:
+  - {fileID: 473649556748248654, guid: 73d4e5a48d95db4478d1b407d92c6595, type: 3}
 --- !u!50 &3308520946665182741
 Rigidbody2D:
   serializedVersion: 4
@@ -176,16 +176,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.023962736, y: -1.7612574}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.199999, y: 10.799999}
+    newSize: {x: 19.199999, y: 10.799999}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.976765, y: 3.006667}
+  m_Size: {x: 4.9481387, y: 5.8582273}
   m_EdgeRadius: 0

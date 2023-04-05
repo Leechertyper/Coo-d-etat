@@ -2151,12 +2151,16 @@ PrefabInstance:
       objectReference: {fileID: 3100153155850450629, guid: c1da1370539624f4d86999f8e7a98508, type: 3}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableEnemies.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableEnemies.Array.data[2]
       value: 
       objectReference: {fileID: 5347276051697959213, guid: 7bbb9f4af87f2dc4da1d7b363a63eaf5, type: 3}
+    - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
+      propertyPath: spawnableEnemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 6411591702230780122, guid: 429a60ea15454f34197c59e54e15ae94, type: 3}
     - target: {fileID: 3174185994119784707, guid: 4d039cff66204734893ae3aff77e8de2, type: 3}
       propertyPath: spawnableInteractables.Array.size
       value: 10
@@ -3465,6 +3469,30 @@ PrefabInstance:
     - target: {fileID: 1550551402437987679, guid: cfa34047ebec68846b46c6e8da6554ee, type: 3}
       propertyPath: m_Name
       value: ShopManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550551402939710087, guid: cfa34047ebec68846b46c6e8da6554ee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550551402939710087, guid: cfa34047ebec68846b46c6e8da6554ee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550551403621812738, guid: cfa34047ebec68846b46c6e8da6554ee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550551403621812738, guid: cfa34047ebec68846b46c6e8da6554ee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550551403995024760, guid: cfa34047ebec68846b46c6e8da6554ee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550551403995024760, guid: cfa34047ebec68846b46c6e8da6554ee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfa34047ebec68846b46c6e8da6554ee, type: 3}
