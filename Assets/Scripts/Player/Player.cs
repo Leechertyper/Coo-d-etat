@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         AkSoundEngine.SetState("PlayerLife", "Alive");
         //AkSoundEngine.SetState("Music_State", "Normal_Room");
         //AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
-        _health = (BalanceVariables.player["maxHealth"]* returnShop().GetHealthMultiplier());
+        _health = (BalanceVariables.player["maxHealth"] * returnShop().GetHealthMultiplier());
         _rtpc.SetGlobalValue(_health);
         //_power = (BalanceVariables.player["maxPower"]*returnShop().GetBatteryMultiplier());
         AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);

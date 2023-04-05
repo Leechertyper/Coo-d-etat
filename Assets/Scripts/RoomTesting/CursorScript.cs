@@ -18,6 +18,7 @@ public class CursorScript : MonoBehaviour
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
+
     public void UnsetCursor()
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);

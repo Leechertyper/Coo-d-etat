@@ -51,8 +51,8 @@ public class PlayerAttack : MonoBehaviour
 
             if (_energyChanging)
             {
-                energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, _curAmmo / BalanceVariables.player["maxAmmo"], 3f * Time.deltaTime);
-                if (Mathf.Round(energyBar.fillAmount * BalanceVariables.player["maxAmmo"]) == Mathf.Round(_curAmmo))
+                energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, _curAmmo / (BalanceVariables.player["maxAmmo"] * GetComponent<Player>().returnShop().GetBatteryMultiplier()), 3f * Time.deltaTime);
+                if (Mathf.Round(energyBar.fillAmount * (BalanceVariables.player["maxAmmo"] * GetComponent<Player>().returnShop().GetBatteryMultiplier())) == Mathf.Round(_curAmmo))
                 {
                     _energyChanging = false;
                     _energyTrailChanging = true;
@@ -65,19 +65,16 @@ public class PlayerAttack : MonoBehaviour
 
             if (_energyTrailChanging)
             {
-                energyTrail.fillAmount = Mathf.Lerp(energyTrail.fillAmount, _curAmmo / BalanceVariables.player["maxAmmo"], 5f * Time.deltaTime);
-                if (Mathf.Round(energyTrail.fillAmount * BalanceVariables.player["maxAmmo"]) == Mathf.Round(_curAmmo))
+                energyTrail.fillAmount = Mathf.Lerp(energyTrail.fillAmount, _curAmmo / (BalanceVariables.player["maxAmmo"] * GetComponent<Player>().returnShop().GetBatteryMultiplier()), 5f * Time.deltaTime);
+                if (Mathf.Round(energyTrail.fillAmount * (BalanceVariables.player["maxAmmo"] * GetComponent<Player>().returnShop().GetBatteryMultiplier())) == Mathf.Round(_curAmmo))
                 {
                     _energyTrailChanging = false;
                 }
-
             }
 
             if (Input.GetKey(KeyCode.Mouse0))
             {
-
                 ShootProjectile(direction);
-
             }
 
             // Update the shoot timer
@@ -140,16 +137,16 @@ public class PlayerAttack : MonoBehaviour
     {
         //Debug.Log("The added ammo is " + moreAmmo);
         _curAmmo += moreAmmo;
-        if(_curAmmo > BalanceVariables.player["maxAmmo"])
+        if(_curAmmo > BalanceVariables.player["maxAmmo"] * GetComponent<Player>().returnShop().GetBatteryMultiplier())
         {
-            _curAmmo = BalanceVariables.player["maxAmmo"];
+            _curAmmo = BalanceVariables.player["maxAmmo"] * GetComponent<Player>().returnShop().GetBatteryMultiplier();
         }
         UpdateAmmoUI();
     }
 
     public void MakeMaxAmmo()
     {
-        _curAmmo = BalanceVariables.player["maxAmmo"];
+        _curAmmo = BalanceVariables.player["maxAmmo"] * GetComponent<Player>().returnShop().GetBatteryMultiplier();
         UpdateAmmoUI();
     }
 
