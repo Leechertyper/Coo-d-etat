@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
     /// <param name="damage">Damage Taken</param>
     public void TakeDamage(int damage)
     {
+        DamagePopup.Create(transform.position, damage);
         GetComponent<Enemy>().TakeDamage();
         if (health > 0)
         {

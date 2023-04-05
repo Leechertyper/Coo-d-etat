@@ -219,6 +219,7 @@ public class DroneBoss : MonoBehaviour
     /// <param name="damage">The amount of damage to deal to the boss</param>
     public void TakeDamage(float damage)
     {
+        DamagePopup.Create(transform.position, (int)damage);
         _currentHealth -= damage;
         _healthChanging = true;
         if(_currentHealth < _nextLargeAttack && _currentHealth > 0)
