@@ -470,7 +470,9 @@ public class GlobalGrid : MonoBehaviour
         }
         int randomNum = Random.Range(0, freeTiles.Count);
         GameObject newItem = Instantiate(item);
+        
         newItem.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
+        //newItem.transform.position = new Vector3(newItem.transform.position.x, newItem.transform.position.y, -1);
     }
 
 

@@ -16,6 +16,9 @@ public class CatAI : Enemy
     private float _distY;
     private bool _awake;
     private bool _attackReady = true;
+
+    private Vector3 _lastPos;
+
     enum state { Dash, Leap, Next, Wait, Attack }
 
 
@@ -41,6 +44,8 @@ public class CatAI : Enemy
         _grid = GameManager.Instance.Grid;
         _grid.GetTile(transform.position, out _gridPos);
         //BalanceVariables.seenDictionaries["dogEnemy"] = true;
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1);
+
     }
 
     // Update is called once per frame
@@ -92,6 +97,7 @@ public class CatAI : Enemy
         }
         if (_myState == state.Leap)
         {
+            _lastPos = transform.position;
             StartCoroutine(LeapAtPlayer());
         }
         /*if(_myState == state.Attack)
@@ -139,6 +145,28 @@ public class CatAI : Enemy
         animator.SetInteger("Direction", direction);
         Debug.Log(direction);
         animator.SetBool("IsRunning", true);
+        if(_lastPos.x < transform.position.x)
+        {
+            Debug.Log("right");
+            animator.SetInteger("Direction", 1);
+                
+        }
+        else if(_lastPos.x > transform.position.x)
+        {
+            Debug.Log("left");
+            animator.SetInteger("Direction", 2);
+        }
+        else if(_lastPos.y < transform.position.y)
+        {
+            Debug.Log("up");
+            animator.SetInteger("Direction", 4);
+        }
+        else if(_lastPos.y > transform.position.y)
+        {
+            Debug.Log("down");
+            animator.SetInteger("Direction", 0);
+        }
+
         distance *= 3;
         float timeElapsed = 0;
         float runTime = 1f;
@@ -167,16 +195,17 @@ public class CatAI : Enemy
         }
 
         Vector3 inital = transform.position;
-        Vector3 goal = new Vector3(move.x, move.y, 0);
+        Vector3 goal = new Vector3(move.x, move.y, -1);
         // Debug.Log(goal);
         while (timeElapsed < runTime)
         {
             transform.position = Vector2.Lerp(inital, goal, timeElapsed / runTime);
+            transform.position = new Vector3(transform.position.x, transform.position.y, -1);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
         transform.position = goal;
-        animator.SetBool("IsRunning", false);
+        //animator.SetBool("IsRunning", false);
         _myState = state.Next;
         yield break;
     }
@@ -184,12 +213,42 @@ public class CatAI : Enemy
     private IEnumerator LeapAtPlayer()
     {
         _myState = state.Wait;
-        Vector3 player = _target.transform.position;
+        //Vector3 player = _target.transform.position;
+        Vector3 player = new(_target.transform.position.x, _target.transform.position.y, -1);
+
+        
         float timeElapsed = 0;
         float runTime = 1f;
         Vector3 inital = transform.position;
         while (timeElapsed < runTime)
         {
+            
+
+            //
+            if(_lastPos.x < transform.position.x)
+            {
+                Debug.Log("right");
+                animator.SetInteger("Direction", 1);
+                
+            }
+            else if(_lastPos.x > transform.position.x)
+            {
+                Debug.Log("left");
+                animator.SetInteger("Direction", 2);
+            }
+            else if(_lastPos.y < transform.position.y)
+            {
+                Debug.Log("up");
+                animator.SetInteger("Direction", 4);
+            }
+            else if(_lastPos.y > transform.position.y)
+            {
+                Debug.Log("down");
+                animator.SetInteger("Direction", 0);
+            }
+
+     
+
             transform.position = SampleParabola(inital, player, 2, timeElapsed / runTime);
             timeElapsed += Time.deltaTime;
             yield return null;
