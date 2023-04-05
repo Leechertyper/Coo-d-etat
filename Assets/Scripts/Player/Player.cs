@@ -36,9 +36,9 @@ public class Player : MonoBehaviour
         AkSoundEngine.SetState("PlayerLife", "Alive");
         //AkSoundEngine.SetState("Music_State", "Normal_Room");
         //AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
-        _health = (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());
+        _health = (BalanceVariables.player["maxHealth"]* returnShop().GetHealthMultiplier());
         _rtpc.SetGlobalValue(_health);
-        //_power = (BalanceVariables.player["maxPower"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetBatteryMultiplier());
+        //_power = (BalanceVariables.player["maxPower"]*returnShop().GetBatteryMultiplier());
         AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
         
         if (Instance == null)
@@ -60,8 +60,8 @@ public class Player : MonoBehaviour
         {
             if (_healthChanging)
             {
-                healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / (BalanceVariables.player["maxHealth"] * GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()), 3f * Time.deltaTime);
-                if (Mathf.Round(healthBar.fillAmount * (BalanceVariables.player["maxHealth"] * GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier())) == Mathf.Round(_health))
+                healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _health / (BalanceVariables.player["maxHealth"] * returnShop().GetHealthMultiplier()), 3f * Time.deltaTime);
+                if (Mathf.Round(healthBar.fillAmount * (BalanceVariables.player["maxHealth"] * returnShop().GetHealthMultiplier())) == Mathf.Round(_health))
                 {
                     _healthChanging = false;
                     _healthTrailChanging = true;
@@ -74,8 +74,8 @@ public class Player : MonoBehaviour
 
             if (_healthTrailChanging)
             {
-                healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / (BalanceVariables.player["maxHealth"] * GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()), 5f * Time.deltaTime);
-                if (Mathf.Round(healthTrail.fillAmount * (BalanceVariables.player["maxHealth"] * GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier())) == Mathf.Round(_health))
+                healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _health / (BalanceVariables.player["maxHealth"] * returnShop().GetHealthMultiplier()), 5f * Time.deltaTime);
+                if (Mathf.Round(healthTrail.fillAmount * (BalanceVariables.player["maxHealth"] * returnShop().GetHealthMultiplier())) == Mathf.Round(_health))
                 {
                     _healthTrailChanging = false;
                 }
@@ -167,27 +167,27 @@ public class Player : MonoBehaviour
             _rtpc.SetGlobalValue(_health);
         }
         
-        if(_health > (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier()))
+        if(_health > (BalanceVariables.player["maxHealth"]* returnShop().GetHealthMultiplier()))
         {
-            _health = (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());
+            _health = (BalanceVariables.player["maxHealth"]* returnShop().GetHealthMultiplier());
         }
         UpdateHealthUI();
     }
 
     public float GetMaxHealth()
     {
-        return (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());
+        return (BalanceVariables.player["maxHealth"]* returnShop().GetHealthMultiplier());
     }
 
     public void SetMaxHealth(float newMaxHealth)
     {
-        BalanceVariables.player["maxHealth"] = newMaxHealth*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier();
+        BalanceVariables.player["maxHealth"] = newMaxHealth* returnShop().GetHealthMultiplier();
         UpdateHealthUI();
     }
 
     public void MakeMaxHealth()
     {
-        _health = (BalanceVariables.player["maxHealth"]*GameObject.Find("ShopManager").GetComponent<Shop>().GetHealthMultiplier());
+        _health = (BalanceVariables.player["maxHealth"]* returnShop().GetHealthMultiplier());
         UpdateHealthUI();
     }
 
@@ -243,5 +243,10 @@ public class Player : MonoBehaviour
             yield return null;
         }
         _rtpc.SetGlobalValue(total - subtractor);
+    }
+
+    public Shop returnShop()
+    {
+        return GameObject.Find("ShopManager").GetComponent<Shop>();
     }
 }
