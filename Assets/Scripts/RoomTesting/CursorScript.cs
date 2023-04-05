@@ -11,6 +11,13 @@ public class CursorScript : MonoBehaviour
         SetCursor();
     }
 
+    void Update()
+    {
+        if (!GameManager.Instance.inGame)
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+    }
     public void UnsetCursor()
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
