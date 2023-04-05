@@ -12,7 +12,7 @@ public class BoxDogScript : MonoBehaviour
     private bool _isTriggered = false;
     
     private bool _playerHit = false;
-    private float _decreaseTime = 0.1f;
+    private float _decreaseTime = 0.05f;
 
     private float _alpha = 1f;
 
