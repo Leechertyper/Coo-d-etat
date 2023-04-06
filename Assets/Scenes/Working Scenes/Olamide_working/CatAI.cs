@@ -275,7 +275,11 @@ public class CatAI : Enemy
 
     public override void TakeDamage()
     {
-        AkSoundEngine.PostEvent("Play_Cat_Hurt", this.gameObject);
+        int count = Random.Range(0, 2);
+        if (count == 0)
+        {
+            AkSoundEngine.PostEvent("Play_Cat_Hurt", this.gameObject);
+        }
     }
 
     public override float GetHealthVariable()

@@ -366,6 +366,8 @@ public class GameManager : MonoBehaviour
         inGame = true;
 
         theBoss = null;
+        AkSoundEngine.PostEvent("Stop_Heartbeat", this.gameObject);
+        AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
 
         //healthItemValue = 1f;
 

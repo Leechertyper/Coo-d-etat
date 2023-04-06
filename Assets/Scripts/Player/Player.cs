@@ -37,9 +37,9 @@ public class Player : MonoBehaviour
         //AkSoundEngine.SetState("Music_State", "Normal_Room");
         //AkSoundEngine.PostEvent("Play_Controller_Switch", this.gameObject);
         _health = (BalanceVariables.player["maxHealth"] * returnShop().GetHealthMultiplier());
-        _rtpc.SetGlobalValue(_health);
+        //_rtpc.SetGlobalValue(_health);
         //_power = (BalanceVariables.player["maxPower"]*returnShop().GetBatteryMultiplier());
-        AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
+        //AkSoundEngine.PostEvent("Play_Heartbeat", this.gameObject);
         
         if (Instance == null)
         {
@@ -227,22 +227,6 @@ public class Player : MonoBehaviour
     public void UseKey()
     {
         _hasKey = false;
-    }
-
-    
-    public IEnumerator subtractOverTime(float subtractor, float total, float duration) {
-        float startTime = Time.time;
-        float elapsedTime = 0f;
-        while (elapsedTime < duration) {
-            float t = elapsedTime / duration;
-            float currentA = Mathf.Lerp(subtractor, 0f, t);
-            float currentB = Mathf.Lerp(total, total - subtractor, t);
-            float result = currentB - currentA;
-            _rtpc.SetGlobalValue(result);
-            elapsedTime = Time.time - startTime;
-            yield return null;
-        }
-        _rtpc.SetGlobalValue(total - subtractor);
     }
 
     public Shop returnShop()
