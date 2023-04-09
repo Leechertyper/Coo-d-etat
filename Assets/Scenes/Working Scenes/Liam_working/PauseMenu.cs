@@ -14,6 +14,12 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject cursor;
 
+    // Return To Main Menu Confirm Screen
+    public GameObject mmConfirm;
+
+    // Quit to Desktop Confirm Screen
+    public GameObject qConfirm;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,12 +30,10 @@ public class PauseMenu : MonoBehaviour
             if(gameIsPaused)
             {
                 cursor.GetComponent<CursorScript>().UnsetCursor();
-                GameManager.Instance.inGame = false;
                 Pause();
             } else
             {
                 cursor.GetComponent<CursorScript>().SetCursor();
-                GameManager.Instance.inGame = true;
                 Resume();
             }
         }
@@ -46,8 +50,11 @@ public class PauseMenu : MonoBehaviour
         AkSoundEngine.SetRTPCValue("Game_Is_Paused", 0);
         Time.timeScale = 1.0f;
         gameIsPaused = false;
+        GameManager.Instance.inGame = true;
         pauseMenuUI.SetActive(false);
         options.SetActive(false);
+        mmConfirm.SetActive(false);
+        qConfirm.SetActive(false);
     }
 
     /*
@@ -58,6 +65,7 @@ public class PauseMenu : MonoBehaviour
         AkSoundEngine.PostEvent("Play_Pause_SFX", this.gameObject);
         AkSoundEngine.SetRTPCValue("Dead_Mute", 0);
         AkSoundEngine.SetRTPCValue("Game_Is_Paused", 100);
+        GameManager.Instance.inGame = false;
         Time.timeScale = 0f;
         gameIsPaused = true;
         pauseMenuUI.SetActive(true);
@@ -97,6 +105,15 @@ public class PauseMenu : MonoBehaviour
         AkSoundEngine.SetRTPCValue("Game_Is_Paused", 0);
 
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void GoToLeaderboard()
+    {
+        Resume();
+        AkSoundEngine.StopAll();
+        //AkSoundEngine.PostEvent("Stop_Controller_Switch", this.gameObject);
+        AkSoundEngine.SetRTPCValue("Game_Is_Paused", 0);
+        GameManager.Instance.StartBalanceMenu(true);
     }
     public void Clickybutton()
     {
