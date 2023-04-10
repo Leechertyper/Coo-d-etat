@@ -63,6 +63,7 @@ public class Floor : MonoBehaviour
         _floorXDimension = 3;
         _floorYDimension = 3;
         roomNum = GameManager.Instance.getRoomNum() - 1;
+
         //Debug.Log("I AM HERE, FLOOR START");
         SpawnRooms(_floorXDimension, _floorYDimension);
     }

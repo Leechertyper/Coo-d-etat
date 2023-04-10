@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private bool seenPopup = false;
 
     [SerializeField] private int roomNum;
-    private int levelNum;
+    [SerializeField] private int levelNum;
 
     // When there is more enemy types each will get their own list
     private List<GameObject> allDroneEnemies;
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelNum = 1;
         roomNum = 1;
        //SetupGame();
     }
@@ -66,6 +67,11 @@ public class GameManager : MonoBehaviour
         if(scene.name == "Beta Main")
         {
             SetupGame();
+        }
+        if (scene.name == "MainMenu")
+        {
+            Instance.init();
+            Debug.Log("RESTART");
         }
     }
 
@@ -231,6 +237,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void init()
+    {
+        roomNum = 1;
+        levelNum = 1;
+        
+    }
+
     public GameObject GetPlayerObject()
      {
         return _thePlayerObject;
@@ -360,7 +374,6 @@ public class GameManager : MonoBehaviour
     {
         _thePlayerObject = GameObject.Find("Player");
         _thePlayer = _thePlayerObject.GetComponent<Player>();
-        levelNum = 1;
         allRooms = null;
         allDroneEnemies = null;
         inGame = true;

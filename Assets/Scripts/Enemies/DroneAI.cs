@@ -200,7 +200,9 @@ public class DroneAI : Enemy
 
     public override float GetHealthVariable()
     {
-        return BalanceVariables.droneEnemy["maxHealth"] * (0.5f + (Mathf.Sqrt(GameManager.Instance.getLevelNum())/2));
+        Debug.LogWarning((Mathf.Sqrt(GameManager.Instance.getLevelNum())));
+        Debug.LogWarning(GameManager.Instance.getLevelNum());
+        return BalanceVariables.droneEnemy["maxHealth"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum()));
     }
 
 }

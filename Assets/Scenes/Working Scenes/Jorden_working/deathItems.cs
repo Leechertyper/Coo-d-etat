@@ -198,8 +198,7 @@ public class deathItems : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log(scene.name);
-        if(scene.name == "Beta Main")
+        if (scene.name == "Beta Main")
         {
             _player = GameObject.Find("Player");
         }

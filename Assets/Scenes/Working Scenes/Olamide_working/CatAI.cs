@@ -110,7 +110,7 @@ public class CatAI : Enemy
             {
                 AkSoundEngine.PostEvent("Play_Cat_Swipe", this.gameObject);
                 _myState = state.Attack;
-                collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.catEnemy["attackDamage"] * (0.5f + (Mathf.Sqrt(GameManager.Instance.getLevelNum()) / 2)));
+                collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.catEnemy["attackDamage"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum())));
                 StartCoroutine(AttackCooldown(2));
             }
         }
@@ -284,6 +284,6 @@ public class CatAI : Enemy
 
     public override float GetHealthVariable()
     {
-       return BalanceVariables.catEnemy["maxHealth"] * (0.5f + (Mathf.Sqrt(GameManager.Instance.getLevelNum()) / 2));
+       return BalanceVariables.catEnemy["maxHealth"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum()));
     }
 }

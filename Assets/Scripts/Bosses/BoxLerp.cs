@@ -146,7 +146,7 @@ public class BoxLerp : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && boxType == 1)
         {
-            collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.pirateEnemy["attackDamage"] * (0.5f + (Mathf.Sqrt(GameManager.Instance.getLevelNum()) / 2)));
+            collision.gameObject.GetComponent<Player>().TakeDamage(BalanceVariables.pirateEnemy["attackDamage"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum())));
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Walls" && boxType == 1)
