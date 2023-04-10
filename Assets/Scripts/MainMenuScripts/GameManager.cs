@@ -265,7 +265,7 @@ public class GameManager : MonoBehaviour
     /*
     *   This function is called when the balance menu needs to pop up (call it in BalanceTimer())
     */
-    public void StartBalanceMenu()
+    public void StartBalanceMenu(bool quit = false)
     {   
         Debug.Log("GameManagerScript: StartBalanceMenu() called");
         if(PlayerPrefs.GetInt("BalanceDataBase") == 1 && dbInstance.GetHostFound())
@@ -275,21 +275,21 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            EndBalanceMenu();
+            EndBalanceMenu(quit);
         }
     }
 
-    public void EndBalanceMenu()
+    public void EndBalanceMenu(bool quit = false)
     {
         Debug.Log("GameManagerScript: EndBalanceMenu() called");
         _skipBalance = true;
         balanceMenu.SetActive(false);
         balanceMenu.GetComponent<BalanceMenu>().startBalance = false;
-        if(_died)
+        if(_died || quit)
         {
             _died = false;
             Destroy(GameObject.Find("Player"));
-            if (GameObject.Find("ScoreManager").GetComponent<Score>() != null && Score.GetInstance().IsLocalHighScore())
+            if (quit || GameObject.Find("ScoreManager").GetComponent<Score>() != null && Score.GetInstance().IsLocalHighScore())
             {
                 SceneManager.LoadScene("HighScores");
             }

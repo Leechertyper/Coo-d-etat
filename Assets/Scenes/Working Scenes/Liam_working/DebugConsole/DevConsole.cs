@@ -15,7 +15,7 @@ public class DevConsole : MonoBehaviour
     // public GameObject piratePrefab; // Not implemented
     public GameObject bossPrefab;
     private static DevConsole instance;
-
+#if UNITY_EDITOR
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.BackQuote))
@@ -33,6 +33,7 @@ public class DevConsole : MonoBehaviour
             }
         }
     }
+#endif
 
     private void DepopulateConsole()
     {
