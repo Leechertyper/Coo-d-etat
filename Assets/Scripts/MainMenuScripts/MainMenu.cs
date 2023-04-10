@@ -25,12 +25,12 @@ public class MainMenu : MonoBehaviour
         if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
         {
             isDataBaseEnabled = true;
-            DataBaseButton.GetComponentInChildren<Text>().text = "Disable Balance DataBase";
+            DataBaseButton.GetComponentInChildren<Text>().text = "Disable Balance Database";
         }
         else
         {
             isDataBaseEnabled = false;
-            DataBaseButton.GetComponentInChildren<Text>().text = "Enable Balance DataBase";
+            DataBaseButton.GetComponentInChildren<Text>().text = "Enable Balance Database";
         }
 
         // Destroy Player if exists
@@ -84,13 +84,13 @@ public class MainMenu : MonoBehaviour
         if (isDataBaseEnabled)
         {
             isDataBaseEnabled = false;
-            DataBaseButton.GetComponentInChildren<Text>().text = "Enable Balance DataBase";
+            DataBaseButton.GetComponentInChildren<Text>().text = "Enable Balance Database";
             PlayerPrefs.SetInt("BalanceDataBase", 0);
         }
         else
         {
             isDataBaseEnabled = true;
-            DataBaseButton.GetComponentInChildren<Text>().text = "Disable Balance DataBase";
+            DataBaseButton.GetComponentInChildren<Text>().text = "Disable Balance Database";
             PlayerPrefs.SetInt("BalanceDataBase", 1);
         }
     }
