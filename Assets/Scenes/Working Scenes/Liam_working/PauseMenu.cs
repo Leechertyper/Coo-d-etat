@@ -7,8 +7,6 @@ public class PauseMenu : MonoBehaviour
 {
     public bool gameIsPaused = false;
     public GameObject pauseMenuUI;
-    
-    public GameObject DataBaseButton;
 
     public GameObject options;
 
@@ -69,6 +67,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         gameIsPaused = true;
         pauseMenuUI.SetActive(true);
+        mmConfirm.SetActive(false);
+        qConfirm.SetActive(false);
         
     }
 

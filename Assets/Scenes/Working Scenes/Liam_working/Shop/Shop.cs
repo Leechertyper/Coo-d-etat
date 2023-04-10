@@ -14,9 +14,9 @@ public class Shop : MonoBehaviour
     private static Shop instance;
     public static List<ShopItem> shopItemList = new List<ShopItem>();
     private List<ShopItem> starterShopItemList = new List<ShopItem>(new ShopItem[]{
-        new ShopItem("Increase Battery", 100, "Upgrade your battery and keep your lazer powered for longer!",1f),
+        new ShopItem("Increase Battery", 100, "Upgrade your battery and keep your laser powered for longer!",1f),
         new ShopItem("Increase Health", 100, "Boost your health and increase your chances of survival!",1f),
-        new ShopItem("Increase Damage", 100, "Upgrade your weapon and deal more destruction than ever before.",1f),
+        new ShopItem("Increase Damage", 100, "Upgrade your weapon and deal more destruction than ever before!",1f),
     });
 
     private void Awake()
