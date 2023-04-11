@@ -88,7 +88,7 @@ public class DroneBoss : MonoBehaviour
 
         if (_healthChanging)
         {
-            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _currentHealth/BalanceVariables.droneBoss["maxHealth"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum())), 3f * Time.deltaTime) ;
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, _currentHealth/(BalanceVariables.droneBoss["maxHealth"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum()))), 3f * Time.deltaTime) ;
             if(Mathf.Round(healthBar.fillAmount * BalanceVariables.droneBoss["maxHealth"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum()))) == Mathf.Round(_currentHealth)){
                 _healthChanging = false;
                 _healthTrailChanging = true;
@@ -101,7 +101,7 @@ public class DroneBoss : MonoBehaviour
 
         if (_healthTrailChanging)
         {
-            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _currentHealth/BalanceVariables.droneBoss["maxHealth"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum())), 5f * Time.deltaTime);
+            healthTrail.fillAmount = Mathf.Lerp(healthTrail.fillAmount, _currentHealth/(BalanceVariables.droneBoss["maxHealth"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum()))), 5f * Time.deltaTime);
             if (Mathf.Round(healthTrail.fillAmount * BalanceVariables.droneBoss["maxHealth"] * (Mathf.Sqrt(GameManager.Instance.getLevelNum()))) == Mathf.Round(_currentHealth))
             {
                 _healthTrailChanging = false;
