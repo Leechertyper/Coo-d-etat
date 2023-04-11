@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: e42854c8717ed7f42b66418a4d11151e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cat_pounce_back_red_0
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 9822
+        width: 300
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef57b8c4d1c9f346b5e2e1b2d9b01d7
+      internalID: -2106651464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_1
+      rect:
+        serializedVersion: 2
+        x: 2730
+        y: 9822
+        width: 300
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f45b7e32f748d42a843a02e546e532
+      internalID: 1814052852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_2
+      rect:
+        serializedVersion: 2
+        x: 4650
+        y: 9822
+        width: 300
+        height: 661
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4058ba1f08e0a2a41993658f7fbf31ce
+      internalID: 1498837574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_3
+      rect:
+        serializedVersion: 2
+        x: 6570
+        y: 9822
+        width: 300
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1c7bb89b0ab564983b86a51af3695b
+      internalID: 356213015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_4
+      rect:
+        serializedVersion: 2
+        x: 8484
+        y: 9817
+        width: 312
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38819e71f206ccd4fbcf5b7d18b8e2ba
+      internalID: 1776614378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_5
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 8725
+        width: 312
+        height: 669
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9531f4dcaca12364ab7e19694e917b47
+      internalID: 964403201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_6
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 8725
+        width: 318
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b4f8d9e1ab4d3438c0f6cd38a18447
+      internalID: -366887651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_7
+      rect:
+        serializedVersion: 2
+        x: 4634
+        y: 8725
+        width: 327
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d1c8c50813ac34aaff0c02053c6c9c
+      internalID: -21355457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_8
+      rect:
+        serializedVersion: 2
+        x: 6543
+        y: 8725
+        width: 338
+        height: 649
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484ce565b8a47304aa1b5e00e5f223ce
+      internalID: 1281490843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_9
+      rect:
+        serializedVersion: 2
+        x: 8458
+        y: 8720
+        width: 343
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6736ae85a7744b74d8bc54396119d77f
+      internalID: 1242503283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_10
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 7639
+        width: 332
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab64a7907ecdff2418629c277b5c65dd
+      internalID: -1992962073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_11
+      rect:
+        serializedVersion: 2
+        x: 2714
+        y: 7633
+        width: 327
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a6113a20abca8740b7d47abc14f120d
+      internalID: 1096043135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_12
+      rect:
+        serializedVersion: 2
+        x: 4634
+        y: 7633
+        width: 406
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6abd8114b1a9df4082c482374f70429
+      internalID: 391537589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_13
+      rect:
+        serializedVersion: 2
+        x: 6549
+        y: 7628
+        width: 411
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd6d947a5f242a40928a3072537ee4b
+      internalID: 1549775834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_14
+      rect:
+        serializedVersion: 2
+        x: 8463
+        y: 7628
+        width: 412
+        height: 712
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43731c5746fe94f43aa644257790f1e2
+      internalID: 1033854448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_15
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 6547
+        width: 411
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d38f7aa265173f4f83687cd980978b5
+      internalID: -1074654533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_16
+      rect:
+        serializedVersion: 2
+        x: 2693
+        y: 6531
+        width: 401
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b9bc19e322c92458e1a1e1a229c43f
+      internalID: -1682331202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_17
+      rect:
+        serializedVersion: 2
+        x: 4613
+        y: 6515
+        width: 380
+        height: 791
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e9438fcb861e254d980147359d4731c
+      internalID: -2114807243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_18
+      rect:
+        serializedVersion: 2
+        x: 6533
+        y: 6500
+        width: 364
+        height: 822
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57d6b8041d00a5449f0b74d35dc656a
+      internalID: -261021334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_19
+      rect:
+        serializedVersion: 2
+        x: 8454
+        y: 6494
+        width: 352
+        height: 839
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6236f43908c3634abcee28f91ddee34
+      internalID: 978085793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_20
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 5424
+        width: 333
+        height: 849
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b6acad11f504bc478efb56a29bb3510
+      internalID: -1675552566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_21
+      rect:
+        serializedVersion: 2
+        x: 2709
+        y: 5455
+        width: 327
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc07e2677b173e74a9482c9f2a952947
+      internalID: -373822962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_22
+      rect:
+        serializedVersion: 2
+        x: 4634
+        y: 5498
+        width: 322
+        height: 801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e544e80d36fd5f4685f54540f7b7427
+      internalID: -1048173107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_23
+      rect:
+        serializedVersion: 2
+        x: 6554
+        y: 5545
+        width: 322
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c056dd4cf9b88e14fb46d745137e2cc2
+      internalID: -658138615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_24
+      rect:
+        serializedVersion: 2
+        x: 8475
+        y: 5593
+        width: 321
+        height: 727
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab11d2a9e1a1e50439d3e05833d3bb51
+      internalID: -1262749552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_25
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 4548
+        width: 322
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011f68b99902e2f4da2d8ec3b6caf868
+      internalID: -778733613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_26
+      rect:
+        serializedVersion: 2
+        x: 2719
+        y: 4580
+        width: 317
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814e76c065989c94b94bed59d5cc81d7
+      internalID: 461317748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_27
+      rect:
+        serializedVersion: 2
+        x: 4644
+        y: 4606
+        width: 312
+        height: 649
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5b9e1d3d3e1194899f68fd59a5aab0
+      internalID: 416095640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_28
+      rect:
+        serializedVersion: 2
+        x: 6564
+        y: 4628
+        width: 306
+        height: 624
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 003bb25cd1da4864cb6e93ef9602abb5
+      internalID: -17685656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_29
+      rect:
+        serializedVersion: 2
+        x: 8475
+        y: 4654
+        width: 315
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6768bb725cc24eb4d9fdece9ffe67a28
+      internalID: 2005927045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_30
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 3594
+        width: 311
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f1566671401f97418468eebb1341a7d
+      internalID: 992561275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_31
+      rect:
+        serializedVersion: 2
+        x: 2709
+        y: 3610
+        width: 315
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0038a77e47d11428841308496efdc9
+      internalID: 1430900292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_32
+      rect:
+        serializedVersion: 2
+        x: 4629
+        y: 3615
+        width: 315
+        height: 538
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203ef222f126c43468e9a25177566710
+      internalID: -1160974740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_33
+      rect:
+        serializedVersion: 2
+        x: 6549
+        y: 3620
+        width: 316
+        height: 549
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f764a496134c47f469b024eb65e35eae
+      internalID: 873004170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_34
+      rect:
+        serializedVersion: 2
+        x: 8453
+        y: 3631
+        width: 332
+        height: 506
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc1b4426578eac45b0a5f03159cb452
+      internalID: -1082145944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_35
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 2566
+        width: 316
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 611b7377a26f66a449bcd656d8b10871
+      internalID: -2039186435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_36
+      rect:
+        serializedVersion: 2
+        x: 2709
+        y: 2571
+        width: 321
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9966c688185455443b55e83f87bca82b
+      internalID: 852247907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_37
+      rect:
+        serializedVersion: 2
+        x: 4634
+        y: 2555
+        width: 322
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bea6d1cba820ad4ca49e4568834acb3
+      internalID: 296988075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_38
+      rect:
+        serializedVersion: 2
+        x: 6554
+        y: 2539
+        width: 327
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4339719e94aeaf74d89b79778addc70d
+      internalID: 1210732188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_39
+      rect:
+        serializedVersion: 2
+        x: 8474
+        y: 2523
+        width: 332
+        height: 496
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f7cb4c638c12a42aa4dc346eb3087f
+      internalID: -1178423584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_40
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1426
+        width: 337
+        height: 507
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a34378eb7de1034c96653fe9e354ee7
+      internalID: -1646409818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_41
+      rect:
+        serializedVersion: 2
+        x: 2719
+        y: 1405
+        width: 332
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd723ba9ca9f404185765e308541d5c
+      internalID: -2131462499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_42
+      rect:
+        serializedVersion: 2
+        x: 4639
+        y: 1384
+        width: 332
+        height: 538
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1277640c1f6f1e949b8c7b1ab546eb94
+      internalID: -624853942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_43
+      rect:
+        serializedVersion: 2
+        x: 6564
+        y: 1358
+        width: 322
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a7024006a8c42e4cbb55196f322714b
+      internalID: -289743472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_44
+      rect:
+        serializedVersion: 2
+        x: 8458
+        y: 1316
+        width: 347
+        height: 590
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e78056f0e0779c14089c0721f1c3d5a2
+      internalID: 1424152119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_45
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 198
+        width: 348
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a24ebad8c942f741a9521462c6a16fb
+      internalID: -1158681151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_46
+      rect:
+        serializedVersion: 2
+        x: 2730
+        y: 161
+        width: 306
+        height: 638
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e191156324afbbc48a7617f1d382f70f
+      internalID: -407282287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_47
+      rect:
+        serializedVersion: 2
+        x: 4650
+        y: 134
+        width: 300
+        height: 649
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeeb2c9a0ae183542b6c7d1d76fc6fa9
+      internalID: 1759527291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_48
+      rect:
+        serializedVersion: 2
+        x: 6570
+        y: 108
+        width: 300
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2afcf881e3fcbc4eab817f86d6fe494
+      internalID: -1182664323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_pounce_back_red_49
+      rect:
+        serializedVersion: 2
+        x: 8490
+        y: 98
+        width: 300
+        height: 669
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b52f77dbaf78a0448fab1ec157df71b
+      internalID: -544143473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      cat_pounce_back_red_19: 978085793
+      cat_pounce_back_red_49: -544143473
+      cat_pounce_back_red_5: 964403201
+      cat_pounce_back_red_27: 416095640
+      cat_pounce_back_red_32: -1160974740
+      cat_pounce_back_red_14: 1033854448
+      cat_pounce_back_red_31: 1430900292
+      cat_pounce_back_red_45: -1158681151
+      cat_pounce_back_red_40: -1646409818
+      cat_pounce_back_red_18: -261021334
+      cat_pounce_back_red_34: -1082145944
+      cat_pounce_back_red_11: 1096043135
+      cat_pounce_back_red_42: -624853942
+      cat_pounce_back_red_46: -407282287
+      cat_pounce_back_red_33: 873004170
+      cat_pounce_back_red_24: -1262749552
+      cat_pounce_back_red_8: 1281490843
+      cat_pounce_back_red_30: 992561275
+      cat_pounce_back_red_28: -17685656
+      cat_pounce_back_red_22: -1048173107
+      cat_pounce_back_red_12: 391537589
+      cat_pounce_back_red_9: 1242503283
+      cat_pounce_back_red_26: 461317748
+      cat_pounce_back_red_6: -366887651
+      cat_pounce_back_red_37: 296988075
+      cat_pounce_back_red_36: 852247907
+      cat_pounce_back_red_3: 356213015
+      cat_pounce_back_red_15: -1074654533
+      cat_pounce_back_red_21: -373822962
+      cat_pounce_back_red_13: 1549775834
+      cat_pounce_back_red_16: -1682331202
+      cat_pounce_back_red_39: -1178423584
+      cat_pounce_back_red_44: 1424152119
+      cat_pounce_back_red_41: -2131462499
+      cat_pounce_back_red_23: -658138615
+      cat_pounce_back_red_43: -289743472
+      cat_pounce_back_red_20: -1675552566
+      cat_pounce_back_red_1: 1814052852
+      cat_pounce_back_red_38: 1210732188
+      cat_pounce_back_red_47: 1759527291
+      cat_pounce_back_red_0: -2106651464
+      cat_pounce_back_red_2: 1498837574
+      cat_pounce_back_red_10: -1992962073
+      cat_pounce_back_red_7: -21355457
+      cat_pounce_back_red_35: -2039186435
+      cat_pounce_back_red_48: -1182664323
+      cat_pounce_back_red_4: 1776614378
+      cat_pounce_back_red_29: 2005927045
+      cat_pounce_back_red_25: -778733613
+      cat_pounce_back_red_17: -2114807243
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

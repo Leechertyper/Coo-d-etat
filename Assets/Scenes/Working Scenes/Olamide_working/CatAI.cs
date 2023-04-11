@@ -52,6 +52,7 @@ public class CatAI : Enemy
         if (_myState == state.Next)
         {
             animator.SetBool("IsAttacking", false);
+            animator.SetBool("IsPouncing", false);
             //Debug.Log(Vector2.Distance(_target.transform.position, transform.position));
             if (Vector2.Distance(_target.transform.position, transform.position) < leapDistance && _leapReady)
             {
@@ -193,7 +194,7 @@ public class CatAI : Enemy
         Vector3 inital = transform.position;
         _distX = _target.transform.position.x - transform.transform.position.x;
         _distY = _target.transform.position.y - transform.transform.position.y;
-
+        animator.SetBool("IsPouncing", true);
         while (timeElapsed < runTime)
         {
             transform.position = SampleParabola(inital, player, 2, timeElapsed / runTime);
