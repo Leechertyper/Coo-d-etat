@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
             GotHit();
             UpdateHealthUI();
             _isInvuln = true;
-            healthCanvas.GetComponent<Animator>().SetFloat("health", _health);
+            
             
         }
         if (_health == 0){
@@ -132,6 +132,7 @@ public class Player : MonoBehaviour
     private void UpdateHealthUI()
     {
         _healthChanging = true;
+        healthCanvas.GetComponent<Animator>().SetFloat("health", _health);
     }
 
     private void GotHit()

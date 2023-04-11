@@ -29,6 +29,7 @@ public class DatabaseManager : MonoBehaviour
         catch (SocketException exception)
         {
             _hostFound = false;
+            Debug.Log("Host not found with exception: " + exception);
         }
         if(PlayerPrefs.GetInt("BalanceDataBase") == 1)
         {
@@ -54,7 +55,7 @@ public class DatabaseManager : MonoBehaviour
         catch (SocketException exception)
         {
             _hostFound = false;
-             Debug.Log("Host not found");
+            Debug.Log("Host not found with exception: " + exception);
         }
     }
 
