@@ -99,7 +99,7 @@ public class deathItems : MonoBehaviour
             {
                 if(isFullHealth)
                 {   
-                    Debug.Log("SPAWNING BATTERY when full health");
+                    //Debug.Log("SPAWNING BATTERY when full health");
                     Instantiate(batteryItem, thePlace,Quaternion.Euler(0,0,-90));
                     _timeSinceLastBattery = 1;
                 }

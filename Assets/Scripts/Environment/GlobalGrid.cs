@@ -502,7 +502,9 @@ public class GlobalGrid : MonoBehaviour
             GameObject newInteractableObject = Instantiate(interactableObject[i]);
 
             newInteractableObject.transform.position = _grid[freeTiles[randomNum].x, freeTiles[randomNum].y].position;
+
             newInteractableObject.transform.position = new Vector3(newInteractableObject.transform.position.x, newInteractableObject.transform.position.y, -1);
+            freeTiles.RemoveAt(randomNum); // Remove the tile so multiple items don't spawn on the same tile
         }
     }
 

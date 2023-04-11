@@ -68,14 +68,14 @@ public class Floor : MonoBehaviour
         SpawnRooms(_floorXDimension, _floorYDimension);
     }
 
-    public void TESTING()
-    {
-        _camController = Camera.main.GetComponent<CameraController>();
-        _floorXDimension = 3;
-        _floorYDimension = 3;
-        //Debug.Log("I AM HERE, FLOOR TESTING");
-        SpawnRooms(_floorXDimension, _floorYDimension);
-    }
+    // public void TESTING()
+    // {
+    //     _camController = Camera.main.GetComponent<CameraController>();
+    //     _floorXDimension = 3;
+    //     _floorYDimension = 3;
+    //     //Debug.Log("I AM HERE, FLOOR TESTING");
+    //     SpawnRooms(_floorXDimension, _floorYDimension);
+    // }
 
     /// <summary>
     /// Waits until the main grid has been generated before finishing the rooms
